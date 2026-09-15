@@ -1,0 +1,182 @@
+[
+ {
+  "source": "Official MCP Registry",
+  "url": "https://registry.modelcontextprotocol.io/v0/servers",
+  "count": "30830",
+  "counts_what": "servers (latest version); 31,539 incl. 709 deleted; 101,635 version records",
+  "method": "full pagination of the v0 API (1,017 pages, cursor)",
+  "fetched_at": "2026-09-11T05:24Z",
+  "caveats": "API in preview; 3 namespaces publish 4,232 entries"
+ },
+ {
+  "source": "Smithery",
+  "url": "https://registry.smithery.ai/servers?pageSize=1",
+  "count": "13978",
+  "counts_what": "servers listed; 10,693 deployed; 9,854 remote; 191 'verified'",
+  "method": "pagination.totalCount from the API",
+  "fetched_at": "2026-09-11",
+  "caveats": "the API caps enumeration at 500 pages"
+ },
+ {
+  "source": "PulseMCP",
+  "url": "https://www.pulsemcp.com/servers",
+  "count": "21940",
+  "counts_what": "servers listed",
+  "method": "page text",
+  "fetched_at": "2026-09-11",
+  "caveats": "API needs a key; 6,258 'official providers' vs 15,647 'community' per the page itself"
+ },
+ {
+  "source": "Glama",
+  "url": "https://glama.ai/mcp/servers",
+  "count": "85656",
+  "counts_what": "servers listed (site figure per the sweep; the API returned an error)",
+  "method": "page text",
+  "fetched_at": "2026-09-11",
+  "caveats": "includes auto-indexing from GitHub; count not reproducible through the API"
+ },
+ {
+  "source": "mcpservers.org",
+  "url": "https://mcpservers.org/all",
+  "count": "12284",
+  "counts_what": "servers",
+  "method": "page text",
+  "fetched_at": "2026-09-11",
+  "caveats": ""
+ },
+ {
+  "source": "LobeHub",
+  "url": "https://lobehub.com/mcp",
+  "count": "96959",
+  "counts_what": "servers",
+  "method": "page text",
+  "fetched_at": "2026-09-11",
+  "caveats": "no published review policy"
+ },
+ {
+  "source": "MCP Market (mcpmarket.com)",
+  "url": "https://mcpmarket.com/",
+  "count": "47477",
+  "counts_what": "servers",
+  "method": "page fetch (curl blocked by a Vercel checkpoint)",
+  "fetched_at": "2026-09-11",
+  "caveats": ""
+ },
+ {
+  "source": "MCP Toplist",
+  "url": "https://mcptoplist.com/",
+  "count": "126487",
+  "counts_what": "'canonical' servers after dedup across 5 registries",
+  "method": "page text / HF dataset",
+  "fetched_at": "2026-09-11",
+  "caveats": "dedup rule stated, not validated"
+ },
+ {
+  "source": "Docker MCP Catalog",
+  "url": "https://github.com/docker/mcp-registry",
+  "count": "328",
+  "counts_what": "directories under servers/",
+  "method": "tree of the docker/mcp-registry repo",
+  "fetched_at": "2026-09-11",
+  "caveats": "Docker Hub type=mcp returns 301"
+ },
+ {
+  "source": "GitHub MCP Registry",
+  "url": "https://github.com/mcp",
+  "count": "252",
+  "counts_what": "servers (curated partners)",
+  "method": "page (per the sweep)",
+  "fetched_at": "2026-09-11",
+  "caveats": "curated by GitHub; no self-publishing"
+ },
+ {
+  "source": "Cline marketplace",
+  "url": "https://api.cline.bot/v1/mcp/marketplace",
+  "count": "199",
+  "counts_what": "servers",
+  "method": "public API",
+  "fetched_at": "2026-09-11",
+  "caveats": "2,226 open submission issues per the sweep"
+ },
+ {
+  "source": "ModelScope MCP 广场",
+  "url": "https://www.modelscope.cn/openapi/v1/mcp/servers",
+  "count": "12436",
+  "counts_what": "servers; 4,599 hosted",
+  "method": "API",
+  "fetched_at": "2026-09-11",
+  "caveats": "no verification field in the records"
+ },
+ {
+  "source": "awesome-mcp-servers (punkpeye)",
+  "url": "https://github.com/punkpeye/awesome-mcp-servers",
+  "count": "3849",
+  "counts_what": "entry lines in the README",
+  "method": "local count of the README",
+  "fetched_at": "2026-09-11",
+  "caveats": "a list, not a registry"
+ },
+ {
+  "source": "awslabs/mcp",
+  "url": "https://github.com/awslabs/mcp",
+  "count": "62",
+  "counts_what": "directories under src/",
+  "method": "repo tree",
+  "fetched_at": "2026-09-11",
+  "caveats": ""
+ },
+ {
+  "source": "mcp.so",
+  "url": "https://mcp.so/",
+  "count": "unavailable",
+  "counts_what": "—",
+  "method": "page without an extractable counter",
+  "fetched_at": "2026-09-11",
+  "caveats": "category facets add up to 19,416 per the sweep; paid submission without review (USD 39)"
+ },
+ {
+  "source": "Cursor directory",
+  "url": "https://cursor.directory/mcp",
+  "count": "unavailable",
+  "counts_what": "—",
+  "method": "page without a counter",
+  "fetched_at": "2026-09-11",
+  "caveats": ""
+ },
+ {
+  "source": "npm keywords:mcp",
+  "url": "https://registry.npmjs.org/-/v1/search?text=keywords:mcp&size=1",
+  "count": "71629",
+  "counts_what": "packages with the mcp keyword",
+  "method": "npm search API",
+  "fetched_at": "2026-09-11T04:32Z",
+  "caveats": "keywords:mcp-server 8,323; keywords:model-context-protocol 35,961"
+ },
+ {
+  "source": "GitHub topic:mcp-server",
+  "url": "https://api.github.com/search/repositories?q=topic:mcp-server",
+  "count": "28356",
+  "counts_what": "repositories (27,872 not archived)",
+  "method": "gh api search/repositories",
+  "fetched_at": "2026-09-11",
+  "caveats": "topic:mcp 74,518; created since 2026-06: 10,457; created in 2026-09 (11 days): 1,284"
+ },
+ {
+  "source": "crates.io keyword mcp",
+  "url": "https://crates.io/api/v1/crates?keyword=mcp",
+  "count": "3054",
+  "counts_what": "crates",
+  "method": "API",
+  "fetched_at": "2026-09-11",
+  "caveats": "rmcp reverse deps 1,961"
+ },
+ {
+  "source": "SDK downloads (ecosyste.ms, last month)",
+  "url": "https://packages.ecosyste.ms/",
+  "count": "—",
+  "counts_what": "@modelcontextprotocol/sdk 194.7M; pypi mcp 285.2M; fastmcp 72.1M",
+  "method": "ecosyste.ms API",
+  "fetched_at": "2026-09-11T04:35Z",
+  "caveats": "dependents_count returns 0 (index not populated) — unusable"
+ }
+]

@@ -1,0 +1,1867 @@
+{
+ "all": {
+  "label": "all",
+  "pages": 980,
+  "total_entries": 98000,
+  "distinct_name_version_pairs": 98000,
+  "duplicate_name_version_pairs": 0,
+  "duplicate_examples": [],
+  "distinct_names": 29857,
+  "distinct_namespaces": 17463,
+  "github_individual_namespaces": 10509,
+  "other_namespaces": 6954,
+  "distinct_names_in_io_github": 20780,
+  "distinct_names_other_ns": 9077,
+  "entries_in_io_github": 75857,
+  "entries_other_ns": 22143,
+  "top_namespaces_by_entries": [
+   {
+    "namespace": "io.github.cyanheads",
+    "count": 2142
+   },
+   {
+    "namespace": "io.github.sadri-dridi",
+    "count": 1798
+   },
+   {
+    "namespace": "io.github.pipeworx-io",
+    "count": 1420
+   },
+   {
+    "namespace": "io.github.theluckystrike",
+    "count": 1400
+   },
+   {
+    "namespace": "io.github.CSOAI-ORG",
+    "count": 1339
+   },
+   {
+    "namespace": "io.github.brilliantdirectories",
+    "count": 1176
+   },
+   {
+    "namespace": "io.github.chrischall",
+    "count": 1166
+   },
+   {
+    "namespace": "io.github.mcp-dir",
+    "count": 1117
+   },
+   {
+    "namespace": "io.github.AceDataCloud",
+    "count": 944
+   },
+   {
+    "namespace": "ai.bowmark",
+    "count": 762
+   },
+   {
+    "namespace": "io.github.wyre-technology",
+    "count": 601
+   },
+   {
+    "namespace": "io.github.devantler-tech",
+    "count": 423
+   },
+   {
+    "namespace": "io.github.n24q02m",
+    "count": 422
+   },
+   {
+    "namespace": "com.linkbreakers",
+    "count": 402
+   },
+   {
+    "namespace": "io.github.Evozim",
+    "count": 377
+   },
+   {
+    "namespace": "io.github.shigechika",
+    "count": 358
+   },
+   {
+    "namespace": "io.github.Servosity",
+    "count": 350
+   },
+   {
+    "namespace": "io.github.havilandsoftware",
+    "count": 340
+   },
+   {
+    "namespace": "io.github.matematicsolutions",
+    "count": 325
+   },
+   {
+    "namespace": "io.github.zw008",
+    "count": 319
+   }
+  ],
+  "top_namespaces_by_distinct_names": [
+   {
+    "namespace": "io.github.sadri-dridi",
+    "count": 1798
+   },
+   {
+    "namespace": "io.github.pipeworx-io",
+    "count": 1321
+   },
+   {
+    "namespace": "io.github.mcp-dir",
+    "count": 1113
+   },
+   {
+    "namespace": "io.github.Evozim",
+    "count": 375
+   },
+   {
+    "namespace": "io.github.CSOAI-ORG",
+    "count": 354
+   },
+   {
+    "namespace": "ai.smithery",
+    "count": 213
+   },
+   {
+    "namespace": "io.github.codespar",
+    "count": 127
+   },
+   {
+    "namespace": "app.wishpool",
+    "count": 125
+   },
+   {
+    "namespace": "io.github.cyanheads",
+    "count": 125
+   },
+   {
+    "namespace": "io.github.Wxt-ai",
+    "count": 122
+   },
+   {
+    "namespace": "eu.ansvar",
+    "count": 106
+   },
+   {
+    "namespace": "io.github.Br0ski777",
+    "count": 101
+   },
+   {
+    "namespace": "io.usefulapi",
+    "count": 98
+   },
+   {
+    "namespace": "io.github.theluckystrike",
+    "count": 95
+   },
+   {
+    "namespace": "ai.getvda",
+    "count": 94
+   },
+   {
+    "namespace": "com.mcparmory",
+    "count": 76
+   },
+   {
+    "namespace": "io.github.nirholas",
+    "count": 72
+   },
+   {
+    "namespace": "com.a2awire",
+    "count": 72
+   },
+   {
+    "namespace": "io.github.chrischall",
+    "count": 68
+   },
+   {
+    "namespace": "io.github.Servosity",
+    "count": 65
+   }
+  ],
+  "other_namespace_first_label_top": [
+   {
+    "label": "com",
+    "count": 3493
+   },
+   {
+    "label": "ai",
+    "count": 908
+   },
+   {
+    "label": "io",
+    "count": 519
+   },
+   {
+    "label": "dev",
+    "count": 408
+   },
+   {
+    "label": "app",
+    "count": 337
+   },
+   {
+    "label": "net",
+    "count": 116
+   },
+   {
+    "label": "co",
+    "count": 110
+   },
+   {
+    "label": "live",
+    "count": 71
+   },
+   {
+    "label": "de",
+    "count": 59
+   },
+   {
+    "label": "org",
+    "count": 47
+   },
+   {
+    "label": "guide",
+    "count": 42
+   },
+   {
+    "label": "fr",
+    "count": 40
+   },
+   {
+    "label": "eu",
+    "count": 36
+   },
+   {
+    "label": "cloud",
+    "count": 35
+   },
+   {
+    "label": "me",
+    "count": 35
+   }
+  ],
+  "statuses": [
+   {
+    "status": "active",
+    "count": 96857
+   },
+   {
+    "status": "deprecated",
+    "count": 1143
+   }
+  ],
+  "isLatest": {
+   "False": 68144,
+   "True": 29856
+  },
+  "entries_with_packages": 68553,
+  "entries_with_remotes": 38396,
+  "entries_packages_only": 58583,
+  "entries_remote_only": 28426,
+  "entries_both_packages_and_remotes": 9970,
+  "entries_neither": 1021,
+  "package_objects_total": 79805,
+  "remote_objects_total": 39708,
+  "package_registry_types_by_package_object": [
+   {
+    "type": "npm",
+    "count": 42834
+   },
+   {
+    "type": "pypi",
+    "count": 19460
+   },
+   {
+    "type": "mcpb",
+    "count": 9000
+   },
+   {
+    "type": "oci",
+    "count": 7491
+   },
+   {
+    "type": "nuget",
+    "count": 811
+   },
+   {
+    "type": "cargo",
+    "count": 209
+   }
+  ],
+  "package_registry_types_by_entry": [
+   {
+    "type": "npm",
+    "count": 40281
+   },
+   {
+    "type": "pypi",
+    "count": 19354
+   },
+   {
+    "type": "oci",
+    "count": 7315
+   },
+   {
+    "type": "mcpb",
+    "count": 5296
+   },
+   {
+    "type": "nuget",
+    "count": 811
+   },
+   {
+    "type": "cargo",
+    "count": 209
+   }
+  ],
+  "package_transport_types": [
+   {
+    "type": "stdio",
+    "count": 75594
+   },
+   {
+    "type": "streamable-http",
+    "count": 4153
+   },
+   {
+    "type": "sse",
+    "count": 58
+   }
+  ],
+  "remote_transport_types": [
+   {
+    "type": "streamable-http",
+    "count": 37341
+   },
+   {
+    "type": "sse",
+    "count": 2367
+   }
+  ],
+  "runtime_hints_top": [
+   {
+    "hint": "uvx",
+    "count": 8160
+   },
+   {
+    "hint": "npx",
+    "count": 7181
+   },
+   {
+    "hint": "bun",
+    "count": 3421
+   },
+   {
+    "hint": "docker",
+    "count": 2365
+   },
+   {
+    "hint": "node",
+    "count": 1031
+   },
+   {
+    "hint": "python",
+    "count": 883
+   },
+   {
+    "hint": "dnx",
+    "count": 254
+   },
+   {
+    "hint": "bunx",
+    "count": 85
+   },
+   {
+    "hint": "memo-mcp",
+    "count": 76
+   },
+   {
+    "hint": "python3",
+    "count": 55
+   },
+   {
+    "hint": "forge",
+    "count": 41
+   },
+   {
+    "hint": "binary",
+    "count": 27
+   }
+  ],
+  "packages_with_fileSha256": 9000,
+  "packages_with_fileSha256_by_type": {
+   "mcpb": 9000
+  },
+  "entries_with_repository_url": 83753,
+  "share_with_repository_url": 0.8546,
+  "repository_source": {
+   "github": 83639,
+   "gitlab": 114
+  },
+  "repository_url_host_top": [
+   {
+    "host": "github.com",
+    "count": 83639
+   },
+   {
+    "host": "gitlab.com",
+    "count": 114
+   }
+  ],
+  "entries_with_repository_id": 5632,
+  "entries_with_repository_subfolder": 7449,
+  "entries_with_websiteUrl": 44120,
+  "entries_with_title": 54155,
+  "entries_with_icons": 7462,
+  "entries_with_publisher_provided_meta": 3813,
+  "schema_versions": [
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+    "count": 89802
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+    "count": 4043
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+    "count": 2522
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+    "count": 1258
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json",
+    "count": 324
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json#/definitions/ServerDetail",
+    "count": 37
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json#/definitions/ServerDetail",
+    "count": 5
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.org/schemas/2025-12-11/server.schema.json",
+    "count": 4
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/v0/schema/2025-12-11",
+    "count": 3
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/schemas/2025-12-11/server-bundle.json",
+    "count": 1
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/schemas/server/2025-12-11.json",
+    "count": 1
+   }
+  ],
+  "entries_with_statusMessage": 1113,
+  "earliest_publishedAt": "2025-09-08T23:47:09.452138Z",
+  "latest_publishedAt": "2026-09-11T04:56:14.507949Z",
+  "earliest_updatedAt": "2025-09-09T00:16:49.107843Z",
+  "latest_updatedAt": "2026-09-11T04:56:14.507949Z",
+  "entries_missing_publishedAt": 0,
+  "entries_per_month_publishedAt": [
+   {
+    "month": "2025-09",
+    "count": 782
+   },
+   {
+    "month": "2025-10",
+    "count": 710
+   },
+   {
+    "month": "2025-11",
+    "count": 742
+   },
+   {
+    "month": "2025-12",
+    "count": 829
+   },
+   {
+    "month": "2026-01",
+    "count": 1232
+   },
+   {
+    "month": "2026-02",
+    "count": 2917
+   },
+   {
+    "month": "2026-03",
+    "count": 6102
+   },
+   {
+    "month": "2026-04",
+    "count": 7854
+   },
+   {
+    "month": "2026-05",
+    "count": 9783
+   },
+   {
+    "month": "2026-06",
+    "count": 12531
+   },
+   {
+    "month": "2026-07",
+    "count": 18437
+   },
+   {
+    "month": "2026-08",
+    "count": 23339
+   },
+   {
+    "month": "2026-09",
+    "count": 12742
+   }
+  ],
+  "new_distinct_names_per_month_first_publishedAt": [
+   {
+    "month": "2025-09",
+    "count": 451
+   },
+   {
+    "month": "2025-10",
+    "count": 295
+   },
+   {
+    "month": "2025-11",
+    "count": 173
+   },
+   {
+    "month": "2025-12",
+    "count": 279
+   },
+   {
+    "month": "2026-01",
+    "count": 388
+   },
+   {
+    "month": "2026-02",
+    "count": 1147
+   },
+   {
+    "month": "2026-03",
+    "count": 1925
+   },
+   {
+    "month": "2026-04",
+    "count": 2531
+   },
+   {
+    "month": "2026-05",
+    "count": 2991
+   },
+   {
+    "month": "2026-06",
+    "count": 3792
+   },
+   {
+    "month": "2026-07",
+    "count": 4934
+   },
+   {
+    "month": "2026-08",
+    "count": 6438
+   },
+   {
+    "month": "2026-09",
+    "count": 4513
+   }
+  ],
+  "versions_per_name_max": 1176,
+  "versions_per_name_top10": [
+   {
+    "name": "io.github.brilliantdirectories/brilliant-directories-mcp",
+    "count": 1176
+   },
+   {
+    "name": "ai.bowmark/bowmark",
+    "count": 762
+   },
+   {
+    "name": "io.github.devantler-tech/ksail",
+    "count": 423
+   },
+   {
+    "name": "com.linkbreakers/mcp",
+    "count": 402
+   },
+   {
+    "name": "io.github.havilandsoftware/mcp-server-innoday",
+    "count": 340
+   },
+   {
+    "name": "io.github.kivanccakmak/yaver",
+    "count": 288
+   },
+   {
+    "name": "io.github.hashgraph-online/hol-guard",
+    "count": 268
+   },
+   {
+    "name": "io.github.KevinRabun/judges",
+    "count": 258
+   },
+   {
+    "name": "io.github.avabuildsdata/mcp-us-business-data",
+    "count": 252
+   },
+   {
+    "name": "com.local-mcp/local-mcp",
+    "count": 250
+   }
+  ],
+  "names_with_single_version": 18558,
+  "null_or_empty_cursors_before_end": 0,
+  "last_cursor": "org.imqueue/mcp:2.3.0"
+ },
+ "latest": {
+  "label": "latest",
+  "pages": 309,
+  "total_entries": 30830,
+  "distinct_name_version_pairs": 30830,
+  "duplicate_name_version_pairs": 0,
+  "duplicate_examples": [],
+  "distinct_names": 30830,
+  "distinct_namespaces": 18352,
+  "github_individual_namespaces": 10510,
+  "other_namespaces": 7842,
+  "distinct_names_in_io_github": 20781,
+  "distinct_names_other_ns": 10049,
+  "entries_in_io_github": 20781,
+  "entries_other_ns": 10049,
+  "top_namespaces_by_entries": [
+   {
+    "namespace": "io.github.sadri-dridi",
+    "count": 1798
+   },
+   {
+    "namespace": "io.github.pipeworx-io",
+    "count": 1321
+   },
+   {
+    "namespace": "io.github.mcp-dir",
+    "count": 1113
+   },
+   {
+    "namespace": "io.github.Evozim",
+    "count": 375
+   },
+   {
+    "namespace": "io.github.CSOAI-ORG",
+    "count": 354
+   },
+   {
+    "namespace": "ai.smithery",
+    "count": 213
+   },
+   {
+    "namespace": "io.github.codespar",
+    "count": 127
+   },
+   {
+    "namespace": "app.wishpool",
+    "count": 125
+   },
+   {
+    "namespace": "io.github.cyanheads",
+    "count": 125
+   },
+   {
+    "namespace": "io.github.Wxt-ai",
+    "count": 122
+   },
+   {
+    "namespace": "eu.ansvar",
+    "count": 106
+   },
+   {
+    "namespace": "io.github.Br0ski777",
+    "count": 101
+   },
+   {
+    "namespace": "io.usefulapi",
+    "count": 98
+   },
+   {
+    "namespace": "io.github.theluckystrike",
+    "count": 95
+   },
+   {
+    "namespace": "ai.getvda",
+    "count": 94
+   },
+   {
+    "namespace": "com.mcparmory",
+    "count": 76
+   },
+   {
+    "namespace": "com.a2awire",
+    "count": 72
+   },
+   {
+    "namespace": "io.github.nirholas",
+    "count": 72
+   },
+   {
+    "namespace": "io.github.chrischall",
+    "count": 68
+   },
+   {
+    "namespace": "io.github.Servosity",
+    "count": 65
+   }
+  ],
+  "top_namespaces_by_distinct_names": [
+   {
+    "namespace": "io.github.sadri-dridi",
+    "count": 1798
+   },
+   {
+    "namespace": "io.github.pipeworx-io",
+    "count": 1321
+   },
+   {
+    "namespace": "io.github.mcp-dir",
+    "count": 1113
+   },
+   {
+    "namespace": "io.github.Evozim",
+    "count": 375
+   },
+   {
+    "namespace": "io.github.CSOAI-ORG",
+    "count": 354
+   },
+   {
+    "namespace": "ai.smithery",
+    "count": 213
+   },
+   {
+    "namespace": "io.github.codespar",
+    "count": 127
+   },
+   {
+    "namespace": "app.wishpool",
+    "count": 125
+   },
+   {
+    "namespace": "io.github.cyanheads",
+    "count": 125
+   },
+   {
+    "namespace": "io.github.Wxt-ai",
+    "count": 122
+   },
+   {
+    "namespace": "eu.ansvar",
+    "count": 106
+   },
+   {
+    "namespace": "io.github.Br0ski777",
+    "count": 101
+   },
+   {
+    "namespace": "io.usefulapi",
+    "count": 98
+   },
+   {
+    "namespace": "io.github.theluckystrike",
+    "count": 95
+   },
+   {
+    "namespace": "ai.getvda",
+    "count": 94
+   },
+   {
+    "namespace": "com.mcparmory",
+    "count": 76
+   },
+   {
+    "namespace": "io.github.nirholas",
+    "count": 72
+   },
+   {
+    "namespace": "com.a2awire",
+    "count": 72
+   },
+   {
+    "namespace": "io.github.chrischall",
+    "count": 68
+   },
+   {
+    "namespace": "io.github.Servosity",
+    "count": 65
+   }
+  ],
+  "other_namespace_first_label_top": [
+   {
+    "label": "com",
+    "count": 3493
+   },
+   {
+    "label": "ai",
+    "count": 909
+   },
+   {
+    "label": "io",
+    "count": 519
+   },
+   {
+    "label": "dev",
+    "count": 408
+   },
+   {
+    "label": "app",
+    "count": 337
+   },
+   {
+    "label": "uk",
+    "count": 230
+   },
+   {
+    "label": "org",
+    "count": 126
+   },
+   {
+    "label": "net",
+    "count": 116
+   },
+   {
+    "label": "co",
+    "count": 110
+   },
+   {
+    "label": "xyz",
+    "count": 72
+   },
+   {
+    "label": "live",
+    "count": 71
+   },
+   {
+    "label": "sh",
+    "count": 61
+   },
+   {
+    "label": "de",
+    "count": 59
+   },
+   {
+    "label": "tech",
+    "count": 43
+   },
+   {
+    "label": "guide",
+    "count": 42
+   }
+  ],
+  "statuses": [
+   {
+    "status": "active",
+    "count": 30498
+   },
+   {
+    "status": "deprecated",
+    "count": 332
+   }
+  ],
+  "isLatest": {
+   "True": 30830
+  },
+  "entries_with_packages": 13358,
+  "entries_with_remotes": 18565,
+  "entries_packages_only": 11851,
+  "entries_remote_only": 17058,
+  "entries_both_packages_and_remotes": 1507,
+  "entries_neither": 414,
+  "package_objects_total": 14618,
+  "remote_objects_total": 19073,
+  "package_registry_types_by_package_object": [
+   {
+    "type": "npm",
+    "count": 8698
+   },
+   {
+    "type": "pypi",
+    "count": 3691
+   },
+   {
+    "type": "mcpb",
+    "count": 1167
+   },
+   {
+    "type": "oci",
+    "count": 902
+   },
+   {
+    "type": "nuget",
+    "count": 111
+   },
+   {
+    "type": "cargo",
+    "count": 49
+   }
+  ],
+  "package_registry_types_by_entry": [
+   {
+    "type": "npm",
+    "count": 8450
+   },
+   {
+    "type": "pypi",
+    "count": 3675
+   },
+   {
+    "type": "oci",
+    "count": 886
+   },
+   {
+    "type": "mcpb",
+    "count": 757
+   },
+   {
+    "type": "nuget",
+    "count": 111
+   },
+   {
+    "type": "cargo",
+    "count": 49
+   }
+  ],
+  "package_transport_types": [
+   {
+    "type": "stdio",
+    "count": 14112
+   },
+   {
+    "type": "streamable-http",
+    "count": 476
+   },
+   {
+    "type": "sse",
+    "count": 30
+   }
+  ],
+  "remote_transport_types": [
+   {
+    "type": "streamable-http",
+    "count": 18000
+   },
+   {
+    "type": "sse",
+    "count": 1073
+   }
+  ],
+  "runtime_hints_top": [
+   {
+    "hint": "npx",
+    "count": 1332
+   },
+   {
+    "hint": "uvx",
+    "count": 1296
+   },
+   {
+    "hint": "python",
+    "count": 359
+   },
+   {
+    "hint": "docker",
+    "count": 249
+   },
+   {
+    "hint": "bun",
+    "count": 189
+   },
+   {
+    "hint": "node",
+    "count": 102
+   },
+   {
+    "hint": "dnx",
+    "count": 41
+   },
+   {
+    "hint": "bunx",
+    "count": 10
+   },
+   {
+    "hint": "binary",
+    "count": 10
+   },
+   {
+    "hint": "python3",
+    "count": 6
+   },
+   {
+    "hint": "pipx",
+    "count": 4
+   },
+   {
+    "hint": "pip",
+    "count": 2
+   }
+  ],
+  "packages_with_fileSha256": 1167,
+  "packages_with_fileSha256_by_type": {
+   "mcpb": 1167
+  },
+  "entries_with_repository_url": 23797,
+  "share_with_repository_url": 0.7719,
+  "repository_source": {
+   "github": 23761,
+   "gitlab": 36
+  },
+  "repository_url_host_top": [
+   {
+    "host": "github.com",
+    "count": 23761
+   },
+   {
+    "host": "gitlab.com",
+    "count": 36
+   }
+  ],
+  "entries_with_repository_id": 1051,
+  "entries_with_repository_subfolder": 1861,
+  "entries_with_websiteUrl": 14753,
+  "entries_with_title": 18695,
+  "entries_with_icons": 2132,
+  "entries_with_publisher_provided_meta": 1155,
+  "schema_versions": [
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+    "count": 27957
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+    "count": 1485
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+    "count": 626
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+    "count": 607
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json",
+    "count": 147
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.org/schemas/2025-12-11/server.schema.json",
+    "count": 3
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json#/definitions/ServerDetail",
+    "count": 2
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/schemas/2025-12-11/server-bundle.json",
+    "count": 1
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/schemas/server/2025-12-11.json",
+    "count": 1
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/v0/schema/2025-12-11",
+    "count": 1
+   }
+  ],
+  "entries_with_statusMessage": 322,
+  "earliest_publishedAt": "2025-09-09T00:16:49.107843Z",
+  "latest_publishedAt": "2026-09-11T04:56:49.342078Z",
+  "earliest_updatedAt": "2025-09-09T00:16:49.107843Z",
+  "latest_updatedAt": "2026-09-11T04:56:49.342078Z",
+  "entries_missing_publishedAt": 0,
+  "entries_per_month_publishedAt": [
+   {
+    "month": "2025-09",
+    "count": 350
+   },
+   {
+    "month": "2025-10",
+    "count": 232
+   },
+   {
+    "month": "2025-11",
+    "count": 144
+   },
+   {
+    "month": "2025-12",
+    "count": 214
+   },
+   {
+    "month": "2026-01",
+    "count": 297
+   },
+   {
+    "month": "2026-02",
+    "count": 916
+   },
+   {
+    "month": "2026-03",
+    "count": 1591
+   },
+   {
+    "month": "2026-04",
+    "count": 1940
+   },
+   {
+    "month": "2026-05",
+    "count": 2481
+   },
+   {
+    "month": "2026-06",
+    "count": 3355
+   },
+   {
+    "month": "2026-07",
+    "count": 4720
+   },
+   {
+    "month": "2026-08",
+    "count": 7917
+   },
+   {
+    "month": "2026-09",
+    "count": 6673
+   }
+  ],
+  "new_distinct_names_per_month_first_publishedAt": [
+   {
+    "month": "2025-09",
+    "count": 350
+   },
+   {
+    "month": "2025-10",
+    "count": 232
+   },
+   {
+    "month": "2025-11",
+    "count": 144
+   },
+   {
+    "month": "2025-12",
+    "count": 214
+   },
+   {
+    "month": "2026-01",
+    "count": 297
+   },
+   {
+    "month": "2026-02",
+    "count": 916
+   },
+   {
+    "month": "2026-03",
+    "count": 1591
+   },
+   {
+    "month": "2026-04",
+    "count": 1940
+   },
+   {
+    "month": "2026-05",
+    "count": 2481
+   },
+   {
+    "month": "2026-06",
+    "count": 3355
+   },
+   {
+    "month": "2026-07",
+    "count": 4720
+   },
+   {
+    "month": "2026-08",
+    "count": 7917
+   },
+   {
+    "month": "2026-09",
+    "count": 6673
+   }
+  ],
+  "versions_per_name_max": 1,
+  "versions_per_name_top10": [
+   {
+    "name": "ac.inference.sh/mcp",
+    "count": 1
+   },
+   {
+    "name": "ac.snag/snag",
+    "count": 1
+   },
+   {
+    "name": "ac.tandem/docs-mcp",
+    "count": 1
+   },
+   {
+    "name": "ad.inside/inside-ads",
+    "count": 1
+   },
+   {
+    "name": "ae.propick/propick",
+    "count": 1
+   },
+   {
+    "name": "ag.hood/name-service",
+    "count": 1
+   },
+   {
+    "name": "agency.goji/goji",
+    "count": 1
+   },
+   {
+    "name": "agency.kesey/pretrip",
+    "count": 1
+   },
+   {
+    "name": "agency.lona/trading",
+    "count": 1
+   },
+   {
+    "name": "agency.ottobot/business-contact-finder",
+    "count": 1
+   }
+  ],
+  "names_with_single_version": 30830,
+  "null_or_empty_cursors_before_end": 0,
+  "last_cursor": null
+ },
+ "withdeleted": {
+  "label": "withdeleted",
+  "pages": 1017,
+  "total_entries": 101635,
+  "distinct_name_version_pairs": 101635,
+  "duplicate_name_version_pairs": 0,
+  "duplicate_examples": [],
+  "distinct_names": 31539,
+  "distinct_namespaces": 18648,
+  "github_individual_namespaces": 10740,
+  "other_namespaces": 7908,
+  "distinct_names_in_io_github": 21256,
+  "distinct_names_other_ns": 10283,
+  "entries_in_io_github": 76908,
+  "entries_other_ns": 24727,
+  "top_namespaces_by_entries": [
+   {
+    "namespace": "io.github.cyanheads",
+    "count": 2142
+   },
+   {
+    "namespace": "io.github.sadri-dridi",
+    "count": 1798
+   },
+   {
+    "namespace": "io.github.pipeworx-io",
+    "count": 1420
+   },
+   {
+    "namespace": "io.github.theluckystrike",
+    "count": 1400
+   },
+   {
+    "namespace": "io.github.CSOAI-ORG",
+    "count": 1339
+   },
+   {
+    "namespace": "io.github.brilliantdirectories",
+    "count": 1176
+   },
+   {
+    "namespace": "io.github.chrischall",
+    "count": 1166
+   },
+   {
+    "namespace": "io.github.mcp-dir",
+    "count": 1117
+   },
+   {
+    "namespace": "io.github.AceDataCloud",
+    "count": 944
+   },
+   {
+    "namespace": "ai.bowmark",
+    "count": 762
+   },
+   {
+    "namespace": "io.github.wyre-technology",
+    "count": 602
+   },
+   {
+    "namespace": "io.github.devantler-tech",
+    "count": 423
+   },
+   {
+    "namespace": "io.github.n24q02m",
+    "count": 422
+   },
+   {
+    "namespace": "com.linkbreakers",
+    "count": 402
+   },
+   {
+    "namespace": "io.github.Evozim",
+    "count": 377
+   },
+   {
+    "namespace": "io.github.shigechika",
+    "count": 358
+   },
+   {
+    "namespace": "io.github.Servosity",
+    "count": 350
+   },
+   {
+    "namespace": "io.github.havilandsoftware",
+    "count": 340
+   },
+   {
+    "namespace": "io.github.matematicsolutions",
+    "count": 325
+   },
+   {
+    "namespace": "io.github.zw008",
+    "count": 319
+   }
+  ],
+  "top_namespaces_by_distinct_names": [
+   {
+    "namespace": "io.github.sadri-dridi",
+    "count": 1798
+   },
+   {
+    "namespace": "io.github.pipeworx-io",
+    "count": 1321
+   },
+   {
+    "namespace": "io.github.mcp-dir",
+    "count": 1113
+   },
+   {
+    "namespace": "io.github.Evozim",
+    "count": 375
+   },
+   {
+    "namespace": "io.github.CSOAI-ORG",
+    "count": 354
+   },
+   {
+    "namespace": "ai.smithery",
+    "count": 214
+   },
+   {
+    "namespace": "io.github.codespar",
+    "count": 127
+   },
+   {
+    "namespace": "app.wishpool",
+    "count": 125
+   },
+   {
+    "namespace": "io.github.cyanheads",
+    "count": 125
+   },
+   {
+    "namespace": "io.github.Wxt-ai",
+    "count": 122
+   },
+   {
+    "namespace": "eu.ansvar",
+    "count": 110
+   },
+   {
+    "namespace": "io.github.Br0ski777",
+    "count": 101
+   },
+   {
+    "namespace": "io.usefulapi",
+    "count": 99
+   },
+   {
+    "namespace": "io.github.theluckystrike",
+    "count": 95
+   },
+   {
+    "namespace": "ai.getvda",
+    "count": 94
+   },
+   {
+    "namespace": "io.github.Ryan-Clinton",
+    "count": 80
+   },
+   {
+    "namespace": "com.mcparmory",
+    "count": 76
+   },
+   {
+    "namespace": "com.a2awire",
+    "count": 75
+   },
+   {
+    "namespace": "io.github.nirholas",
+    "count": 73
+   },
+   {
+    "namespace": "io.github.chrischall",
+    "count": 68
+   }
+  ],
+  "other_namespace_first_label_top": [
+   {
+    "label": "com",
+    "count": 3518
+   },
+   {
+    "label": "ai",
+    "count": 916
+   },
+   {
+    "label": "io",
+    "count": 523
+   },
+   {
+    "label": "dev",
+    "count": 416
+   },
+   {
+    "label": "app",
+    "count": 337
+   },
+   {
+    "label": "uk",
+    "count": 231
+   },
+   {
+    "label": "org",
+    "count": 130
+   },
+   {
+    "label": "net",
+    "count": 116
+   },
+   {
+    "label": "co",
+    "count": 110
+   },
+   {
+    "label": "xyz",
+    "count": 73
+   },
+   {
+    "label": "live",
+    "count": 73
+   },
+   {
+    "label": "sh",
+    "count": 61
+   },
+   {
+    "label": "de",
+    "count": 60
+   },
+   {
+    "label": "tech",
+    "count": 43
+   },
+   {
+    "label": "guide",
+    "count": 42
+   }
+  ],
+  "statuses": [
+   {
+    "status": "active",
+    "count": 98853
+   },
+   {
+    "status": "deleted",
+    "count": 1606
+   },
+   {
+    "status": "deprecated",
+    "count": 1176
+   }
+  ],
+  "isLatest": {
+   "True": 31539,
+   "False": 70096
+  },
+  "entries_with_packages": 69700,
+  "entries_with_remotes": 41388,
+  "entries_packages_only": 59190,
+  "entries_remote_only": 30878,
+  "entries_both_packages_and_remotes": 10510,
+  "entries_neither": 1057,
+  "package_objects_total": 80972,
+  "remote_objects_total": 42932,
+  "package_registry_types_by_package_object": [
+   {
+    "type": "npm",
+    "count": 43703
+   },
+   {
+    "type": "pypi",
+    "count": 19688
+   },
+   {
+    "type": "mcpb",
+    "count": 9030
+   },
+   {
+    "type": "oci",
+    "count": 7518
+   },
+   {
+    "type": "nuget",
+    "count": 815
+   },
+   {
+    "type": "cargo",
+    "count": 218
+   }
+  ],
+  "package_registry_types_by_entry": [
+   {
+    "type": "npm",
+    "count": 41149
+   },
+   {
+    "type": "pypi",
+    "count": 19582
+   },
+   {
+    "type": "oci",
+    "count": 7340
+   },
+   {
+    "type": "mcpb",
+    "count": 5317
+   },
+   {
+    "type": "nuget",
+    "count": 815
+   },
+   {
+    "type": "cargo",
+    "count": 218
+   }
+  ],
+  "package_transport_types": [
+   {
+    "type": "stdio",
+    "count": 76744
+   },
+   {
+    "type": "streamable-http",
+    "count": 4170
+   },
+   {
+    "type": "sse",
+    "count": 58
+   }
+  ],
+  "remote_transport_types": [
+   {
+    "type": "streamable-http",
+    "count": 40124
+   },
+   {
+    "type": "sse",
+    "count": 2808
+   }
+  ],
+  "runtime_hints_top": [
+   {
+    "hint": "uvx",
+    "count": 8286
+   },
+   {
+    "hint": "npx",
+    "count": 7294
+   },
+   {
+    "hint": "bun",
+    "count": 3421
+   },
+   {
+    "hint": "docker",
+    "count": 2368
+   },
+   {
+    "hint": "node",
+    "count": 1035
+   },
+   {
+    "hint": "python",
+    "count": 891
+   },
+   {
+    "hint": "dnx",
+    "count": 255
+   },
+   {
+    "hint": "bunx",
+    "count": 85
+   },
+   {
+    "hint": "memo-mcp",
+    "count": 76
+   },
+   {
+    "hint": "python3",
+    "count": 56
+   },
+   {
+    "hint": "forge",
+    "count": 41
+   },
+   {
+    "hint": "binary",
+    "count": 27
+   }
+  ],
+  "packages_with_fileSha256": 9030,
+  "packages_with_fileSha256_by_type": {
+   "mcpb": 9030
+  },
+  "entries_with_repository_url": 85900,
+  "share_with_repository_url": 0.8452,
+  "repository_source": {
+   "github": 85768,
+   "gitlab": 132
+  },
+  "repository_url_host_top": [
+   {
+    "host": "github.com",
+    "count": 85768
+   },
+   {
+    "host": "gitlab.com",
+    "count": 132
+   }
+  ],
+  "entries_with_repository_id": 5801,
+  "entries_with_repository_subfolder": 7584,
+  "entries_with_websiteUrl": 46632,
+  "entries_with_title": 56645,
+  "entries_with_icons": 7789,
+  "entries_with_publisher_provided_meta": 4007,
+  "schema_versions": [
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+    "count": 93148
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+    "count": 4204
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+    "count": 2557
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+    "count": 1344
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json",
+    "count": 326
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json#/definitions/ServerDetail",
+    "count": 42
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json#/definitions/ServerDetail",
+    "count": 5
+   },
+   {
+    "schema": "https://static.modelcontextprotocol.org/schemas/2025-12-11/server.schema.json",
+    "count": 4
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/v0/schema/2025-12-11",
+    "count": 3
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/schemas/2025-12-11/server-bundle.json",
+    "count": 1
+   },
+   {
+    "schema": "https://registry.modelcontextprotocol.io/schemas/server/2025-12-11.json",
+    "count": 1
+   }
+  ],
+  "entries_with_statusMessage": 2597,
+  "earliest_publishedAt": "2025-09-08T23:47:09.452138Z",
+  "latest_publishedAt": "2026-09-11T05:07:51.565681Z",
+  "earliest_updatedAt": "2025-09-09T00:16:49.107843Z",
+  "latest_updatedAt": "2026-09-11T05:07:51.565681Z",
+  "entries_missing_publishedAt": 0,
+  "entries_per_month_publishedAt": [
+   {
+    "month": "2025-09",
+    "count": 792
+   },
+   {
+    "month": "2025-10",
+    "count": 714
+   },
+   {
+    "month": "2025-11",
+    "count": 750
+   },
+   {
+    "month": "2025-12",
+    "count": 831
+   },
+   {
+    "month": "2026-01",
+    "count": 1256
+   },
+   {
+    "month": "2026-02",
+    "count": 2974
+   },
+   {
+    "month": "2026-03",
+    "count": 6391
+   },
+   {
+    "month": "2026-04",
+    "count": 8137
+   },
+   {
+    "month": "2026-05",
+    "count": 10034
+   },
+   {
+    "month": "2026-06",
+    "count": 12948
+   },
+   {
+    "month": "2026-07",
+    "count": 19274
+   },
+   {
+    "month": "2026-08",
+    "count": 24252
+   },
+   {
+    "month": "2026-09",
+    "count": 13282
+   }
+  ],
+  "new_distinct_names_per_month_first_publishedAt": [
+   {
+    "month": "2025-09",
+    "count": 460
+   },
+   {
+    "month": "2025-10",
+    "count": 299
+   },
+   {
+    "month": "2025-11",
+    "count": 175
+   },
+   {
+    "month": "2025-12",
+    "count": 280
+   },
+   {
+    "month": "2026-01",
+    "count": 395
+   },
+   {
+    "month": "2026-02",
+    "count": 1172
+   },
+   {
+    "month": "2026-03",
+    "count": 2088
+   },
+   {
+    "month": "2026-04",
+    "count": 2636
+   },
+   {
+    "month": "2026-05",
+    "count": 3100
+   },
+   {
+    "month": "2026-06",
+    "count": 3992
+   },
+   {
+    "month": "2026-07",
+    "count": 5276
+   },
+   {
+    "month": "2026-08",
+    "count": 6809
+   },
+   {
+    "month": "2026-09",
+    "count": 4857
+   }
+  ],
+  "versions_per_name_max": 1176,
+  "versions_per_name_top10": [
+   {
+    "name": "io.github.brilliantdirectories/brilliant-directories-mcp",
+    "count": 1176
+   },
+   {
+    "name": "ai.bowmark/bowmark",
+    "count": 762
+   },
+   {
+    "name": "io.github.devantler-tech/ksail",
+    "count": 423
+   },
+   {
+    "name": "com.linkbreakers/mcp",
+    "count": 402
+   },
+   {
+    "name": "io.github.havilandsoftware/mcp-server-innoday",
+    "count": 340
+   },
+   {
+    "name": "io.github.kivanccakmak/yaver",
+    "count": 288
+   },
+   {
+    "name": "io.github.hashgraph-online/hol-guard",
+    "count": 268
+   },
+   {
+    "name": "io.github.KevinRabun/judges",
+    "count": 258
+   },
+   {
+    "name": "io.github.avabuildsdata/mcp-us-business-data",
+    "count": 252
+   },
+   {
+    "name": "com.local-mcp/local-mcp",
+    "count": 250
+   }
+  ],
+  "names_with_single_version": 19642,
+  "null_or_empty_cursors_before_end": 0,
+  "last_cursor": null
+ }
+}

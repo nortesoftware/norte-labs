@@ -1,0 +1,1752 @@
+[
+ {
+  "id": "agentpit-akshare-mcp",
+  "version": "0.1.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": ">=2.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "notification-ai-mcp",
+  "version": "1.0.9",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.28.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "terradev-cli",
+  "version": "6.2.20",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2.0.0,>=1.0.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.9"
+ },
+ {
+  "id": "grounder-mcp",
+  "version": "0.4.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.2",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "pyghidra-lite",
+  "version": "0.7.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.21.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "gs1belu-mpm-upload-mcp",
+  "version": "0.2.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4,>=3.4",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "agentic-wallet-guardian-mcp",
+  "version": "3.1.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "==2.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.9"
+ },
+ {
+  "id": "partuno",
+  "version": "4.0.1",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "==3.4.4",
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "web-to-markdown-mcp",
+  "version": "0.6.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=0.2.0",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "huawei-app-gallery-mcp",
+  "version": "1.1.1",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "zotero-obsidian-mcp",
+  "version": "3.0.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.10",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "gauntlex-ai",
+  "version": "1.0.2",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "token-compressor-mcp",
+  "version": "0.1.1",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "swiss-electricity-mcp",
+  "version": "0.2.5",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3,>=2.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "token-economy-intel",
+  "version": "0.1.0",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.26.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "unit-converter-ai-mcp",
+  "version": "1.0.11",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "evc-team-relay-mcp",
+  "version": "1.0.3",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mendrift-mcp",
+  "version": "0.1.2",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.28.1",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "ignition-mcp",
+  "version": "0.1.3",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "servonaut",
+  "version": "2.26.2",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "precision-desktop",
+  "version": "0.1.1",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "meok-neural-health-monitor-mcp",
+  "version": "1.0.4",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "translation-ai-mcp",
+  "version": "1.0.11",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "iso-42005-impact-mcp",
+  "version": "1.0.7",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.3.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcpower-proxy",
+  "version": "0.0.91",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": "==2.13.0.2",
+  "fetched": true,
+  "requires_python": "~=3.11.0"
+ },
+ {
+  "id": "edgartools",
+  "version": "5.21.1",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "docalyze-mcp-server",
+  "version": "0.2.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcp-rpn",
+  "version": "0.1.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=2.0.0",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "datanika-mcp",
+  "version": "0.2.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "cloudprice-mcp",
+  "version": "0.2.2",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "haiku-rag",
+  "version": "0.85.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "srdcheck",
+  "version": "0.8.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "cn-scraper-mcp",
+  "version": "0.4.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4.0,>=3.0",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "book-metadata-mcp",
+  "version": "0.2.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "legacy2mcp",
+  "version": "0.1.0",
+  "outcome": "other-failure",
+  "mcp_spec": "==1.29.1",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "microquery-mcp",
+  "version": "1.0.3",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.9"
+ },
+ {
+  "id": "hive-vault",
+  "version": "1.12.2",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=2.0.0",
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "hasdata-glassdoor-mcp",
+  "version": "1.0.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.17",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "bitbucket-mcp-py",
+  "version": "1.25.0",
+  "outcome": "other-failure",
+  "mcp_spec": "<2,>=1.26.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "cics-bridge-mcp",
+  "version": "0.1.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.28.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "defenter-proxy",
+  "version": "0.0.96",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": "==2.13.0.2",
+  "fetched": true,
+  "requires_python": "~=3.11.0"
+ },
+ {
+  "id": "safe-ssh-mcp",
+  "version": "0.1.15",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4,>=3.2.0",
+  "fetched": true,
+  "requires_python": "<4.0,>=3.11"
+ },
+ {
+  "id": "dailyaiagents-evidence-gate",
+  "version": "0.1.1",
+  "outcome": "other-failure",
+  "mcp_spec": "<1.30,>=1.29.1",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "kibana-mcp",
+  "version": "0.1.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "cokodo-agent",
+  "version": "1.7.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.9"
+ },
+ {
+  "id": "mcparmory-google-maps",
+  "version": "1.0.3",
+  "outcome": "handshake-ok",
+  "mcp_spec": "",
+  "allows_2": true,
+  "fastmcp_spec": ">=3.2.4",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "mcp-credit-optimizer",
+  "version": "5.2.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=2.0.0",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "dsa-tracker-mcp",
+  "version": "1.0.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "greenlake-subscriptions-mcp",
+  "version": "1.1.2",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.23.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "neo-mcp",
+  "version": "0.5.5",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.26.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "mcp-trendpulse",
+  "version": "0.2.13",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4,>=3.2.0",
+  "fetched": true,
+  "requires_python": ">=3.10.18"
+ },
+ {
+  "id": "abbacus-cortex",
+  "version": "0.2.2",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.6",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "mcp-rs485",
+  "version": "0.1.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "browsegrab",
+  "version": "0.1.1",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "vs-filesystem-mcp-server",
+  "version": "0.1.3",
+  "outcome": "broken-2x",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "greenlake-users-mcp",
+  "version": "1.1.2",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.23.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "openai-ads-mcp",
+  "version": "0.1.7",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.26",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcparmory-agentql",
+  "version": "1.0.8",
+  "outcome": "handshake-ok",
+  "mcp_spec": "",
+  "allows_2": true,
+  "fastmcp_spec": ">=3.2.4",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "job-description-ai-mcp",
+  "version": "1.0.11",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.28.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcp-pyright",
+  "version": "0.1.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "build123d-mcp",
+  "version": "0.3.84",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3,>=2",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": "<3.15,>=3.11"
+ },
+ {
+  "id": "mcparmory-gitlab",
+  "version": "1.0.3",
+  "outcome": "handshake-ok",
+  "mcp_spec": "",
+  "allows_2": true,
+  "fastmcp_spec": ">=3.2.4",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "snapgrab",
+  "version": "0.1.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "devops-practices-mcp",
+  "version": "1.4.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "syncline-mcp-server",
+  "version": "1.0.35",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "darwin-memo",
+  "version": "0.7.1",
+  "outcome": "broken-2x",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "google-docs-mcp-server",
+  "version": "0.1.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "gds-agent",
+  "version": "1.0.1",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.11.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "agent-replay-debugger-mcp",
+  "version": "1.0.7",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.3.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "placeroot",
+  "version": "0.10.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": ">=2.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "african-speech-mcp",
+  "version": "2.0.0",
+  "outcome": "other-failure",
+  "mcp_spec": "<3,>=2.1.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "tilion",
+  "version": "0.1.3",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "meok-rspca-aquaculture-mcp",
+  "version": "1.0.6",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.28.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "xraylib-mcp-server",
+  "version": "0.1.6",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "swiss-procurement-mcp",
+  "version": "0.18.5",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3,>=2.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "semahash",
+  "version": "0.5.5",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "compression-ai-mcp",
+  "version": "1.0.10",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.28.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "dicom-hl7-mcp",
+  "version": "0.2.0",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mimer-mcp-server",
+  "version": "1.0.5",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.15.0",
+  "allows_2": true,
+  "fastmcp_spec": ">=2.13.0",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "agrobr-mcp",
+  "version": "0.1.2",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "predictive-maintenance-mcp",
+  "version": "0.13.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3.0.0,>=2.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "sportsdata-mcp",
+  "version": "0.27.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4,>=0.4",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "mcp-mdns",
+  "version": "0.1.2",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.1.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "sentor-mcp",
+  "version": "1.0.5",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcp-unifi",
+  "version": "0.8.2",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.9.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "horizun-pbi-mcp",
+  "version": "2.1.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.28.1",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "solucortex-mcp",
+  "version": "1.1.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.10",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "cp-memory-mcp",
+  "version": "1.8.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.27",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "quickshell-mcp",
+  "version": "2.17.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2.0.0,>=1.2.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "maplestory-mcp-server",
+  "version": "1.0.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=3.1.1",
+  "fetched": true,
+  "requires_python": ">=3.13"
+ },
+ {
+  "id": "content-calendar-ai-mcp",
+  "version": "1.0.11",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.28.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "clickhouse-dataops-mcp",
+  "version": "0.1.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "kirok-mcp",
+  "version": "1.4.2",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "validator-ai-mcp",
+  "version": "1.0.11",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcp-memento",
+  "version": "0.2.31",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.23.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "pet-care-ai-mcp",
+  "version": "1.0.8",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "apple-mcp-mail",
+  "version": "1.0.4",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3,>=2.1.1",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "b280-olca-mcp",
+  "version": "1.14.0",
+  "outcome": "other-failure",
+  "mcp_spec": "<3,>=2.1",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "stats-compass-mcp",
+  "version": "0.3.28",
+  "outcome": "other-failure",
+  "mcp_spec": "<2.0.0,>=1.0.0",
+  "allows_2": false,
+  "fastmcp_spec": "<3.0.0,>=2.14.2",
+  "fetched": true,
+  "requires_python": "<4.0,>=3.11"
+ },
+ {
+  "id": "umlforge",
+  "version": "0.2.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2.0.0,>=1.27.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "iso20022-readiness-suite-mcp",
+  "version": "0.0.5",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3,>=1.28.1",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": "<4.0,>=3.10"
+ },
+ {
+  "id": "agenthold",
+  "version": "0.10.0",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.26.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "skillhub-mcp",
+  "version": "1.0.5",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=2.2.5",
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "jaeger-mcp",
+  "version": "0.1.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "meok-eu-aigc-icon-mcp",
+  "version": "1.0.3",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.3.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "arachne-mcp",
+  "version": "1.4.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "il-eli-mcp",
+  "version": "0.5.3",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4,>=3.4",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "meok-enterprise-compliance-checker",
+  "version": "1.0.7",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.28.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "hotin",
+  "version": "0.9.9",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.9"
+ },
+ {
+  "id": "csjn-mcp",
+  "version": "0.3.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "terravision",
+  "version": "0.47.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "ai2human-mcp",
+  "version": "0.1.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4,>=3.0",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "endpoint-aiops",
+  "version": "0.9.0",
+  "outcome": "other-failure",
+  "mcp_spec": "<3.0,>=2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "gs1belu-mpm-download-mcp",
+  "version": "0.2.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4,>=3.4",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "aileron",
+  "version": "0.1.5",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "emergencescience-mcp",
+  "version": "1.1.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "local-gpu-imagegen",
+  "version": "0.9.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "mcp-podman-crunchtools",
+  "version": "0.1.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=2.0",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mif-tools",
+  "version": "0.2.1",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "manna-mcp",
+  "version": "0.7.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<4.0,>=3.0",
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "tru8-mcp",
+  "version": "1.0.3",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.2",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "scout-security",
+  "version": "0.1.7",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "nummeropslag-mcp",
+  "version": "1.0.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.2",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcp-msdefenderkql",
+  "version": "1.0.2",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "haldir",
+  "version": "0.1.0",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "forgejudge",
+  "version": "0.1.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "google-analytics-4-mcp",
+  "version": "0.1.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.26.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "itu-mcp",
+  "version": "0.2.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.27.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "gmc-mcp",
+  "version": "0.2.5",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "idamesh",
+  "version": "1.0.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.9"
+ },
+ {
+  "id": "sentarion-mcp",
+  "version": "0.2.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2.0.0,>=1.0.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "applemusic-mcp",
+  "version": "0.20.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3,>=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "photographi-mcp",
+  "version": "0.2.6",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=0.1.0",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "tcg-mcp",
+  "version": "0.4.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "amazon-ads-mcp",
+  "version": "0.2.4",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": "<3.0,>=2.14.4",
+  "fetched": true,
+  "requires_python": "<4.0,>=3.10"
+ },
+ {
+  "id": "mcp-server-mikrotik",
+  "version": "0.15.0.0",
+  "outcome": "other-failure",
+  "mcp_spec": "<3.0.0,>=2.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "meek_defoneos_cdn_edge_mcp",
+  "version": "1.0.1",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "markdown-vault-mcp",
+  "version": "4.1.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "decimalai-mcp",
+  "version": "0.1.3",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.2.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "aktools-pro",
+  "version": "0.2.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=2.0.0",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "yandex-lavka-mcp",
+  "version": "0.1.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "odoo-mcp-gateway",
+  "version": "0.1.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.9.4",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "meok-w3c-tdm-rights-mcp",
+  "version": "1.0.6",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.3.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "bartram-companies-house",
+  "version": "0.3.3",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "invgate-service-desk-mcp",
+  "version": "0.2.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "growmos",
+  "version": "0.1.5",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.9"
+ },
+ {
+  "id": "obolus",
+  "version": "0.2.3",
+  "outcome": "handshake-ok",
+  "mcp_spec": ">=2.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "fastmcp-builder",
+  "version": "0.3.4",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=3.4.2",
+  "fetched": true,
+  "requires_python": ">=3.12"
+ },
+ {
+  "id": "ndi-mcp-server",
+  "version": "1.0.2",
+  "outcome": "other-failure",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "longhand",
+  "version": "0.5.5",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2.0,>=1.0.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcparmory-postman",
+  "version": "1.0.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "",
+  "allows_2": true,
+  "fastmcp_spec": ">=3.2.4",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "wallet-doctor",
+  "version": "0.2.3",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.8"
+ },
+ {
+  "id": "dataxplan-mcp",
+  "version": "0.1.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "security-scanner-ai-mcp",
+  "version": "1.0.12",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "tokeven",
+  "version": "0.4.0",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "topicforge",
+  "version": "0.5.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.0.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "mcp-server-ozon-seller",
+  "version": "0.3.1",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "datasinking",
+  "version": "0.2.2",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.8"
+ },
+ {
+  "id": "ingestion-mcp",
+  "version": "0.2.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.10",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "ritn3d-mcp",
+  "version": "0.1.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2.0,>=1.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "acb-tax-mcp",
+  "version": "0.4.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3,>=1.2.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "meok-mcp-cardgen-mcp",
+  "version": "1.0.3",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.3.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "gagelink",
+  "version": "0.7.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "frontend-design-loop-mcp",
+  "version": "1.0.0",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.25.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "paper-distill-mcp",
+  "version": "0.2.4",
+  "outcome": "handshake-ok",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": ">=2.0.0",
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "sentiment-analysis-ai-mcp",
+  "version": "1.0.8",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.0.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "oprocess",
+  "version": "0.4.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.26.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "model-ledger",
+  "version": "0.7.13",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "claude-real-video",
+  "version": "0.10.5",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "agent-commerce-protocol-mcp",
+  "version": "1.0.11",
+  "outcome": "broken-2x",
+  "mcp_spec": ">=1.3.0",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "mcparmory-linkup",
+  "version": "1.0.2",
+  "outcome": "handshake-ok",
+  "mcp_spec": "",
+  "allows_2": true,
+  "fastmcp_spec": ">=3.2.4",
+  "fetched": true,
+  "requires_python": ">=3.11"
+ },
+ {
+  "id": "mcp-aichat",
+  "version": "2026.9.6.1",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.2.0",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "swiss-holidays-mcp",
+  "version": "0.6.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<2,>=1.28.1",
+  "allows_2": false,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "keel-pentest",
+  "version": "0.3.0",
+  "outcome": "handshake-ok",
+  "mcp_spec": "<3,>=1.9",
+  "allows_2": true,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ },
+ {
+  "id": "awx-mcp-server",
+  "version": "1.1.2",
+  "outcome": "other-failure",
+  "mcp_spec": null,
+  "allows_2": null,
+  "fastmcp_spec": null,
+  "fetched": true,
+  "requires_python": ">=3.10"
+ }
+]
