@@ -13,6 +13,15 @@ every measurement, verification before every claim.
 - [registries/mcp/](registries/mcp/) — inventory of 24 MCP registries and catalogs (operator,
   review before listing, takedown, size) and a direct census of the official registry API on
   2026-09-11.
+- [prior-art/agent-plugins.md](prior-art/agent-plugins.md) — has anyone measured the extension
+  and plugin marketplaces of Cursor, Windsurf, Continue and Zed, in particular what a plugin
+  does at install and first run? Seven questions, 485 verified sources, 2,292 recorded
+  searches (2026-09-15/16). Population corrected on the way: Continue's Hub is gone, Windsurf's
+  marketplace is Open VSX, Cursor and Devin have plugin marketplaces, Zed and JetBrains share an
+  agent registry. Appendix in [prior-art/agent-plugins-sources.md](prior-art/agent-plugins-sources.md).
+- [registries/agent-plugins/](registries/agent-plugins/) — inventory of those marketplaces and
+  the registries they draw from, with counts taken on 2026-09-16 and two takedown series
+  derived from git history.
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the adversarial verification pass
@@ -28,5 +37,7 @@ every measurement, verification before every claim.
   never enter a headline denominator.
 - Corrections and retractions stay written in the document they correct.
 
-Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits, agent-plugin
-registries, an instruction-gap measurement.
+Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits, an
+instruction-gap measurement. Next measurement: agent-plugins (the mcp-install instrument over
+Cursor and Devin plugins, the ACP agent registry and Zed context servers; a VSIX arm for Open
+VSX).

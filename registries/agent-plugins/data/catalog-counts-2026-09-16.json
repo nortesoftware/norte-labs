@@ -1,0 +1,208 @@
+{
+  "date": "2026-09-16",
+  "method": "direct probes from one host between 2026-09-15T21:00Z and 2026-09-16T07:15Z; each entry states the endpoint or command and what was counted",
+  "open-vsx": {
+    "endpoint": "https://open-vsx.org/api/-/search?size=1",
+    "totalSize": 17884,
+    "server_version": "v1.1.2",
+    "newest_entry": "meta.pyrefly 1.3.1, timestamp 2026-09-15T05:14:21Z",
+    "probed_at": "2026-09-16T07:07:34Z",
+    "blocklist": {
+      "file": "EclipseFdn/publish-extensions extension-control/extensions.json",
+      "malicious": 944,
+      "deprecated": 128,
+      "malicious_at_half_year_marks": {
+        "2025-01-01": 1,
+        "2025-07-01": 8,
+        "2026-01-01": 115,
+        "2026-07-01": 816,
+        "2026-09-16": 944
+      },
+      "derivation": "last commit touching the file before each date (GitHub API), count of the 'malicious' array"
+    },
+    "version_changes_feed": {
+      "since": "Open VSX 1.1.0 (2026-08)",
+      "events_walked_in_sweep": 317161,
+      "removed_version_events": "~2,060 (two counts: 2,059 and 2,083) on 348 extensions",
+      "inactive_version_events": 73,
+      "reason_field": "none",
+      "note": "walked during the sweep by the search passes, not re-run here"
+    },
+    "third_party_indexes": {
+      "ecosyste.ms": {
+        "endpoint": "https://packages.ecosyste.ms/api/v1/registries/open-vsx.org",
+        "packages_count": 20076,
+        "versions_count": 185871,
+        "maintainers_count": 13274,
+        "namespaces_count": 14562,
+        "indexed_since": "2025-09-24",
+        "as_of": "2026-09-12"
+      },
+      "vsx-pulse.org": {
+        "total_extensions": 18578,
+        "active_30d": 18464,
+        "categories": 99,
+        "snapshot": "2026-09-16T08:00Z",
+        "since": "2026-05-29"
+      }
+    },
+    "kill_list_overlap_with_microsoft": {
+      "microsoft_marketplace_json_malicious_ids": 283,
+      "open_vsx_malicious_ids": 944,
+      "in_common": 9,
+      "note": "from the sweep's completeness pass, not re-run here"
+    }
+  },
+  "marketplace.windsurf.com": {
+    "endpoint": "https://marketplace.windsurf.com/api/-/search?size=1",
+    "totalSize": 17884,
+    "server_version": "v1.1.2",
+    "newest_entry": "meta.pyrefly 1.3.1, timestamp 2026-09-15T05:14:21Z (identical to open-vsx.org)",
+    "download_host_of_newest_entry": "open-vsx.org",
+    "probed_at": "2026-09-16T07:07:34Z",
+    "reading": "a passthrough of open-vsx.org, not a separate registry"
+  },
+  "cursor-marketplace": {
+    "page": "https://cursor.com/marketplace",
+    "distinct_marketplace_paths": 358,
+    "top_level_paths": 223,
+    "nested_publisher_plugin_paths": 135,
+    "paths_containing_automation": 27,
+    "first_party_paths_under_marketplace_cursor": 66,
+    "method": "unique href=\"/marketplace/...\" in the rendered landing page; a top-level path may be a single-plugin publisher or a publisher index",
+    "probed_at": "2026-09-16T07:07:12Z",
+    "cursor_plugins_repo": {
+      "first_party_plugin_dirs": 15,
+      "third_party_dirs": 64,
+      "probed_at": "2026-09-16T07:07Z"
+    },
+    "catalogue_endpoint": {
+      "endpoint": "POST https://api2.cursor.sh/aiserver.v1.DashboardService/ListMarketplacePlugins with body {} (unauthenticated)",
+      "plugins": 330,
+      "status": "all PLUGIN_STATUS_APPROVED, isPublished true",
+      "distinct_publishers": 240,
+      "repository_host_github": 330,
+      "gitRef_is_40_hex_sha": 324,
+      "declare_mcpServers": 271,
+      "mcpServers_entries": 320,
+      "declare_variables": 22,
+      "first_party_publisher_cursor": 66,
+      "createdAt_by_month": {
+        "2026-02": 36,
+        "2026-03": 48,
+        "2026-04": 34,
+        "2026-05": 24,
+        "2026-06": 29,
+        "2026-07": 25,
+        "2026-08": 93,
+        "2026-09 (to 15th)": 41
+      },
+      "probed_at": "2026-09-16T12:39:21Z"
+    }
+  },
+  "cursor-directory": {
+    "page": "https://cursor.directory/plugins",
+    "status": "HTTP 429 on 2026-09-16; not counted"
+  },
+  "cursor-vsix-gallery": {
+    "endpoint": "https://marketplace.cursorapi.com/_apis/public/gallery/extensionquery",
+    "status": "answers the VS Code gallery protocol; TotalCount echoes the page size; not enumerable (finding of the sweep, not re-probed)"
+  },
+  "devin-marketplace": {
+    "repo": "CognitionAI/devin-marketplace",
+    "created_at": "2026-08-31T21:38:58Z",
+    "pushed_at": "2026-09-15T03:15:53Z",
+    "plugin_dirs": 171,
+    "manifest_dir": ".devin-plugin",
+    "probed_at": "2026-09-16T07:07Z",
+    "plugin_system": "Devin Desktop v3.2.16 (2026-06-16): .devin-plugin/plugin.json, falling back to .claude-plugin/plugin.json and Agent Plugins plugin.json; bundles hooks.json and .mcp.json; hooks 'best effort and fail open' (from the sweep's sources, not re-probed)"
+  },
+  "zed": {
+    "registry": "zed-industries/extensions extensions.toml",
+    "entries": 1474,
+    "entries_at_half_year_marks": {
+      "2024-07-01": 221,
+      "2025-01-01": 431,
+      "2025-07-01": 663,
+      "2026-01-01": 909,
+      "2026-07-01": 1302,
+      "2026-09-16": 1474
+    },
+    "derivation": "last commit touching extensions.toml before each date (GitHub API), count of [table] headers",
+    "api": "https://api.zed.dev/extensions?max_schema_version=1 returns 1000 rows (cap)",
+    "provides_among_api_rows": {
+      "themes": 352,
+      "languages": 274,
+      "grammars": 274,
+      "language-servers": 259,
+      "context-servers": 58,
+      "snippets": 43,
+      "icon-themes": 25,
+      "debug-adapters": 14,
+      "agent-servers": 1
+    },
+    "probed_at": "2026-09-16T07:07Z"
+  },
+  "continue-hub": {
+    "host": "hub.continue.dev",
+    "status": "NXDOMAIN on 2026-09-15; continue.dev header reads 'Continue (acquired by Cursor)'"
+  },
+  "microsoft-vs-marketplace": {
+    "endpoint": "POST https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery (filterType 8 = Microsoft.VisualStudio.Code)",
+    "TotalCount": 138603,
+    "probed_at": "2026-09-16T07:12:42Z",
+    "removed_packages": {
+      "file": "microsoft/vsmarketplace RemovedPackages.md",
+      "rows": 2021,
+      "first_date": "2025-02-26",
+      "last_date": "2026-09-15",
+      "by_type": {
+        "Impersonation": 1071,
+        "Malware": 540,
+        "Untrustworthy": 260,
+        "Spam": 105,
+        "Copyright violation": 15,
+        "Owner Request": 8,
+        "Spam / Malware": 5,
+        "Impersonation, Malware": 5,
+        "Potentially malicious": 4,
+        "Publisher requested": 3,
+        "Deprecated": 2,
+        "other": 3
+      },
+      "by_month_peak": {
+        "2026-03": 319
+      }
+    }
+  },
+  "gemini-cli-extensions": {
+    "page": "https://geminicli.com/extensions/",
+    "count_shown": 1856,
+    "probed_at": "2026-09-16T07:12Z"
+  },
+  "acp-registry": {
+    "repo": "agentclientprotocol/registry (created 2025-12-17; operated by Zed Industries and JetBrains)",
+    "published_index": "https://cdn.agentclientprotocol.com/registry/v1/latest/registry.json",
+    "agents_published": 41,
+    "distribution_types_among_published": {
+      "npx": 22,
+      "binary": 19,
+      "uvx": 2
+    },
+    "agent_directories": 42,
+    "quarantined": 8,
+    "quarantine_reasons": {
+      "agoragentic-acp": "Postinstall script",
+      "crow-cli": "ACP initialize fails in crow-cli 0.1.25",
+      "deepagents": "Missing npm dependency",
+      "minion-code": "Python dependency issue",
+      "qoder": "ACP initialize fails in qodercli 0.2.15/0.2.16",
+      "vtcode": "Missing windows builds",
+      "fast-agent": "Timeout after 120s waiting for initialize response",
+      "mistral-vibe": "Binary archive URL not accessible"
+    },
+    "update_model": "README: 'Agent versions are automatically updated via a cron job that runs hourly ... and commits updates directly to main'; 'All agents are verified via CI to ensure they return valid authMethods in the ACP handshake'",
+    "ci": "verify_agents.py: 'Verify all registered agents can be launched in isolated sandboxes. Sandboxes are created in .sandbox/<dist_type>/<agent_id>/' (a directory per agent, not an OS sandbox); daily-protocol-matrix.yml re-runs every agent",
+    "probed_at": "2026-09-16T12:4xZ"
+  }
+}
