@@ -1,8 +1,8 @@
 # measurements/agent-plugins
 
 **Results: [findings.md](findings.md)** (narrative) and [results/report.md](results/report.md)
-(generated figures). Run of 2026-09-16/17, 618 cells over four whole populations. Adversarial
-verification pass and corrections in [verification.md](verification.md). What was reported to
+(generated figures). Run of 2026-09-16/17, 618 cells over four whole populations. Additional
+checks and corrections in [verification.md](verification.md). What was reported to
 whom, with the texts as sent, is in [results/reports/](results/reports/): Cursor
 (security-reports@cursor.com), Qoder (its data-protection address) and the ACP registry
 (private report GHSA-j23x-fp73-5x84), and zed-industries/extensions#7640.
@@ -30,10 +30,10 @@ The order is the order of the run, and the reason for it is the first population
    uvx). The registry's own CI installs and launches every agent and publishes the outcome
    daily (`.protocol-matrix/latest.json`: initialize and `session/new` status, auth methods;
    `quarantine.json`: why an agent is frozen). That is someone else's field truth for the same
-   cells, so this population validates the instrument before the others rely on it: do we agree
-   with their 34 probed and their 8 quarantined; what do we see that a launch check cannot
-   (install scripts, egress, credential paths, what the agent downloads); do we flag anything
-   they passed.
+   cells, so this population validates the instrument before the others rely on it: whether it
+   agrees with their 34 probed and their 8 quarantined; what it sees that a launch check cannot
+   (install scripts, egress, credential paths, what the agent downloads); whether it flags
+   anything they passed.
 2. **Cursor Marketplace** (catalogue endpoint, 2026-09-16): 330 approved plugins from 240
    publishers, 324 pinned to a commit, 271 declaring MCP servers. One cell per plugin.
 3. **Devin marketplace** (`CognitionAI/devin-marketplace`, commit `e314c2f`, 2026-09-14): 171

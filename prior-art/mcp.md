@@ -61,21 +61,21 @@ exactly this comparison, for *skills*, with MCP "planned". The Bharti & Agnihotr
 
 Six topics × four search modalities (academic: the arXiv API and the 2026 proceedings of USENIX
 Security, S&P, CCS, NDSS, ICSE, FSE, MSR, ASE; industry: vendor blogs, talks, newsletters; code:
-GitHub, registry docs, datasets; advisories: NVD, GHSA, OSV, press, HN). Every proposed source was
-opened by an independent verification pass and marked confirmed / partially confirmed / refuted /
-unreachable; a completeness pass per topic looked for what was missing (2026 venues, sources in
-Chinese/Japanese/Korean/German/Spanish, standards bodies, adjacent framings: agent skills, A2A,
-plugins) and its finds went through the same verification. Result: 312 verified supporting
-sources (refuted and unreachable ones are listed as "not used" in the appendix), 687 recorded
-searches. The code and advisory modalities ran in full only for registries and incidents
-respectively; the completeness pass covered them for the other topics.
+GitHub, registry docs, datasets; advisories: NVD, GHSA, OSV, press, HN). Every source was opened
+and marked confirmed / partially confirmed / refuted / unreachable; each topic was then searched
+again for what was missing (2026 venues, sources in Chinese/Japanese/Korean/German/Spanish,
+standards bodies, adjacent framings: agent skills, A2A, plugins) and those finds were opened the
+same way. Result: 312 verified supporting sources (refuted and unreachable ones are listed as
+"not used" in the appendix), 687 recorded searches. The code and advisory modalities ran in full
+only for registries and incidents respectively; the second search covered them for the other
+topics.
 
 Limits: ACM DL and IEEE Xplore returned 403 (metadata verified through Crossref); Semantic
 Scholar 429; DBLP behind an anti-bot wall; Koi Security's primary posts redirect (Palo Alto) and
 were read through the Wayback Machine; OX Security's eBook with the 11 registries tested is behind
 a signup; Salesforce AgentExchange, Baidu MCP World, ModelScope and Kakao PlayMCP could not be
-opened at the primary source. Each search pass exhausted its budget of 200 web searches and
-continued through direct APIs.
+opened at the primary source. Web search hit its cap of 200 queries and the rest went through
+direct APIs.
 
 ---
 
@@ -103,7 +103,7 @@ What exists:
   14,063 with exactly one, top-10 = 15.5 %); fetchgate (two operators own 2,357 of 8,235 live
   remote servers = 28.6 %); Kim et al. ([2605.09817](https://arxiv.org/abs/2605.09817): top-10
   developers = 27.6 % of the tools on 2.6 % of the repos).
-- Our own direct measurement of the official registry agrees within hours of drift:
+- This repository's own direct measurement of the official registry agrees within hours of drift:
   [registries/mcp/census-2026-09-11.md](../registries/mcp/census-2026-09-11.md).
 
 What does not exist:

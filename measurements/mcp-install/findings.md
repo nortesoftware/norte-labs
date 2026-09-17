@@ -3,7 +3,7 @@
 Run from 2026-09-11 19:35 UTC to 2026-09-12 00:06 UTC, 600 cells (420 npm, 180 PyPI), a seeded
 random sample of the 11,484 npm/PyPI-stdio packages in the official registry. Full figures with
 Wilson and cluster-robust intervals in [results/report.md](results/report.md); method in
-[README.md](README.md); adversarial pass and corrections in [verification.md](verification.md);
+[README.md](README.md); additional checks and corrections in [verification.md](verification.md);
 cell by cell in `results/cells.ndjson`.
 
 ## What install shows
@@ -111,10 +111,11 @@ nothing. Those that do:
   `@gridinsoft/mcp-inspector` from `inspector.gridinsoft.com`. What the server does depends on
   what those hosts serve that day.
 - `placeroot` (PyPI) downloads DuckDB's `httpfs` extension over plain HTTP
-  (`extensions.duckdb.org:80`) at start. Checked by hand ([verification.md](verification.md)
-  §3): it is the default repository compiled into DuckDB, and DuckDB verifies the file's RSA
-  signature before writing it and on every load (one altered byte → rejected). DuckDB's design,
-  not the server's; not a finding of this measurement.
+  (`extensions.duckdb.org:80`) at start. Checked by hand
+  ([verification.md](verification.md#placeroot-and-the-http-download)): it is the default
+  repository compiled into DuckDB, and DuckDB verifies the file's RSA signature before writing
+  it and on every load (one altered byte → rejected). DuckDB's design, not the server's; not a
+  finding of this measurement.
 - 6 cells contact their own vendor's API with the dummy key; 5 try `127.0.0.1` (Postgres, a
   local port) because the dummy URL points there.
 
@@ -156,8 +157,8 @@ No cell read `~/.ssh`, `~/.git-credentials`, `~/.config/gh`, `~/.docker`, `~/.py
 
 ## Retractions and corrections (2026-09-12)
 
-The first version of this document (2026-09-12) said two things that verification
-([verification.md](verification.md)) did not sustain. They stay written here, not deleted.
+Two statements of 2026-09-12 do not hold ([verification.md](verification.md)). They stay
+written here, not deleted.
 
 1. **Retracted:** "`placeroot` downloads a DuckDB extension over plain HTTP
    (`extensions.duckdb.org:80`) and drops it in `~/.duckdb/extensions/`: executable code, no
@@ -169,12 +170,11 @@ The first version of this document (2026-09-12) said two things that verificatio
 
 2. **Corrected:** "a third of the PyPI servers listed in the official registry do not start"
    and "the registry keeps listing them as active". 19 of the 53 broken cells are one publisher
-   (`io.github.CSOAI-ORG`; an earlier version of this correction said 21: 21 were sampled, 19
-   with this error); the cluster-robust interval is [15.9–44.7] with DEFF 4.5, and at publisher
-   level the rate is 34/143 = 23.8 %. The right phrase is "between a fifth and a third". And
-   `active` is the default value of the `status` field at publish time; the registry does not
-   claim that a server works, so "lists them as active" was our reading of the field presented
-   as the registry's claim.
+   (`io.github.CSOAI-ORG`: 21 were sampled, 19 with this error); the cluster-robust interval is
+   [15.9–44.7] with DEFF 4.5, and at publisher level the rate is 34/143 = 23.8 %. The right
+   phrase is "between a fifth and a third". And `active` is the default value of the `status`
+   field at publish time; the registry does not claim that a server works, so "lists them as
+   active" was a reading of the field presented as the registry's claim.
 
 What was checked and holds: 120 s of idle adds no hosts (39/40); a real `GITHUB_TOKEN` does not
 change the start compared with the dummy one (4/4); without bubblewrap the behaviour is the same
@@ -189,13 +189,13 @@ design effect ≈ 1.
   2.x one (DEFF 4.5), corrected above. The full run is resumable (`node src/run.ts` over a
   filtered `population.ndjson`) and would take about 80 h at this pace.
 - First start with dummy credentials and 10 s of idle. Checked
-  ([verification.md](verification.md) §5–7): with 120 s of idle, 39/40 servers show the same set
-  of hosts (the other continues the same S3 download); with a real `GITHUB_TOKEN`, 4/4 behave
-  as with the dummy one; without a sandbox, 20/20 the same. Still unobserved: the 28 servers
-  that abort on credential validation and the 42 with an exception (for them the first start
-  never happened), timers longer than 120 s, and the first tool invocation. First-start rates
-  are given over the 579 attempts; over the 347 that started, the network and `$HOME` rates go
-  up ~1.7×.
+  ([verification.md](verification.md): dummy credentials, idle window, sandbox): with 120 s of
+  idle, 39/40 servers show the same set of hosts (the other continues the same S3 download);
+  with a real `GITHUB_TOKEN`, 4/4 behave as with the dummy one; without a sandbox, 20/20 the
+  same. Still unobserved: the 28 servers that abort on credential validation and the 42 with an
+  exception (for them the first start never happened), timers longer than 120 s, and the first
+  tool invocation. First-start rates are given over the 579 attempts; over the 347 that
+  started, the network and `$HOME` rates go up ~1.7×.
 - One host, Debian 13, Node 22.23, Python 3.13, uv 0.12.13, npm 10.9.8. The `mcp` 2.x start
   failures depend on the resolver picking the latest version, which is what a clean install does
   today.

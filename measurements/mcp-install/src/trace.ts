@@ -217,8 +217,6 @@ export function summariseHomeAccess(events: Iterable<TraceEvent>, home: string):
     .sort((a, b) => (b.reads + b.writes + b.mutations) - (a.reads + a.writes + a.mutations));
 }
 
-// ---------------------------------------------------------------- network ----
-
 export interface ConnectEvent { pid: number; family: 'inet' | 'inet6'; ip: string; port: number; outcome: Outcome }
 export interface DnsQuery { pid: number; name: string; qtype: number }
 export interface DnsAnswer { name: string; ip: string }

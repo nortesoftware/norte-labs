@@ -1,6 +1,6 @@
 # MCP — verified sources and searches run
 
-Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026-09-11 sweep. Every listed source was opened in the verification pass (status `confirmed` or `partially_confirmed`); figures are quoted as they appear in the source. The "not used" sections are sources proposed by the search passes that verification discarded or could not open. The list of searches is the absence record: it backs every "partial" and "not found".
+Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026-09-11 sweep. Every listed source was opened and its figures compared with the text (status `confirmed` or `partially_confirmed`); figures are quoted as they appear in the source. The "not used" sections are sources found during the search that could not be opened or whose figures did not survive the comparison. The list of searches is the absence record: it backs every "partial" and "not found".
 
 ## Ecosystem census
 
@@ -18,7 +18,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 2. **State of MCP: A Longitudinal Measurement Dataset of the Model Context Protocol Ecosystem (v2026-Q3)** — Charlie Major / Major Labs (Major Matters Research Ltd), Zenodo DOI 10.5281/zenodo.22674847, CC BY 4.0 — 2026-09-09 (v1); live page https://majorlabs.co/data latest scan 2026-09-07, 113 scan passes  
    <https://zenodo.org/records/22674847>  
    A DOI-archived multi-source census (union of four discovery sources deduplicated by repository) with per-source funnel, weekly aggregate series, per-repo owner names and a GitHub-topic count series; the live page gives the cross-source totals.
-   - Figures: “Description: 'a census of 3,227 open-source MCP server repositories with population metadata; 112 discovery-run provenance records; a weekly aggregate time series'; '18 weekly scans' May-Sept 2026” · “majorlabs.co/data: 'Advertised across all sources ~ 82,666 distinct repos'; '+7,634 remote-only servers'; 'In the official registry 28,481'; by source (listed / with repo / remote-only): GitHub deep-scan 3,219; Glama 74,277 / 74,277 / 0; Official MCP registry 28,481 / 21,659 / 6,822; Smithery '(reports 11,882; API exposes 812)' 812 / 0 / 812” · “'We deep-scanned firsthand 3,219'; 'Maintained (pushed < 180d) 2,449'; 'Genuinely evaluable ~ 1,200'; '78.8% carry an OSI license'; '45.4% expose a remote HTTP surface'” · “discovery-runs.csv total_count: topic:mcp-server 16,150 (2026-05-26) -> 27,998 (2026-09-08); topic:model-context-protocol 10,979 (2026-05-26) -> 27,631 (2026-09-08)” · “aggregate-history.csv (7 rows, cataloged): 2026-06-18 1,934; 2026-07-11 2,130; 2026-07-26 2,174; 2026-08-08 2,189; 2026-08-15 2,262; 2026-08-23 2,381; 2026-08-29 2,408” · “Recomputed in the verification pass from mcp-servers.csv (not stated by the source): 3,227 rows; 2,729 distinct owners; top owners modelcontextprotocol 45, vinkius-labs 15, cyanheads 14, bsmi021 14; created_at by month 2024-11 29, 2024-12 101, 2025-03 288 (peak), 2026-02 225, 2026-03 256” · “'83M monthly downloads (tracked)'; '11,081 packaged servers tracked'; '77M npm / month (6,942 pkgs)'; '6.2M pypi / month (2,480 pkgs)'” · “'The headline counts everyone repeats are inflated; the useful signal is the gap between what registries advertise and what is actually maintained.'”
+   - Figures: “Description: 'a census of 3,227 open-source MCP server repositories with population metadata; 112 discovery-run provenance records; a weekly aggregate time series'; '18 weekly scans' May-Sept 2026” · “majorlabs.co/data: 'Advertised across all sources ~ 82,666 distinct repos'; '+7,634 remote-only servers'; 'In the official registry 28,481'; by source (listed / with repo / remote-only): GitHub deep-scan 3,219; Glama 74,277 / 74,277 / 0; Official MCP registry 28,481 / 21,659 / 6,822; Smithery '(reports 11,882; API exposes 812)' 812 / 0 / 812” · “'We deep-scanned firsthand 3,219'; 'Maintained (pushed < 180d) 2,449'; 'Genuinely evaluable ~ 1,200'; '78.8% carry an OSI license'; '45.4% expose a remote HTTP surface'” · “discovery-runs.csv total_count: topic:mcp-server 16,150 (2026-05-26) -> 27,998 (2026-09-08); topic:model-context-protocol 10,979 (2026-05-26) -> 27,631 (2026-09-08)” · “aggregate-history.csv (7 rows, cataloged): 2026-06-18 1,934; 2026-07-11 2,130; 2026-07-26 2,174; 2026-08-08 2,189; 2026-08-15 2,262; 2026-08-23 2,381; 2026-08-29 2,408” · “Recomputed in the source check from mcp-servers.csv (not stated by the source): 3,227 rows; 2,729 distinct owners; top owners modelcontextprotocol 45, vinkius-labs 15, cyanheads 14, bsmi021 14; created_at by month 2024-11 29, 2024-12 101, 2025-03 288 (peak), 2026-02 225, 2026-03 256” · “'83M monthly downloads (tracked)'; '11,081 packaged servers tracked'; '77M npm / month (6,942 pkgs)'; '6.2M pypi / month (2,480 pkgs)'” · “'The headline counts everyone repeats are inflated; the useful signal is the gap between what registries advertise and what is actually maintained.'”
    - Sample/method: README: 'Discovery unions four sources (GitHub topic/org search, the official MCP registry, Glama, Smithery), deduped by repository. Analysis is read-only static inspection of public source; no server is ever run or probed.' Weekly scans since June 2026 ('the series cannot be backfilled'); 3,227 repos deep-catalogued; security analysis on 2,408.
    - Limitations: Per-repo CSV covers only a 3,227-repo deep-scan subset (vs 27,998 GitHub topic hits), and includes non-server repos (first row n8n-io/n8n); aggregate-history.csv holds 7 rows not 18 and 'maintained' is empty; owner names present but no owner-type field; vendor (security-scanner company) with live figures that change per scan; 'advertised' total dominated by Glama's 74,277 auto-index.
 
@@ -46,7 +46,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 6. **Registry Descriptions Go Stale Unevenly: An 89-Day Measurement of Model Context Protocol Drift, and Why Drift-Ranked Re-Auditing Under-Covers It** — arXiv cs.SE preprint — Gautam Bharti, Independent Researcher (disclosed commercial interest: mcpindex.ai) — arXiv:2608.00997v2, 04 Aug 2026 (window 2026-04-30 to 2026-07-28)  
    <https://arxiv.org/html/2608.00997>  
    A longitudinal panel of the official registry giving a growth series, namespace split and publisher counts/concentration of change events.
-   - Figures: “'120 revisions from 2026-04-30 to 2026-07-28 (88.6 days, up to six observations per day), during which the corpus grew from 3,510 to 18,966 active servers; 19,099 distinct server names appear'” · “'every name takes the form namespace/name - 71.8% of them under io.github.*, which the registry binds to the corresponding GitHub account, the rest under DNS-verified domains'” · “'the top ten publishers account for 17.7% of events (the single busiest, 5.5%); 3,054 of 11,900 publishers ever produced a change event'” · “'Concentration of the 15,805 change events: top 1% of servers = 26.7%, top 5% = 61.2%, top 10% = 78.7%, top 20% = 94.3%'” · “'only 5.0% of the population has any prior description-change history at all, against 16.4% for descriptors' (v2; the 8.6%/24.8% pair attributed in the search pass is absent from v2)”
+   - Figures: “'120 revisions from 2026-04-30 to 2026-07-28 (88.6 days, up to six observations per day), during which the corpus grew from 3,510 to 18,966 active servers; 19,099 distinct server names appear'” · “'every name takes the form namespace/name - 71.8% of them under io.github.*, which the registry binds to the corresponding GitHub account, the rest under DNS-verified domains'” · “'the top ten publishers account for 17.7% of events (the single busiest, 5.5%); 3,054 of 11,900 publishers ever produced a change event'” · “'Concentration of the 15,805 change events: top 1% of servers = 26.7%, top 5% = 61.2%, top 10% = 78.7%, top 20% = 94.3%'” · “'only 5.0% of the population has any prior description-change history at all, against 16.4% for descriptors' (v2; the 8.6%/24.8% pair first attributed to it is absent from v2)”
    - Sample/method: Replay of 120 committed CI snapshots of registry.modelcontextprotocol.io (2026-04-30 to 2026-07-28) into a delta-encoded panel; publisher-level figures from an internal named panel.
    - Limitations: Official registry only; single-author preprint with disclosed commercial interest; the 3,510 starting count reflects the registry's early state rather than ecosystem size; 'publisher' = namespace, no owner-type classification; v2 'corrects five claims in v1'.
 
@@ -334,7 +334,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 
 ### Open questions from the sweep
 
-- arXiv 2602.14878 reportedly gives a 23/103 official-vs-community split; 2606.02314 reportedly counts 62,739 indexed MCP entries; 2605.22333 measures 7,973 live remote servers; 2603.10194 and 2608.28497 (Claude Code plugin marketplaces) were surfaced but not opened — a second pass should verify whether any contains a publisher-type classification or a dedup rule.
+- arXiv 2602.14878 reportedly gives a 23/103 official-vs-community split; 2606.02314 reportedly counts 62,739 indexed MCP entries; 2605.22333 measures 7,973 live remote servers; 2603.10194 and 2608.28497 (Claude Code plugin marketplaces) were surfaced but not opened — a later check should verify whether any contains a publisher-type classification or a dedup rule.
 - IEEE S&P 2026 'Parasites in the Toolchain: A Large-Scale Analysis of Attacks on the MCP Ecosystem' (Shuli Zhao et al.) and the DSN 2026 camera-ready of Li & Gao were not opened; the S&P paper may carry its own ecosystem count.
 - The USENIX Security '26 skills-registry census (98,380 skills from two registries, 157 malicious) is adjacent framing and was not opened; check whether its authors also measured MCP servers.
 - Hugging Face datasets csoai/mcp-census, crackedvibe/mcp-registry-probe-2026-09, automatelab/mcp-servers-catalog, Vinkius/mcp-registry (5,561 servers) and RenatoMarinho/mcp-registry (5,033+) were listed but not verified; csoai/mcp-census in particular may be a census by a mass-publisher (CSOAI-ORG appears as a top-15 namespace).
@@ -347,7 +347,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - PulseMCP's historical daily counts (17 Wayback snapshots from 2024-12-19) could not be retrieved; recovering them would give the only registry-side series back to Dec 2024.
 - Registry-operator discrepancies remain unexplained: Smithery totalCount 14,029 vs Major Labs' '(reports 11,882; API exposes 812)'; Glama's jump from 5,867 (June 2025) to 85,656; Canopii's 11,524 vs ~14-15k contemporaneous registry entries; mcp.so / MCP Market / mcpservers.org / Docker catalog counts not extractable.
 - Effloow's page metadata (2026-04-12) contradicts its stated census date (2026-08-19); the referenced scripts/mcp-registry-census.py repo was not located.
-- Bharti 2608.00997: the 8.6%/24.8% description-rewrite pair attributed in the search pass is absent from v2 (v2 'corrects five claims in v1'); v1 was not diffed.
+- Bharti 2608.00997: the 8.6%/24.8% description-rewrite pair first attributed to it is absent from v2 (v2 'corrects five claims in v1'); v1 was not diffed.
 - Trend Micro: the exact 19,077 repository count and collection window (attributed to the German version) were not verified; Digital Applied's Smithery ~6,000 (Mar 2026) -> ~7,300 (May 2026) figures were not found on its page.
 - Semantic Scholar (429) and DBLP (bot challenge) could not be used, so venue-published MCP papers from June-September 2026 were checked only via accepted-paper pages of USENIX Sec, NDSS, S&P, CCS, ICSE, FSE, MSR, ASE and via OpenAlex/Crossref.
 
@@ -396,7 +396,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search :: Zuplo "State of MCP" report survey 2026 developers servers :: usage survey (~100 tech leaders), not a census`
 - `web search :: BlueRock Security analysis "7,000" public MCP servers SSRF authentication 2026 :: no such post on bluerock.io`
 - `web search :: "MCP Toplist" OR "mcp.so" servers count "101,000" OR "100,000" combined registries 2026 :: mcptoplist snippet 122,723 (2026-09-08)`
-- `web search (not run: search budget exhausted) :: arxiv "Model Context Protocol" servers "Gini" OR "Herfindahl" OR "top 10 publishers" concentration; arxiv "registry.modelcontextprotocol.io" empirical measurement 2026; arxiv "MCP servers" npm PyPI "supply chain" empirical 2026; GitHub MCP Registry launch count; Socket/Snyk/Sonatype MCP package analysis; tl;dr sec / Risky Business MCP census; "individual developers" vs "companies" share; OWASP MCP Top 10 ecosystem count; Docker MCP Catalog Aug-Sep 2026 count; Chinese-language queries (MCP 服务器 生态 统计 数量 registry 调研 2026; 模型上下文协议 MCP 服务器 实证研究 生态系统 测量 arxiv)`
+- `web search (unavailable) :: arxiv "Model Context Protocol" servers "Gini" OR "Herfindahl" OR "top 10 publishers" concentration; arxiv "registry.modelcontextprotocol.io" empirical measurement 2026; arxiv "MCP servers" npm PyPI "supply chain" empirical 2026; GitHub MCP Registry launch count; Socket/Snyk/Sonatype MCP package analysis; tl;dr sec / Risky Business MCP census; "individual developers" vs "companies" share; OWASP MCP Top 10 ecosystem count; Docker MCP Catalog Aug-Sep 2026 count; Chinese-language queries (MCP 服务器 生态 统计 数量 registry 调研 2026; 模型上下文协议 MCP 服务器 实证研究 生态系统 测量 arxiv)`
 - `curl usenix.org USENIX Security '26 technical sessions :: grep MCP :: 0 MCP papers; adjacent skills-registry census (98,380 skills from two registries, 157 malicious)`
 - `curl ndss-symposium.org NDSS 2026 accepted papers :: grep MCP :: 0`
 - `curl sp2026.ieee-security.org accepted papers :: grep MCP :: 1 hit 'Parasites in the Toolchain: A Large-Scale Analysis of Attacks on the MCP Ecosystem' (not opened)`
@@ -430,9 +430,9 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `ecosyste.ms API :: keywords/mcp :: HTTP 402`
 - `npm registry API :: /-/v1/search?text=keywords:mcp and keywords:modelcontextprotocol :: 71,737 / 2,781 (2026-09-11T16:10Z)`
 - `official MCP registry API :: /v0/servers?version=latest full pagination (309-310 pages, two runs 2026-09-11) :: 30,827 then 30,913 entries; namespace and publishedAt breakdown computed`
-- `Smithery registry API :: /servers?pageSize=1 :: totalCount 14,029, totalPages 500 (2026-09-11, re-run in the synthesis pass)`
-- `GitHub API + release download :: fronalabs/mcp-registry-database releases/latest + metadata.json + README :: total_servers 11,891 (npm 8,373 / pypi 3,623), npm/PyPI-only by design (re-run in the synthesis pass)`
-- `curl :: lobehub.com/mcp :: 'Explore 97,128 MCP Servers' (re-run in the synthesis pass)`
+- `Smithery registry API :: /servers?pageSize=1 :: totalCount 14,029, totalPages 500 (2026-09-11, re-run for the write-up)`
+- `GitHub API + release download :: fronalabs/mcp-registry-database releases/latest + metadata.json + README :: total_servers 11,891 (npm 8,373 / pypi 3,623), npm/PyPI-only by design (re-run for the write-up)`
+- `curl :: lobehub.com/mcp :: 'Explore 97,128 MCP Servers' (re-run for the write-up)`
 - `curl :: mcp.so, mcpservers.org, mcpmarket.com :: no counts extractable / Cloudflare`
 - `curl + gh api :: hub.docker.com/mcp; docker/mcp-registry tree; github.com/mcp :: 404/JS; 328 server entries; JS shell`
 - `fetch + curl :: pulsemcp.com/servers with ?classification=official-providers / community / ?other=remote :: 21,940 / 6,258 / 15,647 / 5,833`
@@ -738,11 +738,11 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - Canopii's control definitions ('Destructive scope', 'No over-broad or destructive tools') are undisclosed; whether any control reads readOnlyHint/destructiveHint needs a direct request or systematic sampling of server pages.
 - Black Hat USA 2026 and DEF CON 34 full programmes were unparsable; once slides/videos index, check for runtime MCP observation talks beyond Zenity's detonation chamber.
 - Stacklok/ToolHive promised (2026-05-05) annotation-accuracy validation against source; toolhive-catalog / toolhive-registry-server commits and issues were not inspected for a validation job or results.
-- Vendor gateway telemetry (Docker MCP Gateway interceptors, Snyk/Invariant mcp-scan proxy, ToolHive, Lasso, Noma, Pillar) was not searched for published runtime tool-call or annotation-policy statistics because the web search budget ran out.
-- Semantic Scholar was rate-limited (429) on all four queries; a second pass should rerun them and also query CCF-ranked Chinese journals, IPSJ/CSS (Japan) and KIISC (Korea) directly rather than via web search.
-- arXiv 2605.22333 (7,973 live remote servers; 40.55% expose tools without authentication, per critic note) and USENIX Security 2026 'Do Not Mention This to the User' (malicious agent skills) were surfaced but not opened/verified; neither appears to measure scope minimality or MCP declared-vs-actual, but this is unconfirmed.
+- Vendor gateway telemetry (Docker MCP Gateway interceptors, Snyk/Invariant mcp-scan proxy, ToolHive, Lasso, Noma, Pillar) was not searched for published runtime tool-call or annotation-policy statistics because web search was unavailable.
+- Semantic Scholar was rate-limited (429) on all four queries; a later check should rerun them and also query CCF-ranked Chinese journals, IPSJ/CSS (Japan) and KIISC (Korea) directly rather than via web search.
+- arXiv 2605.22333 (7,973 live remote servers; 40.55% expose tools without authentication, per the source check) and USENIX Security 2026 'Do Not Mention This to the User' (malicious agent skills) were surfaced but not opened/verified; neither appears to measure scope minimality or MCP declared-vs-actual, but this is unconfirmed.
 - Primary sources behind two secondary figures were not opened: Endor Labs 2025 Dependency Management Report (the 2,614-implementation method) and the Backslash press release citing 'more than 7,000' servers; Trend Micro's earlier article with the '492 exposed servers' figure likewise.
-- Sources opened in the search pass but absent from the verified set (OpenAI Apps SDK submission guidelines, Anthropic connectors submission page, MCP Tool Annotations IG charter 2026-04-20, Snyk 2026-06-23 telemetry post, Equixly 2025-03-29, Glama TDQS 2026-04-03 blog, labs.zenity.io full report) should be verified if cited; none is expected to add a declared-vs-runtime measurement.
+- Sources opened during the search but absent from the verified set (OpenAI Apps SDK submission guidelines, Anthropic connectors submission page, MCP Tool Annotations IG charter 2026-04-20, Snyk 2026-06-23 telemetry post, Equixly 2025-03-29, Glama TDQS 2026-04-03 blog, labs.zenity.io full report) should be verified if cited; none is expected to add a declared-vs-runtime measurement.
 - A2A agent cards ('declared capabilities vs runtime delegation', named as next target by mcp-evidence-validator's roadmap) and A2ABreak (arXiv 2609.10871, 2026-09-09) were not opened; adjacent framing worth one check.
 - Whether SandScope's authors have released the 100-repo corpus and Table 8 raw data (which would allow extending the egress cross-check to other dimensions) was not checked.
 
@@ -789,7 +789,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search: MCP servers "readOnlyHint" annotations accuracy analysis -> Stacklok, sunpeak (Jul 2026), dev.to MCPSafe, Codex KB; no accuracy measurement`
 - `web search: "over-privileged" MCP servers analysis study -> 2603.21641, 2507.06250, Knostic blog`
 - `web search: MCP servers dynamic analysis sandbox runtime behavior network file access study -> 2601.01241, 2607.11086, anthropic sandbox-runtime repo`
-- `web search: Equixly MCP servers command injection analysis "43%" servers -> Equixly 2025-03-29 post (opened in the search pass; not in verified set)`
+- `web search: Equixly MCP servers command injection analysis "43%" servers -> Equixly 2025-03-29 post (opened during the search; not in verified set)`
 - `web search: Backslash Security "NeighborJack" MCP servers analysis findings -> Backslash 2025-06-25 primary (opened)`
 - `web search: Docker MCP Gateway Toolkit isolation MCP servers secrets environment variables blog -> design posts only, no measurement`
 - `web search: Astrix Security "State of MCP" 1,808 servers report findings -> Astrix 2025-10-15 (5,205 READMEs; opened)`
@@ -804,10 +804,10 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search: MCP server npm packages install scripts postinstall behaviour analysis malicious -> Snyk postmark-mcp, Microsoft dependency confusion; no MCP install-script study`
 - `web search: Koi Security MCP servers research analysis behaviour -> postmark-mcp / mcp-runcommand-server case studies only`
 - `web search: MCP servers "phone home" OR telemetry OR "undisclosed network" analysis observed traffic -> ARMO, Red Canary; no measurement`
-- `web search: site:snyk.io MCP servers research scanned analysis findings -> Snyk 2026-06-23 telemetry post (~10,000 dev environments; opened in the search pass, not in verified set)`
+- `web search: site:snyk.io MCP servers research scanned analysis findings -> Snyk 2026-06-23 telemetry post (~10,000 dev environments; opened during the search, not in verified set)`
 - `web search: site:docker.com blog MCP servers "least privilege" OR "over-privileged" OR "declared" analysis catalog -> Docker 2025-07-31 (aggregates arXiv figures) and 2025-05-06 (readOnlyHint-driven read-only mounts proposal)`
 - `web search: Anthropic "sandbox-runtime" OR "srt" MCP servers sandboxing blog filesystem network restrictions -> Anthropic 2025-10-20 post; no measurement`
-- `web search (not run: search budget exhausted): Windows MCP registry servers "declare" capabilities OR privileges Microsoft agentic Windows security architecture MCP; "readOnlyHint" misleading OR incorrect OR "lies" MCP server tool actually writes; "MCP" "permission manifest" OR "capability manifest" OR "permissions declaration" servers proposal SEP; arxiv 2026 MCP tool "declared" capabilities "observed" runtime behaviour mismatch "tools/list"; MCP behavioural profiling Docker sandbox large-scale; "Do Not Mention This to the User" USENIX 2026; "MCP" servers "least privilege" "Docker MCP Gateway" OR "ToolHive" OR "mcp-guardian" measured actual network file access catalog servers 2026`
+- `web search (unavailable) :: Windows MCP registry servers "declare" capabilities OR privileges Microsoft agentic Windows security architecture MCP; "readOnlyHint" misleading OR incorrect OR "lies" MCP server tool actually writes; "MCP" "permission manifest" OR "capability manifest" OR "permissions declaration" servers proposal SEP; arxiv 2026 MCP tool "declared" capabilities "observed" runtime behaviour mismatch "tools/list"; MCP behavioural profiling Docker sandbox large-scale; "Do Not Mention This to the User" USENIX 2026; "MCP" servers "least privilege" "Docker MCP Gateway" OR "ToolHive" OR "mcp-guardian" measured actual network file access catalog servers 2026`
 - `Bing RSS via curl: "readOnlyHint" MCP tool annotations misleading OR incorrect OR mismatch; MCP tool annotations accuracy analysis servers readOnlyHint destructiveHint study; MCP server tool annotations readOnlyHint accuracy audit; over-privileged MCP servers security vendor research; MCP servers runtime behaviour observed sandbox file network syscalls analysis blog -> garbage or generic intro pages`
 - `gh api search/repositories: mcp readOnlyHint audit; mcp server sandbox trace behavior analysis; mcp-audit; mcp server privilege analysis; mcp scanner runtime dynamic; cosai mcp security; org:cosai-oasis -> no relevant repos (pipelock, mcp-postgres-guard only)`
 - `gh search repos: readOnlyHint; mcp declared observed behavior; mcp server strace sandbox audit; mcp sandbox audit; mcp behavioral; mcp permission audit; mcp annotations lint; mcp egress; mcp syscall; mcp strace; mcp least privilege; mcp overprivileged; mcp capability manifest -> brnyxx/panopticon, aktanazat/behavioral-abi, abdulsince2008/mcp-least-privilege-auditor, akhilesharora/herkos (not opened), goutamadwant/mcp-egress-guard (not opened); none publishes cross-server data`
@@ -822,7 +822,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search (ko): MCP 서버 보안 권한 과다 분석 연구 도구 실제 동작 2026 -> news/guides summarising Backslash/Invariant`
 - `web search (de): MCP-Server Sicherheit Berechtigungen Studie Analyse "MCP-Server" Laufzeit Verhalten 2026 -> led to Canopii 'State of MCP Security 2026' via drweb.de`
 - `web search (es): servidores MCP seguridad análisis permisos excesivos estudio herramientas comportamiento real 2026 -> guides only`
-- `web search: OWASP "MCP Top 10" tool annotations readOnlyHint destructiveHint trust -> sunpeak testing guide (opened, no data), Tool Annotations IG charter (opened in the search pass), explainer posts`
+- `web search: OWASP "MCP Top 10" tool annotations readOnlyHint destructiveHint trust -> sunpeak testing guide (opened, no data), Tool Annotations IG charter (opened during the search), explainer posts`
 - `web search: OWASP "MCP Top 10" official 2026 release "excessive permissions" OR "over-privileged" MCP servers percentage data -> no prevalence data (next release October 2026 per coverage)`
 - `web search: Cloud Security Alliance MCP server security research declared capabilities runtime behavior 2026 -> CSA notes/best practices; NSA CSI PDF URL (blocked)`
 - `web search: Black Hat USA 2026 briefings MCP servers runtime analysis sandbox privilege -> Straiker and Zenity recaps; blackhat.com 403/JS`
@@ -845,8 +845,8 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search: "MCP servers" strace OR "opensnoop" OR "sysdig" traced "what files" "network connections" blog experiment 2026 -> mcpsnoop (JSON-RPC proxy, Jul 2026), eunomia-bpf/MCPtrace scripts; no corpus measurement`
 - `web search: Sysdig OR Falco OR Datadog MCP server runtime behavior eBPF observed "MCP servers" analysis 2026 -> product pages and eBPF explainers only`
 - `web search: Wiz OR "Unit 42" OR Aikido OR JFrog research MCP servers scanned over-permissioned tools findings 2026 -> Wiz exposed-server/honeypot posts, JFrog marketing; nothing on declared vs actual`
-- `web search + fetch developers.openai.com/apps-sdk/app-submission-guidelines: OpenAI Apps SDK app review readOnlyHint destructiveHint annotations "accurately" -> annotations + written justification required; rejection 'common' for wrong labels; no verification mechanism or stats (opened in the search pass, not in verified set)`
-- `web search + fetch claude.com/docs/connectors/building/submission: Anthropic MCP directory policy connectors review tool annotations -> annotations mandatory; manual review; no data (opened in the search pass, not in verified set)`
+- `web search + fetch developers.openai.com/apps-sdk/app-submission-guidelines: OpenAI Apps SDK app review readOnlyHint destructiveHint annotations "accurately" -> annotations + written justification required; rejection 'common' for wrong labels; no verification mechanism or stats (opened during the search, not in verified set)`
+- `web search + fetch claude.com/docs/connectors/building/submission: Anthropic MCP directory policy connectors review tool annotations -> annotations mandatory; manual review; no data (opened during the search, not in verified set)`
 - `web search + fetch theweatherreport.ai/posts/aisvs-action-class-authority/: OWASP AISVS "9.2.3" reversibility classification -> Agnihotri post 2026-06-05 proposing manifest-declared reversibility; no measurement`
 - `web search + curl PDF + fetch index.canopii.dev (mcp-security-index, methodology, per-server page): Canopii "State of MCP Security 2026" 11,524 servers -> full report read; live index captured; no annotation-accuracy control`
 - `fetch + curl https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327 -> guidance; no measurements; not included`
@@ -1476,7 +1476,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search :: site:ndss-symposium.org "model context protocol" OR "MCP servers" 2026 :: none; learned 2510.16558 accepted to DSN 2026`
 - `web search :: site:semanticscholar.org "model context protocol" malicious MCP servers supply chain incidents :: only known arXiv papers`
 - `web search :: site:openreview.net "model context protocol" MCP security attack servers :: Log-To-Leak, LiveMCPBench (benchmarks, no incident inventory)`
-- `web search :: arxiv "CVE-2025-49596" OR "CVE-2025-53109"; arxiv "postmark-mcp" ... :: not run: search budget exhausted`
+- `web search :: arxiv "CVE-2025-49596" OR "CVE-2025-53109"; arxiv "postmark-mcp" ... :: web search unavailable`
 - `DuckDuckGo html/lite via curl :: same four queries :: blocked (anomaly page), 0 results`
 - `Bing via curl :: same four queries :: degraded, generic results only`
 - `Semantic Scholar Graph API :: title lookups for four IEEE MCP papers :: HTTP 429 on all`
@@ -1513,7 +1513,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search :: Tenet Security "Agentjacking" Sentry MCP DEF CON 34 :: Forkast/CSA/DevOps.com; 85%, 2,388 orgs`
 - `web search :: site:tenet.security agentjacking Sentry MCP :: primary at tenetsecurity.ai (2026-06-17)`
 - `web search :: Wiz Amazon Q Developer MCP config auto-load vulnerability June 2026 :: Wiz primary; CVE-2026-12957/12958; AWS bulletin`
-- `web search :: "auth0-mcp-server" npm malicious OR compromised September 2026 :: not run (search budget exhausted); GHSA page fetched instead`
+- `web search :: "auth0-mcp-server" npm malicious OR compromised September 2026 :: web search unavailable; GHSA page fetched instead`
 - `GitHub REST API via curl :: /advisories?ecosystem=npm\|pip&keywords=mcp :: keywords parameter ignored; unusable`
 - `services.nvd.nist.gov via curl :: NVD API keywordSearch=Model Context Protocol (first attempt) :: HTTP 503 / Cloudflare challenge`
 - `GitHub Advisory DB web (fetch+curl) :: github.com/advisories?query=mcp :: '783 advisories'; page 1 all Sep 4-11 2026`
@@ -1607,7 +1607,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `GitHub API + raw.githubusercontent.com :: gh api repos/ModelContextProtocol-Security/vulnerability-db (+README, tree, commits ... :: 1 advisory, 8 commits, last content 2025-07-16`
 - `Bash curl :: techcommunity.microsoft.com state-of-mcp-security-in-2026 :: 2026-06-26; zero CVE/incident names`
 - `Bash curl :: Wayback web.archive.org/web/2026/ koi.ai promptjacking; catonetworks.com DuneSlide :: Koi JS shell; Cato no capture`
-- `web search :: "Remote Server, Local Root" MCP Black Hat Asia 2026 Obsidian :: not run: search budget exhausted ...`
+- `web search :: "Remote Server, Local Root" MCP Black Hat Asia 2026 Obsidian :: web search unavailable ...`
 - `curl :: adversa.ai slug probes mcp-security-digest-june-2025 (200), august-2025 (404) ... :: series cadence established`
 - `curl :: Wayback CDX for upguard.com Asana article :: captures 20250619002302, 20250620181529 ...`
 - `python3 regex :: CVE-20xx-nnnn over arXiv HTML full texts of 2605.21392, 2605.22333, 2603.18063, 2601.17548 ... :: 2605.21392 zero concrete IDs (redacted); 2605.22333 four IDs ...`
@@ -1801,7 +1801,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - <https://digitalcommons.odu.edu/> — ODU undergraduate paper 'Behavioral Detection Methods for Automated MCP Server Vulnerability Assessment' (cited in the Tencent A.I.G README) returned 403; exact path not recorded.
 - <https://github.com/orgs/modelcontextprotocol/discussions/159> — Returned 404; the registry's reported plan for 'automated code scanning ... analysis specific to MCP servers' (seen only in search snippets) could not be attributed to a primary comment.
 - <https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration> — Surfaced by web search but not opened; Model Armor's MCP tool-scanning scope unverified.
-- <https://arxiv.org/abs/2608.00150> — Corvus (dynamic tools/call testing of internet-facing servers) - abstract metadata retrieved via arXiv API id_list only; not passed through verification, so excluded from the verdict.
+- <https://arxiv.org/abs/2608.00150> — Corvus (dynamic tools/call testing of internet-facing servers) - abstract metadata retrieved via arXiv API id_list only; not verified, so excluded from the verdict.
 - <https://arxiv.org/abs/2609.10854> — MCPSEC (description-only IPI detector) - abstract metadata via arXiv API only; not verified.
 - <https://arxiv.org/abs/2608.23763> — TrustShiftProbe/SHIELD (runtime auditing against learned clean-window baselines) - abstract metadata via arXiv API only; not verified.
 - <https://arxiv.org/abs/2608.00997> — 89-day registry-drift measurement - abstract metadata via arXiv API only; not verified.
@@ -1818,7 +1818,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 ### Open questions from the sweep
 
 - NSA CSI 'Model Context Protocol (MCP): Security Design Considerations for AI-Driven Automation' full text (403 at media.defense.gov, nsa.gov, Wayback): does it name scanners or annotation verification?
-- Corvus (arXiv 2608.00150, v1.3.2 2026-08-08, open-source), TrustShiftProbe/SHIELD (2608.23763), MCPSEC (2609.10854), registry-drift (2608.00997), Agent Audit (2603.22853), MCP Pitfall Lab/MCP-BOM (2604.21477) and the registry random-draw paper (2609.10962) were surfaced via arXiv API but not verified; a second pass should open them, especially Corvus (does it compare tools/call results with declarations?) and SHIELD (baseline vs declaration).
+- Corvus (arXiv 2608.00150, v1.3.2 2026-08-08, open-source), TrustShiftProbe/SHIELD (2608.23763), MCPSEC (2609.10854), registry-drift (2608.00997), Agent Audit (2603.22853), MCP Pitfall Lab/MCP-BOM (2604.21477) and the registry random-draw paper (2609.10962) were surfaced via arXiv API but not verified; a later check should open them, especially Corvus (does it compare tools/call results with declarations?) and SHIELD (baseline vs declaration).
 - Ant Group MCPScan (github.com/antgroup/MCPScan), Lasso mcp-gateway, Nova-Hunting nova-proximity, Aira mcp-armor, traceforce/mcp-xray and riseandignite/mcp-shield are baselines or listicle entries in verified sources but their repos, licences and maintenance state were not opened.
 - Small Aug-Sep 2026 hobby tools (mcp-fuzz/mcp-runtime-check 2026-09-05, LeonxLJX/mcpscope 2026-09-03, krishna9158/mcp-scanner 2026-07-29) were seen only via GitHub/PyPI search metadata; whether any exercises tools at runtime against readOnlyHint is unverified.
 - Glama's runtime ruleset and Stacklok's annotation-vs-source verification have no published method or figures; a direct request to both vendors, or a test listing with a deliberately mislabelled tool, would settle whether the checks run at all.
@@ -1857,7 +1857,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search :: "MCP-SecLint" static analyzer MCP vulnerabilities Dragoni DTU :: DTU Orbit record, fonCki/mcp-security-linter`
 - `web search :: site:ndss-symposium.org "Model Context Protocol" OR "MCP server" :: no NDSS-hosted hits`
 - `web search :: site:openreview.net "Model Context Protocol" MCP server security scanner audit :: only 2509.22814 and MCP-Radar; nothing scanner-specific`
-- `web search :: ASE 2026 accepted papers MCP; site:semanticscholar.org MCP scanner; declared vs runtime behavior mismatch :: not run (search budget exhausted); covered via Semantic Scholar/OpenAlex APIs`
+- `web search :: ASE 2026 accepted papers MCP; site:semanticscholar.org MCP scanner; declared vs runtime behavior mismatch :: web search unavailable; covered via Semantic Scholar/OpenAlex APIs`
 - `Semantic Scholar bulk API :: "Model Context Protocol" (scanner \| scanning \| audit \| auditing \| "static analysis") year 2025-2026 :: 163 hits; venue confirmations for MCP-Guard, MCP Safety Audit, Confused Deputy, Tracing MCP Vulns, InfrastructureSentinel`
 - `OpenAlex API :: search="Model Context Protocol" security, sort=publication_date desc, 4 pages :: 2,730 works; Zenodo 'Declared vs. Observed' (2026-09-07), mcp-defense-bench (2026-09-08), Corvus deposit (2026-07-29), State of MCP dataset (2026-09-09)`
 - `DBLP API :: Model Context Protocol :: blocked by anti-bot challenge`
@@ -1893,10 +1893,10 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search :: BlueRock Security MCP servers SSRF "7,000" OR Enkrypt AI "1,000" MCP servers scanned critical vulnerabilities report :: BlueRock MCP Trust Registry, MarkItDown SSRF post; Enkrypt 1,000-server blog`
 - `web search :: Equixly MCP servers command injection 43% research OR Trend Micro exposed MCP servers research :: Equixly 2025-03-29 (snippet only), Trend Micro 19,000 sweep`
 - `web search :: Enkrypt AI MCP security report "1,000" MCP servers 33% critical October 2025 :: enkryptai.com blog 2025-10-09`
-- `web search :: tl;dr sec newsletter MCP scanner OR "MCP security" tool roundup 2026 :: not run (search budget exhausted)`
-- `web search :: Microsoft MCP security "tool poisoning" scanner OR "MCP Gateway" Azure API Management MCP security scanning 2026 :: not run (search budget exhausted)`
-- `web search :: mcpscan.ai OR "NeuralTrust MCP Scanner" OR "Proximity" NOVA MCP scanner OR "Pipelock" MCP scanner comparison :: not run (search budget exhausted); names seen only via PipeLab secondary page`
-- `web search :: Docker MCP Catalog "verified" security scanning MCP servers Docker Hub tool poisoning detection catalog review process :: not run (search budget exhausted)`
+- `web search :: tl;dr sec newsletter MCP scanner OR "MCP security" tool roundup 2026 :: web search unavailable`
+- `web search :: Microsoft MCP security "tool poisoning" scanner OR "MCP Gateway" Azure API Management MCP security scanning 2026 :: web search unavailable`
+- `web search :: mcpscan.ai OR "NeuralTrust MCP Scanner" OR "Proximity" NOVA MCP scanner OR "Pipelock" MCP scanner comparison :: web search unavailable; names seen only via PipeLab secondary page`
+- `web search :: Docker MCP Catalog "verified" security scanning MCP servers Docker Hub tool poisoning detection catalog review process :: web search unavailable`
 - `GitHub search API :: topic:mcp-security stars:>=100 :: 32 repos; stacklok/toolhive 2158, pipelock 841, hol-guard 590, lasso-security/mcp-gateway 385, Agent-Threat-Rule 389, getagentseal/agentseal 371, MCP-Defender 257, repo-forensics 172, mcp-observatory 146, mcp-reticle 118, StackOneHQ/defender 120, OWASP/www-project-mcp-top-10 104`
 - `GitHub search API :: topic:mcp-scanner stars:>=100 :: 1 irrelevant repo (7WaySecurity/ai_osint)`
 - `GitHub search API :: mcp scanner security in:name,description stars:>=100 :: 13 repos; snyk/agent-scan 3032, agentshield 1163, cisco-ai-defense/mcp-scanner 1070, riseandignite/mcp-shield 555, Nova-Hunting/nova-proximity 304, HeadyZhang/agent-audit 228, repo-forensics 172, kapilduraphe/mcp-watch 136, sinewaveai/agent-security-scanner-mcp 121; NVIDIA/SkillSpector 16912`
@@ -1934,7 +1934,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `GitHub REST API :: search/repositories q=mcps-audit :: no such repo; AutoRedTeam-Orchestrator and mcpserver-audit`
 - `GitHub REST API / PyPI JSON API :: repos + releases for ~25 candidate repos; PyPI JSON for mcp-runtime-check, agentseal, cobaltosec-corvus, agent-audit :: dates, stars, licence, latest release captured`
 - `curl :: https://web.archive.org/web/2026/https://media.defense.gov/2026/Jun/02/2003943289/-1/-1/0/CSI_MCP_SECURITY.PDF :: 403; NSA PDF unreadable from all three locations`
-- `GitHub REST API + raw README (synthesis pass, 2026-09-11) :: repos/narko4u/mcp-evidence-validator; raw README.md grep for runtime/proxy/sandbox/syscall :: 0 stars, Apache-2.0, pushed 2026-08-18; validator diffs user-supplied declared vs observed JSON; 'MCP client integration (intercept tool-call records via a lightweight proxy)' is an unchecked roadmap item`
+- `GitHub REST API + raw README (for the write-up, 2026-09-11) :: repos/narko4u/mcp-evidence-validator; raw README.md grep for runtime/proxy/sandbox/syscall :: 0 stars, Apache-2.0, pushed 2026-08-18; validator diffs user-supplied declared vs observed JSON; 'MCP client integration (intercept tool-call records via a lightweight proxy)' is an unchecked roadmap item`
 
 ## Registries and catalogs
 
@@ -2547,7 +2547,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - <https://api.semanticscholar.org/graph/v1/paper/search> — HTTP 429 on all three queries; no Semantic Scholar results obtained.
 - <https://www.nsa.gov/Portals/75/documents/Cybersecurity/CSI_MCP_SECURITY.pdf> — Direct nsa.gov and media.defense.gov URLs returned Access Denied; content verified only via the Wayback capture listed under supporting; the claimed 2026-06-02 posting date is unverified.
 - <https://github.com/OWASP/www-project-mcp-top-10> — Opened during the search phase only (MCP04 recommends approved/internal registries) but not carried into the verified record; not used for the verdict.
-- <https://arxiv.org/abs/2506.23474> — MCPCorpus (with https://huggingface.co/datasets/Snak1nya/MCPCorpus): opened during search, ~14K servers from MCP.so as of 2025-06-03, no vetting content; not verified in this pass.
+- <https://arxiv.org/abs/2506.23474> — MCPCorpus (with https://huggingface.co/datasets/Snak1nya/MCPCorpus): opened during search, ~14K servers from MCP.so as of 2025-06-03, no vetting content; not verified in this sweep.
 - <https://cursor.com/mcp> — JS shell with no server data or policy text.
 - <https://docs.windsurf.com/windsurf/cascade/mcp> — Mentions an MCP registry/marketplace page but contains no review policy.
 
@@ -2568,7 +2568,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - AWS Marketplace 'AI Agents and Tools' MCP listing review; Postman MCP Network verified-publisher badges; Apify Store Actor review as applied to MCP exposure; mcp.run (Dylibso) servlet publishing; Microsoft 365 Partner Center path for MCP-backed declarative agents — no primary policy pages opened.
 - NCSC, BSI, ENISA, JPCERT/IPA, KISA, CAICT — no MCP-registry-specific guidance found; direct site searches not exhaustive.
 - AAIF / Linux Foundation governance documents for the registry post-donation; MCPCon Europe (2026-09-17/18) and NA (2026-10-22/23) and MCP Dev Summit NA 2026 (April) programmes for registry-moderation sessions — session lists were JS/consent-gated.
-- Sources opened in the search phase but not carried into the verified record and therefore not cited: Pluto Security practitioner map, Astrix 'State of MCP Server Security 2025' (2025-10-15), CoSAI MCP security guide (2026-01-20), OWASP MCP Top 10 (MCP04), Straiker Black Hat 2026 roundup, Bishop Fox ClawHub post, Enkrypt, MCPCorpus (arXiv 2506.23474); a second pass should verify and decide whether any adds an inventory fact.
+- Sources opened in the search phase but not carried into the verified record and therefore not cited: Pluto Security practitioner map, Astrix 'State of MCP Server Security 2025' (2025-10-15), CoSAI MCP security guide (2026-01-20), OWASP MCP Top 10 (MCP04), Straiker Black Hat 2026 roundup, Bishop Fox ClawHub post, Enkrypt, MCPCorpus (arXiv 2506.23474); a later check should verify and decide whether any adds an inventory fact.
 - Whether the Smithery detail endpoint's 'security' field is ever non-null (all ~8 sampled were null) and what the 'official-vendor verification checklist' checks.
 - Whether Docker's PR review has ever rejected a server on security grounds (310 closed-unmerged PRs exist but reasons were not sampled).
 
@@ -2990,15 +2990,15 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - <https://intel.aikido.dev/malware?search=mcp> — Feed is JS-rendered; could not verify whether Aikido Intel carries MCP-package malware entries from static HTML.
 - <https://www.veracode.com/blog> — Index is JS-rendered with no post links in HTML; sitemap (1,086 URLs) has zero 'mcp' slugs; no Veracode MCP research located.
 - <https://dl.acm.org/doi/10.1145/3814959> — HTTP 403; TOSEM venue/date for 2506.13538 confirmed via Crossref CSL-JSON instead.
-- <akamai.com/.../new-mcp-specification-security-teams-must-prepare (path as recorded by the earlier pass)> — HTTP 403; not opened; title only from Hacker News.
+- <akamai.com/.../new-mcp-specification-security-teams-must-prepare (path as first recorded)> — HTTP 403; not opened; title only from Hacker News.
 - <labs.cloudsecurityalliance.org (CSA research notes on Deadbugz)> — HTTP 403; not opened; Pillar primary used instead.
-- <https://www.blackhat.com/us-26/ (briefings)> — Direct 403; an earlier pass used a Wayback copy of sessions.json (Check Point, Zenity MCP-mentioning briefings) but that is not in the verified record and was not used for the verdict.
+- <https://www.blackhat.com/us-26/ (briefings)> — Direct 403; the search used a Wayback copy of sessions.json (Check Point, Zenity MCP-mentioning briefings) but that is not in the verified record and was not used for the verdict.
 - <trendmicro.com en_us July 2025 'MCP Security: Network-Exposed Servers Are Backdoors to Your Private Data'> — URL returned 404; the 492-server figure is taken only from the April 2026 TrendAI update.
 - <https://api.semanticscholar.org (paper/search)> — HTTP 429 on all three queries; no data.
 - <https://dblp.org/search/publ/api> — Anti-bot challenge page; no data.
-- <https://owasp.org/www-project-mcp-top-10> — Opened by an earlier pass (beta; next release Oct 2026) but not in the verified record and not vendor-authored; not used for the verdict.
-- <OASIS press release 2026-01-27 / CoSAI MCP Security white paper> — Opened by an earlier pass but not in the verified record; github.com raw doc returned 429; standards body, not a vendor.
-- <Trail of Bits blog category /categories/mcp/ (6 posts Apr–Nov 2025), Cisco MCP Scanner launch (2025-10-23), Unit 42 MCP sampling (2025-12-05), Docker MCP Horror Stories issue 1 (2025-07-31), Microsoft indirect-injection-in-MCP (2025-04-28), Snyk ToxicSkills/Leaky Skills blog posts> — Reported opened by the earlier discovery pass but absent from the verified record; not re-opened in the synthesis pass, so excluded from supporting and counted only as leads.
+- <https://owasp.org/www-project-mcp-top-10> — Opened during the search (beta; next release Oct 2026) but not in the verified record and not vendor-authored; not used for the verdict.
+- <OASIS press release 2026-01-27 / CoSAI MCP Security white paper> — Opened during the search but not in the verified record; github.com raw doc returned 429; standards body, not a vendor.
+- <Trail of Bits blog category /categories/mcp/ (6 posts Apr–Nov 2025), Cisco MCP Scanner launch (2025-10-23), Unit 42 MCP sampling (2025-12-05), Docker MCP Horror Stories issue 1 (2025-07-31), Microsoft indirect-injection-in-MCP (2025-04-28), Snyk ToxicSkills/Leaky Skills blog posts> — Reported opened during the search but absent from the verified record; not re-opened for the write-up, so excluded from supporting and counted only as leads.
 - <practical-devsecops 'MCP Security Statistics 2026', adversa.ai monthly MCP roundups (Jun/Sep 2026), the-agent-report 'Q3 2026: 14 CVEs, 200,000 exposed servers'> — Secondary aggregators found in search but not opened.
 - <Bindfort (5/5 official servers with vulnerable transitive SDK 1.0.1) and Zenodo 'Major Labs State of MCP' dataset (10.5281/zenodo.22674847)> — Surfaced via HN Algolia / OpenAlex but not opened; Zenodo item is not vendor-authored.
 - <CSDN / cn-sec / bex.co / ByteDive (Chinese and Korean coverage)> — Secondary coverage only; no Tencent Zhuque Lab, Ant Group, KISA or AhnLab primary located or opened.
@@ -3016,7 +3016,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - Koi's October 2025 'The MCP Backdoor' webinar and Koi/Palo Alto Networks content after the April 2026 acquisition were not opened; whether Koi published any aggregate count of malicious MCP packages flagged by its risk engine is unknown.
 - Black Hat USA 2026 (Zenity 'tens of thousands of skills', Check Point framework CVEs) and DEF CON 34 (Wiz/Google LiteLLM MCP auth bypass 'across thousands of real-world instances'; Tenet Security 'est 15,000+ organizations exposed via Cloudflare MCP alone') talks were seen only as abstracts; slides/recordings could hold measurements not captured here.
 - Chinese primary sources (Tencent Zhuque Lab AI-Infra-Guard, Ant Group MCPScan write-ups, TC260 guides) were not located; they may contain registry-scale scan results given their scanners were evaluated by Fudan.
-- OWASP MCP Top 10 (beta, next release Oct 2026) and the CoSAI/OASIS MCP security white paper (Jan 2026) were opened only by the earlier pass; whether either cites vendor measurements beyond those listed is unchecked.
+- OWASP MCP Top 10 (beta, next release Oct 2026) and the CoSAI/OASIS MCP security white paper (Jan 2026) were opened only during the search; whether either cites vendor measurements beyond those listed is unchecked.
 - The Zenodo 'Major Labs State of MCP' longitudinal dataset (2026-09-09) and MSR 2026 'Large-Scale Dataset of MCP Implementations on GitHub' are non-vendor datasets that may already cover parts of the install-time census gap; not opened.
 - Whether Socket's threat feed exposes an MCP-specific slice (counts of malicious MCP-named packages) via the Socket MCP product or API was not tested.
 
@@ -3044,7 +3044,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search :: site:arxiv.org "mcp-scan" OR "MCP-Scan" OR "Invariant Labs" tool poisoning MCP :: 10 third-party hits plus Invariant TPA blog`
 - `web search :: site:dl.acm.org "Model Context Protocol" security servers empirical :: TOSEM 3814959, TOSEM 3796519, MCP-Scanner EnCyCriS 2026, MCP-SecLint IWSPA 2026; no vendor items`
 - `web search :: site:ieeexplore.ieee.org "Model Context Protocol" security :: 5 third-party items; no vendor items`
-- `web search :: site:usenix.org / ndss-symposium.org / semanticscholar.org / openreview.net "Model Context Protocol" :: not run (search budget exhausted); replaced by direct curl`
+- `web search :: site:usenix.org / ndss-symposium.org / semanticscholar.org / openreview.net "Model Context Protocol" :: web search unavailable; replaced by direct curl`
 - `api.semanticscholar.org (curl) :: 3 queries :: HTTP 429; no data`
 - `dblp.org publ API (curl) :: model context protocol security; MCP server :: bot challenge; no data`
 - `api.crossref.org :: query.title=model context protocol security rows=40 :: ~30 items; none vendor-authored`
@@ -3076,34 +3076,34 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic syntheses of the 2026
 - `web search :: Aikido Security blog MCP server malicious OR "tool poisoning" OR "MCP" research Aikido Intel 2025 2026 :: zero Aikido results`
 - `web search :: Koi Security blog MCP "postmark-mcp" OR "MCP server" research koi.security OR koi.ai :: secondary coverage only; koi.ai redirects to PANW`
 - `web search :: Palo Alto Networks acquires Koi Security agentic endpoint security :: intent Feb 17 2026, completed Apr 14 2026 (press releases not opened)`
-- `web search :: blog.modelcontextprotocol.io security registry moderation 2026 :: not run (search budget exhausted); replaced by direct fetch of blog posts pages 1-3`
+- `web search :: blog.modelcontextprotocol.io security registry moderation 2026 :: web search unavailable; replaced by direct fetch of blog posts pages 1-3`
 - `curl :: socket.dev/blog pages 1-3 grep mcp :: 322 slugs; 2 MCP-titled posts`
 - `curl :: socket.dev sitemap-0..7.xml grep mcp\|model-context\|agent\|claude\|skill :: 759 blog URLs; 8 MCP slugs, 36 AI-agent slugs; opened 7; no MCP measurement`
 - `curl :: invariantlabs.ai/blog index :: 17 posts; 5 MCP posts (Apr 1, Apr 7, Apr 11, Apr 24, May 26 2025) plus Toxic Flows Jul 29 2025`
 - `fetch + curl :: labs.snyk.io index + snyk.io/llms.txt :: gated report landing page located`
 - `curl :: snyk.io sitemaps (blogs, articles, pages, press-releases, events, videos, podcasts) grep mcp\|toxic\|agent-scan\|invariant\|skills\|agentic :: 1,827 blog + 383 article + 66 press URLs; ~60 hits`
-- `curl :: snyk.io/sitemaps/sitemap-blogs.xml grep postmark\|mcp (synthesis pass) :: 5 MCP slugs; opened malicious-mcp-server-on-npm-postmark-mcp-harvests-emails (article:published_time 2025-09-25)`
+- `curl :: snyk.io/sitemaps/sitemap-blogs.xml grep postmark\|mcp (for the write-up) :: 5 MCP slugs; opened malicious-mcp-server-on-npm-postmark-mcp-harvests-emails (article:published_time 2025-09-25)`
 - `DuckDuckGo HTML :: Snyk State of Agentic AI Adoption report January 2026 :: both PDFs found on res.cloudinary.com/snyk; pdftotext`
 - `DuckDuckGo HTML :: Snyk "Agent Scan" MCP open source launch invariant :: blocked; resolved via GitHub API`
-- `GitHub API :: repos/snyk/agent-scan (re-run in the synthesis pass) :: created 2025-04-07, pushed 2026-09-11, 3,033 stars, description 'Security scanner for AI agents, MCP servers and agent skills.'`
+- `GitHub API :: repos/snyk/agent-scan (re-run for the write-up) :: created 2025-04-07, pushed 2026-09-11, 3,033 stars, description 'Security scanner for AI agents, MCP servers and agent skills.'`
 - `curl + Wayback :: blog.phylum.io :: direct fails; Jan 2026 snapshot shows no MCP post; phylum.io -> veracode.com`
 - `curl :: veracode.com/blog index :: JS-rendered; no 'mcp' string`
 - `curl :: veracode.com sitemap_index.xml children grep mcp\|agent\|skill\|claude\|copilot\|llm :: 1,086 URLs; ZERO 'mcp' slugs; OpenClaw post has 1 MCP mention as package name`
 - `curl :: aikido.dev/blog + sitemap.xml grep mcp\|agent\|skill\|claude\|cursor\|prompt\|llm :: 928 URLs; ZERO 'mcp' slugs; MCP only in passing in 4 agent posts`
 - `curl :: intel.aikido.dev/malware?search=mcp :: JS-rendered; unverifiable`
 - `Wayback :: koi.ai/blog (Jun 13 2026 snapshot) :: 55 slugs; 7 MCP-related`
-- `web.archive.org CDX API :: url=koi.ai/blog/* collapse=urlkey filter mcp\|figma\|local (re-run in the synthesis pass) :: Figma CVE-2025-53967 post (capture 2025-10-10) and 'Trust Me, I'm Local' (capture 2025-10-05) located and opened via id_ captures`
+- `web.archive.org CDX API :: url=koi.ai/blog/* collapse=urlkey filter mcp\|figma\|local (re-run for the write-up) :: Figma CVE-2025-53967 post (capture 2025-10-10) and 'Trust Me, I'm Local' (capture 2025-10-05) located and opened via id_ captures`
 - `curl :: anthropic.com/engineering index grep mcp\|sandbox\|secur\|skill :: 25 posts; none dedicated to MCP security`
-- `curl (synthesis pass) :: anthropic.com/engineering/how-we-contain-claude :: opened; 'Published May 25, 2026'; 7 MCP mentions; Gray Swan 0.1%/5–6%, 83%, 84% figures verbatim`
-- `curl (synthesis pass) :: anthropic.com/engineering/claude-code-sandboxing :: opened; 'Published Oct 20, 2025'; 1 MCP mention; 84% figure verbatim`
-- `curl (synthesis pass) :: support.claude.com/en/articles/13145358-anthropic-software-directory-policy :: opened; lastUpdatedDate 2026-04-15; hidden-instruction, dynamic-pull, cross-tool coercion, readOnlyHint/destructiveHint and OAuth 2 rules verbatim`
+- `curl (for the write-up) :: anthropic.com/engineering/how-we-contain-claude :: opened; 'Published May 25, 2026'; 7 MCP mentions; Gray Swan 0.1%/5–6%, 83%, 84% figures verbatim`
+- `curl (for the write-up) :: anthropic.com/engineering/claude-code-sandboxing :: opened; 'Published Oct 20, 2025'; 1 MCP mention; 84% figure verbatim`
+- `curl (for the write-up) :: support.claude.com/en/articles/13145358-anthropic-software-directory-policy :: opened; lastUpdatedDate 2026-04-15; hidden-instruction, dynamic-pull, cross-tool coercion, readOnlyHint/destructiveHint and OAuth 2 rules verbatim`
 - `curl :: anthropic.com/news/investigating-incidents-cybersecurity-evals + /research/alignment-assessment-cybersecurity-incidents :: zero MCP mentions`
 - `curl :: blog.modelcontextprotocol.io/posts pages 1-3 :: 28 posts; opened registry preview, tool annotations, 2026-07-28 spec release`
-- `curl (synthesis pass) :: invariantlabs.ai smithery-mcp-scan / introducing-mcp-scan / toxic-flow-analysis / whatsapp-mcp-exploited :: opened; dates 2025-04-24, 2025-04-11, 2025-07-29, 2025-04-07 from page metadata`
-- `curl :: endorlabs.com, knostic.ai sitemaps; backslash/astrix/pipelab/equixly/docker/trendmicro probes :: Endor, Knostic, Astrix located; Trend Micro 200 not opened in that pass`
-- `curl (synthesis pass) :: backslash.security/blog/hundreds-of-mcp-servers-vulnerable-to-abuse :: opened; June 25, 2025; 'thousands' scanned, 'hundreds' bound to 0.0.0.0, 'dozens' command execution`
-- `curl (synthesis pass) :: equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/ :: opened; datePublished 2025-03-29; 43%/22%/30%/5% figures; sample size not stated`
-- `curl (synthesis pass) :: socket.dev/blog/socket-mcp-supply-chain-investigation :: opened; datePublished 2026-06-18; product post`
+- `curl (for the write-up) :: invariantlabs.ai smithery-mcp-scan / introducing-mcp-scan / toxic-flow-analysis / whatsapp-mcp-exploited :: opened; dates 2025-04-24, 2025-04-11, 2025-07-29, 2025-04-07 from page metadata`
+- `curl :: endorlabs.com, knostic.ai sitemaps; backslash/astrix/pipelab/equixly/docker/trendmicro probes :: Endor, Knostic, Astrix located; Trend Micro 200 not opened`
+- `curl (for the write-up) :: backslash.security/blog/hundreds-of-mcp-servers-vulnerable-to-abuse :: opened; June 25, 2025; 'thousands' scanned, 'hundreds' bound to 0.0.0.0, 'dozens' command execution`
+- `curl (for the write-up) :: equixly.com/blog/2025/03/29/mcp-server-new-security-nightmare/ :: opened; datePublished 2025-03-29; 43%/22%/30%/5% figures; sample size not stated`
+- `curl (for the write-up) :: socket.dev/blog/socket-mcp-supply-chain-investigation :: opened; datePublished 2026-06-18; product post`
 - `Bing HTML via curl :: Anthropic MCP Directory policy :: anti-bot decoy results; unusable`
 - `Google HTML via curl :: Anthropic MCP Directory policy :: JS shell; unusable`
 - `SearXNG / Qwant / Marginalia / Yandex :: Anthropic MCP Directory policy :: 429/403/302/empty; unusable`

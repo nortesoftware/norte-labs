@@ -12,21 +12,22 @@ Wilson interval in brackets.
 The ACP registry installs and launches every agent in CI and publishes the outcome
 (`.protocol-matrix/latest.json` of 2026-09-16: 34 agents probed, `initialize` and `session/new`
 status each — its own summary: 33 of 34 initialize, 21 answer `session/new` with auth_required;
-`quarantine.json`: 8 agents frozen, with a reason). We ran the same 42 agents — the 41 the
-index publishes plus `github-copilot`, which the build excludes from the default index but
+`quarantine.json`: 8 agents frozen, with a reason). The run covered the same 42 agents — the 41
+the index publishes plus `github-copilot`, which the build excludes from the default index but
 which sits in the repository and in the matrix — on linux-x86_64, one cell per distribution: 23
 npm, 2 uvx, 19 binary. Same handshake (`initialize` with the probe's client capabilities, then
 `session/new`), same outcome classes.
 
 ### Agreement
 
-For the agents the matrix probed, on the same distribution, our `initialize` and `session/new`
-outcomes matched theirs in **33/34** (97.1 % [85.1–99.5]) after two harness corrections (the
-extractor did not handle `.tar.bz2` archives or bare executables; goose's binary then matched —
-sigit's binary is not compared, the matrix probes its npm distribution). Two cells needed a run
-of their own: `junie`, whose 332 MB archive would not finish downloading under strace while
-another batch shared the one CPU; run alone at the end, it downloaded in 14 s, started, and
-agrees with the matrix (`initialize`, `session/new` success) — and `cline`, below.
+For the agents the matrix probed, on the same distribution, the instrument's `initialize` and
+`session/new` outcomes matched theirs in **33/34** (97.1 % [85.1–99.5]) after two harness
+corrections (the extractor did not handle `.tar.bz2` archives or bare executables; goose's
+binary then matched — sigit's binary is not compared, the matrix probes its npm distribution).
+Two cells needed a run of their own: `junie`, whose 332 MB archive would not finish downloading
+under strace while another batch shared the one CPU; run alone at the end, it downloaded in
+14 s, started, and agrees with the matrix (`initialize`, `session/new` success) — and `cline`,
+below.
 
 The one disagreement is an archive, not an agent: `cortex-code` (Snowflake) is `process_error`
 in their matrix with the message "Extraction failed" — the registry's `verify_agents.py`
@@ -40,8 +41,8 @@ had just published `ai@6.0.284` and `@ai-sdk/gateway@3.0.195`; `cline` pins none
 so a "pinned" registry entry resolves through floating transitive dependencies to whatever the
 ai-sdk monorepo is publishing at that minute. Installed a second time, it succeeded in 104 s —
 and npm created no `node_modules/.bin/cline` link for the package's declared bin (reproduced
-outside the sandbox); the registry's `npx` launch does not depend on the link, ours did, and
-the cell was run a third time with the bin path itself; it then agrees with the matrix
+outside the sandbox); the registry's `npx` launch does not depend on the link, the instrument's
+did, and the cell was run a third time with the bin path itself; it then agrees with the matrix
 (`initialize`, then auth_required).
 
 ### The eight quarantines

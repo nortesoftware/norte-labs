@@ -26,12 +26,12 @@ every measurement, verification before every claim.
   and first start: the 42 ACP agents (validated cell by cell against the registry's own CI),
   330 Cursor plugins, 171 Devin plugins, 73 Zed context servers — whole populations, no
   sample. Install scripts, egress, telemetry, `$HOME` paths, what hooks download, what a
-  quarantine means; harness, per-cell results, generated report, findings, adversarial
-  verification with its corrections.
+  quarantine means; harness, per-cell results, generated report, findings, additional checks
+  with their corrections.
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
-  Harness, per-cell results, generated report, findings, and the adversarial verification pass
-  with its retractions.
+  Harness, per-cell results, generated report, findings, and the additional checks with their
+  retractions.
 
 ## Conventions
 

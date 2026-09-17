@@ -51,7 +51,6 @@ export interface Spec {
 
 const linesOf = (rows: unknown[]) => rows.map((r) => JSON.stringify(r)).join('\n') + '\n';
 
-// -------------------------------------------------------------------- acp --
 export function buildAcp(cloneDir: string): { rows: Spec[]; stats: Record<string, unknown> } {
   const commit = execFileSync('git', ['-C', cloneDir, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
   const date = execFileSync('git', ['-C', cloneDir, 'log', '-1', '--format=%cI'], { encoding: 'utf8' }).trim();
@@ -102,7 +101,6 @@ export function buildAcp(cloneDir: string): { rows: Spec[]; stats: Record<string
   return { rows, stats };
 }
 
-// ----------------------------------------------------------------- cursor --
 export function buildCursor(outDir: string): { rows: Spec[]; stats: Record<string, unknown> } {
   const raw = execFileSync('curl', ['-sS', '-X', 'POST', 'https://api2.cursor.sh/aiserver.v1.DashboardService/ListMarketplacePlugins', '-H', 'Content-Type: application/json', '-d', '{}'], { encoding: 'utf8', maxBuffer: 50_000_000 });
   const fetchedAt = new Date().toISOString();
@@ -133,7 +131,6 @@ export function buildCursor(outDir: string): { rows: Spec[]; stats: Record<strin
   return { rows, stats };
 }
 
-// ------------------------------------------------------------------ devin --
 export function buildDevin(cloneDir: string): { rows: Spec[]; stats: Record<string, unknown> } {
   const commit = execFileSync('git', ['-C', cloneDir, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
   const date = execFileSync('git', ['-C', cloneDir, 'log', '-1', '--format=%cI'], { encoding: 'utf8' }).trim();
@@ -161,7 +158,6 @@ export function buildDevin(cloneDir: string): { rows: Spec[]; stats: Record<stri
   return { rows, stats };
 }
 
-// -------------------------------------------------------------------- zed --
 export function buildZed(): { rows: Spec[]; stats: Record<string, unknown> } {
   const raw = execFileSync('curl', ['-sS', 'https://api.zed.dev/extensions?provides=context-servers&max_schema_version=1'], { encoding: 'utf8', maxBuffer: 50_000_000 });
   const fetchedAt = new Date().toISOString();
@@ -180,7 +176,6 @@ export function buildZed(): { rows: Spec[]; stats: Record<string, unknown> } {
   return { rows, stats };
 }
 
-// ------------------------------------------------------------------- main --
 if (process.argv[1] && process.argv[1].endsWith('populations.ts')) {
   const [arm, outDir, ...rest] = process.argv.slice(2);
   const optOf = (k: string) => { const i = rest.indexOf(k); return i >= 0 ? rest[i + 1] : undefined; };

@@ -56,7 +56,6 @@ const CTOOLCHAIN = '/var/tmp/norte-toolchain/bin';
 const PYINCLUDE = join(ROOT, 'toolchain', 'root', 'usr', 'include', 'python3.13');
 const PATH = `${HOME}/.local/bin:${TOOLBIN}:${CTOOLCHAIN}:/usr/local/bin:/usr/bin:/bin`;
 
-// ------------------------------------------------------------ sandbox home --
 // The same decoys as mcp-install, plus the config files of the editors whose
 // plugins are being measured.
 const DECOYS: Record<string, string> = {
@@ -148,7 +147,6 @@ const tail = (s: string, n = 1500) => { const t = s.trim(); return t.length <= n
 const head = (s: string, n = 600) => { const t = s.trim(); return t.length <= n ? t : t.slice(0, n) + '…'; };
 const straceArgv = (out: string, cmd: string[]) => [STRACE, '-f', '-qq', '-y', '-s', '512', '-e', 'trace=file,execve,network', '-o', out, '--', ...cmd];
 
-// ------------------------------------------------------------- trace parse --
 interface TraceSummary { traceLines: number; home: HomeAccessSummary[]; net: { hosts: HostSummary[]; dnsNames: string[] }; execBasenames: Record<string, number> }
 function summariseTrace(path: string, cwd: string): TraceSummary | null {
   if (!existsSync(path)) return null;
@@ -172,7 +170,6 @@ function takeTrace(name: string, cwd: string): TraceSummary | null {
   return s;
 }
 
-// ------------------------------------------------------------ static scans --
 interface NpmScan { packagesInstalled: number; installScripts: { pkg: string; version: string; hook: string; script: string }[]; nativeNodeFiles: number; bin: { name: string; path: string } | null; bins: string[]; hasMain: boolean }
 function scanNodeModules(proj: string, id: string): NpmScan {
   const nm = join(proj, 'node_modules');
@@ -299,7 +296,6 @@ function inventoryPlugin(dir: string, manifest: any): PluginInventory {
   return inv;
 }
 
-// ----------------------------------------------------------------- git ops --
 function fetchAtRef(url: string, ref: string, dest: string): { ok: boolean; commit: string | null; ms: number; error?: string } {
   const t0 = Date.now();
   try {
@@ -330,7 +326,6 @@ function cachedClone(url: string, ref: string): { dir: string; commit: string | 
   return { dir, commit: r.commit };
 }
 
-// ------------------------------------------------------------ plugin parse --
 interface McpDecl { name: string; kind: 'stdio' | 'remote' | 'docker' | 'unknown'; command?: string; args?: string[]; envNames?: string[]; url?: string; source: string }
 interface HookDecl { event: string; command: string; source: string }
 function readJson(p: string): any | null { try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return null; } }
@@ -345,7 +340,6 @@ function locatePluginDir(repo: string, name: string, catalogueSourcePaths: strin
     const d = join(repo, dirname(sp));
     if (existsSync(d) && sp.includes('/')) return { dir: d, how: 'catalogue sourcePath' };
   }
-  // search shallowly for a manifest carrying the name
   const stack = [repo]; let depth = 0;
   while (stack.length && depth < 400) {
     const d = stack.shift()!; depth++;
@@ -413,13 +407,11 @@ function collectPlugin(dir: string, marketplace: 'cursor' | 'devin'): { manifest
   };
   if (manifest?.hooks !== undefined) hooksFrom(manifest.hooks, manifestPath ?? 'manifest');
   for (const f of ['hooks.json', 'hooks/hooks.json', '.cursor/hooks.json']) { const p = join(dir, f); if (existsSync(p) && !(typeof manifest?.hooks === 'string' && join(dir, manifest.hooks) === p)) { hooksFrom(f, f); } }
-  // dedupe hooks by event+command
   const key = new Set<string>(); const dh: HookDecl[] = [];
   for (const h of hooks) { const k = `${h.event}|${h.command}`; if (!key.has(k)) { key.add(k); dh.push(h); } }
   return { manifest, manifestPath, mcp, hooks: dh, notes };
 }
 
-// ---------------------------------------------------------- args and env --
 // Editor-provided placeholders resolve to the plugin and workspace directories;
 // anything else is a variable the user would fill, which gets a dummy value.
 const PLUGIN_ROOT_VARS = new Set(['PLUGIN_ROOT', 'CURSOR_PLUGIN_ROOT', 'CLAUDE_PLUGIN_ROOT', 'CURSOR_PLUGIN_DIR', 'pluginRoot', 'extensionPath']);
@@ -462,7 +454,6 @@ function hookInput(event: string, projectDir: string): string {
   return JSON.stringify(base) + '\n';
 }
 
-// ---------------------------------------------------------- zed resolution --
 interface ZedResolution { method: 'npm' | 'github-release' | 'command' | 'unresolved'; evidence: string[]; package?: string; version?: string; repo?: string; binaryName?: string; assetHint?: string; command?: string; args?: string[]; confidence: 'high' | 'medium' | 'low' }
 function resolveZed(dir: string): ZedResolution {
   const evidence: string[] = [];
@@ -518,7 +509,6 @@ function githubReleaseAsset(repo: string, hint?: string): { url: string; name: s
   } catch { return null; }
 }
 
-// ------------------------------------------------------------------- cell --
 interface RunResult { attempted: boolean; reason?: string; command?: string[]; envNames?: string[]; cwd?: string; installsAtRun?: boolean; ms?: number; exitCode?: number | null; signal?: string | null; client?: any; trace?: TraceSummary | null; stderrTail?: string; retriedWith?: string; firstAttempt?: { client: any; trace: TraceSummary | null } }
 interface InstallResult { method: string; command?: string[]; ok: boolean; exitCode: number | null; signal: string | null; ms: number; stderrTail: string; trace: TraceSummary | null; npm?: NpmScan; pypi?: PypiScan; binary?: { archive: string; bytes: number | null; sha256Declared: string | null; sha256Actual: string | null; sha256Match: boolean | null; extracted: string[] }; git?: { commit: string | null; error?: string } }
 interface Cell {
@@ -697,7 +687,6 @@ async function runCell(spec: Spec): Promise<Cell> {
           cell.plugin.mcpRuns.push({ name: m.name, kind: m.kind, command: m.command, ...r });
           rmSync(join(FH, 'proj', 'plugin', 'node_modules'), { recursive: true, force: true });
         }
-        // Hooks: each declared command once, with a synthetic event on stdin
         for (const h of col.hooks.slice(0, 12)) {
           // The variables plugins actually use for their own directory, in either
           // spelling; the editor substitutes some (${extensionPath}) and exports others.
@@ -763,7 +752,6 @@ async function runCell(spec: Spec): Promise<Cell> {
   return cell;
 }
 
-// ------------------------------------------------------------------- main --
 async function main(): Promise<void> {
   const [popPath, resultsPath, ...rest] = process.argv.slice(2);
   const limit = rest.includes('--limit') ? Number(rest[rest.indexOf('--limit') + 1]) : Infinity;

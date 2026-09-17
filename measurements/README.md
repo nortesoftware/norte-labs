@@ -9,4 +9,4 @@
   plugins, the 171 Devin marketplace plugins, the 73 Zed context-server extensions. The
   mcp-install instrument over four whole populations, run first against the ACP registry's
   own CI as field truth. Findings in [agent-plugins/findings.md](agent-plugins/findings.md);
-  verification and retractions in [agent-plugins/verification.md](agent-plugins/verification.md).
+  additional checks and corrections in [agent-plugins/verification.md](agent-plugins/verification.md).

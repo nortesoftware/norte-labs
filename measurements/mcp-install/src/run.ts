@@ -27,12 +27,10 @@ import type { PopRow, ArgSpec, EnvSpec } from './population.ts';
 
 const ROOT = '/var/tmp/nl-mcp-install';
 const FH = join(ROOT, 'home');
-// Verification arms (measurements/mcp-install/verification.md): NL_NO_BWRAP=1 runs the
+// Additional arms (measurements/mcp-install/verification.md): NL_NO_BWRAP=1 runs the
 // cell unconfined with $HOME pointed at the decoy directory instead of bind-mounting it
 // over the real $HOME path; NL_IDLE_MS lengthens the post-handshake idle window.
 const NO_BWRAP = process.env.NL_NO_BWRAP === '1';
-// The decoy home is mounted at the real $HOME path so traced paths read like a
-// developer's home; in the unconfined arm it is simply pointed at the directory.
 const REAL_HOME = homedir();
 const HOME = NO_BWRAP ? FH : REAL_HOME;
 const USER = userInfo().username;
@@ -53,7 +51,6 @@ const CTOOLCHAIN = '/var/tmp/norte-toolchain/bin'; // norte-guard's unprivileged
 const PYINCLUDE = join(ROOT, 'toolchain', 'root', 'usr', 'include', 'python3.13');
 const PATH = `${HOME}/.local/bin:${TOOLBIN}:${CTOOLCHAIN}:/usr/local/bin:/usr/bin:/bin`;
 
-// ------------------------------------------------------------ sandbox home --
 const DECOYS: Record<string, string> = {
   '.npmrc': '//registry.npmjs.org/:_authToken=NLCANARY-npm-token\n',
   '.ssh/id_rsa': 'NLCANARY not a key\n',
@@ -145,7 +142,6 @@ function run(argv: string[], timeoutMs: number): Promise<{ code: number | null; 
 
 const tail = (s: string, n = 1500) => { const t = s.trim(); return t.length <= n ? t : '…' + t.slice(-n); };
 
-// ------------------------------------------------------------- trace parse --
 interface TraceSummary {
   traceLines: number;
   home: HomeAccessSummary[];
@@ -168,7 +164,6 @@ function summariseTrace(path: string, cwd: string): TraceSummary | null {
   return { traceLines: lines, home: summariseHomeAccess(events, HOME), net: summariseNetwork(nt), execBasenames };
 }
 
-// ------------------------------------------------------------ static scans --
 interface NpmScan { packagesInstalled: number; installScripts: { pkg: string; version: string; hook: string; script: string }[]; nativeNodeFiles: number; bin: { name: string; path: string } | null; hasMain: boolean }
 function scanNodeModules(proj: string, id: string): NpmScan {
   const nm = join(proj, 'node_modules');
@@ -249,7 +244,6 @@ function scanVenv(proj: string, id: string, installStderr: string): PypiScan {
   return out;
 }
 
-// ---------------------------------------------------------- args and env --
 function dummyFor(spec: ArgSpec | EnvSpec): string {
   const hint = `${(spec as ArgSpec).valueHint ?? ''} ${spec.format ?? ''} ${(spec as ArgSpec).name ?? (spec as EnvSpec).name ?? ''}`.toLowerCase();
   if (spec.choices?.length) return String(spec.choices[0]);
@@ -287,7 +281,6 @@ function buildEnv(specs: EnvSpec[]): Record<string, string> {
   return env;
 }
 
-// ------------------------------------------------------------------- cell --
 interface Cell {
   id: string; registryType: string; identifier: string; version: string; serverName: string; namespace: string;
   runtimeHint: string | null; repositoryUrl: string | null; websiteUrl: string | null; aliases: number;
@@ -318,7 +311,6 @@ async function runCell(row: PopRow): Promise<Cell> {
   const traceInstall = join(HOME, 'trace-install.txt');
   const straceArgv = (out: string, cmd: string[]) => [STRACE, '-f', '-qq', '-y', '-s', '512', '-e', 'trace=file,execve,network', '-o', out, '--', ...cmd];
 
-  // ---- install arm
   let installCmd: string[];
   if (row.registryType === 'npm') {
     installCmd = ['npm', 'install', '--no-audit', '--no-fund', '--loglevel=error', `${row.identifier}@${row.version}`];
@@ -333,7 +325,6 @@ async function runCell(row: PopRow): Promise<Cell> {
   if (row.registryType === 'npm') cell.install.npm = scanNodeModules(proj, row.identifier);
   else cell.install.pypi = scanVenv(proj, row.identifier, ri.stderr + ri.stdout);
 
-  // ---- first-run arm
   let cmd: string[] | null = null; let reason: string | undefined;
   const { args, note } = buildArgs(row.packageArguments ?? []);
   if (!cell.install.ok) reason = 'install failed';
@@ -390,7 +381,6 @@ async function runCell(row: PopRow): Promise<Cell> {
   return cell;
 }
 
-// ------------------------------------------------------------------- main --
 async function main(): Promise<void> {
   const [samplePath, resultsPath, ...rest] = process.argv.slice(2);
   const limit = rest.includes('--limit') ? Number(rest[rest.indexOf('--limit') + 1]) : Infinity;

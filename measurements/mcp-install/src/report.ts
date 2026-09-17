@@ -60,7 +60,6 @@ function main(): void {
   const npm = cells.filter((c) => c.registryType === 'npm'); const pypi = cells.filter((c) => c.registryType === 'pypi');
   L.push(`# MCP: install and first start — results`, '', `Cells: ${cells.length} (npm ${npm.length}, PyPI ${pypi.length}). Generated ${new Date().toISOString().slice(0, 16)}Z. Rates with 95 % Wilson intervals.`);
 
-  // ---------------------------------------------------------- install ----
   H('## Install');
   for (const [name, set] of [['npm', npm], ['PyPI', pypi]] as const) {
     const ok = set.filter((c) => c.install.ok);
@@ -104,13 +103,11 @@ function main(): void {
     const top = Object.entries(b).sort((x, y) => y[1] - x[1]).slice(0, 20);
     if (top.length) L.push('', 'Built from sdist:', '', ...top.map(([k, v]) => `- ${k}: ${v}`));
   }
-  // network at install
   H('### Network during install');
   netSection(L, cells.filter((c) => c.install.trace), (c) => c.install.trace, 'install');
   H('### `$HOME` during install');
   homeSection(L, cells.filter((c) => c.install.trace), (c) => c.install.trace, true);
 
-  // --------------------------------------------------------- first run ----
   H('## First start');
   const attempted = cells.filter((c) => c.firstRun.attempted);
   const withClient = attempted.filter((c) => c.firstRun.client);
@@ -144,11 +141,10 @@ function main(): void {
   H('### `$HOME` at first start');
   homeSection(L, attempted.filter((c) => c.firstRun.trace), (c) => c.firstRun.trace, false);
 
-  // ------------------------------------------------ cluster-robust intervals ----
   // Publisher = GitHub/GitLab owner from repositoryUrl, else the registry namespace.
   // Cells from one publisher are not independent (same template, same SDK pin),
   // so the headline rates are repeated with a cluster-robust variance and the
-  // design effect (robust variance / iid variance). See verification.md §1.
+  // design effect (robust variance / iid variance). See verification.md, "Design effect".
   H('## Cluster-robust intervals by publisher');
   L.push('| rate | k/n | Wilson (iid) | cluster-robust | DEFF | clusters |', '|---|---|---|---|---|---|');
   const TEL = new Set(['us.i.posthog.com', 'play.googleapis.com', 'mobile.events.data.microsoft.com', 'usage.gistrec.cloud']);

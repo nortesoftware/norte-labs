@@ -79,7 +79,6 @@ for (const arm of ARMS) {
   const errs = cells.filter((c) => c.install?.signal === 'HARNESS_ERROR');
   if (errs.length) L.push(`- harness errors: ${errs.length} (${errs.map((c) => c.id).join(', ')})`);
 
-  // ---- install arm
   const ia = newAgg(); const ra = newAgg();
   const execIgnoreInstall = new Set(['npm', 'node', 'sh', 'uv', 'python3', 'python', 'curl', 'tar', 'gzip', 'sha256sum', 'mkdir', 'unzip', 'chmod', 'git']);
   const execIgnoreRun = new Set(['node', 'sh']);
@@ -103,7 +102,6 @@ for (const arm of ARMS) {
   if (ia.execs.size) L.push(`- install: other programs executed: ${top(ia.execs, 20).join('; ')}`);
   if (ia.otherHome.size) L.push(`- install: other \`$HOME\` paths touched: ${top(ia.otherHome, 20).join('; ')}`);
 
-  // ---- first-run arm
   L.push(`- first run: hosts contacted (cells): ${top(ra.hosts, 30).join('; ') || 'none'}`);
   const runUnits = (arm === 'cursor' || arm === 'devin') ? cells.reduce((a, c) => a + (c.plugin?.mcpRuns ?? []).filter((m: any) => m.attempted).length + (c.plugin?.hookRuns ?? []).length, 0) : attempted.length;
   const unitName = (arm === 'cursor' || arm === 'devin') ? 'server or hook runs' : 'attempted cells';
@@ -115,10 +113,9 @@ for (const arm of ARMS) {
   L.push(`- first run: programs executed (beyond node/sh): ${top(ra.execs, 30).join('; ') || 'none'}`);
   if (ra.otherHome.size) L.push(`- first run: other \`$HOME\` paths touched: ${top(ra.otherHome, 25).join('; ')}`);
 
-  // ---- arm specifics
   if (arm === 'acp') {
     L.push('', '### ACP: instrument against the registry\'s field truth', '');
-    L.push('| agent | dist | quarantine | matrix init / session | ours init / session | agree | install scripts | first-run hosts | credential paths read | programs executed |', '|---|---|---|---|---|---|---|---|---|---|');
+    L.push('| agent | dist | quarantine | matrix init / session | this run init / session | agree | install scripts | first-run hosts | credential paths read | programs executed |', '|---|---|---|---|---|---|---|---|---|---|');
     let agree = 0, compared = 0, quarantinedRun = 0, quarantinedOk = 0;
     for (const c of cells.sort((a, b) => a.subject.localeCompare(b.subject))) {
       const ft = c.fieldTruth ?? {}; const m = ft.matrix; const cl = c.firstRun?.client;

@@ -146,19 +146,18 @@ Google Scholar and the 2025–2026 proceedings of USENIX Security, S&P, CCS, NDS
 ASE, ACSAC, PETS, ESORICS, SANER, ICSME; industry: vendor research, operator blogs, talks,
 newsletters; code and data: GitHub, the registries' own APIs and repositories, Zenodo, Hugging
 Face, Kaggle; advisories: NVD, GHSA, OSV, press, Hacker News, the Cursor forum and the Zed and
-Open VSX issue trackers). Every proposed source was opened by an independent verification pass
-and marked confirmed / partially confirmed / refuted / unreachable; a completeness pass per topic
-looked for what was missing (2026 venues, standards bodies, other languages, primary sources for
-second-hand figures, the operators' own changelogs, legal texts and issue trackers, adjacent
-framings) and its finds went through the same verification. Result: 485 verified supporting
-sources (292 confirmed, 193 partially confirmed — the appendix says what differed), 1
-unreachable, 14 found by the completeness pass and not reached by verification, 2,292 recorded
-searches. Nothing was refuted.
+Open VSX issue trackers). Every source was opened and marked confirmed / partially confirmed /
+refuted / unreachable; each topic was then searched again for what was missing (2026 venues,
+standards bodies, other languages, primary sources for second-hand figures, the operators' own
+changelogs, legal texts and issue trackers, adjacent framings) and those finds were opened the
+same way. Result: 485 verified supporting sources (292 confirmed, 193 partially confirmed — the
+appendix says what differed — none refuted), 1 unreachable, 14 from the second search left
+unopened, 2,292 recorded searches.
 
-Limits: the web-search tool's budget was exhausted early in the sweep, so most modalities ran on
-direct APIs (arXiv, OpenAlex, Crossref, GitHub, NVD, HN Algolia, Wayback CDX) and direct fetches;
-DuckDuckGo, Bing, Brave, Startpage and Mojeek served bot challenges to this host, and the
-German/Spanish/Chinese/Japanese/Korean passes produced only re-reporting of English incident
+Limits: most modalities ran on direct APIs (arXiv, OpenAlex, Crossref, GitHub, NVD, HN Algolia,
+Wayback CDX) and direct fetches rather than on a search engine; DuckDuckGo, Bing, Brave,
+Startpage and Mojeek served bot challenges to this host, and the
+German/Spanish/Chinese/Japanese/Korean searches produced only re-reporting of English incident
 news. ACM DL and IEEE Xplore 403 (metadata through Crossref and OpenAlex; the CODASPY 2026 VSMEx
 figures come from the authors' repository); Semantic Scholar 429; DBLP behind an anti-bot page;
 Koi Security's posts redirect to Palo Alto Networks and were read through the Wayback Machine;

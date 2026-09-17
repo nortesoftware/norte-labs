@@ -1,8 +1,8 @@
 # measurements/mcp-install
 
 **Results: [findings.md](findings.md)** (narrative) and [results/report.md](results/report.md)
-(generated figures). Run of 2026-09-11, 600 cells. Adversarial verification pass and
-retractions in [verification.md](verification.md).
+(generated figures). Run of 2026-09-11, 600 cells. Additional checks and corrections in
+[verification.md](verification.md).
 
 What an MCP server does when it is installed and when it starts for the first time: install
 scripts, network on first start, telemetry, and which `$HOME` paths it touches. It is
@@ -29,7 +29,7 @@ paginated on 2026-09-11 (30,945 entries; 30,611 active).
 | **eligible**: npm or PyPI with stdio transport | **11,484** (7,987 npm + 3,497 PyPI) |
 
 OCI is out because the measurement host has no container runtime; MCPB (Claude Desktop
-bundles) is a different install path and is not included in this pass. Both are in
+bundles) is a different install path and is not included in this run. Both are in
 `results/population.ndjson.gz` for a second one.
 
 Sample: deterministic pseudo-random order (`sha256(seed + type::identifier)`, seed
@@ -102,5 +102,5 @@ node src/report.ts results/cells.ndjson results/report.md
 
 Temporary files live under `/var/tmp/nl-mcp-install/` (toolchain: strace 6.13 and uv obtained
 without privileges; caches; the decoy home, rebuilt per cell). Deleted when the run is done.
-Verification arms: `NL_IDLE_MS` (longer idle), `NL_NO_BWRAP=1` (unconfined), `NL_ENV_OVERRIDES`
+Additional arms: `NL_IDLE_MS` (longer idle), `NL_NO_BWRAP=1` (unconfined), `NL_ENV_OVERRIDES`
 (real values for declared variables; only the names reach the results).

@@ -1,6 +1,6 @@
 # agent-plugins — generated report
 
-Generated 2026-09-17T01:07:01.448Z from `results/cells-<arm>.ndjson`. Rates are n/N with 95 % Wilson intervals; N is the population.
+Generated 2026-09-17T05:11:54.895Z from `results/cells-<arm>.ndjson`. Rates are n/N with 95 % Wilson intervals; N is the population.
 
 ## acp — 44 cells
 
@@ -36,7 +36,7 @@ Generated 2026-09-17T01:07:01.448Z from `results/cells-<arm>.ndjson`. Rates are 
 
 ### ACP: instrument against the registry's field truth
 
-| agent | dist | quarantine | matrix init / session | ours init / session | agree | install scripts | first-run hosts | credential paths read | programs executed |
+| agent | dist | quarantine | matrix init / session | this run init / session | agree | install scripts | first-run hosts | credential paths read | programs executed |
 |---|---|---|---|---|---|---|---|---|---|
 | agoragentic-acp | npm | Postinstall script | not probed | success / method_not_found | — | agoragentic-mcp:postinstall, esbuild:postinstall | — | — | agoragentic-mcp |
 | amp-acp | binary | — | success / success | success / success | yes | — | — | — | amp-acp |
