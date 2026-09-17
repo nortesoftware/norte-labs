@@ -40,7 +40,9 @@ every measurement, verification before every claim.
   sample of GitHub repositories: a median project declares 26 packages and receives 604
   versions from 165 publishing identities, 87 % of them behind nothing it named; who is in
   nine trees of ten; the install-time code and who publishes it; the hosts; the design effect
-  of shared frameworks. Read from lockfiles and the registry, nothing installed.
+  of shared frameworks. Read from lockfiles and the registry, nothing installed. npm only:
+  PyPI's registry does not record who uploaded a release, so the count cannot be made there;
+  that is a limit of the measurement, not work left to do.
 
 ## Conventions
 
@@ -52,6 +54,5 @@ every measurement, verification before every claim.
   never enter a headline denominator.
 - Corrections and retractions stay written in the document they correct.
 
-Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits; the PyPI arm of
-instruction-gap (its registry names who may publish, not who published); the VSIX arm of
+Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits; the VSIX arm of
 agent-plugins (Open VSX, the gallery of Cursor and Windsurf).
