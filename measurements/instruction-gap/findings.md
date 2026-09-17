@@ -58,8 +58,10 @@ nine projects of ten: `types` (DefinitelyTyped's publishing account, 92.5 % [90.
 most reached trusted-publishing repositories are `npm/node-semver` (53.7 % of projects),
 `SuperchupuDev/tinyglobby` (48.7 %), `babel/babel` (47.3 %), `nodejs/undici` (44.2 %),
 `browserslist/caniuse-lite` (41.0 %) and `lovell/detect-libc` (40.8 %). A single account with
-publish access to what one of these publishes reaches most of the frame; the 2025 compromises
-of `qix`'s and other accounts were compromises of exactly this position.
+publish access to what one of these publishes reaches most of the frame; the September 2025
+phishing of the `qix` account, which published chalk and debug (Socket, 2025-09-08, "npm
+Author Qix Compromised via Phishing Email in Major Supply Chain Attack"; 18 packages, over 2
+billion weekly downloads per Aikido), was a compromise of exactly this position.
 
 ## 3. Code that runs at install
 
@@ -90,8 +92,9 @@ Only npm and yarn v1 lockfiles record a URL per package (572 projects). A median
 resolves from one host. 11.7 % [9.3–14.6] of the 572 record at least one host other than
 `registry.npmjs.org` and its yarn alias `registry.yarnpkg.com` (13.5 %): `github.com` 5.8 %
 (git dependencies), `registry.npmmirror.com` 4.2 % (24 projects — the Alibaba mirror, written
-into a committed lockfile by whoever installed with it configured; npm rewrites the host at
-install, so what was fetched is not what is recorded), `codeload.github.com` 1.0 %, and one
+into a committed lockfile by whoever installed with it configured; npm rewrites only
+`registry.npmjs.org` to the configured registry, so a lockfile that records the mirror makes
+every later install fetch from it), `codeload.github.com` 1.0 %, and one
 project each on `npm.pkg.github.com`, `cdn.sheetjs.com`, `gitlab.gnome.org`, a corporate
 Artifactory, `pkg.pr.new`, `npm.jsr.io`, `npm.flatt.tech` and `gitpkg.vercel.app`. Over all 892
 projects, 7.6 % [6.1–9.6] resolve at least one git or tarball dependency (156 resolved pairs in
@@ -131,8 +134,9 @@ figures are given for npm lockfiles. A publisher is an account or a trusted-publ
 repository, not a person: one person can hold several accounts and a bot account is a person's
 token; the automation heuristic is a name pattern and is published with the results. Maintainer
 lists are as of the lookup, not as of the publish. Install-time code is counted as declared, not
-as run. The `resolved` host is what the lockfile records, which npm rewrites at fetch time and
-mirrors rewrite at publish time. PyPI was not run: its registry does not say who uploaded a
+as run. The `resolved` host is what the lockfile records: npm rewrites `registry.npmjs.org` to
+the configured registry at fetch time and leaves other hosts as recorded, and mirrors rewrite
+tarball URLs to themselves. PyPI was not run: its registry does not say who uploaded a
 release.
 
 None of this is new to the tools that print it for one project at a time — `list-maintainers`
