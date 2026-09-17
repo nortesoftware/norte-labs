@@ -230,7 +230,7 @@ Rust, Devin's failures read against the manifests. What changed:
 Two instrument gaps stay as limits rather than re-runs: hook `matcher` fields are ignored, and
 the Cursor hooks and MCP declarations are collected from every file a plugin ships rather than
 the one Cursor loads. Both inflate counts of runs, not the plugin-level rates.
-## 9. Two wordings corrected while preparing the reports
+## 9. Wordings corrected while preparing the reports
 
 - Cursor: "eight plugins" read `~/.aws/credentials` was eight server starts across seven
   plugins; opensearch-agent-skills declares two AWS servers. The rate sentence now says seven.
@@ -238,3 +238,10 @@ the one Cursor loads. Both inflate counts of runs, not the plugin-level rates.
   redirects renamed repositories and returns no redirect for this one, and the extension's first
   commit in `MahoCommerce/zed` (2026-04-04) already declared the other name; it never existed
   under that name. The sentence now says so.
+- ACP: the fingerprint sentence said the qoder binary reads the baseboard serial "through
+  `dmidecode`". That is what its strings say; `dmidecode` does not appear among the executed
+  programs in the cell, and the binary run alone under strace on 2026-09-17 (endpoints pointed
+  at a local listener) opened `/sys/class/dmi/id/{bios_vendor,bios_version,bios_date,
+  board_vendor,product_name,sys_vendor}`, tried `/sys/class/net/wlan0/address` and `/dev/sda`,
+  and posted to `/repPc.json` as plain HTTP/1.0 on port 443 with an encrypted body. The sentence
+  now separates what the strings name from what was seen.

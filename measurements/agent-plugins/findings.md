@@ -102,10 +102,12 @@ confirm that each is parsed.
   because `MAVIS_REGION` is unset; it serves the API, login and the observability endpoints
   alike, so the purpose of the one connection cannot be told from the host).
 - *A device fingerprint*: qoder unpacks an x86-64 ELF embedded as base64 in its 38 MB
-  obfuscated bundle and runs it at first start; the binary reads the MAC address, the DMI
-  vendor and product and the baseboard serial through `dmidecode`, performs VM detection, and
-  reports to `sg-pum.alibabachengdun.com/repPc.json` — Alibaba's UMID / SecurityGuard endpoint
-  — to obtain a `machineToken`. In the same ten seconds qoder `stat`s every top-level entry of
+  obfuscated bundle and runs it at first start; the binary's strings name the MAC address, the
+  DMI vendor and product, the baseboard serial through `dmidecode` and VM detection, and
+  `dmidecode` is not among the programs the trace saw it execute — what it reads is the DMI
+  identifiers under `/sys/class/dmi/id` and the interface address; it reports to
+  `sg-pum.alibabachengdun.com/repPc.json` — Alibaba's UMID / SecurityGuard endpoint — to obtain
+  a `machineToken`. In the same ten seconds qoder `stat`s every top-level entry of
   `$HOME` between 2,300 and 2,800 times (`~/.aws` 2,746, `~/.ssh` 2,549, `~/.netrc` 2,396 …)
   without opening any of them except `~/.env` and `~/.gitconfig`.
 - *Downloads and installs at first start*: codebuddy-code fetches its plugin-marketplace index

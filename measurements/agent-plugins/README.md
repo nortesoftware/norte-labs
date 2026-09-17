@@ -2,7 +2,10 @@
 
 **Results: [findings.md](findings.md)** (narrative) and [results/report.md](results/report.md)
 (generated figures). Run of 2026-09-16/17, 618 cells over four whole populations. Adversarial
-verification pass and corrections in [verification.md](verification.md).
+verification pass and corrections in [verification.md](verification.md). What was reported to
+whom, with the texts as sent, is in [results/reports/](results/reports/): Cursor
+(security-reports@cursor.com), Qoder (its data-protection address) and the ACP registry
+(private report GHSA-j23x-fp73-5x84), and zed-industries/extensions#7640.
 
 What the plugins of the AI coding assistants do when they are installed and when they first
 run: install scripts, network, telemetry, which `$HOME` paths they touch, what they download.
