@@ -1,0 +1,14 @@
+{
+  "commit": "e314c2f31df259454acf6f41f932ccb333a8120b",
+  "date": "2026-09-14T20:15:53-07:00",
+  "plugins": 171,
+  "mcpUrl": 120,
+  "mcpCommand": 51,
+  "commands": {
+    "uvx": 11,
+    "docker": 24,
+    "npx": 15,
+    "pipx": 1
+  },
+  "withSkills": 38
+}

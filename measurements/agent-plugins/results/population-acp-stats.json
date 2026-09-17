@@ -1,0 +1,15 @@
+{
+  "commit": "b8978f1b29a1a9b08c1361190907d2aae00eda5e",
+  "date": "2026-09-16T10:02:47Z",
+  "agentDirs": 42,
+  "quarantined": 8,
+  "matrixProbed": 34,
+  "matrixDate": "2026-09-16",
+  "published": 41,
+  "byKind": {
+    "npm": 23,
+    "binary": 19,
+    "uvx": 2
+  },
+  "noLinuxDistribution": []
+}

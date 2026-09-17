@@ -22,6 +22,12 @@ every measurement, verification before every claim.
 - [registries/agent-plugins/](registries/agent-plugins/) — inventory of those marketplaces and
   the registries they draw from, with counts taken on 2026-09-16 and two takedown series
   derived from git history.
+- [measurements/agent-plugins/](measurements/agent-plugins/) — what those plugins do at install
+  and first start: the 42 ACP agents (validated cell by cell against the registry's own CI),
+  330 Cursor plugins, 171 Devin plugins, 73 Zed context servers — whole populations, no
+  sample. Install scripts, egress, telemetry, `$HOME` paths, what hooks download, what a
+  quarantine means; harness, per-cell results, generated report, findings, adversarial
+  verification with its corrections.
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the adversarial verification pass
@@ -38,6 +44,5 @@ every measurement, verification before every claim.
 - Corrections and retractions stay written in the document they correct.
 
 Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits, an
-instruction-gap measurement. Next measurement: agent-plugins (the mcp-install instrument over
-Cursor and Devin plugins, the ACP agent registry and Zed context servers; a VSIX arm for Open
-VSX).
+instruction-gap measurement; the VSIX arm of agent-plugins (Open VSX, the gallery of Cursor
+and Windsurf).
