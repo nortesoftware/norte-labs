@@ -222,8 +222,9 @@ artefact of collecting that file; endorctl exited silently. Of the 67 starts, 31
 package from `registry.npmjs.org` and 14 from `pypi.org` at that moment — the command is the
 install. Beyond the package indexes: five AWS plugins run the same `uvx mcp-proxy-for-aws` to
 `aws-mcp.us-east-1.api.aws` (seven declarations, two of them duplicated), and
-`~/.aws/credentials` and `~/.aws/config` are read at start by eight plugins — those five,
-opensearch-agent-skills' two AWS servers and aws-serverless — botocore's credential chain;
+`~/.aws/credentials` and `~/.aws/config` are read at start by seven plugins (eight server
+starts) — those five, opensearch-agent-skills' two AWS servers and aws-serverless — botocore's
+credential chain;
 snyk-api-web installs its server from a git URL and the `git-remote-https` inside `uvx` reads
 `~/.netrc` (as does opensearch's `awslabs.aws-api-mcp-server`), while snyk-secure-development's
 `npx snyk` fetches from `downloads.snyk.io`; firebase reads `~/.config/gcloud` and contacts
@@ -337,7 +338,9 @@ HashiCorp release, 9 the heuristic did not resolve — 3 because the extension's
 run a literal `npx` (shadcn, nextjs), 2 releases pinned by tag (kagi, bun-docs), 2 that only
 wrap a binary the user installs (container-use, fff) — and 2 repositories could not be fetched:
 one declares the placeholder `https://github.com/YOUR_GH/…` (ask-starknet-mcp, 29,288
-downloads), one has moved. Five of the 73 declare a repository that is not their source; the
+downloads), one names a repository that does not exist under that name (maho-lsp declares
+`mahocommerce/maho-zed`; the extension lives in `MahoCommerce/zed`, and its first commit already
+declared the other name). Five of the 73 declare a repository that is not their source; the
 field is author-declared and unchecked. None of the 73 declares a checksum for what it
 downloads; the extension API has no field for one.
 

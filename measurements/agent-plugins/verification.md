@@ -230,3 +230,11 @@ Rust, Devin's failures read against the manifests. What changed:
 Two instrument gaps stay as limits rather than re-runs: hook `matcher` fields are ignored, and
 the Cursor hooks and MCP declarations are collected from every file a plugin ships rather than
 the one Cursor loads. Both inflate counts of runs, not the plugin-level rates.
+## 9. Two wordings corrected while preparing the reports
+
+- Cursor: "eight plugins" read `~/.aws/credentials` was eight server starts across seven
+  plugins; opensearch-agent-skills declares two AWS servers. The rate sentence now says seven.
+- Zed: maho-lsp's declared repository (`mahocommerce/maho-zed`) was described as "moved". GitHub
+  redirects renamed repositories and returns no redirect for this one, and the extension's first
+  commit in `MahoCommerce/zed` (2026-04-04) already declared the other name; it never existed
+  under that name. The sentence now says so.
