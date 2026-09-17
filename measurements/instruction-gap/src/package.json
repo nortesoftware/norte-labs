@@ -1,0 +1,9 @@
+{
+  "name": "instruction-gap-instrument",
+  "private": true,
+  "type": "module",
+  "description": "Lockfile reader for measurements/instruction-gap; the only dependency parses the YAML lockfiles of pnpm and Yarn Berry.",
+  "dependencies": {
+    "yaml": "2.8.1"
+  }
+}

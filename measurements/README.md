@@ -10,3 +10,10 @@
   mcp-install instrument over four whole populations, run first against the ACP registry's
   own CI as field truth. Findings in [agent-plugins/findings.md](agent-plugins/findings.md);
   additional checks and corrections in [agent-plugins/verification.md](agent-plugins/verification.md).
+- [instruction-gap/](instruction-gap/) — what one `npm install` brings: for 892 lockfiles from a
+  random sample of GitHub repositories (JavaScript/TypeScript, ≥ 100 stars, active), the direct
+  dependencies declared against the versions resolved, the distinct publishers behind them, the
+  publishers of install-time code, the hosts, and the design effect of shared frameworks. Read
+  from lockfiles and the registry, nothing installed. Findings in
+  [instruction-gap/findings.md](instruction-gap/findings.md); additional checks and corrections
+  in [instruction-gap/verification.md](instruction-gap/verification.md).

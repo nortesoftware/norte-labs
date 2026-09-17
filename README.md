@@ -32,6 +32,15 @@ every measurement, verification before every claim.
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the additional checks with their
   retractions.
+- [prior-art/instruction-gap.md](prior-art/instruction-gap.md) — has anyone counted, per real
+  project, the publishers behind what one `npm install` brings? Per package yes (2019); per
+  synthetic stack yes (2026); per declared sample of real projects no. Appendix in
+  [prior-art/instruction-gap-sources.md](prior-art/instruction-gap-sources.md).
+- [measurements/instruction-gap/](measurements/instruction-gap/) — 892 lockfiles from a random
+  sample of GitHub repositories: a median project declares 26 packages and receives 604
+  versions from 165 publishing identities, 87 % of them behind nothing it named; who is in
+  nine trees of ten; the install-time code and who publishes it; the hosts; the design effect
+  of shared frameworks. Read from lockfiles and the registry, nothing installed.
 
 ## Conventions
 
@@ -43,6 +52,6 @@ every measurement, verification before every claim.
   never enter a headline denominator.
 - Corrections and retractions stay written in the document they correct.
 
-Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits, an
-instruction-gap measurement; the VSIX arm of agent-plugins (Open VSX, the gallery of Cursor
-and Windsurf).
+Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits; the PyPI arm of
+instruction-gap (its registry names who may publish, not who published); the VSIX arm of
+agent-plugins (Open VSX, the gallery of Cursor and Windsurf).

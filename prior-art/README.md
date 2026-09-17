@@ -11,3 +11,7 @@ lists the searches that were run.
   census, declared vs actual, incidents, scanners, registries, vendors? (2026-09-15/16). Sources
   and searches in [agent-plugins-sources.md](agent-plugins-sources.md); registry inventory in
   [../registries/agent-plugins/](../registries/agent-plugins/).
+- [instruction-gap.md](instruction-gap.md) — has anyone measured, per real project, how many
+  resolver decisions and how many distinct publishers stand behind the direct dependencies a
+  developer declares? (2026-09-17). Sources and searches in
+  [instruction-gap-sources.md](instruction-gap-sources.md).
