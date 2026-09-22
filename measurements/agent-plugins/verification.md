@@ -209,6 +209,34 @@ all 53 isolates what each extension left. This is what the count of extensions w
 another tool's directory is taken from; the path prefixes the trace records were the first
 basis and gave a different number, which the Corrections list states.
 
+## quickdb.quickdb read against its readme
+
+The cell that looked like the starkest case was checked before anything was reported about it,
+against the extension as published, whose archive still has the sha256 recorded on the day.
+
+- The feature is declared. The readme Open VSX serves has a section, *MCP — Connect AI Agents*,
+  for a command `QuickDB: Auto-Configure MCP for Detected Clients`; it names ten assistants and
+  lists the files written, `claude_desktop_config.json`, `~/.claude/config.json`,
+  `~/.cursor/mcp.json`, `~/.codeium/windsurf/mcp_config.json` and `~/.continue/config.json`
+  among them. The manifest contributes `mcpServerDefinitionProviders`, the editor's own API for
+  the same purpose.
+- What runs at activation is a version sync, not a registration. The routine stats each path,
+  returns early where the file is absent, and its predicate resolves the quickdb entry inside
+  `mcpServers` and rewrites only when that entry's recorded server path points into an older
+  extension directory. With no quickdb entry present the predicate is false and the file is left
+  alone. It cannot add itself to a configuration it is not already in.
+- The cell agrees. Against the decoy `~/.cursor/mcp.json` and `claude_desktop_config.json`, both
+  holding an empty `mcpServers`, and `~/.claude.json` holding none, the trace counts one open
+  for writing against each and no rename against any; the write that did land is
+  `~/.config/Code/User/mcp.json`, created where no file existed, at VS Code's path although the
+  editor under test was VSCodium. Kiro's, Windsurf's and Antigravity's paths were stat'd only.
+- The AWS reads have a declared purpose: Amazon Redshift, Amazon Athena and Amazon DynamoDB are
+  among the engines the readme lists, and the instance-metadata probe is what that SDK's
+  credential chain does when no static credential resolves.
+- With activation left to the editor the extension did not activate at all.
+
+Nothing was reported to the publisher or to the registry on this cell.
+
 ## A version that stopped being downloadable
 
 `huydo862003.typedown-vscode` was sampled and traced at 0.34.1. Four days later that version
@@ -366,6 +394,11 @@ the one Cursor loads. Both inflate counts of runs, not the plugin-level rates.
 - `Varterm.varterm-cursor`, `ZencoderAI.zencoder` and `swarmify.swarm-ext` write under another
   tool's directory and say so in their own readme or changelog; they are counted in the ten and
   are not undisclosed behaviour.
+- `quickdb.quickdb` does not register itself with assistants that have not already registered
+  it, and the behaviour is documented in its readme. The sentence "Nothing in its description
+  mentions registering itself with four assistants" was written from the one-line description
+  without the readme and was wrong; the commit message of 482d31e carries the same error.
+  What the routine does is rewrite a stale path in an entry that is already there.
 - The one connection to `cdn.jsdelivr.net` and the npm execs recorded for
   `zardoy.inline-debugger`, and the `www.schemastore.org` fetches recorded for
   `redhat.vscode-extension-dashbuilder-editor`, are a dependency extension's, not the sampled

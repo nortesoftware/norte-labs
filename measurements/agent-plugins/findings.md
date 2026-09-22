@@ -457,7 +457,9 @@ For most of the twelve it is what the extension is for and its own documentation
 Varterm's readme names `~/.cursor/varterm-autoread.json` as where its on/off state lives,
 Zencoder's names the Skills it installs under `~/.agents/skills` (39 files),
 `toadyokai.flow-to-skill`'s readme the skill it exports there (30 files), swarmify's changelog
-`~/.agents/.cache`. The rest do not.
+`~/.agents/.cache`. Of the twelve, the one whose readme says least about it is
+`Veverke.chatwizard`, whose global Copilot instructions file appears in no document of its own;
+`quickdb.quickdb`, which first reads as the starkest case, documents the feature at length.
 
 What the kept homes hold is mostly executable. `trae-jsharness.jsharness` (3,002 downloads)
 leaves `~/.trae-cn/hooks.json` and three scripts beside it — `agent-call-logger.js`,
@@ -478,18 +480,33 @@ beside Cursor's.
 `devcoreai-coding-agent.devcoreai-coding-agent` writes Cline's own
 `~/.cline/data/globalState.json` and installs a Python tool under `~/.local/share/uv/tools/`.
 
-`quickdb.quickdb` (12,434 downloads) describes itself as "Lightweight database browser for VS
-Code. Connect to databases, browse tables, and run queries." Its bundle is obfuscated behind a
-string table, and inside it is a list of configuration paths — Claude Code's `~/.claude.json`,
-Claude Desktop's, Cursor's `~/.cursor/mcp.json`, VS Code's own `~/.config/Code/User/mcp.json`,
-with Kiro, Windsurf and Antigravity among the paths it builds — walked by a routine whose own
-log strings call it `[McpVersionSync]`: it reads each file, and where its entry is stale it
-rewrites it. In the kept home the file it created is `~/.config/Code/User/mcp.json`, the one of
-those paths that did not already exist. In the same activation it read `~/.aws/credentials` and
-`~/.aws/config` and probed the cloud instance-metadata addresses `169.254.169.254` and
-`metadata.google.internal`, which is what a database driver's credential chain does. Nothing in
-its description mentions registering itself with four assistants. It declares no
-`activationEvents`, so this happens on implicit activation rather than at every start.
+`quickdb.quickdb` (12,620 downloads) is the one whose readme has to be read before the trace
+means anything. Its one-line description is "Lightweight database browser for VS Code", but the
+readme the gallery serves carries a section, *MCP — Connect AI Agents*, for a command
+`QuickDB: Auto-Configure MCP for Detected Clients`, names the ten assistants it will configure
+and lists the files it writes: `claude_desktop_config.json`, `~/.claude/config.json`,
+`~/.cursor/mcp.json`, `~/.codeium/windsurf/mcp_config.json`, `~/.continue/config.json` among
+them, backing up each and encrypting embedded credentials. The extension also contributes
+`mcpServerDefinitionProviders`, the editor's own API for the same purpose.
+
+What the trace recorded is narrower than that command and follows from it. Its bundle is
+obfuscated behind a string table; inside is the same list of paths, walked at activation by a
+routine whose own log strings call it `[McpVersionSync]`. It stats each path, skips what does
+not exist, parses what does, and rewrites a file only where that file already holds a quickdb
+entry whose recorded server path points into an older extension directory — the predicate reads
+the entry's own arguments and returns false when there is no quickdb entry at all. It cannot add
+itself to a configuration it is not already in. In the decoy home `~/.cursor/mcp.json` and
+`claude_desktop_config.json` held an empty `mcpServers`, `~/.claude.json` no server key at all,
+and none of the three was modified: the trace counts an open for writing against each, and no
+rename against any. Kiro's, Windsurf's and Antigravity's paths were stat'd and not opened. The
+one file created was `~/.config/Code/User/mcp.json`, the built-in bridge the readme names,
+written at VS Code's path although the editor running was VSCodium.
+
+Its reads of `~/.aws/credentials` and `~/.aws/config` and its probe of the instance-metadata
+addresses `169.254.169.254` and `metadata.google.internal` are an AWS SDK credential chain, and
+Amazon Redshift, Amazon Athena and Amazon DynamoDB are among the 85 engines the readme lists.
+It declares no `activationEvents`; in the re-run with activation left to the editor it did not
+activate at all.
 
 **What else the source shows.** `meanwhile-dev.meanwhile` creates `~/.deadtime/install_id`, a
 persistent UUID at mode 600, and sends it to `trymeanwhile.online` with a per-session UUID, a
