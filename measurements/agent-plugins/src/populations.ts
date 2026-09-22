@@ -1,4 +1,4 @@
-// Build the four populations. Each is the whole registry, not a sample.
+// Build the populations. Four are whole registries; the fifth (openvsx) is a seeded sample.
 //
 //   acp     the ACP registry (agentclientprotocol/registry): every agent directory
 //           (published and quarantined), one cell per distribution that runs on
@@ -12,15 +12,21 @@
 //           (api.zed.dev/extensions?provides=context-servers): one cell per
 //           extension; the command is recovered from the extension's source at
 //           run time.
+//   openvsx the Open VSX registry: the frame is its sitemap (one URL per
+//           extension), the population a seeded random sample of it — the only
+//           arm that samples, because a cell costs an editor start under strace.
+//           Per sampled extension the API record (/api/{namespace}/{name}) gives
+//           the latest version and the download for linux-x64 or universal.
 //
-// Usage: node populations.ts <arm> <out-dir> [--acp-clone <dir>] [--devin-clone <dir>]
+// Usage: node populations.ts <arm> <out-dir> [--acp-clone <dir>] [--devin-clone <dir>] [--n 600] [--seed <text>]
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
 
-export type Arm = 'acp' | 'cursor' | 'devin' | 'zed';
-export type Kind = 'npm' | 'uvx' | 'binary' | 'git-plugin' | 'zed-extension';
+export type Arm = 'acp' | 'cursor' | 'devin' | 'zed' | 'openvsx';
+export type Kind = 'npm' | 'uvx' | 'binary' | 'git-plugin' | 'zed-extension' | 'vsix';
 
 export interface Spec {
   arm: Arm;
@@ -29,7 +35,7 @@ export interface Spec {
   subjectVersion: string | null;
   source: string | null;      // repository URL
   kind: Kind;
-  protocol: 'acp' | 'mcp';
+  protocol: 'acp' | 'mcp' | 'vscode';
   // npm / uvx
   package?: string;
   version?: string;
@@ -44,6 +50,10 @@ export interface Spec {
   gitRef?: string;
   subdir?: string;
   marketplace?: 'cursor' | 'devin';
+  // vsix
+  vsixUrl?: string | null;
+  vsixSha256?: string | null;
+  targetPlatform?: string | null;
   declared?: unknown;         // what the registry/catalogue itself says about the cell
   fieldTruth?: unknown;       // acp: quarantine reason and protocol-matrix outcome
   notes: string[];
@@ -176,6 +186,55 @@ export function buildZed(): { rows: Spec[]; stats: Record<string, unknown> } {
   return { rows, stats };
 }
 
+// The sample is the first N extensions of the frame ordered by
+// sha256(seed + "\n" + id); the seed and N are published with the results, so
+// the draw can be repeated against the same sitemap.
+export function buildOpenVsx(outDir: string, n: number, seed: string): { rows: Spec[]; stats: Record<string, unknown> } {
+  const sitemap = execFileSync('curl', ['-sS', '--max-time', '120', 'https://open-vsx.org/sitemap.xml'], { encoding: 'utf8', maxBuffer: 200_000_000 });
+  const fetchedAt = new Date().toISOString();
+  writeFileSync(join(outDir, `openvsx-sitemap-${fetchedAt.slice(0, 10)}.xml`), sitemap); // the frame, gzipped before publication
+  const frame: { ns: string; name: string; lastmod: string | null }[] = [];
+  for (const m of sitemap.matchAll(/<url>\s*<loc>https:\/\/open-vsx\.org\/extension\/([^/<]+)\/([^/<]+)<\/loc>(?:\s*<lastmod>([^<]*)<\/lastmod>)?/g)) frame.push({ ns: m[1], name: m[2], lastmod: m[3] ?? null });
+  const seen = new Set<string>();
+  const distinct = frame.filter((e) => { const id = `${e.ns}.${e.name}`; if (seen.has(id)) return false; seen.add(id); return true; });
+  const keyed = distinct.map((e) => ({ e, k: createHash('sha256').update(`${seed}\n${e.ns}.${e.name}`).digest('hex') })).sort((a, b) => (a.k < b.k ? -1 : a.k > b.k ? 1 : 0));
+  const sample = keyed.slice(0, n).map((x) => x.e);
+  const rows: Spec[] = [];
+  const stats = { fetchedAt, seed, frameUrls: frame.length, frameExtensions: distinct.length, sampled: sample.length, apiMissing: 0, notDownloadable: 0, noLinuxDownload: 0, byTarget: {} as Record<string, number>, verifiedNamespace: 0, preRelease: 0, deprecated: 0, webMarker: 0 };
+  for (const e of sample) {
+    const id = `${e.ns}.${e.name}`;
+    let d: any = null;
+    try { d = JSON.parse(execFileSync('curl', ['-sS', '--max-time', '60', '-f', `https://open-vsx.org/api/${encodeURIComponent(e.ns)}/${encodeURIComponent(e.name)}`], { encoding: 'utf8', maxBuffer: 20_000_000 })); } catch { /* 404 or transient */ }
+    const base: Spec = { arm: 'openvsx', id: `openvsx::${id}`, subject: id, subjectVersion: null, source: null, kind: 'vsix', protocol: 'vscode', vsixUrl: null, vsixSha256: null, targetPlatform: null, declared: { sitemapLastmod: e.lastmod }, notes: [] };
+    if (!d || d.error) { stats.apiMissing++; base.notes.push(`registry API: ${d?.error ?? 'no record'}`); rows.push(base); continue; }
+    const downloads: Record<string, string> = d.downloads ?? {};
+    const target = downloads['linux-x64'] ? 'linux-x64' : downloads.universal ? 'universal' : d.targetPlatform === 'universal' && d.files?.download ? 'universal' : null;
+    const url = target ? (downloads[target] ?? d.files?.download ?? null) : null;
+    let sha: string | null = null;
+    if (url && d.files?.sha256) { try { sha = execFileSync('curl', ['-sSL', '--max-time', '60', '-f', String(d.files.sha256)], { encoding: 'utf8' }).trim().split(/\s+/)[0] || null; } catch { /* no digest published */ } }
+    stats.byTarget[target ?? 'none'] = (stats.byTarget[target ?? 'none'] ?? 0) + 1;
+    if (d.downloadable === false) stats.notDownloadable++;
+    if (!target) stats.noLinuxDownload++;
+    if (d.verified) stats.verifiedNamespace++;
+    if (d.preRelease) stats.preRelease++;
+    if (d.deprecated) stats.deprecated++;
+    const tags: string[] = Array.isArray(d.tags) ? d.tags : [];
+    if (tags.includes('__web_extension')) stats.webMarker++;
+    rows.push({
+      ...base, subjectVersion: String(d.version ?? ''), source: d.repository ?? null, vsixUrl: d.downloadable === false ? null : url, vsixSha256: sha, targetPlatform: target,
+      declared: {
+        sitemapLastmod: e.lastmod, version: d.version, timestamp: d.timestamp, targetPlatforms: Object.keys(downloads), downloadable: d.downloadable ?? null,
+        publishedBy: d.publishedBy ? { loginName: d.publishedBy.loginName, provider: d.publishedBy.provider } : null, verified: d.verified ?? null, namespaceDisplayName: d.namespaceDisplayName ?? null,
+        license: d.license ?? null, engines: d.engines ?? null, extensionKind: d.extensionKind ?? null, preRelease: d.preRelease ?? null, preview: d.preview ?? null, deprecated: d.deprecated ?? null,
+        downloadCount: d.downloadCount ?? null, reviewCount: d.reviewCount ?? null, averageRating: d.averageRating ?? null, categories: d.categories ?? null, webExtensionMarker: tags.includes('__web_extension'),
+        dependencies: d.dependencies ?? null, bundledExtensions: d.bundledExtensions ?? null, homepage: d.homepage ?? null, bugs: d.bugs ?? null,
+      },
+      notes: d.downloadable === false ? ['registry marks it not downloadable'] : !target ? [`no linux-x64 or universal download (targets: ${Object.keys(downloads).join(', ') || 'none'})`] : [],
+    });
+  }
+  return { rows, stats };
+}
+
 if (process.argv[1] && process.argv[1].endsWith('populations.ts')) {
   const [arm, outDir, ...rest] = process.argv.slice(2);
   const optOf = (k: string) => { const i = rest.indexOf(k); return i >= 0 ? rest[i + 1] : undefined; };
@@ -185,6 +244,7 @@ if (process.argv[1] && process.argv[1].endsWith('populations.ts')) {
   else if (arm === 'cursor') r = buildCursor(outDir);
   else if (arm === 'devin') r = buildDevin(optOf('--devin-clone')!);
   else if (arm === 'zed') r = buildZed();
+  else if (arm === 'openvsx') r = buildOpenVsx(outDir, Number(optOf('--n') ?? 600), optOf('--seed') ?? 'norte-labs agent-plugins openvsx 2026-09-17');
   else throw new Error(`unknown arm ${arm}`);
   writeFileSync(join(outDir, `population-${arm}.ndjson`), linesOf(r.rows));
   writeFileSync(join(outDir, `population-${arm}-stats.json`), JSON.stringify(r.stats, null, 2) + '\n');

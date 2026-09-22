@@ -150,6 +150,72 @@ in the published cells, and the runner rewrites the encoded forms and sets the s
 hostname. The registries' author e-mail addresses were stripped from the population and cell
 files; nothing in the findings depends on them.
 
+## The VSIX digest comparison
+
+The registry publishes one sha256 per extension record, for that record's default download.
+Eight of the 600 are platform-specific and were fetched at their `linux-x64` URL, whose bytes
+that digest does not cover; the comparison reported them as mismatches. The eight are exactly
+the eight `linux-x64` cells, and no universal download disagreed: over the 591 universal
+downloads the published digest matched the bytes fetched in all 591. The report now compares
+only the universal downloads and counts the platform-specific ones apart.
+
+## Two denominators for what an extension did at activation
+
+517 extensions were visible to the editor and 472 of them activated without error. Five more
+opened a network connection and then failed to activate — microchip.mplab-code-configurator,
+Automiflow.atlasmemory-vscode, svdschoot.compdb, redhat.mta-go and
+raul-shields63.java-extension-pack-jdk — so the count of extensions that contacted a host is 31
+against the 472 that activated and 36 against the 517 that were visible. The findings use the
+472 and name the five, because a failure after the connection does not undo it.
+
+## The run of 2026-09-18 and the driver record
+
+The run was interrupted by a power loss after 107 cells and resumed against the same results
+file, which skips the ids already written; the gap is visible in the cells' `startedAt` between
+01:31Z and 04:15Z. The driver in the harness was refreshed during the resume: cells before
+`2026-09-18T04:19:32Z` carry no `forced` or `isActiveAtEnd` field in their driver record and
+cells from `04:20:19Z` carry both. Every cell of the run was activated the same way, forced by
+the driver; the two fields are metadata the later driver records and their absence in the first
+99 driver records changes no figure.
+
+## Behaviour that belongs to a dependency
+
+The extension host is one process tree for all enabled extensions, so a declared dependency's
+syscalls fall inside the sampled extension's subtree. Read against the shipped source, two
+cells are entirely that: `zardoy.inline-debugger` registers one command and nothing else, while
+the `pnpm root -g` and `npm root -g` execs, the `~/.npmrc` read and the single connection to
+`cdn.jsdelivr.net` come from `zardoy.ide-scripting`, which the editor activates first; and
+`redhat.vscode-extension-dashbuilder-editor`'s two connections to `www.schemastore.org` and its
+`lsb_release -a` come from `redhat.vscode-yaml`, its declared hard dependency. Neither hostname
+nor exec occurs anywhere in the sampled extension's own tree.
+
+## Activation left to the editor
+
+The 121 cells that did something beyond the baseline were run a second time with `--natural`:
+the driver opens the workspace files and records `isActiveAtEnd` instead of calling
+`activate()`. 55 of the 77 that declare `*` or `onStartupFinished` were active when the window
+closed. Of the 22 that were not, 8 had also failed to activate in the forced run; the other 14
+were active there, so what the re-run shows for them is that `onStartupFinished` had not fired
+within the driver's window — the files opened plus ten seconds of idle, on a host with one CPU —
+not that they do not run at startup. The figure is therefore reported as a floor. The host was
+otherwise idle for both re-runs: a trace taken under load would have pushed activations past the
+60 s limit and recorded timeouts the extensions did not cause.
+
+## What the writers wrote
+
+The 53 cells that wrote outside their own storage were run again with each cell's decoy home
+kept, minus the editor's own directories. Comparing every kept home against the files common to
+all 53 isolates what each extension left. This is what the count of extensions writing inside
+another tool's directory is taken from; the path prefixes the trace records were the first
+basis and gave a different number, which the Corrections list states.
+
+## A version that stopped being downloadable
+
+`huydo862003.typedown-vscode` was sampled and traced at 0.34.1. Four days later that version
+returns 404 and the registry lists only 0.38.0 and 0.38.1; the namespace and the extension are
+still there. The cell stands as taken, and the source statement about it in the findings is
+read from 0.38.1 and said to be.
+
 ## Corrections
 
 Figures and wordings corrected in findings.md, each with the reason the data required it.
@@ -283,3 +349,24 @@ the one Cursor loads. Both inflate counts of runs, not the plugin-level rates.
   address, so egress is 8 of 58. `~/.npmrc` is read by two servers. mysql answered
   `initialize` but not `tools/list`. zeroheight launches an OAuth flow through `xdg-open` at
   first start.
+
+### Open VSX
+
+- The VSIX digest check is 591/591 over the universal downloads, not "591 matching, 8
+  mismatching": the eight are platform-specific downloads compared against the default
+  download's digest.
+- Extensions that write inside another tool's home directory are twelve, counted from the
+  files present in each kept decoy home rather than from the path prefixes the trace records.
+  Counting prefixes gave ten and missed three directories the prefix list did not name
+  (`~/.copilot`, `~/.cline`, `~/.trae-cn`) while counting two that were entered but left no file
+  (`claudine.claudine` in `~/.claude/ide`, `gauravmehta13.ag-multi-account-switchboard`'s lock
+  directory under `~/.gemini/antigravity-ide`); those two are stated separately. Eleven of the
+  twelve write at every editor start; `quickdb.quickdb` declares no `activationEvents` and is
+  activated implicitly.
+- `Varterm.varterm-cursor`, `ZencoderAI.zencoder` and `swarmify.swarm-ext` write under another
+  tool's directory and say so in their own readme or changelog; they are counted in the ten and
+  are not undisclosed behaviour.
+- The one connection to `cdn.jsdelivr.net` and the npm execs recorded for
+  `zardoy.inline-debugger`, and the `www.schemastore.org` fetches recorded for
+  `redhat.vscode-extension-dashbuilder-editor`, are a dependency extension's, not the sampled
+  extension's.

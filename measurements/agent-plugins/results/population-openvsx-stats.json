@@ -1,0 +1,18 @@
+{
+  "fetchedAt": "2026-09-18T00:06:43.351Z",
+  "seed": "norte-labs agent-plugins openvsx 2026-09-17",
+  "frameUrls": 17944,
+  "frameExtensions": 17944,
+  "sampled": 600,
+  "apiMissing": 0,
+  "notDownloadable": 0,
+  "noLinuxDownload": 0,
+  "byTarget": {
+    "universal": 592,
+    "linux-x64": 8
+  },
+  "verifiedNamespace": 377,
+  "preRelease": 7,
+  "deprecated": 2,
+  "webMarker": 98
+}

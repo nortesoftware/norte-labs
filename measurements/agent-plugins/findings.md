@@ -387,6 +387,128 @@ of the population, an ordinary npm install plus an MCP server start: what mcp-in
 with the extension's source as the declaration of what would be installed and the registry's
 `download_count` as the weight.
 
+## 5. Open VSX extensions
+
+The gallery behind Cursor, Windsurf and every Code-OSS build. Its sitemap of 2026-09-18 lists
+17,944 extensions; the sample is 600 of them, drawn by `sha256(seed + "\n" + namespace.name)`,
+and it is the only arm here whose sample is not the whole population, so the rates below are
+estimates for the registry. Between them the 600 carry 13,365,196 downloads, median 1,690; 377
+are in a verified namespace. All 600 had a registry record and a download; 599 were fetched (one
+download failed) and the editor installed every one of them.
+
+**What there is to activate.** 78 of 599 (13.0 % [10.6–16.0]) declare neither `main` nor
+`browser` — themes, icon packs, snippets, keymaps, extension packs — and have nothing to run;
+496 declare `main` alone (82.8 % [79.6–85.6]), 23 both, 2 only `browser`, which runs in the web
+worker host outside the extension host's subtree. Of the 521 with an entry point the editor made
+517 visible and 472 activated without error (91.3 % [88.6–93.4]). The 45 failures are 20
+activations still running at the 60 s limit, 15 that threw, 8 that could not resolve a module
+they ship against and 2 waiting on an extension dependency the gallery did not supply. Activation
+takes a median of 968 ms, p90 2,726 ms.
+
+**When it runs.** 225 of 599 (37.6 % [33.8–41.5]) declare `*` or `onStartupFinished`: they run at
+every editor start, before any file is opened. Weighted by downloads that is 51.8 % of the
+sample — the extensions that run unconditionally are the ones people install. A further 77
+declare no `activationEvents` beside an entry point and are activated implicitly from what they
+contribute, which is not every start; 125 wait on a language, 56 on a file in the workspace, and
+only 61 (10.2 % [8.0–12.9]) wait on a command, a view or a URI.
+
+**At install.** For this population install is the editor unpacking the archive and resolving
+declared dependencies from the gallery, nothing more: no package manager, no install script, and
+no program executed beyond the editor itself. 42 of 599 (7.0 % [5.2–9.3]) leave more than one
+extension behind, the gallery serving the dependencies from `open-vsx.org`,
+`openvsx.eclipsecontent.org` and `raw.githubusercontent.com`. Over the 591 universal downloads
+the registry's published sha256 matched the bytes fetched in all 591.
+
+**At activation.** Of the 472 that activated cleanly, 31 (6.6 % [4.7–9.2]) contacted a host that
+the baseline editor does not; 5 more reached the network and then failed to activate, so 36 of
+the 517 visible extensions opened a connection at all. 14 more spoke only to a loopback port of
+their own. Three contacted a host whose business is telemetry. 17 (3.6 % [2.3–5.7]) opened and
+read a credential or another tool's configuration — `~/.claude.json` by five of them,
+`~/.cursor/mcp.json` by three, and one each of `~/.aws/credentials`, `~/.aws/config`, `~/.netrc`,
+`~/.config/gh`, `~/.ssh/config`; the shell profiles `~/.profile`, `~/.bashrc` and `~/.zshrc` were
+read by four, three and one. 55 (11.7 % [9.1–14.9]) executed a system program, most often `sh`
+(39) and `git` (19), and 37 (7.8 % [5.7–10.6]) ran a program they ship — almost always a language
+server over stdio. 16 (3.4 % [2.1–5.4]) wrote or created files in the workspace, and 7 read the
+content of the workspace's `.env`.
+
+**With activation left to the editor.** All 121 cells that did something beyond the editor's
+baseline were run again with the driver forcing nothing, opening the workspace files and
+recording whether the extension's own events had activated it. Of the 77 that declare `*` or
+`onStartupFinished`, 55 were active when the window closed; of the 22 that were not, 8 had also
+failed to activate when forced. The other 14 activate on a slower schedule than the driver's
+window — files opened and ten seconds of idle on a one-CPU host — so the re-run is a floor and
+not a rate: at least 55 of the 77 run without being asked. Of the 43 whose events name a
+language, a file or a command, 11 activated on what the workspace happened to contain. Where an
+extension contacted a host when forced and activated naturally, it contacted the same host again
+in 11 cases of 15; the four that did not are `ShuvamRaghuvanshi.server-status-indicator`,
+`yychuiyan.dsh-for-web`, `meanwhile-dev.meanwhile` and `imgildev.vscode-python-generator`, whose
+first call is on a timer longer than the window.
+
+**Writes into another agent's directory.** Fifty-three of the cells wrote somewhere outside
+their own storage, and each was re-run keeping its decoy home, so what they left can be read
+rather than inferred from the path. Twelve left files inside the home directory of a different
+tool — `~/.agents`, `~/.cursor`, `~/.claude`, `~/.copilot`, `~/.cline`, `~/.trae-cn`,
+`~/.config/Code/User`, `~/.config/gh` — and eleven of the twelve do it at every editor start.
+They carry 203,667 downloads between them. Two more created a directory there and left no file
+in it (`claudine.claudine` in `~/.claude/ide`, `gauravmehta13.ag-multi-account-switchboard` a
+lock directory in `~/.gemini/antigravity-ide`).
+
+For most of the twelve it is what the extension is for and its own documentation says so:
+Varterm's readme names `~/.cursor/varterm-autoread.json` as where its on/off state lives,
+Zencoder's names the Skills it installs under `~/.agents/skills` (39 files),
+`toadyokai.flow-to-skill`'s readme the skill it exports there (30 files), swarmify's changelog
+`~/.agents/.cache`. The rest do not.
+
+What the kept homes hold is mostly executable. `trae-jsharness.jsharness` (3,002 downloads)
+leaves `~/.trae-cn/hooks.json` and three scripts beside it — `agent-call-logger.js`,
+`session-userPromptSubmit.js`, `agent-cache-flusher.js` — plus a rule file in
+`~/.trae-cn/user_rules/`, and writes `AppData/Roaming/Trae CN/User/mcp.json`, a Windows path
+created literally in the home directory of a Linux host. `guggit.reco-bitech-cursor` (5,758)
+installs a `post-commit` and a `prepare-commit-msg` git hook into `~/.aipush/hooks/` with the
+scripts they call, `post-commit-upload.cjs` among them. `mcp-feedback.mcp-feedback-enhanced`
+adds its own entry to `~/.cursor/hooks.json` and a rule file to `~/.cursor/rules/`.
+`ashfaqe.claude-room` leaves `~/.claude/team-usage/usage-logger.js` and points Claude Code's
+`settings.json` at it, so the script runs on every status-line render; the consent prompt in its
+code is reached only when some other status line is already configured, so a user who has none
+is never asked. `Veverke.chatwizard` writes a global instructions file for Copilot at
+`~/.copilot/instructions/chatwizard-global.instructions.md`. `intraview.intraview` writes
+`~/.cursor/mcp_settings.json` and unpacks a command-line client of its own into
+`~/.intraview/bin/`; its source builds the paths of Windsurf's and Roo Code's MCP configuration
+beside Cursor's.
+`devcoreai-coding-agent.devcoreai-coding-agent` writes Cline's own
+`~/.cline/data/globalState.json` and installs a Python tool under `~/.local/share/uv/tools/`.
+
+`quickdb.quickdb` (12,434 downloads) describes itself as "Lightweight database browser for VS
+Code. Connect to databases, browse tables, and run queries." Its bundle is obfuscated behind a
+string table, and inside it is a list of configuration paths — Claude Code's `~/.claude.json`,
+Claude Desktop's, Cursor's `~/.cursor/mcp.json`, VS Code's own `~/.config/Code/User/mcp.json`,
+with Kiro, Windsurf and Antigravity among the paths it builds — walked by a routine whose own
+log strings call it `[McpVersionSync]`: it reads each file, and where its entry is stale it
+rewrites it. In the kept home the file it created is `~/.config/Code/User/mcp.json`, the one of
+those paths that did not already exist. In the same activation it read `~/.aws/credentials` and
+`~/.aws/config` and probed the cloud instance-metadata addresses `169.254.169.254` and
+`metadata.google.internal`, which is what a database driver's credential chain does. Nothing in
+its description mentions registering itself with four assistants. It declares no
+`activationEvents`, so this happens on implicit activation rather than at every start.
+
+**What else the source shows.** `meanwhile-dev.meanwhile` creates `~/.deadtime/install_id`, a
+persistent UUID at mode 600, and sends it to `trymeanwhile.online` with a per-session UUID, a
+running count of document edits and a SHA-256 of the open workspace folder paths, polling while
+the editor is open; its readme says editor activity never leaves the machine.
+`kwai-fe.kwai-aicode` runs `yarn global add` for two packages at every editor start and reports
+`git user.name`, the current branch and the origin remote to a Kuaishou endpoint.
+`gauravmehta13.ag-multi-account-switchboard` reads the whole process table with `ps -A -ww` twice
+and runs `sqlite3` against the IDE's own state database to recover an auth status and CSRF token.
+`huydo862003.typedown-vscode` ships no binary and downloads its language server from the
+publisher's GitHub releases on first activation, marks it executable and runs it, which neither
+its readme nor any setting mentions. `oh-my-commit.oh-my-commit-vscode` copies a 5 MB bundled
+provider into `~/.oh-my-commit/providers/official/` at every start and executes it from there
+through a bundled module loader, and writes its merged preferences — a structure whose schema
+includes an `apiKeys` map — to `~/.oh-my-commit/preference.json`. `TI.devspacesplus` obtains every
+environment variable by `execSync('echo $VAR')` through `/bin/bash`, and off a Gitpod workspace
+throws at module scope and never activates. `alexbeatnik.manul-engine-extension` looks for its CLI
+with `bash -l -i -c`, a login *and* interactive shell, which sources the user's own rc files.
+
 ## Limits
 
 - One host, one day, one platform (linux-x86_64). Agents that need a real credential to start
@@ -405,3 +527,13 @@ with the extension's source as the declaration of what would be installed and th
   joined to a DNS name (the parser is mcp-install's, unchanged); the names are in each cell's
   `dnsNames`. Under CPU contention strace slows downloads by two orders of magnitude; the cells
   affected were re-run alone.
+- Open VSX: the extension host is shared, so a declared dependency's activity is in the same
+  subtree as the sampled extension's and is attributed to the cell. Two of the cells are only
+  that — `zardoy.inline-debugger`'s npm execs and its one connection to `cdn.jsdelivr.net` come
+  from `zardoy.ide-scripting`, which the editor activates first, and the dashbuilder editor's
+  fetch of `www.schemastore.org` from `redhat.vscode-yaml`. Where the source of the sampled
+  extension does not account for something the trace recorded, that is what it usually is.
+- Open VSX: activation is forced by the driver, so the measure is activation behaviour and the
+  join with `activationEvents` is what says how often it happens unprompted. A version measured
+  on the day can stop being downloadable afterwards: `huydo862003.typedown-vscode` 0.34.1 was
+  gone four days later, only 0.38.x remaining, so its source was read at the later version.

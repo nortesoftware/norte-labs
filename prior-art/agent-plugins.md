@@ -598,6 +598,56 @@ four: Anthropic's community marketplace publishes removals with reasons; JetBrai
 incident report with a takedown time. Cross-marketplace response time exists only in
 third-party post-mortems (Nx Console: 18 minutes at Microsoft against 36 at Open VSX).
 
+## Addendum, 2026-09-17: the VSIX arm
+
+A second, narrower check before building the Open VSX arm, one day after the sweep. Two
+questions: has anyone traced VS Code-compatible extensions at activation at the OS boundary
+(syscalls, file opens, `execve`, `connect`, DNS), and has anyone run an executed study over Open
+VSX as a population. Four modalities (academic, industry, code and data, community and press),
+every source opened; 64 supporting sources, 41 of them already in the sweep, 153 searches;
+sources and searches in the appendix under the same heading.
+
+**Verdict: not taken.** Nothing found in either direction:
+
+- **No OS-boundary trace of extensions over a stated sample**, academic or industrial. Every
+  executed study is in-process: Edirimannage et al. (VS Code 1.80 with API hooks behind
+  mitmproxy; the released artefact, `vulnerability-reporter/DAV2-ACAnTVSCEE`, last pushed
+  2024-10-11, ships instrumented builds for macOS and Windows only and a results folder named
+  "Verified-behavior-with-manual-execution"; still arXiv v1 with no venue record, seven citing
+  works of which none traces extensions), Agrawal (NHSJS 2025: a `require`-patching sandbox
+  over 25 trending extensions), and one student project (Eastern International University,
+  CSN 304, pushed 2026-04-06) that bolts a VS Code arm onto the strace-based PackAMal fork of
+  `ossf/package-analysis` — `@vscode/test-electron`, Node API monkey-patching and an
+  `LD_PRELOAD` hook on `open`/`write` — and ran it on three known-malicious VSIX and two benign
+  Open VSX extensions, no sample, no rates. Datadog's IDE Shepherd hooks `Module._load` inside
+  the editor and Red Widow loads the activation entry point in an instrumented Node process,
+  "not an operating-system or VM sandbox"; neither has a corpus.
+- **No executed study over Open VSX as a population.** The only academic Open VSX population
+  is Software Dark Matter (static file inventory of the top ~3,000 by downloads). The two 2026
+  malicious-extension papers (VSMEx, CODASPY 2026; Dissecting, SECRYPT 2026) are static and on
+  the Microsoft marketplace. The operator's publish-time checks, enforced on production
+  2026-03-04 and extended with the Argus service in April, are static end to end (blocklist,
+  secret rules, YARA, ClamAV, name similarity, namespace ownership; "YARA AST Network Fuzzy Hash
+  AI Synthesis Risk Score"); the only registry-side rate is Alpha-Omega's monthly count of
+  malwares processed (13, 29, 21, 13 for August–November 2025). Microsoft states that every
+  incoming package runs in a "clean room VM" and publishes no rate; Mazin Ahmed (2025-12)
+  confirmed the sandbox by a pingback from a Microsoft ASN and defeated it with environment
+  detection. At vendor level, Manifold Security (2026-08) reports runtime monitoring of Open VSX
+  extensions — 77 evil twins beaconing to one new domain — with no sample, population, rate or
+  instrument stated. DEF CON 34's "Install Me Maybe" (Aikido, 2026-08) measured claimable
+  extension IDs by publishing proof-of-concept extensions and counting callbacks: an attack-side
+  measurement, not a trace.
+- **The headless activation tooling exists and no published run uses it**: `@vscode/test-electron`
+  under Xvfb (Microsoft's own CI recipe), `code-server --install-extension` against Open VSX,
+  Theia. The 460-comment thread after the May 2026 GitHub breach through Nx Console and the
+  2018 sandboxing request `microsoft/vscode#52116` (86 comments, open) discuss extension
+  sandboxing as policy and cite no measurement.
+
+What the check adds to the sweep: the Edirimannage artefact's contents and platform limits, the
+student prototype, Manifold's runtime claim, the Open VSX scanner set as configured in
+production, and DEF CON 34. Nothing that pre-empts a random sample of Open VSX activated under
+strace in a decoy home.
+
 ## What this means for the measurement
 
 - The population that the mcp-install instrument covers without change: the hooks and the

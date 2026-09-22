@@ -17,16 +17,23 @@ Supply-chain security research and audits.
   does at install and first run? Seven questions, 485 verified sources, 2,292 recorded
   searches (2026-09-15/16). Population corrected on the way: Continue's Hub is gone, Windsurf's
   marketplace is Open VSX, Cursor and Devin have plugin marketplaces, Zed and JetBrains share an
-  agent registry. Appendix in [prior-art/agent-plugins-sources.md](prior-art/agent-plugins-sources.md).
+  agent registry. An addendum of 2026-09-17 asks the two narrower questions the VSIX arm needed
+  — has anyone traced extensions at activation at the operating-system boundary, and has anyone
+  run an executed study over Open VSX as a population — over 64 further sources and 153
+  searches: neither is taken. Appendix in
+  [prior-art/agent-plugins-sources.md](prior-art/agent-plugins-sources.md).
 - [registries/agent-plugins/](registries/agent-plugins/) — inventory of those marketplaces and
   the registries they draw from, with counts taken on 2026-09-16 and two takedown series
   derived from git history.
 - [measurements/agent-plugins/](measurements/agent-plugins/) — what those plugins do at install
   and first start: the 42 ACP agents (validated cell by cell against the registry's own CI),
   330 Cursor plugins, 171 Devin plugins, 73 Zed context servers — whole populations, no
-  sample. Install scripts, egress, telemetry, `$HOME` paths, what hooks download, what a
-  quarantine means; harness, per-cell results, generated report, findings, additional checks
-  with their corrections.
+  sample — and 600 Open VSX extensions activated inside a headless editor under the same
+  trace, a seeded sample of the gallery behind Cursor and Windsurf. Install scripts, egress,
+  telemetry, `$HOME` paths, what hooks download, which extensions write into another agent's
+  configuration and how many of them do it at every editor start, what a quarantine means;
+  harness, per-cell results, generated report, findings, additional checks with their
+  corrections.
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the additional checks with their
@@ -53,5 +60,4 @@ Supply-chain security research and audits.
   never enter a headline denominator.
 - Corrections and retractions stay written in the document they correct.
 
-Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits; the VSIX arm of
-agent-plugins (Open VSX, the gallery of Cursor and Windsurf).
+Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits.

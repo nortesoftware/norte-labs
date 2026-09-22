@@ -11,9 +11,10 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, basename } from 'node:path';
+import { gunzipSync } from 'node:zlib';
 
 const [dir, out] = process.argv.slice(2);
-const ARMS = ['acp', 'cursor', 'devin', 'zed'] as const;
+const ARMS = ['acp', 'cursor', 'devin', 'zed', 'openvsx'] as const;
 type Cell = any;
 
 function wilson(k: number, n: number): string {
@@ -57,18 +58,164 @@ function aggregate(agg: TraceAgg, trace: any, id: string, execIgnore: Set<string
 }
 const top = (m: Map<string, Set<string>>, n = 25) => [...m.entries()].sort((a, b) => b[1].size - a[1].size).slice(0, n).map(([k, v]) => `${k} (${v.size}: ${[...v].slice(0, 6).join(', ')}${v.size > 6 ? ', …' : ''})`);
 
+// The openvsx cells are 29 MB of trace summaries against about a megabyte for
+// each of the other arms, so they are stored compressed; either form is read.
 function load(arm: string): Cell[] {
   const p = join(dir, `cells-${arm}.ndjson`);
-  if (!existsSync(p)) return [];
-  return readFileSync(p, 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l));
+  const gz = `${p}.gz`;
+  const text = existsSync(p) ? readFileSync(p, 'utf8') : existsSync(gz) ? gunzipSync(readFileSync(gz)).toString('utf8') : null;
+  if (text === null) return [];
+  return text.split('\n').filter(Boolean).map((l) => JSON.parse(l));
 }
 
 const L: string[] = [];
 L.push('# agent-plugins — generated report', '', `Generated ${new Date().toISOString()} from \`results/cells-<arm>.ndjson\`. Rates are n/N with 95 % Wilson intervals; N is the population.`, '');
 
+// The Open VSX arm is a seeded sample and its cells carry two traces (the whole
+// editor and the extension host's subtree). What the editor does on its own is
+// measured by the baseline cells (driver alone) and subtracted here, not assumed.
+const median = (xs: number[]) => { if (!xs.length) return NaN; const a = [...xs].sort((x, y) => x - y); const m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
+const quantile = (xs: number[], q: number) => { if (!xs.length) return NaN; const a = [...xs].sort((x, y) => x - y); return a[Math.min(a.length - 1, Math.floor(q * a.length))]; };
+const hostName = (h: any) => h.host ?? h.ip ?? '?';
+function reportOpenVsx(all: Cell[]): void {
+  const base = all.filter((c) => c.declared?.baseline);
+  const cells = all.filter((c) => !c.declared?.baseline);
+  L.push(`## openvsx — ${cells.length} sampled extensions, ${base.length} baseline runs`, '');
+  const baseHosts = new Set<string>(); const baseExtPrefixes = new Set<string>(); const baseAllPrefixes = new Set<string>(); const baseExecs = new Set<string>();
+  for (const b of base) {
+    for (const h of b.firstRun?.trace?.net?.hosts ?? []) baseHosts.add(hostName(h));
+    for (const h of b.firstRun?.trace?.home ?? []) baseAllPrefixes.add(h.prefix);
+    for (const h of b.firstRun?.extHost?.home ?? []) baseExtPrefixes.add(h.prefix);
+    for (const e of b.firstRun?.extHost?.execs ?? []) baseExecs.add(basename(e.argv[0]));
+  }
+  // the workspace, the extension's own directory and node's module resolution
+  // walking up to $HOME are what running an extension is, not something it does
+  const isEditorPath = (p: string) => p === '~' || p.startsWith('~/proj') || p.startsWith('~/node_modules') || p.startsWith('~/.vscode-oss') || p === '~/package.json' || p === '~/driver.json' || baseExtPrefixes.has(p);
+  // ripgrep (the editor's findFiles) and git look for ignore files and a
+  // repository in the parents of the workspace, which here is $HOME: a probe of
+  // these names with nothing read is the tool's walk, not the extension's
+  const TOOL_WALK = new Set(['~/.jj', '~/.rgignore', '~/.ignore', '~/.gitignore', '~/.git', '~/.git/info', '~/.git/HEAD', '~/HEAD', '~/.config/git', '~/.svn', '~/.hg']);
+  // loopback is the extension talking to a process of its own (a language
+  // server, a local port), not the network
+  const isLoopback = (h: string) => h === '127.0.0.1' || h === '0:0:0:0:0:0:0:1' || h === 'localhost' || h.startsWith('127.');
+  L.push(`- baseline (editor with the driver alone, ${base.length} runs): hosts ${[...baseHosts].sort().join(', ') || 'none'}; \`$HOME\` prefixes touched by the extension host: ${baseExtPrefixes.size} (outside the workspace: ${[...baseExtPrefixes].filter((p) => !p.startsWith('~/proj')).sort().join(', ') || 'none'}); by the whole editor: ${baseAllPrefixes.size}; programs the extension host executed: ${[...baseExecs].sort().join(', ') || 'none'}`);
+  const withApi = cells.filter((c) => c.declared?.version);
+  const withUrl = cells.filter((c) => c.install?.vsix);
+  const downloaded = withUrl.filter((c) => c.install.vsix.sha256Actual);
+  const installOk = cells.filter((c) => c.install?.ok);
+  const attempted = cells.filter((c) => c.firstRun?.attempted);
+  const drv = attempted.filter((c) => c.firstRun.driver);
+  const found = drv.filter((c) => c.firstRun.driver.found);
+  const activated = found.filter((c) => c.firstRun.driver.activated === true);
+  const actFailed = found.filter((c) => c.firstRun.driver.activated === false);
+  L.push(`- sample: ${cells.length} drawn; registry record present: ${withApi.length}; with a linux-x64 or universal download: ${withUrl.length}; downloaded: ${downloaded.length}; installed by the editor: ${rate(installOk.length, downloaded.length || 1)}; activation attempted (declares \`main\` or \`browser\`): ${attempted.length}; editor ran to the end and wrote the driver record: ${rate(drv.length, attempted.length || 1)}; extension visible to the editor: ${found.length}; activated without error: ${rate(activated.length, found.length || 1)}; activation threw or timed out: ${actFailed.length}${actFailed.length ? ` (${actFailed.slice(0, 15).map((c) => `${c.subject}: ${String(c.firstRun.driver.error ?? '').split('\n')[0].slice(0, 70)}`).join('; ')})` : ''}`);
+  const notAttempted = cells.filter((c) => !c.firstRun?.attempted); const reasons = new Map<string, number>(); for (const c of notAttempted) reasons.set(String(c.firstRun?.reason ?? c.install?.stderrTail ?? '?').slice(0, 60), (reasons.get(String(c.firstRun?.reason ?? c.install?.stderrTail ?? '?').slice(0, 60)) ?? 0) + 1);
+  L.push(`- not run: ${[...reasons.entries()].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join('; ') || 'none'}`);
+  const errs = cells.filter((c) => c.install?.signal === 'HARNESS_ERROR'); if (errs.length) L.push(`- harness errors: ${errs.length} (${errs.map((c) => c.id).join(', ')})`);
+  const actMs = activated.map((c) => c.firstRun.driver.activateMs as number);
+  L.push(`- activation time: median ${median(actMs)} ms, p90 ${quantile(actMs, 0.9)} ms; editor run wall time median ${median(attempted.map((c) => c.firstRun.ms as number))} ms`);
+  // what the VSIX ships and declares
+  const inv = downloaded.filter((c) => c.install.inventory);
+  const bytes = inv.map((c) => c.install.vsix.bytes as number);
+  // The registry publishes one digest per extension record, for its default
+  // download. A platform-specific extension was fetched at its linux-x64 URL,
+  // so its bytes are not the ones that digest covers: the comparison holds
+  // only for the universal downloads and the rest are counted apart.
+  const universal = downloaded.filter((c) => c.install.vsix.targetPlatform !== 'linux-x64');
+  const platform = downloaded.filter((c) => c.install.vsix.targetPlatform === 'linux-x64');
+  const sha = { match: universal.filter((c) => c.install.vsix.sha256Match === true).length, mismatch: universal.filter((c) => c.install.vsix.sha256Match === false).length, none: universal.filter((c) => c.install.vsix.sha256Match === null).length };
+  L.push(`- VSIX: bytes median ${median(bytes)}, p90 ${quantile(bytes, 0.9)}; registry sha256 over the ${universal.length} universal downloads: matching ${sha.match}, mismatching ${sha.mismatch}, not published ${sha.none}; the ${platform.length} platform-specific downloads are not covered by the published digest and are not compared`);
+  const bins = inv.filter((c) => c.install.inventory.binaries.length > 0);
+  const byMagic = new Map<string, Set<string>>(); for (const c of bins) for (const b of c.install.inventory.binaries) add(byMagic, b.magic, c.subject);
+  const native = inv.filter((c) => c.install.inventory.nativeNodeFiles > 0);
+  const nm = inv.filter((c) => c.install.inventory.nodeModulesShipped);
+  const scripts = inv.filter((c) => Object.keys(c.install.inventory.scripts).length > 0);
+  L.push(`- ships a binary by magic: ${rate(bins.length, inv.length)} — ${[...byMagic.entries()].map(([k, v]) => `${k} ${v.size}`).join(', ') || 'none'}; native \`.node\` files: ${rate(native.length, inv.length)}; ships node_modules: ${rate(nm.length, inv.length)} (bundled packages median ${median(nm.map((c) => c.install.inventory.packagesBundled))}); ships shell/python/other scripts: ${rate(scripts.length, inv.length)}`);
+  const man = inv.filter((c) => c.install.manifest); const m = (c: Cell) => c.install.manifest;
+  const nodeOnly = man.filter((c) => m(c).main && !m(c).browser), webOnly = man.filter((c) => !m(c).main && m(c).browser), both = man.filter((c) => m(c).main && m(c).browser), neither = man.filter((c) => !m(c).main && !m(c).browser);
+  L.push(`- entry points: node \`main\` only ${rate(nodeOnly.length, man.length)}; \`browser\` only (runs in the web worker host, outside the extension host's subtree) ${rate(webOnly.length, man.length)}; both ${both.length}; neither (themes, packs, snippets, keymaps) ${rate(neither.length, man.length)}`);
+  const ev = (c: Cell): string[] => m(c).activationEvents ?? [];
+  const star = man.filter((c) => ev(c).includes('*')), startup = man.filter((c) => ev(c).some((e: string) => e === 'onStartupFinished')), onLang = man.filter((c) => ev(c).some((e: string) => e.startsWith('onLanguage'))), wsc = man.filter((c) => ev(c).some((e: string) => e.startsWith('workspaceContains'))), cmdOnly = man.filter((c) => ev(c).length > 0 && ev(c).every((e: string) => e.startsWith('onCommand') || e.startsWith('onView') || e.startsWith('onUri') || e.startsWith('onWebviewPanel'))), none = man.filter((c) => ev(c).length === 0 && (m(c).main || m(c).browser));
+  L.push(`- activation events (of ${man.length} manifests): \`*\` ${rate(star.length, man.length)}; \`onStartupFinished\` ${rate(startup.length, man.length)}; either (runs at every editor start) ${rate(new Set([...star, ...startup]).size, man.length)}; \`onLanguage\` ${rate(onLang.length, man.length)}; \`workspaceContains\` ${rate(wsc.length, man.length)}; only on a command, view or URI ${rate(cmdOnly.length, man.length)}; none declared with an entry point (implicit from \`contributes\` since VS Code 1.74) ${none.length}`);
+  const deps = man.filter((c) => (m(c).extensionDependencies ?? []).length > 0), packs = man.filter((c) => (m(c).extensionPack ?? []).length > 0), kind = new Map<string, number>(); for (const c of man) { const k = (m(c).extensionKind ?? ['(not declared)']).join('+'); kind.set(k, (kind.get(k) ?? 0) + 1); }
+  const proposals = man.filter((c) => (m(c).enabledApiProposals ?? []).length > 0);
+  L.push(`- declares extensionDependencies: ${rate(deps.length, man.length)}; is an extension pack: ${rate(packs.length, man.length)}; extensionKind: ${[...kind.entries()].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(', ')}; enabledApiProposals: ${proposals.length}`);
+  // install: the editor's own work with a new VSIX
+  const fetched = installOk.filter((c) => (c.install.extensionsInstalled ?? []).length > 1);
+  const ia = newAgg(); for (const c of installOk) aggregate(ia, c.install?.trace, c.subject, new Set(['codium']));
+  L.push(`- install (\`codium --install-extension\`, the editor unpacks the VSIX and resolves declared dependencies from the gallery): more than one extension present afterwards ${rate(fetched.length, installOk.length || 1)}${fetched.length ? ` (${fetched.slice(0, 10).map((c) => `${c.subject} → ${c.install.extensionsInstalled.length}`).join(', ')}${fetched.length > 10 ? ', …' : ''})` : ''}; hosts contacted (cells): ${top(ia.hosts, 10).join('; ') || 'none'}; programs executed beyond the editor: ${top(ia.execs, 10).join('; ') || 'none'}`);
+  // first run: the extension host's subtree, baseline subtracted
+  const xa = newAgg(); const wa = newAgg();
+  const sysExecs = new Map<string, Set<string>>(); const extExecs = new Map<string, Set<string>>(); const procCounts: number[] = [];
+  const extHostIgnore = new Set([...baseExecs]);
+  for (const c of activated) {
+    const x = c.firstRun.extHost; if (!x) continue;
+    aggregate(xa, x, c.subject, extHostIgnore);
+    procCounts.push(c.firstRun.extHostProcesses ?? 1);
+    for (const e of x.execs ?? []) {
+      if (e.origin === 'system') add(sysExecs, basename(e.argv[0]), c.subject);
+      if (e.origin === 'extension') add(extExecs, c.subject, e.argv.slice(0, 3).map((a: string) => basename(a)).join(' '));
+    }
+    aggregate(wa, c.firstRun.trace, c.subject, new Set(['codium', 'exe', 'codium-tunnel', 'rg']));
+  }
+  const nonBase = (mm: Map<string, Set<string>>, baseSet: Set<string>) => new Map([...mm.entries()].filter(([k]) => !baseSet.has(k) && !isLoopback(k)));
+  const xHosts = nonBase(xa.hosts, baseHosts);
+  const loopCells = new Set([...xa.hosts.entries()].filter(([k]) => isLoopback(k)).flatMap(([, v]) => [...v]));
+  // $HOME beyond the baseline, split by whether content was read or written or
+  // the path was only looked for (stat, open that failed)
+  const xHome = new Map<string, Set<string>>(); const xProbe = new Map<string, Set<string>>();
+  for (const c of activated) for (const h of c.firstRun.extHost?.home ?? []) {
+    const p = h.prefix; if (isEditorPath(p) || isCredPath(p) || isAgentConfig(p)) continue;
+    // contentAccessed is an open for reading or writing that succeeded; a
+    // mutation is a mkdir, rename, unlink or chmod that the trace saw succeed
+    const content = h.contentAccessed || (h.mutations ?? 0) > 0;
+    if (content) add(xHome, p, c.subject); else if (!TOOL_WALK.has(p)) add(xProbe, p, c.subject);
+  }
+  const wsWrites = new Map<string, Set<string>>(); const envReads = new Set<string>();
+  for (const c of activated) for (const h of c.firstRun.extHost?.home ?? []) {
+    if (h.prefix.startsWith('~/proj') && ((h.writes ?? 0) + (h.mutations ?? 0)) > 0) add(wsWrites, h.prefix, c.subject);
+    if (h.prefix === '~/proj/.env' && (h.reads ?? 0) > 0 && h.contentAccessed) envReads.add(c.subject);
+  }
+  const netCells = new Set([...xHosts.values()].flatMap((s) => [...s]));
+  L.push(`- first run, extension host and its children (${activated.length} activated; processes in the subtree median ${median(procCounts)}, max ${Math.max(0, ...procCounts)}): contacted a host beyond the editor's own ${rate(netCells.size, activated.length || 1)}; hosts (cells): ${top(xHosts, 40).join('; ') || 'none'}; loopback only (a local server of their own): ${loopCells.size}`);
+  const telCells = new Set([...xa.telemetryHosts.values()].flatMap((s) => [...s]));
+  L.push(`- first run: telemetry-looking hosts: ${top(xa.telemetryHosts).join('; ') || 'none'} — ${rate(telCells.size, activated.length || 1)}`);
+  const credRead = new Map<string, Set<string>>(); const agentWrite = new Map<string, Set<string>>();
+  for (const c of activated) for (const h of c.firstRun.extHost?.home ?? []) {
+    if (isCredPath(h.prefix) && h.contentAccessed && (h.reads ?? 0) > 0) add(credRead, h.prefix, c.subject);
+    if (isAgentConfig(h.prefix) && h.contentAccessed && (h.writes ?? 0) > 0) add(agentWrite, h.prefix, c.subject);
+  }
+  const credCells = new Set([...credRead.values()].flatMap((s) => [...s]));
+  L.push(`- first run: credential or agent-config paths opened and read: ${top(credRead, 30).join('; ') || 'none'} — ${rate(credCells.size, activated.length || 1)}`);
+  L.push(`- first run: agent-config paths opened for writing: ${top(agentWrite).join('; ') || 'none'}`);
+  const sysCells = new Set([...sysExecs.values()].flatMap((s) => [...s]));
+  L.push(`- first run: system programs executed (cells): ${top(sysExecs, 40).join('; ') || 'none'} — ${rate(sysCells.size, activated.length || 1)}; extensions that ran a program they ship: ${rate(extExecs.size, activated.length || 1)}${extExecs.size ? ` (${[...extExecs.entries()].slice(0, 25).map(([k, v]) => `${k}: ${[...v].slice(0, 2).join(' | ')}`).join('; ')}${extExecs.size > 25 ? '; …' : ''})` : ''}`);
+  const homeCells = new Set([...xHome.values()].flatMap((s) => [...s]));
+  L.push(`- first run: other \`$HOME\` paths read, written or created beyond the baseline and the workspace (cells): ${top(xHome, 40).join('; ') || 'none'} — ${rate(homeCells.size, activated.length || 1)}`);
+  const probeCells = new Set([...xProbe.values()].flatMap((s) => [...s]));
+  L.push(`- first run: \`$HOME\` paths only looked for (stat or a failed open; ripgrep's and git's walk up from the workspace excluded): ${top(xProbe, 40).join('; ') || 'none'} — ${rate(probeCells.size, activated.length || 1)}`);
+  const credProbe = new Map<string, Set<string>>();
+  for (const c of activated) for (const h of c.firstRun.extHost?.home ?? []) if ((isCredPath(h.prefix) || isAgentConfig(h.prefix)) && !h.contentAccessed && !(h.mutations > 0)) add(credProbe, h.prefix, c.subject);
+  L.push(`- first run: credential or agent-config paths only looked for: ${top(credProbe, 30).join('; ') || 'none'}`);
+  const failKinds = new Map<string, Set<string>>();
+  for (const c of actFailed) { const e = String(c.firstRun.driver.error ?? ''); add(failKinds, /timeout after/.test(e) ? 'timed out (60 s)' : /Cannot find module/.test(e) ? 'missing module' : /depends on/.test(e) ? 'unmet extension dependency' : 'threw', c.subject); }
+  L.push(`- activation failures by kind: ${[...failKinds.entries()].map(([k, v]) => `${k} ${v.size} (${[...v].slice(0, 8).join(', ')}${v.size > 8 ? ', …' : ''})`).join('; ') || 'none'}`);
+  const wsCells = new Set([...wsWrites.values()].flatMap((s) => [...s]));
+  L.push(`- first run: wrote or created files in the workspace: ${top(wsWrites, 20).join('; ') || 'none'} — ${rate(wsCells.size, activated.length || 1)}; read the workspace's \`.env\` content: ${envReads.size}${envReads.size ? ` (${[...envReads].slice(0, 20).join(', ')})` : ''}`);
+  const wHosts = nonBase(wa.hosts, baseHosts); const wOnly = new Map([...wHosts.entries()].filter(([k]) => !xHosts.has(k)));
+  L.push(`- first run, whole editor: hosts beyond the baseline not seen from the extension host's subtree (the web worker host, webviews and the editor's fetches on the extension's behalf): ${top(wOnly, 30).join('; ') || 'none'}`);
+  // the join with the declaration
+  const everyStart = new Set([...star, ...startup].map((c) => c.subject));
+  const netAtStart = [...netCells].filter((s) => everyStart.has(s));
+  const sysAtStart = [...sysCells].filter((s) => everyStart.has(s));
+  L.push(`- declared vs observed: of the ${netCells.size} that contacted the network at activation, ${netAtStart.length} declare \`*\` or \`onStartupFinished\` (they do it at every editor start); of the ${sysCells.size} that executed a system program, ${sysAtStart.length}`);
+  L.push('');
+}
+
 for (const arm of ARMS) {
   const cells = load(arm);
   if (!cells.length) continue;
+  if (arm === 'openvsx') { reportOpenVsx(cells); continue; }
   L.push(`## ${arm} — ${cells.length} cells`, '');
   const subjects = new Set(cells.map((c) => c.subject));
   const installOk = cells.filter((c) => c.install?.ok);

@@ -6843,3 +6843,752 @@ Also cited under this topic: #91 On the Maintenance and Co-evolution of Agent Pl
 - `direct fetch :: https://raw.githubusercontent.com/microsoft/vsmarketplace/main/RemovedPackages.md re-tabulated by month/type :: 2,021 rows; 2026-03 peak 319; impersonation 1,071 / malware 541 / untrustworthy 260 / spam 105`
 - `github search :: gh api search/issues repo:anthropics/claude-plugins-community malicious OR security OR removed; is:pr "remove" in:title (15); rejected OR "security review" (5) → PR 1712, 1711, issue 2370 :: Anthropic publishes removal PRs with counts/reasons (16 user-safety, 9 delisted); catalog 2,281 plugins; intake stalled since 2026-08-07`
 
+
+## Addendum, 2026-09-17: the VSIX arm
+
+A second, narrower check before building the Open VSX arm, recorded in [agent-plugins.md](agent-plugins.md) under the same heading: two questions (has anyone traced VS Code-compatible extensions at activation at the OS boundary; has anyone run any executed study over Open VSX as a population), four modalities, every source opened. 64 supporting sources (52 confirmed, 12 partially confirmed; 41 of them already listed above and repeated here with the check's note), 1 not used, 153 recorded searches.
+
+### Supporting sources
+
+1. **DAV2-ACAnTVSCEE - artefact repository of Edirimannage et al.** — GitHub user vulnerability-reporter (account created 2024-08-02, 1 repo), 2024-08-03 to 2024-10-11 (last push)  
+   <https://github.com/vulnerability-reporter/DAV2-ACAnTVSCEE>  
+   Released artefact contains the instrumented VS Code and manual-execution logs; no syscall or file-trace data; execution was manual.
+   - Figures: folder "Results-Dynamic-Analysis-(Verified-behavior-with-manual-execution)" containing "ICSE Dynamic Analysis - Report.xlsx"; "Runtime-Instrumented-VSCode | VSCode application which we instrumented to find extensions' API usages in the VSCode extension API interface. Currently, we only support macOS and Windows applications."; "Access each extension's API access logs in the /tmp/extensionLogs/ folder"; "Results-API-Analysis/suspicious_extensions_critical_file_access.xlsx | ... indicating whether an extension accesses critical files in the operating system"; "Note that we have not included all the logs and flow files to maintain the anonymity of the authors"
+   - Sample/method: Data-VSIX-Files zip of the extensions selected for dynamic analysis; 214-row style summary table (Malicious 69/14/26/8/42/18, Vulnerable 2,620, Tracking 49, Code Sharing 108, Data Sharing 15)
+   - Limitations: Instrumented builds are 134-byte LFS pointers on GitHub, real data on a Google Drive link; macOS/Windows only (no Linux, so not strace-able as shipped); 'critical file access' is API-level, not an OS trace; logs partly withheld; report filename indicates an ICSE submission, no acceptance found
+   - Population: microsoft-marketplace; instrumentation: api-hooks-in-process; executed: yes; relevance: direct; found by: academic; listed above
+   - Source check: confirmed — README, contents and commit list read through gh api on 2026-09-17; quoted strings verbatim from README.
+
+2. **Developers Are Victims Too: A Comprehensive Analysis of The VS Code Extension Ecosystem** — Shehan Edirimannage, Charitha Elvitigala, Asitha Kottahachchi Kankanamge Don, Primal Wijesekara, Ibrahim Khalil, 2024-11-12 (v1 only; no v2 as of 2026-09-17)  
+   <https://arxiv.org/abs/2411.07479>  
+   Closest dynamic study; still preprint-only, in-process API hooks plus mitmproxy, manual execution, prefiltered non-random sample.
+   - Figures: "collected a dataset of 52,880 extensions over three months"; "we ran a daily crawler from July 15, 2023, to October"; "we selected 2,365 extensions for in-depth dynamic analysis ... In total, we selected 2,698 extensions for dynamic analysis"; "We developed an instrumented version of VS Code, utilizing VS Code 1.80 [35] as the base. This instrumented version was designed to capture all VS Code API calls comprehensively. We implemented monitoring mechanisms for terminal access and other resource accesses"; "We utilized a pre-configured mitmproxy proxy [34] to monitor web traffic"
+   - Sample/method: 52,880 crawled (Jul 15-Oct 2023), 2,698 executed after static prefilter
+   - Limitations: No syscall/file-open/execve/DNS layer; instrumentation is VS Code API hooks in the extension host plus a TLS-intercepting proxy; execution manual; sample selected by static signals; Microsoft marketplace 2023 snapshot; arXiv v1 only, no Crossref/venue record, first author's later output is federated learning
+   - Population: microsoft-marketplace; instrumentation: api-hooks-in-process; executed: yes; relevance: direct; found by: academic, code-data; listed above
+   - Source check: confirmed — PDF v1 downloaded and grepped; figures match. arXiv API lists v1 only, /abs/2411.07479v2 -> 404, no journal-ref; Crossref bibliographic query returns no record; Semantic Scholar venue = arXiv.org, 7 citing works, none a dynamic extension corpus.
+
+3. **[Feature Request] Extension Permissions, Security Sandboxing & Update Management Proposal** — microsoft/vscode issue tracker (community), 2018-06-17, comments through 2026-05-20  
+   <https://github.com/microsoft/vscode/issues/52116>  
+   The canonical open request for extension sandboxing (86 comments); 2025–2026 comments cite Wiz, ReversingLabs and the GitHub breach but no dynamic measurement or tracing tool; VS Code has no extension sandbox.
+   - Figures: juju4 2025-11-02: "Not sure how sandboxing moved since https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox" — spartanatreyu 2026-05-20: "Allowing every vscode extension to read the file system, make network calls and spawn new processes by default is insane."
+   - Sample/method: n/a
+   - Limitations: No measurement
+   - Population: none; instrumentation: none; executed: no; relevance: pointer; found by: community; listed above
+   - Source check: confirmed — gh api comments filtered to created_at > 2025-01-01
+
+4. **Can You Trust Your VSCode Extensions?** — Aqua Nautilus, 2023-01-06  
+   <https://www.aquasec.com/blog/can-you-trust-your-vscode-extensions/>  
+   Static review plus impersonation PoC and network monitoring of a few suspicious extensions (e.g. 'code-tester' eval every 30 s over HTTP); no corpus.
+   - Figures: "over 40K extensions in the VSCode Marketplace"; PoC gained "more than a thousand installs" in "under 48 hours"; "all extensions run with the privileges of the user that has opened the VSCode without any sandbox"
+   - Sample/method: A handful of hand-picked extensions
+   - Limitations: Pre-dates Edirimannage; Microsoft marketplace; network only.
+   - Population: microsoft-marketplace; instrumentation: network-proxy-only; executed: yes; relevance: adjacent; found by: industry; listed above
+   - Source check: partially confirmed — fetch summary; quotes as summarised.
+
+5. **UntrustIDE: Exploiting Weaknesses in VS Code Extensions (NDSS 2024)** — E. Lin, I. Koishybayev et al., 2024  
+   <https://doi.org/10.14722/ndss.2024.24073>  
+   Known static work; its 18 citing works were walked and none is a dynamic extension corpus.
+   - Figures: (not re-quoted; citation list only) citing works include 2607.26390 (Reddit study of LLM-native IDEs), 2509.22040 (prompt injection on agentic editors), 2602.06547 (malicious agent skills)
+   - Sample/method: n/a for this check
+   - Limitations: Only the citation graph was used
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: pointer; found by: academic; listed above
+   - Source check: partially confirmed — Crossref DOI and Semantic Scholar citation list retrieved; paper not re-opened.
+
+6. **Malicious helpers: VS Code Extensions observed stealing sensitive information** — ReversingLabs, 2024-04-03  
+   <https://www.reversinglabs.com/blog/malicious-helpers-vs-code-extensions-observed-stealing-sensitive-information>  
+   Four malicious extensions found by a Spectra Assure threat-hunting policy (Discord webhook string); static.
+   - Figures: "a threat hunting policy applied by the ReversingLabs Spectra Assure platform that identified a Discord webhook string in the extension.js file"; installed "about 50 times"
+   - Sample/method: 4 extensions
+   - Limitations: Incident; static.
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: pointer; found by: industry
+   - Source check: partially confirmed — fetch summary; not grep-verified.
+
+7. **2/6 | Exposing Malicious Extensions: Shocking Statistics from the VS Code Marketplace** — Amit Assaraf, Koi Security / ExtensionTotal, 2024-06-02  
+   <https://web.archive.org/web/2026id_/https://www.koi.ai/blog/2-6-exposing-malicious-extensions-shocking-statistics-from-the-vs-code-marketplace>  
+   Marketplace-wide census of risk indicators over ~60,000 Microsoft-marketplace extensions using static indicators (Google OSV Scanner, VirusTotal, hardcoded IPs/binaries in JS code); no execution, no Open VSX.
+   - Figures: "the VSCode Marketplace hosts around ~60,000 extensions from ~45,000 different publishers where only 1,800 of them are verified"; "1,283 extensions that include known malicious dependencies packaged in them with a combined total of 229 million installs (Based on Google OSV Scanner)"; "87 extensions that attempt to read /etc/passwd file on the host system"; "8161 extensions that communicate with a hardcoded IP address from JS code"; "1,452 extensions that run an unknown executable binary or DLL on the host machine"; "145 extensions' code and resources were flagged with high confidence by VirusTotal"
+   - Sample/method: ~60,000 extensions (whole Microsoft marketplace, June 2024)
+   - Limitations: Static indicators only; authors add 'none of these indicators guarantee that the extensions are malicious'; Microsoft marketplace, not Open VSX; no activation, no OS-boundary trace.
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: adjacent; found by: industry
+   - Source check: confirmed — Read from Wayback (curl id_); all figures grep-verified verbatim in the archived body.
+
+8. **4/6 | Introducing ExtensionTotal: How to Assess Risk in VS Code Extensions** — Amit Assaraf, Koi Security / ExtensionTotal, 2024-06-06  
+   <https://web.archive.org/web/2026id_/https://www.koi.ai/blog/4-6-introducing-extensiontotal-how-to-assess-risk-in-vs-code-extensions>  
+   Vendor tool description: extensions are unpacked, 'sandboxing' and external-communication monitoring claimed; continuous analysis of the Microsoft marketplace; no method detail and no rates.
+   - Figures: "We unpack and dive deep into the extension, sandboxing & running vulnerability checks on the code and its dependencies, gathering data about the publisher background, monitoring if the extension communicates externally, checking for leaked secrets"; "ExtensionTotal continuously analyzes extensions listed on the VisualStudio Code marketplace. Each extension is unpacked, hundreds of attributes are extracted, enriched, and factored into a risk score."
+   - Sample/method: Not stated (continuous, whole Microsoft marketplace)
+   - Limitations: Marketing claim; whether 'sandboxing' means execution is not specified; no syscall/file data, no rates published; Microsoft marketplace only.
+   - Population: microsoft-marketplace; instrumentation: sandbox-vm-unspecified; executed: yes; relevance: pointer; found by: industry
+   - Source check: confirmed — Wayback copy (curl); quotes verbatim from lines 49-52 of extracted text.
+
+9. **Cross-Language Dependency Analysis for VS Code Extension Ecosystem (Master's thesis, Chalmers/Gothenburg)** — Alexander Brunnegard, Malte Carlstedt; supervisor Mohannad Alhanahnah, 2025  
+   <https://odr.chalmers.se/bitstreams/42c02a7a-0f9c-4a80-81b0-fb67db4301c9/download>  
+   Static CodeQL study of native dependencies; dynamic analysis explicitly listed as unfinished future work.
+   - Figures: "455 (14.7%) out of the investigated 3,078 extensions either implemented native code directly or depend on a package including cross-language cooperation"; section 6.8.2 Dynamic Analysis: "To reliably find all potential security issues ... testing the occurrences at runtime is necessary ... this was cut short due to the time constraints"
+   - Sample/method: 3,078 extensions
+   - Limitations: Static only; sampling by dependency presence; thesis, not peer reviewed
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: pointer; found by: academic; listed above
+   - Source check: confirmed — PDF downloaded; abstract and section 6.8.2 read.
+
+10. **MUT-9332: malicious Solidity VS Code extensions** — Datadog Security Labs, 2025-05-21  
+   <https://securitylabs.datadoghq.com/articles/mut-9332-malicious-solidity-vscode-extensions/>  
+   Manual analysis of three Solidity-themed malicious extensions and their payload chain; states marketplace size.
+   - Figures: "At time of writing, more than 72,000 extensions were active and installable via the Marketplace."
+   - Sample/method: 3 extensions
+   - Limitations: Incident; static/manual.
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: pointer; found by: industry; listed above
+   - Source check: confirmed — Live page (curl); quote verbatim.
+
+11. **Protect Your Secrets: Understanding and Measuring Data Exposure in VSCode Extensions (SANER 2025; arXiv 2412.00707)** — Y. Liu et al., 2025-05-21 (Crossref)  
+   <https://doi.org/10.1109/saner64311.2025.00058>  
+   Known static work; 9 citing works walked, none dynamic on extensions (KeyChaser S&P 2026 is browser extensions).
+   - Figures: (citation list only)
+   - Sample/method: n/a for this check
+   - Limitations: Only the citation graph was used
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: pointer; found by: academic
+   - Source check: partially confirmed — Crossref DOI and Semantic Scholar citation list retrieved; paper not re-opened.
+
+12. **VSCan — Detect Malicious VSCode Extensions** — VSCan (community/startup; Show HN 2025-06-24), 2025-06  
+   <https://vscan.dev/>  
+   Web scanner for Microsoft Marketplace and Open VSX; '10k+' extensions analysed; method described only as code/permissions/metadata analysis.
+   - Figures: "10k+" extensions analyzed; "500+" vulnerabilities identified; fetches and examines "the extension's code, permissions, and metadata"
+   - Sample/method: 10k+ (unstated composition)
+   - Limitations: No execution stated; no rates over a defined population.
+   - Population: mixed; instrumentation: static; executed: no; relevance: pointer; found by: industry, community
+   - Source check: confirmed — fetch of homepage; figures as displayed.
+
+13. **Security and Trust in Visual Studio Marketplace** — Microsoft Visual Studio Marketplace team, 2025-06-11  
+   <https://devblogs.microsoft.com/blog/security-and-trust-in-visual-studio-marketplace>  
+   Operator states every incoming VS Code package is executed in a sandbox for run-time behaviour, plus static AV scans and periodic bulk rescans; publishes only triage counts, no population rates and no method.
+   - Figures: "Dynamic detection: Each incoming VS Code package gets checked for malicious run-time behavior in a sandbox environment. Packages flagged by rescan or dynamic detection are manually reviewed by security engineers to avoid false positives before removing them."; "So far this year, we've reviewed 136 extensions for malicious code and removed 110"; "have already reported over 100 extensions"
+   - Sample/method: All incoming Microsoft-marketplace packages (count not stated); 136 reviewed / 110 removed in H1 2025
+   - Limitations: Instrumentation and observed dimensions undisclosed; no rates over the population; Microsoft marketplace only, not Open VSX.
+   - Population: microsoft-marketplace; instrumentation: sandbox-vm-unspecified; executed: yes; relevance: adjacent; found by: industry; listed above
+   - Source check: confirmed — Live page (curl); quotes verbatim at lines 85-86 and 103 of extracted text.
+
+14. **The Solidity Language open-source package was used in a $500,000 crypto heist** — Kaspersky GReAT (Securelist), 2025-07  
+   <https://securelist.com/open-source-package-for-cursor-ai-turned-into-a-crypto-heist/116908/>  
+   Forensic write-up of a fake Solidity extension on Open VSX (installed through Cursor): disk-image analysis and code review of every version; not a sandbox or trace, single incident.
+   - Figures: "The extension is available in the Open VSX registry, used by Cursor AI, and was published about two months ago. At the time this research, the extension had been downloaded 54,000 times. The figure was likely inflated." — "After obtaining a disk image of the infected system, we began our analysis." — "We analyzed the code of every version of this extension and confirmed that it was a fake"
+   - Sample/method: 1 extension (plus its twin)
+   - Limitations: Incident forensics; 'sandbox'/'dynamic'/'activation' absent
+   - Population: open-vsx; instrumentation: none; executed: no; relevance: pointer; found by: community; listed above
+   - Source check: confirmed — curl grep; quotes verbatim
+
+15. **Devs: Vet your VS Code plugins with Spectra Assure Community** — ReversingLabs, 2025-07-08  
+   <https://www.reversinglabs.com/blog/devs-vet-your-vs-code-plugins-with-spectra-assure-community>  
+   Spectra Assure Community exposes pre-computed risk assessments for VS Code extensions; binary-analysis platform; no dynamic method stated.
+   - Figures: "Over 100K risk assessments are available for the VS Code community."
+   - Sample/method: 100K+ assessments (Microsoft marketplace)
+   - Limitations: Method unstated; no rates; Open VSX not mentioned.
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: pointer; found by: industry; listed above
+   - Source check: partially confirmed — Date and 'Over 100K' quote confirmed by fetch and curl grep (July 8, 2025); companion post 'A look back: malicious packages in VS Code Marketplace' unreachable live and in Wayback.
+
+16. **Cursor IDE malware extension compromise in $500k crypto heist** — Snyk (reporting Kaspersky case), 2025-07-21  
+   <https://snyk.io/blog/cursor-ide-malware-extension-compromise-in-usd500k-crypto-heist/>  
+   Commentary on the Kaspersky-reported fake Solidity extension on Open VSX; no analysis method of its own.
+   - Figures: "The Open VSX Registry reported more than 50,000 downloads before its removal on July 2nd"
+   - Sample/method: 1 extension
+   - Limitations: Secondary report.
+   - Population: open-vsx; instrumentation: none; executed: no; relevance: pointer; found by: industry
+   - Source check: confirmed — Live page (curl); quote verbatim.
+
+17. **Alpha-Omega — Eclipse Foundation monthly engagement updates (2025-08 … 2026-08)** — Eclipse Foundation security team (reports to OpenSSF Alpha-Omega), 2025-08 to 2026-08  
+   <https://github.com/ossf/alpha-omega/tree/main/alpha/engagements/2025/Eclipse%20Foundation>  
+   The only registry-side rate found: malwares processed on Open VSX per month; and the 2026-03 statement that publish-time scanning (all static) became blocking.
+   - Figures: update-2025-08: "In the context of the Open VSX registry, processed 13 malwares." update-2025-09: "processed 29 malwares, a significant jump from August (13 → 29)." update-2025-10: "Processed 21 malwares. Slightly down from September's 29 but still high." update-2025-11: "Processed 13 malwares." update-2026-03: "Pre-Publication Scan Enforcement: Security scanning checks were fully enforced at publish time across the registry, covering blocklist filtering, secret scanning, YARA rules, ClamAV malware detection, and name squatting detection. Previously these checks ran but were non-blocking"
+   - Sample/method: registry totals per month; no denominator of submissions given
+   - Limitations: Counts of takedowns, not of behaviour; no method beyond the static checks; no per-population rates
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: community
+   - Source check: confirmed — gh api contents for each monthly file, grep on malware|open vsx
+
+18. **Takedown: How It's Done in Modern Coding Agent Exploits** — E. Lee, D. Kim, W. Kim, I. Yun, 2025-09-29  
+   <https://arxiv.org/abs/2509.24240>  
+   Cites Edirimannage/UntrustIDE; manual security analysis of eight coding agents (IDE-integrated), not an extension corpus.
+   - Figures: "we present a comprehensive security analysis of eight real-world coding agents"; "we identify 15 security issues"; "arbitrary command execution in five agents and global data exfiltration in four agents"
+   - Sample/method: 8 coding agents
+   - Limitations: Not extensions, not a registry population, no OS-level trace reported in abstract
+   - Population: none; instrumentation: none; executed: yes; relevance: pointer; found by: academic
+   - Source check: partially confirmed — Abstract read from arXiv API; PDF not opened.
+
+19. **Supply Chain Risk in VSCode Extension Marketplaces (550+ leaked secrets)** — Rami McCarthy, Wiz Research, 2025-10-15  
+   <https://www.wiz.io/blog/supply-chain-risk-in-vscode-extension-marketplaces>  
+   Static secret scan of unzipped .vsix packages across Microsoft Marketplace and Open VSX; leaked marketplace PATs and OVSX tokens; no execution.
+   - Figures: "In total, we found over 550 validated secrets, distributed across more than 500 extensions from hundreds of distinct publishers. Across the 67 distinct types of secrets we found"; "Over one hundred valid leaked VSCode Marketplace PATs ... an install base of over 85,000 extension installs."; "Over thirty leaked OVSX Access Tokens were identified ... an install base of over 100,000 extension installs."; "cumulative 150,000 install base"
+   - Sample/method: Not stated how many packages were scanned (both marketplaces)
+   - Limitations: Secrets only; no behaviour; population size unstated.
+   - Population: mixed; instrumentation: static; executed: no; relevance: adjacent; found by: industry, community; listed above
+   - Source check: confirmed — Live page (curl); figures grep-verified verbatim.
+
+20. **GlassWorm: First Self-Propagating Worm Using Invisible Code Hits OpenVSX Marketplace** — Koi Security, 2025-10-17  
+   <https://web.archive.org/web/20251019194611id_/https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace>  
+   Incident report of the first GlassWorm wave on Open VSX; Koi's proprietary risk engine flagged one extension by 'behavioral changes'; no method, no corpus.
+   - Figures: "Our risk engine at Koi flagged an OpenVSX extension called CodeJoy when version 1.8.3 introduced some suspicious behavioral changes."; "our risk engine caught something that human code review would miss entirely: suspicious network connections and credential access patterns"
+   - Sample/method: Handful of malicious Open VSX extensions (incident), 35,800 downloads figure disputed by Eclipse
+   - Limitations: Incident response, not a population measurement; engine internals undisclosed.
+   - Population: open-vsx; instrumentation: none; executed: no; relevance: adjacent; found by: industry
+   - Source check: confirmed — Wayback snapshot 2025-10-19 read with curl; quotes verbatim; Eclipse Foundation later called the 35,800 download count inflated.
+
+21. **GlassWorm: First Self-Propagating Worm Using Invisible Code Hits OpenVSX Marketplace** — Idan Dardikman, Koi Security (vendor; blog now redirects to Palo Alto Networks), 2025-10-18  
+   <https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace>  
+   Koi's 'risk engine' flagged a behavioural change in one Open VSX extension version; researchers then reverse-engineered the invisible-Unicode payload; 7 Open VSX extensions, 35,800 installs. No instrument or population stated.
+   - Figures: "Our risk engine at Koi flagged an OpenVSX extension called CodeJoy when version 1.8.3 introduced some suspicious behavioral changes." — "October 17, 2025 : Seven OpenVSX extensions compromised (yesterday) October 18, 2025 : We detected and began analysis (today)" — "Total impact: 35,800 installations"
+   - Sample/method: 7 compromised Open VSX extensions (later 10)
+   - Limitations: Incident write-up; 'risk engine' method undisclosed; no denominator; original URL now 301s to paloaltonetworks.com
+   - Population: open-vsx; instrumentation: none; executed: no; relevance: pointer; found by: community; listed above
+   - Source check: confirmed — Read from Wayback id_ snapshot (web.archive.org/web/2025id_/...) via curl; quotes verbatim in archived text; live URL redirects to Palo Alto Networks
+
+22. **Open VSX security update, October 2025** — Mikaël Barbero, Eclipse Foundation (Open VSX operator), 2025-10-27  
+   <https://blogs.eclipse.org/post/mika%C3%ABl-barbero/open-vsx-security-update-october-2025>  
+   Operator statement after Wiz token leak and Koi GlassWorm: automated scanning at publication time for 'malicious code patterns or embedded secrets'; no dynamic analysis mentioned.
+   - Figures: "We also believe that the reported download count of 35,800 overstates the actual number of affected users, as it includes inflated downloads generated by bots"; "Security scanning at publication: Automated scanning of extensions will now occur at the time of publication, helping us detect malicious code patterns or embedded secrets before an extension becomes available to users."
+   - Sample/method: n/a
+   - Limitations: Policy post; no counts of extensions scanned; static only.
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: industry; listed above
+   - Source check: confirmed — Live page read with curl; quotes verbatim.
+
+23. **Security Checks Implementation & Validation (Milestone 2) (parent #1331 Short-Term Security Improvements for Open VSX)** — Eclipse Open VSX maintainers, 2025-11-07 (parent 2025-09-05)  
+   <https://github.com/eclipse-openvsx/openvsx/issues/1396>  
+   The scoped deliverables of the Open VSX security-check framework are five static checks; searches of the repo for 'sandbox' and 'dynamic analysis' return nothing relevant.
+   - Figures: "Implementation of pre-publish checks for: Name-squatting detection Blocklist enforcement Secret and credential scanning YARA scanning ClamAV or equivalent malware detection"
+   - Sample/method: n/a
+   - Limitations: Design issue, not a study
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: pointer; found by: community
+   - Source check: confirmed — gh api issue bodies; search/issues for sandbox|dynamic analysis in eclipse-openvsx/openvsx returned only unrelated hits
+
+24. **Introducing Socket Scanning for OpenVSX Extensions** — Socket, 2025-11-20  
+   <https://socket.dev/blog/introducing-socket-scanning-for-openvsx-extensions>  
+   Socket's Open VSX scanner is static AI + heuristics over code, activation patterns and declared capabilities; experimental; no counts or rates.
+   - Figures: "Socket evaluates each extension's code, activation patterns, declared capabilities, and privileged behaviors. The analysis combines Socket's AI malware detector with a set of code extension specific heuristics designed to surface unsafe or unusual activity."; "OpenVSX scanning is launching today in an experimental state. Access is enabled for select organizations"
+   - Sample/method: Not stated
+   - Limitations: No execution; cited third-party figures ('more than 25,000 VS Code extensions', '550 leaked secrets') are not Socket's own corpus.
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: industry; listed above
+   - Source check: confirmed — Live page (curl); quotes verbatim.
+
+25. **Glassworm's resurgence (Secure Annex)** — John Tuckner, Secure Annex, 2025-11-30  
+   <https://secureannex.com/blog/glassworm-continued/>  
+   Tracked 30+ cloned extensions on Microsoft marketplace and Open VSX that were updated with malware after publication and had inflated download counts; metadata/static tracking.
+   - Figures: "we've identified and tracked an unprecedented 30+ extensions which copy other popular extensions, update after publishing with malware, manipulate download counts, and use KNOWN attack signatures"; "Many code extensions begin with an 'activate' context and the malicious code is slipped in right after the activation occurs."
+   - Sample/method: 30+ extensions (tables list ~20 marketplace + 5 Open VSX)
+   - Limitations: Incident tracking; no execution; site is JS-rendered (read through r.jina.ai).
+   - Population: mixed; instrumentation: static; executed: no; relevance: adjacent; found by: industry
+   - Source check: confirmed — Read via r.jina.ai; quotes verbatim.
+
+26. **Automated Security Framework for VS Code Extensions: Risk Profiling, Policy Generation, and Runtime Sandboxing** — I. Agrawal, National High School Journal of Science, 2025-12  
+   <https://nhsjs.com/wp-content/uploads/2025/12/Automated-Security-Framework-for-2.pdf>  
+   Only other executed study; in-process require-patching sandbox, 25 trending extensions, no OS boundary.
+   - Figures: "Enforcement is handled via a custom in-process sandbox that isolates extension behavior using dynamic require patching and proxy-based wrappers"; "In a study of 377 extensions, 26.5% were high-risk"; "the top 25 trending extensions were evaluated through static and dynamic analysis: 64% ran successfully while enforcing the sandbox policies generated through static analysis only, while 100% of them worked while enforcing the policy generated through a combination of static and dynamic analysis. Static analysis captured 95.9% of permissions"
+   - Sample/method: 377 top-trending extensions (static); 25 executed
+   - Limitations: High-school journal; trending not random; in-process Node hooks; purpose is policy generation, not behaviour rates; Microsoft marketplace
+   - Population: microsoft-marketplace; instrumentation: api-hooks-in-process; executed: yes; relevance: adjacent; found by: academic; listed above
+   - Source check: confirmed — PDF downloaded, abstract lines 15-24 and body line 764 ('We analyzed 377 top trending VS Code extensions') match.
+
+27. **Compromising Developers with Malicious Extensions - VS Code, Cursor AI, and the Backdoor You Didn't See Coming** — Mazin Ahmed (independent researcher), 2025-12-06  
+   <https://mazinahmed.net/blog/publishing-malicious-vscode-extensions/>  
+   Empirical evidence that the Microsoft Marketplace executes submitted extensions in a sandbox (network pingback from a Microsoft ASN) and that environment-detection defeats it; two versions of one test extension ('Piithon-linter') were published and accepted; the sandbox is Microsoft's, not the author's, and publishes nothing.
+   - Figures: "Microsoft's marketplace documentation states that malware scans (with multiple antivirus engines) on each upload are executed, and it also does dynamic analysis by executing the extension in a sandbox VM." — "To my surprise, the extension bypassed Microsoft's sandbox scanning by behaving differently when it was executed in Microsoft's sandbox. I also got a pingback from a Microsoft Sandbox IP, and it was running from a Microsoft ASN located in the United States." — "the static code was now even more obviously malicious, yet still no static scanner alerts. The dynamic analysis likely didn't see anything because I kept the Azure and sandbox detection in place."
+   - Sample/method: 1 attacker-controlled extension, 2 versions
+   - Limitations: Single extension; Microsoft marketplace only; the sandbox observed is the registry's, with no published rates; no Open VSX
+   - Population: microsoft-marketplace; instrumentation: sandbox-vm-unspecified; executed: yes; relevance: adjacent; found by: community; listed above
+   - Source check: confirmed — curl; all three passages found verbatim (curly apostrophes in original); date 'December 6, 2025' in page header
+
+28. **VSMEx: A Collection Tool and a Dataset of Malicious VS Code Extensions: Data/Toolset Paper (CODASPY 2026, DOI 10.1145/3800506.3803487)** — Kotaiba Alachkar et al., TU Delft, 2026 (CODASPY; Crossref created 2026-06-12)  
+   <https://repository.tudelft.nl/file/File_8db54555-5244-4281-a273-e7e823e6f7be?preview=1>  
+   Collector plus dataset of removed/malicious marketplace extensions; no execution; mentions Open VSX only as an alternative registry.
+   - Figures: "consists of a fixed snapshot of 214 extensions collected between September 3 and December 23, 2025"; "The complete dataset comprises 214 extensions, occupying 993.61 MB"; "This snapshot contained 99,566 extensions with a total size of 268.62 GB"; "as the Open VSX Registry [8] - Microsoft Marketplace remains the" [primary target]
+   - Sample/method: 214 malicious/removed extensions (212 removed list, 2 malicious list)
+   - Limitations: No dynamic analysis anywhere in the paper; Microsoft marketplace only; ground-truth-malicious, not a population sample
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: adjacent; found by: academic; listed above
+   - Source check: confirmed — TU Delft PDF fetched and grepped; no 'execute'/'dynamic' method text; Crossref DOI confirmed.
+
+29. **IDEception: Deceptive Behaviors in AI-Enhanced IDE Extensions (DOI 10.1109/FET68771.2026.11601332)** — Shilpa Choudhary, Mashetty Rishika, Sarabudla Subhash Reddy, Saibewar Amulya, Mekala Saiteja, Kommidi Sowmya Reddy - Neil Gogte Institute of Technology, Hyderabad, 2026 (Crossref created 2026-07-17); 2026 Intl. Conf. on Frontiers of Engineering and Emerging Technologies  
+   <https://ieeexplore.ieee.org/document/11601332>  
+   New 2026 citer of Edirimannage; a user study with one authored prototype malicious extension, not a corpus or a trace.
+   - Figures: "there is a controlled research setup using a prototype extension that carries out attacks such as deceptive credential harvesting and targeted poisoning of PTM"; "about 70-73% of users shared sensitive data"; "The extension was able to quietly steal system details, API keys and private keys while capturing screenshots and webcam footage"
+   - Sample/method: one prototype extension; user cohort size not stated in abstract
+   - Limitations: No registry population, no instrumentation of third-party extensions, no rates over an ecosystem
+   - Population: none; instrumentation: none; executed: yes; relevance: pointer; found by: academic
+   - Source check: partially confirmed — IEEE Xplore page came back empty through fetch; abstract quoted from Semantic Scholar record, authors/venue from Crossref. Full text not opened.
+
+30. **Dissecting Malicious VS Code Extensions: Characterization and Classification (SECRYPT 2026, pp. 723-735)** — Kotaiba Alachkar, Dirk Gaastra, Karlo Zanki (ReversingLabs), Marc Ohm (Bonn/Fraunhofer FKIE), Eduardo Barbaro, Yury Zhauniarovich (TU Delft), 2026 (Crossref created 2026-07-20)  
+   <https://www.scitepress.org/Link.aspx?doi=10.5220/0015063000004103>  
+   Static characterization of confirmed-malicious extensions; cites Edirimannage; no execution.
+   - Figures: "construct a ground-truth dataset of 262 malicious extensions. We examine Marketplace metadata and extension activation behavior, analyze code obfuscation and entropy, assess VirusTotal (VT) results, infer malicious objectives through manual inspection, and perform a code similarity analysis"; "malicious extensions typically execute early or unconditionally"
+   - Sample/method: 262 malicious extensions from Microsoft malicious/removed lists
+   - Limitations: Static + VT + manual reading; 'activation behavior' means manifest activationEvents, not runtime; malicious-only set
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: adjacent; found by: academic; listed above
+   - Source check: confirmed — SciTePress abstract page parsed; DOI/pages match Crossref; 0 citing works.
+
+31. **Extuno — Supply-chain detection for browser extensions and developer packages** — Extuno (Malwagon hypervisor sandbox), 2026 (current)  
+   <https://extuno.com/>  
+   Commercial scanner listing VS Code and Open VSX among 12 ecosystems, with a dynamic micro-VM sandbox that 'records behavior'; no instrumentation detail, corpus, or rates.
+   - Figures: "Dynamic sandbox — Runs live in a segmented micro-VM and records behavior."; "Five tests run on every version: vulnerability, secret-leak, static, dynamic, and AI code analysis."; "Hidden loaders and command traffic captured running live in a network-segmented sandbox."; "1100+ rules"
+   - Sample/method: none published
+   - Limitations: Instrument without a corpus; what is recorded (syscalls? network only?) unstated.
+   - Population: mixed; instrumentation: sandbox-vm-unspecified; executed: yes; relevance: pointer; found by: industry
+   - Source check: confirmed — Live homepage and /blog (curl + fetch); quotes verbatim.
+
+32. **Manifold Security homepage** — Manifold Security, 2026 (current)  
+   <https://www.manifold.security/>  
+   No IDE-extension content; AI-agent endpoint governance only.
+   - Figures: "Manifold's coverage has expanded to AI in the browser."
+   - Sample/method: none
+   - Limitations: Negative result for this vendor.
+   - Population: none; instrumentation: none; executed: no; relevance: pointer; found by: industry
+   - Source check: confirmed — fetch of homepage; nothing on VS Code/Open VSX.
+
+33. **How We Prevented Cursor, Windsurf & Google Antigravity From Recommending Malware** — Koi Security, 2026-01-06  
+   <https://web.archive.org/web/20260105194341id_/https://www.koi.ai/blog/how-we-prevented-cursor-windsurf-google-antigravity-from-recommending-malware>  
+   Forks inherit VS Code recommendation lists pointing to extension IDs that were unclaimed on Open VSX; Koi registered placeholders and worked with Eclipse; Google removed 13 extensions. No execution of the population.
+   - Figures: "these recommended extensions didn't exist on OpenVSX. The namespaces were unclaimed. Anyone could register them and upload whatever they wanted."; "Dec 26, 2025: Google ships partial fix (13 extensions removed)"; "our risk engine watches what extensions actually do during installation: network requests, file system access, script execution"
+   - Sample/method: Recommendation lists of Cursor, Windsurf, Antigravity (count not stated)
+   - Limitations: Namespace-claim exercise, not a trace; engine claim unsubstantiated.
+   - Population: open-vsx; instrumentation: none; executed: no; relevance: adjacent; found by: industry
+   - Source check: confirmed — Wayback 2026-01-05 snapshot (curl); quotes verbatim.
+
+34. **vsix-audit — Security scanner for VS Code extensions** — Trail of Bits, 2026-01-27 (created), pushed 2026-07-28  
+   <https://github.com/trailofbits/vsix-audit>  
+   Static scanner (manifest, AST eval/Function/dynamic-require, invisible-code, YARA) that downloads from marketplace:, openvsx: and cursor: registries; benign test corpus pinned by SHA-256.
+   - Figures: "vsix-audit scan openvsx:publisher/extension-name"; "--all-registries Scan from all registries (Marketplace + OpenVSX + Cursor)"; "SARIF - Static Analysis Results Interchange Format"
+   - Sample/method: none (tool)
+   - Limitations: No execution; no corpus run published.
+   - Population: mixed; instrumentation: static; executed: no; relevance: pointer; found by: industry, code-data, community; listed above
+   - Source check: confirmed — README read via gh api; 56 stars.
+
+35. **Strengthening supply-chain security in Open VSX** — Christopher Guindon, Eclipse Foundation, with Yeeth Security, 2026-01-28  
+   <https://blogs.eclipse.org/post/christopher-guindon/strengthening-supply-chain-security-open-vsx>  
+   Announces the pre-publish verification framework (impersonation, secrets, known malicious patterns, quarantine): monitoring from February 2026, enforcement from March 2026; work tracked in eclipse/openvsx#1331; funded by Alpha-Omega.
+   - Figures: "Up to now, the Open VSX Registry has relied primarily on post-publication response and investigation."; "Begin monitoring newly published extensions in February, without blocking publication"; "Move toward enforcement in March"; "Scan for known malicious patterns"; "we are working alongside security consultants from Yeeth Security"
+   - Sample/method: n/a
+   - Limitations: No dynamic/behavioural checks; no published rates or counts.
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: industry, community; listed above
+   - Source check: confirmed — Live page (curl); quotes verbatim.
+
+36. **GlassWorm Loader Hits Open VSX via Suspected Developer Account Compromise** — Socket Threat Research, 2026-01-31  
+   <https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise>  
+   Four compromised Open VSX extensions (publisher oorzc) with an activation-time staged loader; static analysis of the .vsix and decrypted payload.
+   - Figures: "a staged loader that decrypts and runs an embedded blob at activation time"; four extensions, "over 22,000 downloads" prior to malicious releases
+   - Sample/method: 4 extensions
+   - Limitations: Incident; no behavioural trace.
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: industry; listed above
+   - Source check: partially confirmed — fetch summary; quote and counts as summarised, not grep-verified.
+
+37. **Security Check Framework (eclipse/openvsx PR #1529, fixes #1331)** — Eclipse Open VSX project, 2026-02-06  
+   <https://github.com/eclipse/openvsx/pull/1529>  
+   The Open VSX publish-time scanner implementation: blocklist matching (Aho-Corasick), gitleaks-derived secret rules, malicious-zip check, namespace-ownership check, and a generic RemoteScanner HTTP hook for unnamed external scanners; no execution of extensions.
+   - Figures: PR body: "Malware detection to identify malicious or suspicious code"; "Secret scanning to catch accidental leaks of API keys or credentials"; "Generic mechanism to perform external scans on publication of extensions". Files: AhoCorasick.java, BlocklistCheckService.java, GitleaksRulesService.java, MaliciousZipCheckService.java, NamespaceOwnershipCheckScanner.java, RemoteScanner.java
+   - Sample/method: n/a
+   - Limitations: Which external RemoteScanners are configured in the hosted registry is not public ('a small set of security-sensitive details private').
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: industry; listed above
+   - Source check: confirmed — Read via gh api: issue #1331 opened 2025-09-05, PR merged 2026-02-06T19:42:02Z; file list from PR and current scanning/ directory.
+
+38. **Start Enforcing Pre-Publish Security Checks** — Christopher Guindon (Eclipse Foundation), comments by janbro (Yeeth) and netomi, 2026-02-25 (enforced 2026-03-04)  
+   <https://github.com/EclipseFdn/open-vsx.org/issues/8414>  
+   Open VSX's publish-time checks are five static checks (blocklist, secret, YARA, ClamAV REST, name-squatting) with per-check required/enforced flags; enforced on production 2026-03-04. No dynamic execution stage.
+   - Figures: "### 1. BLOCKLIST - required: true - enforced: true ### 2. SECRET - required: false - enforced: true ### 3. YARA - required: true - enforced: true ### 4. CLAMAV_REST - required: false - enforced: true ### 5. NAME_SQUATTING - required: false - enforced: false" — netomi 2026-03-04: "Security checks are now enforced on production."
+   - Sample/method: registry policy, all submissions
+   - Limitations: Policy, not measurement; no rates published
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: community
+   - Source check: confirmed — gh api issue body and comments
+
+39. **Glassworm is back: a new wave of invisible Unicode attacks hits repositories** — Aikido Security, 2026-03  
+   <https://www.aikido.dev/blog/glassworm-returns-unicode-attack-github-npm-vscode>  
+   GitHub code search for the decoder pattern; 151+ repositories, 2 npm packages, 1 VS Code extension; detection added to Aikido's static malware pipeline.
+   - Figures: "at least 151 matching repositories"; 1 VS Code extension (quartz.quartz-markdown-editor)
+   - Sample/method: 151+ repos
+   - Limitations: Static search; not a population study.
+   - Population: mixed; instrumentation: static; executed: no; relevance: pointer; found by: industry, community; listed above
+   - Source check: partially confirmed — fetch summary; not grep-verified.
+
+40. **Malicious IoliteLabs VSCode Extensions Target Solidity Developers on Windows, macOS, and Linux with Backdoor** — StepSecurity (vendor), 2026-03-27 (HN submission date; extensions updated 2026-03-25)  
+   <https://www.stepsecurity.io/blog/malicious-iolitelabs-vscode-extensions-target-solidity-developers-on-windows-macos-and-linux-with-backdoor>  
+   Static reverse engineering of three Marketplace extensions (tampered pako dependency, platform-specific droppers); no sandbox or trace mentioned; not Open VSX.
+   - Figures: "were simultaneously updated to version 0.1.8 on March 25, 2026, each containing an identical multi-stage backdoor. All three had been dormant since 2018. Combined, they had approximately 27,500 installs across the developer community." — "iolitelabs.solidity-macos - 6,995 installs ( Marketplace ) iolitelabs.solidity-windows - 11,511 installs ( Marketplace ) iolitelabs.solidity-linux - 8,078 installs ( Marketplace )"
+   - Sample/method: 3 extensions
+   - Limitations: Incident; no execution described ('sandbox'/'dynamic' absent from page)
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: pointer; found by: community; listed above
+   - Source check: confirmed — curl grep; 'sandbox' 0 hits, 'dynamic' 0 hits
+
+41. **Open Sesame: How a Fail-Open Bug in Open VSX's New Scanner Let Malware Walk Right In** — Koi Security (Palo Alto Networks), 2026-03-30  
+   <https://web.archive.org/web/20260327145835id_/https://www.koi.ai/blog/open-sesame-how-a-fail-open-bug-in-open-vsxs-new-scanner-let-malware-walk-right-in>  
+   Describes Open VSX's new pre-publish scanning pipeline (malware patterns, secret scanning, binary analysis, name-squatting) and a fail-open bug under load; Koi reported 2026-02-08, fixed 2026-02-11.
+   - Figures: "Open VSX's new pre-publish scanning pipeline had a fail-open bug. Flood the publish endpoint, the scanner skips, and your malicious extension goes live - marked as PASSED. Fixed within three days of our report."; "Malware detection, secret scanning, binary analysis, name-squatting prevention."; "2026-02-11 (Tuesday): Fix shipped in commit 64720cc"; "Our risk engine analyzes extension behavior in depth, network requests, file system access, code patterns"
+   - Sample/method: n/a (vulnerability report)
+   - Limitations: Not a measurement; documents that Open VSX publish-time checks are static and were bypassable in Feb 2026; Koi engine claim has no method or rates.
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: industry
+   - Source check: confirmed — Wayback 2026-03-27 snapshot (curl); quotes verbatim.
+
+42. **IDEception: Deceptive Behaviors in AI-Enhanced IDE Extensions** — Choudhary, Reddy, Reddy (FET 2026), 2026-04-22  
+   <https://doi.org/10.1109/FET68771.2026.11601332>  
+   Only 2026 citer of Edirimannage that concerns VS Code extensions; a user study with one attacker-built prototype extension, not a corpus measurement
+   - Figures: 'there is a controlled research setup using a prototype extension that carries out attacks such as deceptive credential harvesting and targeted poisoning of PTM ... about 70-73% of users shared sensitive data'
+   - Sample/method: one prototype extension; user-study participants (count not in abstract)
+   - Limitations: Not a population study; no Open VSX; no instrumentation of third-party extensions; full text behind IEEE
+   - Population: none; instrumentation: none; executed: yes; relevance: pointer; found by: code-data
+   - Source check: partially confirmed — Crossref metadata confirmed (title, venue, date, authors); abstract read through r.jina.ai rendering of the IEEE page; full text not opened
+
+43. **73 Open VSX Sleeper Extensions Linked to GlassWorm Show New Malware Activations** — Socket Threat Research, 2026-04-25  
+   <https://socket.dev/blog/73-open-vsx-sleeper-extensions-glassworm>  
+   Manual/static code review of a GlassWorm sleeper cluster on Open VSX; no sandbox execution described.
+   - Figures: "73 impersonation extensions"; "6 extensions" already activated with malware; "17 versions" declaring malicious extensionPack entries; "67 sleeper extensions" in IOCs
+   - Sample/method: 73 extensions (incident cluster)
+   - Limitations: Incident, not population; figures come from a fetch summary rather than a grep of the page text.
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: industry, community; listed above
+   - Source check: partially confirmed — fetch summary reports counts and 'no mention of sandboxing, dynamic execution, syscall tracing'; not re-verified by direct grep.
+
+44. **GitHub confirms breach of 3,800 repos via malicious VSCode extension (Nx Console) — HN discussion** — Hacker News community, 2026-05-20  
+   <https://news.ycombinator.com/item?id=48207660>  
+   460-comment thread after the GitHub breach; 47 comments mention sandbox/bwrap/firejail/eBPF/gVisor/Open VSX, all as abstract policy debate; no participant cites a dynamic corpus study, a trace of extensions, or tooling for it.
+   - Figures: cloudbonsai 2026-05-21: "So the extension basically rewrites files in `.github/workflows` and pushes them to GitHub, which then sends all the sensitive information to the attacker." — fg137 2026-05-20: "People have asked for sandboxing extensions for years [0] with little to no progress" — neop1x 2026-05-21: "For linux we have bubblewrap, firejail, apparmor and selinux"
+   - Sample/method: n/a
+   - Limitations: Discussion only
+   - Population: none; instrumentation: none; executed: no; relevance: pointer; found by: community; listed above
+   - Source check: confirmed — Algolia items API, full tree grepped; story 1054 points / 460 comments
+
+45. **GitHub Breached via VS Code Extension** — Aikido Security, 2026-05-20 (updated 2026-05-21)  
+   <https://www.aikido.dev/blog/github-breached-vs-code-extension>  
+   2026 context: Nx Console backdoored release on both marketplaces preceded GitHub's internal-repo breach.
+   - Figures: "the Nx Console VS Code extension, which has 2.2 million installs, verified publisher status, was briefly backdoored"; "the version pulled within 18 minutes on the VS Code Marketplace and 36 minutes on Open VSX"; "TeamPCP claims to have extracted data from roughly 4,000 private repos"
+   - Sample/method: n/a
+   - Limitations: Incident commentary.
+   - Population: mixed; instrumentation: none; executed: no; relevance: pointer; found by: industry; listed above
+   - Source check: confirmed — Live page (curl); quotes verbatim.
+
+46. **Disrupting Glassworm: Inside CrowdStrike's Takedown of a Dev-Targeting Botnet** — CrowdStrike, 2026-05-26  
+   <https://www.crowdstrike.com/en-us/blog/inside-crowdstrike-takedown-of-a-developer-targeting-botnet/>  
+   Infrastructure takedown and sinkhole; no sandbox method or extension counts disclosed.
+   - Figures: "More than 300 GitHub repositories"; "All Glassworm-infected machines now beacon to the benign CrowdStrike-operated IP address 164.92.88[.]210"
+   - Sample/method: none stated
+   - Limitations: No measurement of extensions.
+   - Population: mixed; instrumentation: none; executed: no; relevance: pointer; found by: industry, community; listed above
+   - Source check: partially confirmed — fetch summary; not grep-verified.
+
+47. **Software Dark Matter: Gazing at Uncharted Files to Navigate SBOM Integrations** — Abhishek Reddypalle, Dennis Roellke, Santiago Torres-Arias, 2026-06-11  
+   <https://arxiv.org/abs/2606.13966>  
+   The only academic work with Open VSX as a population; static file-inventory scan of top ~3,000 by downloads.
+   - Figures: "plugin/extension marketplaces (Jenkins plugins and OpenVSX)"; "We collected metadata for the top ~3,000 extensions on Open VSX prioritized by download count, downloading and scanning each .vsix artifact"; "Our prevalence figures for openvsx is therefore a conservative lower bound"
+   - Sample/method: top ~3,000 Open VSX extensions by download count
+   - Limitations: Static; top-N not random; no execution; SBOM-fidelity question, not behaviour
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: academic; listed above
+   - Source check: confirmed — arXiv abstract and PDF lines 620-696 read; one citing work (2607.22140, SBOM graphs).
+
+48. **Socket Firewall Now Blocks Malicious VS Code and Open VSX Extensions** — Socket, 2026-06-17  
+   <https://socket.dev/blog/socket-firewall-blocks-malicious-code-extensions>  
+   Product post: marketplace requests proxied and verdict-filtered at install time; cites the May 2026 GitHub breach via Nx Console 18.95.0 on both marketplaces.
+   - Figures: "In May 2026, GitHub disclosed that attackers compromised an employee device through a poisoned third-party VS Code extension, allowing them to exfiltrate roughly 3,800 GitHub-internal repositories."; "The extension was Nx Console 18.95.0, a malicious release that reached both the Visual Studio Marketplace and Open VSX before removal."
+   - Sample/method: n/a
+   - Limitations: No measurement; 2026 context only.
+   - Population: mixed; instrumentation: network-proxy-only; executed: no; relevance: pointer; found by: industry; listed above
+   - Source check: confirmed — Live page (curl); quotes verbatim.
+
+49. **Install Me Maybe: Turning Claimable VS Code Extension IDs into Supply-Chain Attacks (DEF CON 34)** — Raphael "rcss" Silva, Aikido Security, 2026-08 (DEF CON 34, Saturday 16:00)  
+   <https://defcon.org/html/defcon-34/dc-34-speakers.html>  
+   'Extension Confusion': trusted Microsoft-marketplace IDs unclaimed on the fork-side registry; measured by publishing proof-of-concept extensions and counting callbacks — an attack-side measurement, not a trace of the population.
+   - Figures: "Extension identity is marketplace-specific. An extension can be trusted and popular in one marketplace while the matching namespace sits unclaimed in another that the main forks actually pull from."; "The scale got out of hand fast: 1M+ callbacks, hundreds of organizations, $200k+ in bounties, all in under 3 months."
+   - Sample/method: Number of PoC extensions not stated
+   - Limitations: Talk abstract only; no companion blog found (aikido.dev/blog/extension-confusion and /install-me-maybe 404).
+   - Population: open-vsx; instrumentation: none; executed: no; relevance: adjacent; found by: industry; listed above
+   - Source check: confirmed — Live defcon.org speaker page (curl); quotes verbatim.
+
+50. **77 "evil twin" Open VSX extensions: 19 copy private repo and CI data to a new domain** — Manifold Security (vendor), 2026-08 (detections July 26–August 1, 2026; press coverage 2026-08-04)  
+   <https://www.manifold.security/blog/open-vsx-evil-twin-extensions>  
+   Vendor runtime monitoring of Open VSX extensions caught 77 counterfeit extensions beaconing to one new domain; the only public account of executed observation over Open VSX since the 2023 snapshot, but with no sample, population, rate or instrument stated.
+   - Figures: "Between July 26 and August 1, 2026, our monitoring systems identified 77 Open VSX extensions that beacon to the same newly registered domain." — "What gives it away is behaviour. An extension whose stated job is inserting file header comments has no reason to read .git/config, enumerate CI environment variables, or open a connection to an eleven-day-old domain a few seconds after startup. That sequence is only visible while it happens, in the runtime of the process doing it. This is where Manifold operates. We monitor what extensions, MCP servers and agents actually do once they are running, in the environment where they are running, rather than what their manifests and listings claim about them."
+   - Sample/method: 77 malicious extensions (58 beacon variants ~1.6–3.3 KB, 19 reconnaissance payloads ~10 KB); no benign population or denominator
+   - Limitations: Proprietary monitor, mechanism (hooks vs OS-level) unstated; no denominator, no rates, no dataset; detection cluster not a sample
+   - Population: open-vsx; instrumentation: sandbox-vm-unspecified; executed: yes; relevance: adjacent; found by: community; listed above
+   - Source check: confirmed — curl of the page; both quoted passages and the 77/58/19 counts and dates found verbatim in the rendered text
+
+51. **77 Open VSX extensions found harvesting developer info** — Lawrence Abrams, BleepingComputer, 2026-08-04  
+   <https://www.bleepingcomputer.com/news/security/77-open-vsx-extensions-found-harvesting-developer-info/>  
+   Press coverage of Manifold's finding; attributes discovery to Manifold and gives the 58/19 split; states no method beyond 'code and network behavior'.
+   - Figures: "The so-called "evil twin" campaign was discovered by Manifold Security, which detected the extensions between July 26 and August 1, 2026. Researchers linked all 77 extensions to the same activity through a shared data-exfiltration domain, as well as code and network behavior. While 58 extensions sent only a small amount of system information, the remaining 19 contained more extensive reconnaissance that exfiltrated developer, Git repository, and continuous integration (CI) metadata."
+   - Sample/method: 77 extensions
+   - Limitations: Secondary reporting; no method
+   - Population: open-vsx; instrumentation: none; executed: no; relevance: pointer; found by: community; listed above
+   - Source check: confirmed — curl; quoted sentence verbatim; byline 'By Lawrence Abrams August 4, 2026'
+
+52. **Open VSX search API (population size on 2026-09-17)** — Eclipse Foundation, 2026-09-17  
+   <https://open-vsx.org/api/-/search?size=1&offset=0>  
+   Sampling frame for the arm: the search index reports 17,941 extensions today
+   - Figures: {'offset': 0, 'totalSize': 17941}
+   - Sample/method: n/a
+   - Limitations: Search index count (latest version per extension, excludes quarantined/inactive versions); not a study
+   - Population: open-vsx; instrumentation: none; executed: no; relevance: pointer; found by: code-data, community; listed above
+   - Source check: confirmed — curl on 2026-09-17; /api/-/query also answers HTTP 200
+
+53. **Add Long-Running Scan Infrastructure for Async External Scanners (with #1510 secret scanning, #1991 isMalicious verdict, #2074 verified check)** — Eclipse Foundation / Open VSX maintainers (tracking issues #1331 by chrisguindon 2025-09-05 and #1396 2025-11-07), PR #1510 2025-12-23; #1565 2026-01-26; #1991 2026-07-25; #2074 2026-08-18  
+   <https://github.com/eclipse-openvsx/openvsx/pull/1565>  
+   Open VSX publish-time pipeline: synchronous checks (name squatting, blocklist, secret detection, namespace ownership) then asynchronous external scanners over HTTP; extensions failing enforced checks are quarantined. No execution of extensions anywhere in the design.
+   - Figures: 'PUBLISH ──▶ QUICK CHECKS ──▶ ASYNC SCANS ──▶ ACTIVATE or QUARANTINE' with '- Name squatting - Blocklist check - Secret detection' and '- Antivirus - Pattern rules - Other (optional)'; #1396 deliverables: 'Name-squatting detection, Blocklist enforcement, Secret and credential scanning, YARA scanning, ClamAV or equivalent malware detection'; ExtensionScanService javadoc: 'Owns scan lifecycle (STARTED → VALIDATING → SCANNING → PASSED/QUARANTINED)'
+   - Sample/method: every new publish since rollout (no counts published in the repo)
+   - Limitations: No dynamic analysis; scanner verdict rates are not published; scanning package tree lists only AhoCorasick, Blocklist, MaliciousZip, NamespaceOwnership, RemoteScanner, Secret* classes
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: code-data; listed above
+   - Source check: confirmed — PR bodies #1565, #1510, #1991 and issues #1331/#1396 read via gh api; scanning/ package tree and ExtensionScanService/RemoteScanner headers read; issue comments grepped for dynamic|sandbox|runtime|execut: none
+
+54. **Add Argus scanning service (production scanner set in configuration/application.yml)** — Eclipse Foundation open-vsx.org operators; Argus by Yeeth Security, PR 2026-04-10 (closed/merged)  
+   <https://github.com/EclipseFdn/open-vsx.org/pull/9563>  
+   Production Open VSX scanners are blocklist, name-similarity, secret detection, namespace-ownership, ClamAV REST, YARA and Argus; Argus is a cloud static/AI pipeline
+   - Figures: PR: 'Argus is a cloud-based multi-engine malware and AI analysis service exposed through https://app.yeethsecurity.com / https://api.yeethsecurity.com ... enforced: true ... timeout-minutes: 30'. application.yml: 'clamav-rest: enabled: true enforced: true type: "CLAMAV_REST"', 'yara: enabled: true type: "YARA"', 'argus: enabled: true type: "ARGUS" ... url: "https://api.yeethsecurity.com/api/scan"'. yeethsecurity.com: 'Argus plugs into your publish pipeline and runs every submission through a multi-stage analysis before it goes live. YARA AST Network Fuzzy Hash AI Synthesis Risk Score'; 'Optional Argus API integration for full static analysis'
+   - Sample/method: all Open VSX publishes
+   - Limitations: 'Network' stage is not described as execution; no rates published; the checked-in application.yml points scanner URLs at staging hosts
+   - Population: open-vsx; instrumentation: static; executed: no; relevance: adjacent; found by: code-data, community; listed above
+   - Source check: confirmed — PR body, files list and application.yml lines 252-480 read via gh api; yeethsecurity.com fetched with curl and grepped; app.yeethsecurity.com renders only a title
+
+55. **PackAMal: dynamic analysis opensource package (fork of ossf/package-analysis behind the pakaremon/dynamic-analysis image)** — congnguyen1420 (PackAMal team, Vietnam), created 2025-04-01, last push 2025-12-24  
+   <https://github.com/congnguyen1420/rust-mal>  
+   strace-based package sandbox for seven package ecosystems; the VS Code/VSIX arm exists only in the CSN304 student repo above, not upstream
+   - Figures: 'System Call Tracking: Monitors file operations, command executions, and system interactions via strace' — 'Supported Ecosystems: PyPI ... npm ... RubyGems ... Packagist ... Crates.io ... Maven ... Wolfi'
+   - Sample/method: none for extensions
+   - Limitations: No VS Code or Open VSX ecosystem; tree grep for vscode|vsix returns nothing beyond dynamic-analysis/internal/strace
+   - Population: none; instrumentation: syscall-or-os-boundary; executed: yes; relevance: pointer; found by: code-data
+   - Source check: confirmed — README read via gh api; tree grepped; the CSN304 Dockerfile header matches the ossf/package-analysis sandbox Dockerfile
+
+56. **IDE Shepherd: realtime security monitoring from inside the IDE** — Datadog Security Labs, created 2025-08-06, last push 2026-09-14  
+   <https://github.com/DataDog/IDE-SHEPHERD-extension>  
+   A VS Code/Cursor extension that hooks Module._load to intercept http, child_process and fs calls of other extensions at runtime, plus a static scan of installed extension directories; a runtime monitor, not a corpus study
+   - Figures: 'a runtime interception layer that hooks Node.js primitives (http, child_process, fs) as they are loaded, blocking suspicious network requests, process executions, and file system access in real time; and a static source analysis layer that scans every .js file in an extension's directory'
+   - Sample/method: none (demonstrated on the Iolite Smart Contract Plugin removed 2026-03-28)
+   - Limitations: Instrument without a corpus; in-process hooks inside the extension host, not syscalls; publishes no population rates
+   - Population: none; instrumentation: api-hooks-in-process; executed: yes; relevance: pointer; found by: code-data; listed above
+   - Source check: confirmed — README grepped via gh api raw; quoted sentence at line 3
+
+57. **Red Widow: Security scanner for VSIX, MCP, AI IDEs, and developer workflow attack paths** — duriantaco (individual), created 2026-05-05, last push 2026-05-09  
+   <https://github.com/duriantaco/red-widow>  
+   Static scanner plus an optional 'dynamic sandbox' that loads the extension's activation entry point in an instrumented Node process with canary secrets; resolves VSIX from the Marketplace or Open VSX
+   - Figures: 'The dynamic sandbox creates a fake workspace with canary secrets, loads the extension activation entry point through an instrumented Node harness, blocks process and network calls, and reports proof when an extension reads canary files, spawns a process, sends terminal commands, touches canary environment values, creates unsafe webviews, or attempts to send canary material outbound.' 'Safety note: the dynamic runner is an instrumented canary harness, not an operating-system or VM sandbox.'
+   - Sample/method: none; per-extension tool, no corpus run published
+   - Limitations: In-process Node instrumentation with a mocked vscode API, not the real extension host; no OS-boundary trace; 2 stars; no rates
+   - Population: mixed; instrumentation: api-hooks-in-process; executed: yes; relevance: adjacent; found by: code-data, community; listed above
+   - Source check: confirmed — README lines 24-36 and 198-215 read via gh api raw
+
+58. **Extension runtime security (VS Code docs)** — Microsoft VS Code, current (2026)  
+   <https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security>  
+   Documents the marketplace 'clean room VM' dynamic detection, AV scanning, secret scanning, block list; no data.
+   - Figures: "Dynamic detection: The Marketplace does dynamic detection by verifying the extension's runtime behavior by running it in a sandboxed environment (clean room VM)."; "The scan, which uses several antivirus engines, is run for each new extension and for each extension update."
+   - Sample/method: n/a
+   - Limitations: No method, no counts.
+   - Population: microsoft-marketplace; instrumentation: sandbox-vm-unspecified; executed: yes; relevance: pointer; found by: industry, code-data; listed above
+   - Source check: confirmed — Live page (curl); quotes verbatim.
+
+59. **GuardDog (Datadog) — VSCode extension support** — Datadog Security Labs, current (2026)  
+   <https://github.com/DataDog/guarddog>  
+   Static YARA/metadata scanner with a `guarddog extension scan` command for .vsix from marketplace.visualstudio.com; the Landlock/Seatbelt sandbox protects the scanner, not a detonation.
+   - Figures: "GuardDog is a CLI tool that identifies malicious PyPI and npm packages, Go modules, Rust crates, RubyGems, GitHub actions, or VSCode extensions. It runs static analysis on package source code (through YARA rules)"; "VSCode Extensions: Extensions (.vsix) packages hosted in marketplace.visualstudio.com"
+   - Sample/method: none (tool)
+   - Limitations: Microsoft marketplace only; static.
+   - Population: microsoft-marketplace; instrumentation: static; executed: no; relevance: pointer; found by: industry
+   - Source check: confirmed — README via gh api; quotes verbatim.
+
+60. **SPINE Research Group publications list (Edirimannage / Khalil group)** — SPINE Research Group (authors' own group site, DBLP-derived), file last updated 2026-05-21  
+   <https://github.com/SPINE-Research-Group/SPINE-Research-Group.github.io/blob/main/publications.md>  
+   As of 2026-05-21 the authors' own publication list still records 'Developers Are Victims Too' only as a CoRR preprint under 'Informal and Other Publications' — no venue version, and no follow-up on extensions appears in the list.
+   - Figures: "- type: Informal and Other Publications title: 'Developers Are Victims Too : A Comprehensive Analysis of The VS Code Extension Ecosystem.' ... journal: CoRR year: 2024 source: https://doi.org/10.48550/arXiv.2411.07479 dblp_key: journals/corr/abs-2411-07479"
+   - Sample/method: n/a
+   - Limitations: DBLP-derived list may lag a venue publication by months; 2026 entries in the same file are all IoT/FL journals
+   - Population: none; instrumentation: none; executed: no; relevance: pointer; found by: community
+   - Source check: confirmed — gh api contents + commits?path= for last-modified date
+
+61. **CSN304 Project: Towards Identifying Malicious VSCode Extensions Detection - 'Triple-Layer Dynamic Sandbox'** — Ho Ngoc Trung (student), with 'PackGuard Team', last push 2026-04-06  
+   <https://github.com/TrungHo-dotcom/CSN304-VSCode-Malware-Detection>  
+   Closest thing to an OS-boundary hook in the wild is a student LD_PRELOAD + Node-module interception sandbox with no corpus and no rates.
+   - Figures: "Deep system call hooking (LD_PRELOAD) and Node.js core module interception (fs, child_process, net)"; "An AST-driven automated fuzzing engine written in JavaScript to force execute dormant malware behaviors"; "Intercepts malware communicating with the Solana Blockchain"
+   - Sample/method: none stated
+   - Limitations: Course project, 0 stars, no dataset, no population, LD_PRELOAD is not a syscall boundary (bypassed by static binaries)
+   - Population: none; instrumentation: api-hooks-in-process; executed: yes; relevance: pointer; found by: academic, code-data; listed above
+   - Source check: confirmed — README read through gh api.
+
+62. **VSMEx: A Collection Tool and a Dataset of Malicious VS Code Extensions (CODASPY 2026 data/toolset paper)** — Alachkar, Gaastra, Gadyatskaya, Barbaro, van Eeten, Zhauniarovich — TU Delft / Leiden, repo created 2025-10-20, last push 2026-09-17; paper CODASPY 2026 (2026-06-22), doi 10.1145/3800506.3803487  
+   <https://github.com/kalachkar/vsmex>  
+   Crawler that captures VSIX of extensions Microsoft flags/removes; metadata public, VSIX by request; no execution or behavioural data
+   - Figures: 'A collection tool and dataset of malicious VS Code extensions removed by Microsoft.' 'The VSIX packages and full metadata are not publicly available to prevent misuse.' 'tool/crawler.py — crawls the VS Code Marketplace, stores new VSIX files locally'
+   - Sample/method: flagged-extension list from Microsoft; count in stats.json (not opened)
+   - Limitations: Collection only, Microsoft marketplace only; nothing dynamic
+   - Population: microsoft-marketplace; instrumentation: none; executed: no; relevance: pointer; found by: code-data; listed above
+   - Source check: confirmed — README read via gh api; DOI cross-checked in Crossref search result list
+
+63. **code-server FAQ — extensions and Open VSX** — Coder, repo last push 2026-09-17  
+   <https://github.com/coder/code-server/blob/main/docs/FAQ.md>  
+   code-server runs the VS Code extension host in Node (no Electron) and installs from Open VSX by default; an alternative headless activation path, unused by any published corpus run
+   - Figures: 'Instead, we use the Open-VSX extension gallery (https://open-vsx.org), which is also used by various other forks.' 'code-server --install-extension <extension id>' 'code-server --install-extension downloaded-ms-python.python.vsix' 'export EXTENSIONS_GALLERY='{"serviceUrl": "https://my-extensions/api"}''
+   - Sample/method: none
+   - Limitations: Tooling only
+   - Population: open-vsx; instrumentation: none; executed: yes; relevance: pointer; found by: code-data
+   - Source check: confirmed — FAQ.md grepped via gh api raw (lines 122-188)
+
+64. **@vscode/test-electron (with microsoft/vscode-docs continuous-integration.md on xvfb)** — Microsoft, vscode-test last push 2026-09-12  
+   <https://github.com/microsoft/vscode-test>  
+   The official way to download a pinned VS Code build, install extensions from the CLI and run an extension host headlessly on Linux under Xvfb; no published corpus run uses it
+   - Figures: README: 'await runVSCodeCommand(['--install-extension', 'ms-python.python'], { version: '1.35.0' });' and 'launchArgs: [ testWorkspace, // This disables all extensions except the one being tested '--disable-extensions' ]'. CI doc: 'In headless Linux CI machines xvfb is required to run VS Code, so if Linux is the current OS run the tests in an Xvfb enabled environment' — '- run: xvfb-run -a npm test'
+   - Sample/method: none
+   - Limitations: Designed for one extension under development; a corpus loop must be written (the CSN304 harness above is the only found example)
+   - Population: none; instrumentation: none; executed: yes; relevance: pointer; found by: code-data
+   - Source check: confirmed — README lines 1-20 and 80-100 read; vscode-docs api/working-with-extensions/continuous-integration.md grepped for xvfb
+
+### Not used
+
+- **A look back: malicious packages in VS Code Marketplace** — ReversingLabs, 2025–2026 (unknown) · <https://www.reversinglabs.com/blog/a-look-back-malicious-packages-in-vs-code-marketplace> · unreachable — Both live fetch and Wayback id_ fetch returned navigation only; not verified.
+
+### Walls
+
+- academic: web search unavailable before the first query; replaced by curl and direct fetches. OpenAlex: "Rate limit exceeded ... $0 remaining" for every query. DBLP: Anubis bot-check page ("Making sure you're not a bot!") then 429 and timeouts. Semantic Scholar: HTTP 429 on roughly half of search calls even with 10-15 s pacing; paper/citations endpoints eventually answered. IEEE Xplore: fetch returned an empty page for IDEception (metadata taken from Crossref + Semantic Scholar abstract instead). OATD theses: 403. Google Scholar reachable only through r.jina.ai, with an occasional captcha page (2 of ~15 queries). ACM DL not attempted (known 403); CODASPY paper verified via the TU Delft repository PDF. arXiv full-text is not searchable through the API (metadata only), so phrases inside method sections cannot be found there.
+- industry: web search unavailable from the start; fell back to curl against HN Algolia, GitHub API (gh), Wayback CDX/id_ snapshots, and fetch on direct URLs. direct fetch refuses web.archive.org (fetched archived pages with curl instead). koi.ai/blog and koi.security now 301 to paloaltonetworks.com (Koi acquired); all Koi posts read from Wayback snapshots (timestamps recorded). secureannex.com is JS-rendered (empty via curl and fetch; read through r.jina.ai). ReversingLabs "A look back: malicious packages in VS Code Marketplace" returns only site chrome live and in the 2026-05-18 Wayback capture — unreachable. blackhat.com schedule pages 301/JS-only, fwdcloudsec.org agenda pages JS-only (nothing greppable); DEF CON 33/34 speaker pages were readable. Medium/ACM/IEEE not needed for this modality.
+- code-data: web search unavailable from the start — modality run entirely through gh api, curl and public APIs. OpenAlex: HTTP 429 'Insufficient budget ... $0 remaining' (resets midnight UTC). Semantic Scholar: 429 on first call, succeeded after an 8 s pause. DBLP: Anubis bot challenge on the search API. IEEE Xplore: direct fetch returned 202 shell; abstract read through r.jina.ai. export.arxiv.org over plain http returned empty bodies; https worked. GitHub search: 'repo:eclipse/openvsx' invalid (the registry moved to eclipse-openvsx/openvsx); 'user:' qualifier rejected for a nonexistent login. api.yeethsecurity.com returns 404 at root (API only).
+- community: web search unavailable from the start — all searching done through direct APIs (hn.algolia.com, api.pullpush.io, api.github.com via gh, lobste.rs HTML, dev.to feed, fosdem.org). reddit.com returned 403 on every JSON endpoint (used pullpush.io archive instead; comment coverage may be incomplete). web.archive.org is blocked for fetch (curl to id_ snapshots worked; the availability API 429'd). koi.ai blog URLs now 301 to paloaltonetworks.com (Koi acquired) — read through the Wayback snapshot. socket.dev blog pages are JS-rendered (curl returns a shell; only fetch summaries, so Socket figures are marked partially confirmed). blogs.eclipse.org pages carry no machine-readable date. GitHub code search rejects queries containing `--` flags (e.g. --install-extension), so harness searches used quoted fragments. dev.to search feed returned empty for every query. eclipse/openvsx moved to eclipse-openvsx/openvsx (search on the old path 422s).
+
+### Searches run
+
+- `arXiv API (curl) :: all:"VS Code extension" :: 16 hits; only 2411.07479 (Edirimannage) is a security study, rest are tool papers`
+- `arXiv API :: all:"Visual Studio Code" AND all:extensions :: 29 hits; JavaSith 2505.21263, Protect Your Secrets 2412.00707; no dynamic corpus`
+- `arXiv API :: all:"Open VSX" / abs:"Open VSX" / all:OpenVSX :: 0, 0, 1 (Software Dark Matter 2606.13966)`
+- `arXiv API :: all:"IDE extension" :: 21 hits, all tool or unrelated re-ID papers; JavaSith only security one`
+- `arXiv API :: all:"extension host" :: 4 hits, none about VS Code`
+- `arXiv API :: all:"VSCode extension" :: 11 hits; Protect Your Secrets, JavaSith; rest tools`
+- `arXiv API :: all:extensions AND all:strace :: 1 irrelevant (FakeTracer)`
+- `arXiv API :: all:"VS Code" AND all:extensions AND all:malicious :: 1: JavaSith`
+- `arXiv API :: all:"VS Code" AND all:extensions AND all:dynamic AND all:analysis :: 1 irrelevant`
+- `arXiv API :: all:"VS Code" AND all:extensions AND all:sandbox :: 1: JavaSith`
+- `arXiv API :: all:GlassWorm :: 1 (stylometric author impersonation), not an extension trace`
+- `arXiv API :: all:Cursor AND all:extensions AND all:supply AND all:chain :: 0`
+- `arXiv API :: all:"AI coding assistant" AND all:extension AND all:security :: 4: Protect Your Secrets, Takedown 2509.24240, two unrelated`
+- `arXiv API :: all:"extension marketplace" AND all:empirical AND all:security; all:"editor extensions" AND all:security; all:JetBrains AND all:plugins AND all:security :: 0 / 1 irrelevant / 0`
+- `arXiv API :: all:"VS Code" AND all:headless; all:"code-server" AND all:extensions; all:Theia AND all:extensions AND all:security :: 0 / 1 irrelevant (Browsix 2016) / 0 - no headless activation harness paper`
+- `arXiv API :: id_list=2411.07479 ; GET /abs/2411.07479v2 :: only v1 (2024-11-12); v2 returns 404; no journal-ref/DOI field`
+- `OpenAlex API :: "VS Code" extensions security dynamic analysis :: WALL: Rate limit exceeded, $0 daily budget`
+- `Semantic Scholar search :: VS Code extensions dynamic analysis security (2023-2026) :: UntrustIDE, VSMEx, Dissecting, Edirimannage, JavaSith; nothing new`
+- `Semantic Scholar search :: Open VSX extension registry / Open VSX :: only astronomy and clinical noise; 0 relevant`
+- `Semantic Scholar search :: VSCode extension marketplace malware :: 3 hits, none relevant (Chrome Web Store vetting, VSCode-Antimony)`
+- `Semantic Scholar search :: IDE extensions malicious runtime behavior; code editor extension sandbox syscall tracing :: HTTP 429 after 8 retries each`
+- `Semantic Scholar paper/citations :: arXiv:2411.07479 citations :: venue arXiv.org, 7 citing works: IDEception (FET 2026), Towards Secure Agent Skills, MalSkills, Not Only for Developers (SANER), Agent Skills in the Wild, Takedown, Dissecting (SECRYPT 2026)`
+- `Semantic Scholar paper/citations :: arXiv:2412.00707 citations (Protect Your Secrets) :: 9 citing works, incl. KeyChaser S&P 2026 (browser), IDEception, MalSkills, Dissecting; none dynamic on extensions`
+- `Semantic Scholar paper/citations :: DOI:10.14722/ndss.2024.24073 citations (UntrustIDE) :: 18 citing works; not already in the sweep: 2607.26390 (Reddit study of LLM IDEs) and 2509.22040 (prompt injection); none an extension trace`
+- `Semantic Scholar paper/citations :: arXiv:2606.13966 ; DOI:10.5220/0015063000004103 ; DOI:10.1109/FET68771.2026.11601332 :: 1 / 0 / 0 citing works`
+- `Crossref :: query.bibliographic=Developers Are Victims Too Comprehensive Analysis VS Code Extension Ecosystem :: no record - no venue publication of Edirimannage`
+- `Crossref :: VS Code extensions malicious dynamic analysis (from 2023) :: Dissecting (10.5220/0015063000004103, 2026-07-20), VSMEx (10.1145/3800506.3803487, CODASPY 2026), UntrustIDE (NDSS 2024); nothing else relevant`
+- `Crossref :: VSCode extensions security empirical :: Protect Your Secrets SANER 2025 (10.1109/saner64311.2025.00058); rest noise`
+- `Crossref :: Open VSX registry extensions; IDE extensions supply chain security; Visual Studio Code extension ecosystem security analysis; extension marketplace sandbox runtime behavior code editor :: all noise (funder registry, textbooks, unrelated sandboxes)`
+- `Crossref works/DOI :: 10.1109/FET68771.2026.11601332 :: IDEception, 2026 Intl Conf. on Frontiers of Engineering and Emerging Technologies, 6 authors Neil Gogte Institute of Technology Hyderabad; no abstract in Crossref`
+- `DBLP API :: VS Code extension; Open VSX; VSIX; IDE extension malicious ... :: WALL: Anubis bot-check page then 429`
+- `Google Scholar via r.jina.ai :: "VS Code" extensions "dynamic analysis" strace OR syscall OR sandbox (since 2024) :: Agrawal NHSJS 2025, Edirimannage, Chalmers thesis 2025 (Brunnegard & Carlstedt), JavaSith, Takedown, agent-skills paper; nothing syscall-level`
+- `Google Scholar via r.jina.ai :: "Open VSX" extensions security :: VSMEx (ACM + TU Delft PDF), Software Dark Matter; rest noise`
+- `Google Scholar via r.jina.ai :: "VS Code" extension activation sandbox "system call" OR strace :: Agrawal, agent-skills, WPI MQP (Hunter 2025, not about extensions), Android malware surveys`
+- `Google Scholar via r.jina.ai :: "IDE extension" OR "IDE extensions" malicious dynamic analysis :: IDEception (FET 2026), UntrustIDE, JavaSith, agent-skills, Takedown; nothing new`
+- `Google Scholar via r.jina.ai :: "VS Code extensions" telemetry OR "network requests" measurement executed :: UntrustIDE, Edirimannage, Agrawal, JavaSith, Software Dark Matter; no new corpus`
+- `Google Scholar via r.jina.ai :: "extension host" "VS Code" instrumentation OR monitoring security :: Edirimannage, Agrawal, JavaSith, Chalmers thesis, Protect Your Secrets; no new`
+- `Google Scholar via r.jina.ai :: "code-server" OR "vscode-test" OR "test-electron" extensions headless corpus security :: 2 irrelevant hits; no corpus run with a headless harness`
+- `Google Scholar via r.jina.ai :: "VS Code" extensions eBPF OR Falco OR auditd OR gVisor OR Firejail OR bubblewrap :: agent-skill and coding-agent papers only; no extension trace`
+- `Google Scholar via r.jina.ai :: VS Code extensions "system calls" trace behavior; "Open VSX" OR OpenVSX Cursor OR Windsurf OR VSCodium extensions malicious; VSCodium OR Cursor OR Windsurf extension marketplace security empirical :: generic syscall-IDS papers / 3 irrelevant / 0`
+- `Google Scholar via r.jina.ai :: author profile k8QydFgAAAAJ (Edirimannage) sorted by date :: no VS Code follow-up; all later items are federated learning`
+- `GitHub search/repositories :: vscode extension malware; malicious vscode extension detection; vsix sandbox; vscode extension dynamic analysis; open-vsx security; openvsx extensions scan; vscode extensions strace; vscode extension runtime behavior :: student projects only: TrungHo-dotcom/CSN304 (LD_PRELOAD + Node hooks, no corpus), suleiman-odeh (static), packguard-dev; no corpus tracing repo`
+- `GitHub API :: repos/vulnerability-reporter/DAV2-ACAnTVSCEE contents, commits, README :: artefact repo of Edirimannage: last push 2024-10-11, instrumented VS Code macOS/Windows zips, manual-execution dynamic results, no syscall/file trace data`
+- `web search :: Koi Security VS Code extension sandbox dynamic analysis Open VSX :: Not performed: web search unavailable; switched to curl, APIs and direct fetches.`
+- `HN Algolia (curl) :: Koi Security extensions | ExtensionTotal | Open VSX malicious | GlassWorm | VS Code extension sandbox dynamic analysis | Cursor extension malicious | Windsurf extension malicious :: Koi GlassWorm incident pages, Socket 73 sleeper extensions, CrowdStrike takedown, Aikido GlassWorm returns, VSCan Show HN, Kaspersky Cursor $500k; nothing on syscall-level corpus tracing.`
+- `gh api search/repositories :: vscode extension sandbox dynamic analysis | vsix dynamic analysis | vscode extension strace | open-vsx malware scan | vscode extension behavior monitor | ide extension sandbox falco :: No relevant repos (noise).`
+- `gh api search/repositories :: vscode extension sandbox | vsix analysis malware | vscode extension security scanner | openvsx security | vscode-extension-sandbox :: trailofbits/vsix-audit (56 stars, static), astroicers/extension-guard, moscovium-mc/extsniffer; no dynamic tracer.`
+- `gh api readme :: trailofbits/vsix-audit README :: Static: YARA + AST + manifest; registries marketplace:, openvsx:, cursor:; SARIF; no execution.`
+- `fetch :: https://vscan.dev/ :: '10k+ extensions analyzed', supports VS Code Marketplace and Open VSX; method unstated.`
+- `fetch :: https://socket.dev/blog/73-open-vsx-sleeper-extensions-glassworm :: Static code review; 73 impersonation extensions, 6 activated; no sandbox.`
+- `fetch :: https://www.crowdstrike.com/en-us/blog/inside-crowdstrike-takedown-of-a-developer-targeting-botnet/ :: Takedown post; 'More than 300 GitHub repositories'; no sandbox/telemetry method.`
+- `fetch :: https://www.koi.ai/blog :: 301 to paloaltonetworks.com (Koi acquired) — used Wayback.`
+- `Wayback CDX (curl) :: koi.ai/blog/* filtered vsx|vscode|cursor|windsurf|sandbox|dynamic|marketplace :: Post slugs: 2-6 statistics, 4-6 ExtensionTotal, glassworm-*, open-sesame Open VSX scanner, how-we-prevented-cursor-windsurf-google-antigravity, marketplace-takeover, tiger-jack, maliciouscorgi.`
+- `curl Wayback id_ :: koi.ai 2-6-exposing-malicious-extensions-shocking-statistics-from-the-vs-code-marketplace :: June 2, 2024; ~60,000 MS-marketplace extensions; 1,283 / 87 / 8161 / 1,452 / 267 / 145 / 2,304 / 783 — static indicators (OSV, VirusTotal, JS code).`
+- `curl Wayback id_ 20260327145835 :: koi.ai open-sesame-how-a-fail-open-bug-in-open-vsxs-new-scanner :: March 30, 2026; Open VSX pre-publish pipeline (Issue #1331, PR #1529) fail-open under load; reported 2026-02-08, fixed 2026-02-11 commit 64720cc.`
+- `curl Wayback id_ 20260105194341 :: koi.ai how-we-prevented-cursor-windsurf-google-antigravity-from-recommending-malware :: January 6, 2026; unclaimed Open VSX namespaces in fork recommendation lists; Google removed 13 extensions; Koi engine claim only.`
+- `gh api issues/pulls :: eclipse/openvsx issue #1331 and PR #1529 + file list + scanning/ directory :: PR merged 2026-02-06: BlocklistCheck (Aho-Corasick), GitleaksRules/SecretDetector, MaliciousZipCheck, NamespaceOwnershipCheck, generic RemoteScanner HTTP; all static.`
+- `Wayback CDX + curl :: blogs.eclipse.org/post/* filtered vsx :: Found open-vsx-security-update-october-2025 and strengthening-supply-chain-security-open-vsx (28 Jan 2026), plus hardening/rate-limiting posts.`
+- `curl :: blogs.eclipse.org strengthening-supply-chain-security-open-vsx :: Yeeth Security consultants; monitoring Feb 2026, enforcement March 2026; impersonation, secrets, 'known malicious patterns', quarantine — static.`
+- `curl :: blogs.eclipse.org open-vsx-security-update-october-2025 :: Wiz token leak, Koi GlassWorm; '35,800' downloads disputed as inflated; 'Automated scanning of extensions will now occur at the time of publication'.`
+- `curl :: code.visualstudio.com extension-runtime-security + devblogs security-and-trust-in-visual-studio-marketplace :: 'Dynamic detection ... running it in a sandboxed environment (clean room VM)'; June 11, 2025: 'reviewed 136 extensions for malicious code and removed 110'.`
+- `curl / r.jina.ai :: secureannex.com/blog/glassworm-continued/ :: Nov 30, 2025; '30+ extensions' cloned/updated with malware, MS + Open VSX tables; metadata/static tracking.`
+- `fetch :: https://www.aikido.dev/blog/glassworm-returns-unicode-attack-github-npm-vscode :: March 2026; GitHub code search; 'at least 151 matching repositories'; 1 VS Code extension; no dynamic method.`
+- `fetch :: https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise :: Jan 31, 2026; 4 Open VSX extensions, >22,000 downloads; Socket AI Scanner static.`
+- `fetch :: https://www.manifold.security/ :: No IDE-extension content; AI-agent endpoint security only.`
+- `fetch :: https://extuno.com/ (+ curl extuno.com/blog) :: 'Dynamic sandbox — Runs live in a segmented micro-VM and records behavior'; ecosystems include VS Code and Open VSX; no rates or corpus.`
+- `Wayback CDX (curl, background) :: wiz.io/blog, snyk.io/blog, jfrog.com/blog, checkmarx.com/blog, aquasec.com/blog, socket.dev/blog, aikido.dev/blog, securitylabs.datadoghq.com, reversinglabs.com/blog from 2025, filtered vsx|vscode|cursor|windsurf|extension :: Wiz supply-chain-risk-in-vscode-extension-marketplaces; Socket introducing-socket-scanning-for-openvsx-extensions, glasswasm, sleeper, firewall; Aikido bloktrooper, invisible-unicode-openvsx-again, github-breached; Aqua can-you-trust; Datadog MUT-9332; RL a-look-back, spectra-assure-community.`
+- `fetch + curl verify :: https://www.wiz.io/blog/supply-chain-risk-in-vscode-extension-marketplaces :: October 15, 2025; static unzip+secret scan; 'over 550 validated secrets ... more than 500 extensions'; 'Over thirty leaked OVSX Access Tokens ... over 100,000 extension installs'.`
+- `fetch + curl verify :: https://socket.dev/blog/introducing-socket-scanning-for-openvsx-extensions :: Nov 20, 2025; 'combines Socket's AI malware detector with ... code extension specific heuristics'; experimental; no counts.`
+- `fetch :: https://www.aquasec.com/blog/can-you-trust-your-vscode-extensions/ :: January 6, 2023; static + impersonation PoC + network monitoring of a few extensions; 'over 40K extensions'.`
+- `curl grep :: socket.dev open-vsx-transitive-glassworm-campaign | glasswasm | open-vsx-unblocks | socket-firewall-blocks | glassworm-sleeper-activated; aikido bloktrooper | invisible-unicode; datadog MUT-9332; jfrog tag ide-extensions :: No vendor-side dynamic method; Socket Firewall (Jun 17, 2026) cites Nx Console 18.95.0 / GitHub ~3,800 repos; Datadog: 'more than 72,000 extensions were active' (May 21, 2025).`
+- `fetch / curl Wayback :: reversinglabs.com a-look-back-malicious-packages-in-vs-code-marketplace | devs-vet-your-vs-code-plugins-with-spectra-assure-community | malicious-helpers (2024) :: 'A look back' unreachable (chrome only, live and 2026-05-18 archive); Spectra Assure Community July 8, 2025 'Over 100K risk assessments', method unstated; Malicious helpers Apr 3, 2024 static, 4 extensions.`
+- `curl :: defcon.org dc-33-speakers + dc-34-speakers grep vs code|extension|cursor|vsx :: DEF CON 34: 'Install Me Maybe: Turning Claimable VS Code Extension IDs into Supply-Chain Attacks' (Raphael Silva, Aikido) — '1M+ callbacks ... in under 3 months'; DEF CON 33 nothing on IDE extensions.`
+- `curl :: blackhat.com us-25/us-26/eu-25/asia-26 briefings schedule; fwdcloudsec.org NA/EU 2025-2026 :: Pages 301/JS-only; nothing greppable (wall).`
+- `curl Wayback id_ :: koi.ai 4-6-introducing-extensiontotal + glassworm-first-self-propagating-worm (ts 20251019194611) :: ExtensionTotal (June 6, 2024): 'sandboxing & running vulnerability checks ... monitoring if the extension communicates externally' — claim, MS marketplace, no rates; GlassWorm: 'Our risk engine at Koi flagged an OpenVSX extension called CodeJoy' — no method.`
+- `HN Algolia (curl) :: Nx Console GitHub breach | Extension Confusion | Cursor marketplace extension security scan | Kiro extension | vscode extension eBPF | IDE extension telemetry study :: Only the Nx Console tweet (2026-05-21); no dynamic-corpus work.`
+- `curl :: aikido.dev github-breached-vs-code-extension; aikido extension-confusion / install-me-maybe slugs :: May 20/21, 2026: Nx Console '2.2 million installs', pulled 'within 18 minutes on the VS Code Marketplace and 36 minutes on Open VSX'; extension-confusion blog slugs 404.`
+- `curl :: snyk.io cursor-ide-malware-extension-compromise; jfrog centralize-secure-control-developer-extensions; cursor.com/security; docs.cursor.com extensions; docs.windsurf.com extensions :: Snyk July 21, 2025: Open VSX 'more than 50,000 downloads' (Kaspersky case); JFrog empty; Cursor/Windsurf pages say nothing about scanning their galleries.`
+- `gh api readme :: DataDog/guarddog README (VSCode support) + search ide-shepherd, javasith, red-widow :: GuardDog: static YARA for .vsix from marketplace.visualstudio.com only; IDE Shepherd (120 stars) in-IDE monitor; red-widow static scanner.`
+- `gh api search/repositories :: vscode extension dynamic analysis :: 4 hits, none a harness (Cursor rules manager, Apex log analyzer, etc.)`
+- `gh api search/repositories :: vsix dynamic analysis | vscode extension sandbox strace | vscode extension malware analysis | JavaSith | open vsx security scanner :: 0 hits each (JavaSith has no public repo; openvsx scanner query returned one unrelated secret scanner)`
+- `gh api search/repositories :: IDE Shepherd :: DataDog/IDE-SHEPHERD-extension (120 stars, in-process hooks)`
+- `gh api search/repositories :: red-widow vscode :: duriantaco/red-widow (2 stars, static + Node canary harness)`
+- `gh api search/repositories :: vscode extension security analysis :: yueyueL/VSCode-Extensions-Security-Analysis (Protect Your Secrets replication, static) + a dozen product extensions`
+- `gh api search/repositories :: vsix scanner :: trailofbits/vsix-audit (56 stars, static YARA/AST), duriantaco/red-widow`
+- `gh api search/repositories :: vscode extensions dataset :: kalachkar/vsmex (CODASPY 2026 dataset), sujeito-operator/vscode-marketplace-data (install counts), aricsangchat/editor-plugin-abandonment (metadata); no behavioural dataset`
+- `gh api search/repositories :: malicious vscode extension detection :: packguard-dev/malicious-vscode-detection (3 VSIX samples only), TrungHo-dotcom/CSN304-VSCode-Malware-Detection ('Triple-Layer Dynamic Sandbox'), suleiman-odeh (static: typosquat/regex/k-means), Brainfreeze (ML)`
+- `gh api search/repositories :: vscode extension sandbox | vscode extension behavior monitoring | vsix malware | GlassWorm | openvsx extensions analysis | vscode extensions ebpf | Argus openvsx | vscode extension honeypot | cursor extension security scan :: trailofbits/vsix-zoo (malware samples), whokilleddb/sinister-vsix (backdooring blog), 16 GlassWorm IOC scanners (all static), huncho-tensei/ext-scan (static + LLM); no ebpf/honeypot/openvsx-analysis hits`
+- `gh api search/code :: strace "extension host" vscode | strace vsix | "extensionHost" strace -e trace | "--extensionDevelopmentPath" strace | "code-server" "--install-extension" "strace" :: only extHostTypes.ts forks, sqlite makefiles and Dockerfiles that install strace; no tracing harness`
+- `gh api search/code :: xvfb-run "code --install-extension" activate | bwrap vscode extension | open-vsx.org/api "search" strace | "@vscode/test-electron" "runTests" "installExtension" loop :: single-extension CI docs (Azurite, partcad, zowe-mcp); no multi-extension loop; bwrap hits are flatpak/toolbox wrappers`
+- `gh api repos/*/readme + trees :: TrungHo-dotcom/CSN304-VSCode-Malware-Detection, packguard-dev/malicious-vscode-detection, suleiman-odeh/Malicious-VSCode-Extension-Detection :: CSN304: PackGuard core = LD_PRELOAD hook + Node interception + AST fuzzing, 3 malicious samples; packguard-dev repo holds only 3 .vsix; suleiman-odeh static`
+- `gh api contents :: CSN304 3_SourceCode_PackGuardCore/vscode/{Readme.md.txt,Dockerfile,analyze-vscode,apihook-syscall} :: Docker image docker.io/pakaremon/dynamic-analysis; Dockerfile is the ossf/package-analysis sandbox (auditd, tcpdump, tshark); analyze-vscode drives vscode-test runTests() with 15 s activate timeout; apihook-syscall is a libc LD_PRELOAD tracer for open/creat/fopen/write/close logging to /root/artifacts/syscall-hooks`
+- `gh api search/code :: "pakaremon/dynamic-analysis" :: congnguyen1420/rust-mal and congnguyen1420/packamal (PackAMal, ossf/package-analysis fork)`
+- `gh api repos/congnguyen1420/rust-mal :: README + tree grep vscode|vsix|strace :: strace-based sandbox for PyPI/npm/RubyGems/Packagist/Crates/Maven/Wolfi; dynamic-analysis/internal/strace present; no VS Code arm upstream`
+- `gh api repos/trailofbits/vsix-audit/readme :: grep dynamic|sandbox|static|openvsx|cursor :: static 9-module scanner; sources marketplace:, openvsx:, cursor:; no execution`
+- `gh api repos/kalachkar/vsmex + trailofbits/vsix-zoo readme :: dataset method :: VSMEx: crawler of Microsoft-flagged extensions, VSIX not public; vsix-zoo: 14 sample families for scanner tests`
+- `gh api readme grep :: DataDog/IDE-SHEPHERD-extension, duriantaco/red-widow, huncho-tensei/ext-scan :: IDE Shepherd hooks http/child_process/fs via Module._load; red-widow 'instrumented Node harness ... not an operating-system or VM sandbox'; ext-scan static`
+- `gh api search/issues + trees :: repo:eclipse-openvsx/openvsx scanner | malicious | scan :: PRs #1510 (secret scanning), #1565 (async external scanners), #1991 (isMalicious verdict), #2074 (verified check); scanning package = AhoCorasick, Blocklist, MaliciousZip, NamespaceOwnership, RemoteScanner (YAML HTTP), Secret rules`
+- `gh api issues :: eclipse-openvsx/openvsx #1396, #1331 :: Milestone 2 deliverables: name-squatting, blocklist, secret scanning, YARA, ClamAV; no dynamic analysis; no comment mentions sandbox/runtime`
+- `gh api search/issues + wiki + contents :: repo:EclipseFdn/open-vsx.org scanning|malicious|quarantine; wiki Extension-Scans; configuration/application.yml :: PR #9563 'Add Argus scanning service' (2026-04-10); application.yml: blocklist, similarity, secret-detection, namespace-ownership, clamav-rest, yara, argus (api.yeethsecurity.com)`
+- `curl :: https://yeethsecurity.com (Argus method) :: 'YARA AST Network Fuzzy Hash AI Synthesis Risk Score'; 'Optional Argus API integration for full static analysis'; testimonial from Eclipse Foundation`
+- `curl open-vsx.org/api :: /-/search?size=1 :: totalSize 17941 extensions in the search index on 2026-09-17`
+- `curl code.visualstudio.com :: docs/configure/extensions/extension-runtime-security :: 'Dynamic detection: The Marketplace does dynamic detection by verifying the extension's runtime behavior by running it in a sandboxed environment (clean room VM)' — no rates`
+- `gh api microsoft/vscode-test + microsoft/vscode-docs :: README; api/working-with-extensions/continuous-integration.md grep xvfb :: runTests/runVSCodeCommand(['--install-extension', ...]); 'In headless Linux CI machines xvfb is required to run VS Code'; xvfb-run -a npm test`
+- `gh api coder/code-server docs/FAQ.md :: grep install-extension|open-vsx|EXTENSIONS_GALLERY :: code-server uses Open-VSX gallery; --install-extension <id|.vsix>; $EXTENSIONS_GALLERY override`
+- `curl arxiv.org/abs :: 2411.07479 versions/comments/journal-ref :: v1 only, 'Submitted on 12 Nov 2024', no comments/journal-ref/DOI, no GitHub link`
+- `Semantic Scholar API :: paper/arXiv:2411.07479/citations :: 7 citing works: IDEception (FET 2026), Towards Secure Agent Skills, MalSkills, Not Only for Developers (SANER 2026), Agent Skills in the Wild, Takedown, Dissecting Malicious VS Code Extensions (SECRYPT 2026) — none dynamic over VSIX`
+- `Crossref + r.jina.ai :: 10.1109/FET68771.2026.11601332 IDEception :: FET 2026 (2026-04-22); user study with one prototype AI-assistant extension, '70-73% of users shared sensitive data'; not a corpus`
+- `gh api search/users + repos :: Edirimannage, Elvitigala; shehand.github.io; SPINE-Research-Group publications.md :: author page (commit 2026-08-22) lists the paper as 'arXiv preprint'; group page carries DBLP 'Informal and Other Publications, CoRR 2024'; no artefact repo`
+- `Zenodo API :: "VS Code" extensions dynamic analysis | VSCode extensions dataset | vsix | "Open VSX" | title:(VS Code|VSCode) AND title:extension* :: no behavioural dataset; 17327056 (Cross-language Dependencies in VSCode Extensions, static artefact), 21895395 (64,464-extension install-count metadata, Aug 2026); 'Open VSX' 0 hits`
+- `Hugging Face API + Kaggle API :: datasets?search=vscode extension | vsix | openvsx | extension malicious; kaggle search vscode extensions :: HF: one AI-agent extension metadata set; Kaggle: igalbronshtein/vscode-extensions (5k+ installs metadata); nothing dynamic`
+- `arXiv API (https) :: all:"VS Code extensions" | all:"VSCode extensions" | all:"Open VSX" | all:"IDE extensions" AND malicious | "Visual Studio Code" extensions malicious :: nothing newer than JavaSith (2505.21263) and Protect Your Secrets; 'Open VSX' 0 hits; 2026 hits are tool papers`
+- `Crossref API :: Open VSX extensions security | VS Code extensions malicious dynamic analysis | VSCode extension ecosystem empirical study security (from 2024) :: only the known SECRYPT 2026, CODASPY 2026 (VSMEx), NDSS 2024 (UntrustIDE); no Open VSX paper`
+- `HN Algolia :: Open VSX malicious extensions | VS Code extensions sandbox dynamic analysis | vscode extension strace | Open VSX security scanning :: no relevant stories`
+- `gh api search/repositories :: MalSkillBench | software dark matter vscode | vscode extension fuzzing activation | vscode extension "dynamic analysis" docker | open-vsx extensions compatibility test theia | openvsx extension activation test | mock vscode api run extension | cursor extensions marketplace analysis | windsurf extensions gallery | kiro extensions security :: only lxyeternal/MalSkillBench (skills, strace+inotifywait, no VSIX arm per README); everything else 0 hits`
+- `gh api readme grep :: lxyeternal/MalSkillBench, yueyueL/VSCode-Extensions-Security-Analysis, s3c2/UntrustIDE :: MalSkillBench README has no vsix/VS Code line; the other two are static (unpack + feature extraction; CodeQL dataflow)`
+- `gh api repos/Fz0x00/vscode-extension-security :: EDR Logs to MDM Allowlists :: enterprise inventory playbook (CrowdStrike/Defender file-event queries on ~/.vscode/extensions); not a measurement`
+- `hn.algolia (curl) :: open vsx extension sandbox (stories) :: 6 hits, none about extension sandboxing or tracing`
+- `hn.algolia (curl) :: vscode extension strace (stories) :: 11 hits, all unrelated debugger/log tools`
+- `hn.algolia (curl) :: vscode extension sandbox malicious (stories) :: 1 hit: Coder Guard Show HN 2023, no method`
+- `hn.algolia (curl) :: GlassWorm (stories) :: 375 hits; Aikido (303 pts), Koi, Socket 73 sleeper, CrowdStrike takedown, haltingproblems, afine glassworm-hunter`
+- `hn.algolia (curl) :: open vsx malicious extensions (stories) :: 0 hits`
+- `hn.algolia (curl) :: vscode extensions dynamic analysis (stories) :: 2 hits, unrelated`
+- `hn.algolia (curl) :: vscode extension security, created_at>2025 (stories) :: 37 hits: BleepingComputer incidents, NHSJS Agrawal (1 pt), VSCan Show HN (52 pts), GitHub breach via Nx Console (1054 pts, 460 comments)`
+- `hn.algolia (curl) :: malicious vscode extensions, created_at>2025 :: 10 hits incl. Mazin Ahmed 'Publishing Malicious VS Code Extensions: Bypassing VS Code Marketplace Analysis', StepSecurity IoliteLabs, safedep DarkGPT`
+- `hn.algolia (curl) :: vsix, created_at>2025 :: 1567 hits (noise); relevant: '77 Open VSX extensions found harvesting developer info' 2026-08-04, Open VSX 300M downloads 2026-03`
+- `hn.algolia (curl) :: extension host sandbox vscode / vscodium extensions security / cursor extension malware :: 0 / 0 / 1 (VSCan)`
+- `hn.algolia (curl) :: items/44371740 (VSCan thread comments) :: author describes code/permission/dependency scanning; no execution`
+- `hn.algolia (curl) :: items/48207660 (GitHub breach thread, 460 comments) grep strace|bwrap|firejail|gvisor|sandbox|ebpf|open vsx :: 47 comment matches, all abstract sandboxing debate; no corpus, tool or measurement cited`
+- `hn.algolia (curl) :: Developers Are Victims Too / Edirimannage / 2411.07479 :: 0 relevant hits (comment matches are other papers)`
+- `hn.algolia (curl) :: socket open vsx (stories) :: 2 Socket Open VSX posts (2026-01-31 loader, 2026-04-25 sleeper)`
+- `reddit search.json (curl) :: open vsx malicious; vscode extension sandbox strace; vsix dynamic analysis :: HTTP 403 Blocked on all`
+- `api.pullpush.io submissions :: open vsx malicious :: 15 posts: GlassWorm takedown r/cybersecurity (48), SecOpsDaily/pwnhub/TechNadu reposts of Socket/Koi; no original research`
+- `api.pullpush.io submissions :: vscode extensions dynamic analysis :: r/vscode 'Possible malicious VSCode extension with millions of downloads' (759, 2025-09-07, ethcode); r/vscode 'Marketplace doesn't verify extensions match source' (2026-02); nothing dynamic`
+- `api.pullpush.io comments :: strace vscode extension; firejail vscode extensions; bubblewrap vscode extension :: no comment describes tracing extensions; one 2026-01 r/PHP comment sandboxes Claude Code with bubblewrap`
+- `lobste.rs search :: vscode extension malicious; open vsx :: fuzzy results; ammaraskar 1-click token stealing, Trail of Bits 2023 escape post; nothing dynamic`
+- `dev.to feed_content + api/articles?tag=vscode :: open vsx malicious extension; vscode extension sandbox; vscode extension strace :: search feed empty; tag listing only two Open VSX how-tos`
+- `gh api search/issues :: repo:EclipseFdn/open-vsx.org malware / sandbox / dynamic analysis / security scanning / strace :: 38 malware issues (review queue); 0 dynamic analysis; security scanning: #8414 enforce pre-publish checks, PR #9563 Argus, #7615 ClamAV, #7616 YARA-X`
+- `gh api issues :: EclipseFdn/open-vsx.org#8414, pulls/9563, issues/10650 :: checks = BLOCKLIST, SECRET, YARA, CLAMAV_REST, NAME_SQUATTING enforced 2026-03-04; Argus (Yeeth) async multi-engine + AI added 2026-04-10; Argus false positive on AI CLI PRO 2026-05-26`
+- `curl yeethsecurity.com :: Argus product page :: 'runs every submission through a multi-stage analysis ... YARA AST Network Fuzzy Hash AI Synthesis Risk Score'; counters unpopulated; no dynamic execution mentioned`
+- `gh api search/issues :: repo:eclipse-openvsx/openvsx sandbox / dynamic analysis / malware scan :: #1331 short-term security improvements, #1396 milestone 2 (name-squatting, blocklist, secrets, YARA, ClamAV), #1854 changes feed for researchers; no sandbox/dynamic`
+- `gh api contents :: ossf/alpha-omega Eclipse Foundation monthly updates 2025-2026 grep malware|open vsx :: Open VSX processed 13 (Aug-25), 29 (Sep-25), 21 (Oct-25), 13 (Nov-25) malwares; 2026-03: scans fully enforced at publish time; all checks static`
+- `gh api search/issues :: repo:microsoft/vscode extension sandbox permissions in:title; repo:coder/code-server extension sandbox; repo:eclipse-theia/theia extension sandbox plugin host; repo:VSCodium/vscodium extensions malicious :: microsoft/vscode#52116 (2018, open, 86 comments) is the only sandboxing thread; code-server/theia/vscodium hits unrelated`
+- `gh api issues/comments :: microsoft/vscode#52116 comments since 2025-01-01 :: Wiz secrets blog, ReversingLabs fake-PNG, GitHub breach reaction; no dynamic corpus or tooling cited`
+- `gh api search/repositories :: vsix dynamic analysis; vscode extension sandbox analysis; vscode extension malware analysis; openvsx security scanner; extension host strace :: 0/0/0/0/0 relevant`
+- `gh api search/repositories :: vscode extension security scanner; vsix scanner; malicious vscode extension; vscode extension sandbox :: trailofbits/vsix-audit (56 stars), duriantaco/red-widow, moscovium-mc/extsniffer, astroicers/extension-guard, kalachkar/vsmex + secrypt2026 artifact, vsxsentry-guard, OpenPawz/OPIDE`
+- `gh api readme :: trailofbits/vsix-audit README; duriantaco/red-widow README + ROADMAP :: vsix-audit: 9 static modules, openvsx: prefix, --all-registries, benign corpus for FP; red-widow: 'instrumented Node harness, not an operating-system or VM sandbox', dynamic canary harness built, no corpus`
+- `gh api search/code :: strace "install-extension" vsix; strace "extensionDevelopmentPath"; bwrap "extensionTestsPath"; strace "code-server" vsix; "open-vsx" strace; "openvsx" "dynamic analysis" :: Dockerfiles and forks only; agent-trace (agent-strace, unrelated); red-widow ROADMAP; no activation-under-strace harness`
+- `gh api search/code :: "2411.07479" :: 25 files; SPINE-Research-Group publications.md lists it as CoRR only (Informal and Other Publications), file updated 2026-05-21`
+- `gh api search/repositories :: openvsx / open-vsx in:name,description; open-vsx crawler; openvsx dataset; vscode extensions telemetry study :: registry, publish tooling, nix mirrors, EclipseFdn/publish-extensions; no dataset or dynamic study`
+- `curl open-vsx.org/api/-/search?size=1 :: population size :: totalSize 17941 (2026-09-17)`
+- `curl fosdem.org schedule 2025/2026 :: grep open vsx|openvsx|vs code extension|theia|extension sandbox :: no matching talk titles`
+- `fetch/curl :: manifold.security evil-twin post; bleepingcomputer 77 Open VSX; mazinahmed.net; koi.ai (wayback); socket 73 sleeper; crowdstrike takedown; aikido glassworm returns; stepsecurity iolitelabs; haltingproblems; securelist solidity; wiz secrets; vscan.dev; blogs.eclipse.org strengthening :: opened and grepped for method sentences; quotes recorded per source below`

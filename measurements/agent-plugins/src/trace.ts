@@ -384,3 +384,65 @@ export function summariseNetwork(t: NetworkTrace): { hosts: HostSummary[]; dnsNa
   const dnsNames = [...new Set(t.queries.map((q) => q.name))].sort();
   return { hosts, dnsNames };
 }
+
+/** strace -f prints a syscall interrupted by another process's activity as
+ *  two lines, `…(args <unfinished ...>` and `<... name resumed>…) = result`.
+ *  parseTraceLine drops the first and cannot use the second; in a
+ *  multi-process tree such as an editor most execve lines are split this way.
+ *  This joins the halves per pid into one line. */
+const UNFINISHED = /^(?:\[pid\s+(\d+)\]\s*|(\d+)\s+)?.*? <unfinished \.\.\.>\s*$/;
+const RESUMED = /^(?:\[pid\s+(\d+)\]\s*|(\d+)\s+)?<\.\.\. [a-z][a-z0-9_]* resumed>(.*)$/;
+export function joinResumed(text: string): string[] {
+  const out: string[] = []; const pending = new Map<number, string>();
+  for (const line of text.split('\n')) {
+    let m = UNFINISHED.exec(line);
+    if (m) { pending.set(Number(m[1] ?? m[2] ?? 0), line.replace(/ <unfinished \.\.\.>\s*$/, '')); continue; }
+    m = RESUMED.exec(line);
+    if (m) { const pid = Number(m[1] ?? m[2] ?? 0); const head = pending.get(pid); if (head !== undefined) { out.push(head + m[3]); pending.delete(pid); } continue; }
+    out.push(line);
+  }
+  return out;
+}
+
+/** Process tree from the clone/fork lines of a trace taken with
+ *  `-e trace=…,clone,clone3,fork,vfork`. Threads (CLONE_THREAD) are folded
+ *  into their process, so every pid strace prints maps to the process it
+ *  belongs to, and every process to its parent process. An editor is many
+ *  processes; this is what lets an access be attributed to the extension
+ *  host and what it spawned rather than to the editor as a whole. */
+export interface ProcessTree { processOf: Map<number, number>; parentOf: Map<number, number> }
+const CLONE_LINE = /^(?:\[pid\s+(\d+)\]\s*|(\d+)\s+)(clone3?|fork|vfork)\((.*)$/;
+const CLONE_RESUMED = /^(?:\[pid\s+(\d+)\]\s*|(\d+)\s+)<\.\.\. (clone3?|fork|vfork) resumed>(.*)$/;
+export function parseProcessTree(text: string): ProcessTree {
+  const processOf = new Map<number, number>(); const parentOf = new Map<number, number>();
+  const pending = new Map<number, string>(); // caller pid → flags of an unfinished clone
+  const proc = (pid: number) => processOf.get(pid) ?? pid;
+  const record = (caller: number, flags: string, rest: string) => {
+    const r = /=\s*(\d+)\s*$/.exec(rest);
+    if (!r) return;
+    const child = Number(r[1]);
+    if (/CLONE_THREAD/.test(flags)) processOf.set(child, proc(caller));
+    else { processOf.set(child, child); parentOf.set(child, proc(caller)); }
+  };
+  for (const line of text.split('\n')) {
+    let m = CLONE_LINE.exec(line);
+    if (m) {
+      const caller = Number(m[1] ?? m[2]);
+      if (/<unfinished \.\.\.>\s*$/.test(m[4])) { pending.set(caller, m[4]); continue; }
+      record(caller, m[4], m[4]); continue;
+    }
+    m = CLONE_RESUMED.exec(line);
+    if (m) { const caller = Number(m[1] ?? m[2]); record(caller, pending.get(caller) ?? '', m[4]); pending.delete(caller); }
+  }
+  return { processOf, parentOf };
+}
+/** Every pid (process or thread) that belongs to `root` or to a process
+ *  descended from it. */
+export function subtreePids(tree: ProcessTree, root: number): Set<number> {
+  const procs = new Set<number>([root]);
+  let grew = true;
+  while (grew) { grew = false; for (const [child, parent] of tree.parentOf) if (procs.has(parent) && !procs.has(child)) { procs.add(child); grew = true; } }
+  const pids = new Set<number>(procs);
+  for (const [pid, p] of tree.processOf) if (procs.has(p)) pids.add(pid);
+  return pids;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "nl-driver",
+  "displayName": "nl-driver",
+  "description": "Activates one installed extension by id, opens the workspace files its activation events name, idles, records the outcome and quits the editor.",
+  "publisher": "norte-labs",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": { "vscode": "^1.60.0" },
+  "activationEvents": ["*"],
+  "main": "./main.js",
+  "contributes": {}
+}

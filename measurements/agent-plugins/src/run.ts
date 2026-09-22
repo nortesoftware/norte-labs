@@ -22,6 +22,8 @@
 //                  evidence are recorded per cell.
 //
 // Results are appended per cell as NDJSON; re-running skips finished cells.
+// The vsix kind (Open VSX) has its own runner, vsix.ts, which shares the decoys
+// and the trace parser.
 //
 // Usage: node run.ts <population.ndjson> <results.ndjson> [--limit N] [--only id]
 
@@ -58,7 +60,7 @@ const PATH = `${HOME}/.local/bin:${TOOLBIN}:${CTOOLCHAIN}:/usr/local/bin:/usr/bi
 
 // The same decoys as mcp-install, plus the config files of the editors whose
 // plugins are being measured.
-const DECOYS: Record<string, string> = {
+export const DECOYS: Record<string, string> = {
   '.npmrc': '//registry.npmjs.org/:_authToken=NLCANARY-npm-token\n',
   '.ssh/id_rsa': 'NLCANARY not a key\n',
   '.ssh/id_ed25519': 'NLCANARY not a key\n',
@@ -250,24 +252,25 @@ function scanVenv(proj: string, id: string, installStderr: string): PypiScan {
   return out;
 }
 
+// File type by magic bytes; shared with the Open VSX runner.
+export function magicOf(p: string): string | null {
+  let fd: number | null = null;
+  try {
+    fd = openSync(p, 'r'); const b = Buffer.alloc(4); const n = readSync(fd, b, 0, 4, 0);
+    if (n < 4) return null;
+    if (b[0] === 0x7f && b[1] === 0x45 && b[2] === 0x4c && b[3] === 0x46) return 'ELF';
+    if (b[0] === 0x4d && b[1] === 0x5a) return 'PE';
+    const u = b.readUInt32BE(0);
+    if ([0xfeedface, 0xfeedfacf, 0xcefaedfe, 0xcffaedfe, 0xcafebabe].includes(u)) return 'Mach-O';
+    if (b[0] === 0x00 && b[1] === 0x61 && b[2] === 0x73 && b[3] === 0x6d) return 'WASM';
+    return null;
+  } catch { return null; } finally { if (fd !== null) closeSync(fd); }
+}
 // What a plugin repository ships: components, scripts, binaries. Tests the
 // vendor's "No binaries are shipped" the cheap way — by file magic.
 interface PluginInventory { files: number; bytes: number; skills: number; agents: number; commands: number; rules: number; scripts: { path: string; kind: string }[]; executables: number; binaries: { path: string; magic: string; bytes: number }[]; nodeModulesShipped: boolean; manifestKeys: string[] }
 function inventoryPlugin(dir: string, manifest: any): PluginInventory {
   const inv: PluginInventory = { files: 0, bytes: 0, skills: 0, agents: 0, commands: 0, rules: 0, scripts: [], executables: 0, binaries: [], nodeModulesShipped: false, manifestKeys: Object.keys(manifest ?? {}) };
-  const magicOf = (p: string): string | null => {
-    let fd: number | null = null;
-    try {
-      fd = openSync(p, 'r'); const b = Buffer.alloc(4); const n = readSync(fd, b, 0, 4, 0);
-      if (n < 4) return null;
-      if (b[0] === 0x7f && b[1] === 0x45 && b[2] === 0x4c && b[3] === 0x46) return 'ELF';
-      if (b[0] === 0x4d && b[1] === 0x5a) return 'PE';
-      const u = b.readUInt32BE(0);
-      if ([0xfeedface, 0xfeedfacf, 0xcefaedfe, 0xcffaedfe, 0xcafebabe].includes(u)) return 'Mach-O';
-      if (b[0] === 0x00 && b[1] === 0x61 && b[2] === 0x73 && b[3] === 0x6d) return 'WASM';
-      return null;
-    } catch { return null; } finally { if (fd !== null) closeSync(fd); }
-  };
   const walk = (d: string, depth: number): void => {
     if (depth > 10) return;
     for (const ent of readdirSync(d, { withFileTypes: true })) {
@@ -785,4 +788,4 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+if (process.argv[1] && process.argv[1].endsWith('run.ts')) main().catch((e) => { console.error(e); process.exit(1); });
