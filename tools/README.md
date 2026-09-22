@@ -11,7 +11,7 @@ control failed".
 | | what the control cannot see | what it says about it |
 |---|---|---|
 | `cplt` | Landlock mediates `open(2)`, not `stat(2)` or `faccessat(2)` | the kernel answers "present and readable", and a check-then-use config loader believes it, then takes `EACCES` in code that never expected it |
-| `nono` | the fallback backend cannot observe denials | the log reports none |
+| `nono` | grants for paths that do not exist are skipped, and the session's denial record does not carry what the sandbox caused | *"No path denials were observed during this session"*, printed over 32 runs that the sandbox itself broke ([nolabs-ai/nono#1796](https://github.com/nolabs-ai/nono/issues/1796), open since 2026-09-06) |
 | `pmg` | the network policy is installed on 2 of 17 shipped profiles | the other 15 carry `allow_outbound` and `deny_outbound: '*:*'` anyway |
 
 The gap is between what a configuration declares and what the backend actually reaches, with
@@ -31,7 +31,9 @@ So an audit asks, in this order:
 5. **absent paths and fields** — a path that does not exist, a manifest field that is missing, a
    signature that is absent rather than wrong, an SBOM with no entry for a component.
 
-Absent is where these tools fail open.
+Absent is where these tools fail open, and it recurs across mechanisms: `nono` drops a grant for a
+path that is not there without a line at any verbosity, and firejail globs a blacklist for a path
+that is not there into a no-op.
 
 ## Inventory, 2026-09-22
 
@@ -56,23 +58,7 @@ Chosen for three different mechanisms in three different categories, each with a
 channel, each cheap to exercise on Linux, and each with the claim located in code before it was
 picked rather than after.
 
-### 1. `npm audit signatures` — npm/cli
-
-The widest blast radius of anything in the inventory: it is the provenance check CI pipelines
-actually run, shipped in the client everyone already has.
-
-`lib/utils/verify-signatures.js` counts a package as `missing` only inside `else if (keys.length)`,
-and the registry key lookup returns `null` on a TUF `TUF_FIND_TARGET_ERROR` and on `E404` or `E400`
-from the direct fetch. With no keys, a package carrying no `_signatures` falls through both
-branches: not verified, not missing. `const hasNoInvalidOrMissing = invalid.length === 0 &&
-missing.length === 0` then holds, and `process.exitCode` is never set to 1. The tool distinguishes
-an invalid signature from a valid one; the audit is whether it distinguishes *checked* from
-*unable to check*, and what the summary line tells the operator when the second happens.
-
-This is the `nono` shape moved from a sandbox log to a provenance report. Channel: GitHub private
-reporting on `npm/cli`.
-
-### 2. `microsoft/sbom-tool`
+### 1. `microsoft/sbom-tool`
 
 Picked because the defect is already unarguable and the function is load-bearing: this is the
 validation step, the thing a pipeline runs to decide whether an SBOM is acceptable.
@@ -89,10 +75,16 @@ cannot be opened or parsed. An SBOM that parses and fails validation exits 0. Th
 what `MultilineSummary()` prints in that case, whether any consumer reads the summary rather than
 the exit code, and how far back the line goes.
 
-Adjacent exit-code issues have been filed and closed on this repository; this line has not been
-reported. Channel: MSRC, and the repository carries a SECURITY.md.
+**Audited, 2026-09-22: [tools/sbom-tool/](sbom-tool/).** Reproduced against the published v4.1.5
+binary — three malformed SBOMs and one file that is not JSON all print
+`SBOM format validation failed.` and exit 0, while a path that does not exist exits 1. The verb is
+undocumented, absent from `--help` and from the arguments page, but present and working in the
+shipped binary. The line entered as a placeholder in PR #577, survived the PR that added the
+validation it stood in for, and was made authoritative by PR #617, whose stated purpose was
+correct exit codes. Not reported before; #615 is the adjacent `Generate` case. Report drafted for
+MSRC, not sent.
 
-### 3. `netblue30/firejail`
+### 2. `netblue30/firejail`
 
 The direct heir of `cplt` and `nono`, in the most-deployed unprivileged sandbox on Linux, and the
 one of the three this host can exercise end to end.
@@ -102,6 +94,34 @@ known for:
 
 - **Degraded mode.** Every call to `seccomp_load` in `src/firejail/sandbox.c` discards its return
   value — the protocol filter, both memory-deny-write-execute filters and both namespace filters —
+  and execution proceeds unconditionally. `src/firejail/seccomp.c` warns once when the kernel is
+  too old. A sandbox whose syscall filter did not install keeps running, still called a sandbox.
+- **Absent paths.** `src/firejail/fs.c` globs blacklist patterns with `GLOB_NOCHECK`, with the
+  comment that profiles blacklist files that may not exist. A blacklist entry for a path absent at
+  setup is a no-op; the question is what happens when the path appears afterwards, and whether any
+  output distinguishes a rule that matched nothing from a rule that was applied.
+
+Channel: mature, with a documented process and a long advisory history.
+
+### 3. `npm audit signatures` — npm/cli
+
+The widest blast radius of anything in the inventory: it is the provenance check CI pipelines
+actually run, shipped in the client everyone already has.
+
+`lib/utils/verify-signatures.js` counts a package as `missing` only inside `else if (keys.length)`,
+and the registry key lookup returns `null` on a TUF `TUF_FIND_TARGET_ERROR` and on `E404` or `E400`
+from the direct fetch. With no keys, a package carrying no `_signatures` falls through both
+branches: not verified, not missing. `const hasNoInvalidOrMissing = invalid.length === 0 &&
+missing.length === 0` then holds, and `process.exitCode` is never set to 1. The tool distinguishes
+an invalid signature from a valid one; the audit is whether it distinguishes *checked* from
+*unable to check*, and what the summary line tells the operator when the second happens.
+
+This is the `nono` shape moved from a sandbox log to a provenance report. Channel: GitHub private
+reporting on `npm/cli` — and the reason this one is third rather than first. Under the programme
+as restructured on 2026-07-27 the initial submissions available to an unproven reporter are few
+enough that the prior-art question has to be closed before one is spent.
+
+espace filters —
   and execution proceeds unconditionally. `src/firejail/seccomp.c` warns once when the kernel is
   too old. A sandbox whose syscall filter did not install keeps running, still called a sandbox.
 - **Absent paths.** `src/firejail/fs.c` globs blacklist patterns with `GLOB_NOCHECK`, with the
