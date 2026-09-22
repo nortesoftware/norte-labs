@@ -34,6 +34,10 @@ Supply-chain security research and audits.
   configuration and how many of them do it at every editor start, what a quarantine means;
   harness, per-cell results, generated report, findings, additional checks with their
   corrections.
+- [tools/](tools/) — audits of supply-chain security tools: what the documentation promises, what
+  the code does, and what the tool reports when the control it names cannot reach what it claims
+  to cover. Inventory of 69 tools across install sandboxes, package scanners, CI gates, provenance
+  verifiers and SBOM generators, and the three picked to audit first, with the reason for each.
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the additional checks with their
@@ -60,4 +64,4 @@ Supply-chain security research and audits.
   never enter a headline denominator.
 - Corrections and retractions stay written in the document they correct.
 
-Planned areas, not started: ecosystem audits (npm, Go, crates), tool audits.
+Planned areas, not started: ecosystem audits (npm, Go, crates).
