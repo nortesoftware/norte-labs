@@ -81,8 +81,8 @@ binary — three malformed SBOMs and one file that is not JSON all print
 undocumented, absent from `--help` and from the arguments page, but present and working in the
 shipped binary. The line entered as a placeholder in PR #577, survived the PR that added the
 validation it stood in for, and was made authoritative by PR #617, whose stated purpose was
-correct exit codes. Not reported before; #615 is the adjacent `Generate` case. Report drafted for
-MSRC, not sent.
+correct exit codes. Not reported before; #615 is the adjacent `Generate` case. Reported to MSRC 2026-09-22 as VULN-229761,
+classified Security Feature Bypass.
 
 ### 2. `netblue30/firejail`
 
@@ -108,7 +108,7 @@ twice and reports it only on the whitelist side, so `--debug-blacklists` lists w
 is silent about what did not. The seccomp finding is reported as what it is — the reporting half
 is reproduced, including that `--seccomp.print` reads the filter files rather than the kernel's
 `Seccomp_filters`, while the failing install itself could not be induced unprivileged on kernel
-6.12 and is stated as unreproduced. Channel: `netblue30@protonmail.com`. Report drafted, not sent.
+6.12 and is stated as unreproduced. Reported 2026-09-23 to `netblue30@protonmail.com`.
 
 The recurrence is written up separately in [absent-fails-open.md](absent-fails-open.md).
 
@@ -125,10 +125,15 @@ missing.length === 0` then holds, and `process.exitCode` is never set to 1. The 
 an invalid signature from a valid one; the audit is whether it distinguishes *checked* from
 *unable to check*, and what the summary line tells the operator when the second happens.
 
-This is the `nono` shape moved from a sandbox log to a provenance report. Channel: GitHub private
-reporting on `npm/cli` — and the reason this one is third rather than first. Under the programme
-as restructured on 2026-07-27 the initial submissions available to an unproven reporter are few
-enough that the prior-art question has to be closed before one is spent.
+**Audited, 2026-09-23: [tools/npm-audit-signatures/](npm-audit-signatures/). The finding did not
+survive intact, and no submission was spent.** Reproduced against npm 10.9.8: a tree resolved
+entirely from a keyless registry errors and exits 1, which is correct; a mixed tree prints
+`audited 1 package` and `1 package has a verified registry signature` and exits 0 with the
+keyless dependency counted nowhere. But the skip itself is intentional and was requested —
+npm/cli#5479 asked for `E400` to be treated like `E404` precisely so those dependencies would be
+skipped rather than fail. What is left is that the mixed case reports no coverage figure, which
+is a reporting gap and not a vulnerability. Filed as a public issue instead; the four-submission
+limit is not worth spending on a report whose own prior art shows the behaviour was asked for.
 
 espace filters —
   and execution proceeds unconditionally. `src/firejail/seccomp.c` warns once when the kernel is

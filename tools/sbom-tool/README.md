@@ -85,5 +85,6 @@ by fewer pipelines, which bounds the blast radius and is stated in the report.
 
 ## Reported
 
-To MSRC, per the repository's `SECURITY.md`, which asks that security issues not be filed as
-public GitHub issues. Text as sent: [report-msrc.md](report-msrc.md).
+Sent to MSRC 2026-09-22 22:29 UTC, per the repository's `SECURITY.md`, which asks that security
+issues not be filed as public GitHub issues. Tracked as **VULN-229761**, classified by MSRC as
+**Security Feature Bypass**. Text as sent: [report-msrc.md](report-msrc.md).

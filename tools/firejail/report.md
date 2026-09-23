@@ -1,6 +1,6 @@
 # Report to netblue30@protonmail.com — firejail
 
-Draft. Not sent.
+Sent 2026-09-23 from chris@nortesoftware.dev.
 
 ---
 

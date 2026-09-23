@@ -124,5 +124,5 @@ which are a different message from a different stage.
 
 ## Reported
 
-To `netblue30@protonmail.com`, the address in `SECURITY.md`, which also states that only 0.9.80
-is supported. Text as sent: [report.md](report.md).
+Sent 2026-09-23 to `netblue30@protonmail.com`, the address in `SECURITY.md`, which also states
+that only 0.9.80 is supported. Text as sent: [report.md](report.md). No reply yet.
