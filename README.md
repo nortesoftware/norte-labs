@@ -38,6 +38,12 @@ Supply-chain security research and audits.
   the code does, and what the tool reports when the control it names cannot reach what it claims
   to cover. Inventory of 69 tools across install sandboxes, package scanners, CI gates, provenance
   verifiers and SBOM generators, and the three picked to audit first, with the reason for each.
+- [prior-art/go-supply-chain.md](prior-art/go-supply-chain.md) — has anyone measured what a Go
+  build trusts and what it runs? Four questions over four modalities, 96 sources, 143 recorded
+  searches (2026-09-23). Go has no install scripts and has a checksum database, and both hold; what
+  is open is the step from modules to owners, what arrives through cgo in a module graph, and the
+  toolchain directive that makes the go command download and run a different toolchain by default.
+  Appendix in [prior-art/go-supply-chain-sources.md](prior-art/go-supply-chain-sources.md).
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the additional checks with their
