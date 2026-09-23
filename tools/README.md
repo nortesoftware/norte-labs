@@ -132,7 +132,7 @@ entirely from a keyless registry errors and exits 1, which is correct; a mixed t
 keyless dependency counted nowhere. But the skip itself is intentional and was requested —
 npm/cli#5479 asked for `E400` to be treated like `E404` precisely so those dependencies would be
 skipped rather than fail. What is left is that the mixed case reports no coverage figure, which
-is a reporting gap and not a vulnerability. Filed as a public issue instead; the four-submission
+is a reporting gap and not a vulnerability. Filed as a public issue instead, npm/cli#10018; the four-submission
 limit is not worth spending on a report whose own prior art shows the behaviour was asked for.
 
 espace filters —

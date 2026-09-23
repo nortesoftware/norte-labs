@@ -1,6 +1,6 @@
 # Draft issue for npm/cli
 
-Not filed.
+Filed 2026-09-23 as https://github.com/npm/cli/issues/10018
 
 ---
 

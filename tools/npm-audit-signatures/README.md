@@ -6,8 +6,9 @@ intentional. What the command does not do is say how many packages it skipped, s
 some dependencies came from a keyless registry produces the same output shape and the same exit
 code as one where every dependency was checked.
 
-Audited against npm 10.9.8. **Not reported**, and the recommendation is that it should not be
-reported as a vulnerability — see *Verdict*.
+Audited against npm 10.9.8. Filed as a public issue,
+[npm/cli#10018](https://github.com/npm/cli/issues/10018), and deliberately not as a vulnerability
+— see *Verdict*.
 
 ## What it does
 
@@ -88,4 +89,5 @@ shows the core behaviour was asked for.
 `opensource-security@github.com`; the second does not consume a bounty submission. Neither is the
 right venue here. The right venue is a public issue: `audit signatures` should report the number
 of packages it skipped for want of registry keys, so that a partially verified tree cannot be
-mistaken for a fully verified one. Draft: [issue.md](issue.md).
+mistaken for a fully verified one. Filed 2026-09-23 as
+[npm/cli#10018](https://github.com/npm/cli/issues/10018); text as filed: [issue.md](issue.md).
