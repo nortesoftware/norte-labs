@@ -39,6 +39,13 @@ The entry that applied does block: `cat present.txt` inside the sandbox returns
 `Permission denied`. The entry that did not leaves the path it named writable and readable —
 a process in the sandbox creates `absent.txt` during the session and reads it straight back.
 
+That last behaviour is documented, and this write-up should have said so from the start.
+`firejail.1.in` states it: "This pattern is matched at firejail start, and is NOT UPDATED at
+runtime. Files matching a blacklist, but created after firejail start will be accessible within
+the jail." The finding here is the missing diagnostic, not the behaviour — a rule that did
+nothing and a rule that worked are indistinguishable at every verbosity — and it is narrowed to
+that. Found while running [mold 1](../molds/01-complement-firejail.md).
+
 The same condition is reported elsewhere in the same program. `fs_whitelist.c:668` handles a
 `realpath` that returns NULL by printing, under `--debug` or `--debug-whitelists`:
 
