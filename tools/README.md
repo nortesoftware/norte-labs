@@ -110,7 +110,9 @@ is reproduced, including that `--seccomp.print` reads the filter files rather th
 `Seccomp_filters`, while the failing install itself could not be induced unprivileged on kernel
 6.12 and is stated as unreproduced. Reported 2026-09-23 to `netblue30@protonmail.com`.
 
-The recurrence is written up separately in [absent-fails-open.md](absent-fails-open.md).
+The recurrence is written up separately in [absent-fails-open.md](absent-fails-open.md), and
+tested against a drawn target in [unmolded-draw.md](unmolded-draw.md) and
+[capslock/](capslock/) — where it does not appear.
 
 ### 3. `npm audit signatures` — npm/cli
 
