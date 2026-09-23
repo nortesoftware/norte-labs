@@ -53,6 +53,30 @@ In each, the intended state is available and gets reported; the achieved state i
 and is not consulted. `Seccomp_filters` is one `open()` away. The validation result is already
 computed and printed on the line above the exit code. The key count is already in scope.
 
+## A case nobody selected, found while looking at something else
+
+[golang/go#79070](https://github.com/golang/go/issues/79070) (2026) came out of the Go ecosystem
+prior-art sweep, not out of any search for this shape. The go command verifies a module against
+the checksum database; the report states the defect in one sentence:
+
+> "If, however, the checksum database returns a successful response that contains no entry for
+> the module, the go command incorrectly permitted validation to succeed."
+
+A successful response with no entry is precisely "I could not tell you about this module". It was
+read as "nothing is wrong with this module". The report frames the consequence for the path Go
+turns on by default: "a malicious module proxy can serve altered versions of the Go toolchain"
+when one is selected via `GOTOOLCHAIN`.
+
+This matters to the argument above in a way the five audited cases cannot. It was not drawn and
+it was not chosen — it surfaced while sweeping prior art for a different question entirely — so
+it is not subject to the selection bias that the rest of this note is hedged against. It is also
+a gate rather than a reporter, which is the distinction the [fifth draw](unmolded-draw.md) left
+open and the sixth is meant to test.
+
+It does not settle anything by itself. One unselected case is one case, and it was found inside a
+search whose subject matter was adjacent. But it is the first instance here that did not come
+through the mold, and it should be counted separately from the five that did.
+
 ## What would test it
 
 This is the kind of claim that gets more interesting when someone tries to break it, so the tests
