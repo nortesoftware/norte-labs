@@ -101,7 +101,16 @@ known for:
   setup is a no-op; the question is what happens when the path appears afterwards, and whether any
   output distinguishes a rule that matched nothing from a rule that was applied.
 
-Channel: mature, with a documented process and a long advisory history.
+**Audited, 2026-09-23: [tools/firejail/](firejail/).** Both reproduced on 0.9.74, with the code
+checked against `ccdf4ea` first so the report is not about an EOL version. The blacklist finding
+came out stronger than expected: the same program implements "the path is not there at setup"
+twice and reports it only on the whitelist side, so `--debug-blacklists` lists what applied and
+is silent about what did not. The seccomp finding is reported as what it is — the reporting half
+is reproduced, including that `--seccomp.print` reads the filter files rather than the kernel's
+`Seccomp_filters`, while the failing install itself could not be induced unprivileged on kernel
+6.12 and is stated as unreproduced. Channel: `netblue30@protonmail.com`. Report drafted, not sent.
+
+The recurrence is written up separately in [absent-fails-open.md](absent-fails-open.md).
 
 ### 3. `npm audit signatures` — npm/cli
 
