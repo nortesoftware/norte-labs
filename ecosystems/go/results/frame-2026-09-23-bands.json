@@ -1,0 +1,212 @@
+{
+ "pushedFrom": "2025-09-23",
+ "minStars": 100,
+ "bands": [
+  {
+   "lo": 100,
+   "hi": 109,
+   "total": 547,
+   "fetched": 547
+  },
+  {
+   "lo": 110,
+   "hi": 119,
+   "total": 445,
+   "fetched": 445
+  },
+  {
+   "lo": 120,
+   "hi": 129,
+   "total": 437,
+   "fetched": 437
+  },
+  {
+   "lo": 130,
+   "hi": 144,
+   "total": 569,
+   "fetched": 569
+  },
+  {
+   "lo": 145,
+   "hi": 159,
+   "total": 487,
+   "fetched": 487
+  },
+  {
+   "lo": 160,
+   "hi": 179,
+   "total": 532,
+   "fetched": 532
+  },
+  {
+   "lo": 180,
+   "hi": 199,
+   "total": 500,
+   "fetched": 500
+  },
+  {
+   "lo": 200,
+   "hi": 224,
+   "total": 484,
+   "fetched": 484
+  },
+  {
+   "lo": 225,
+   "hi": 254,
+   "total": 503,
+   "fetched": 503
+  },
+  {
+   "lo": 255,
+   "hi": 289,
+   "total": 470,
+   "fetched": 470
+  },
+  {
+   "lo": 290,
+   "hi": 329,
+   "total": 442,
+   "fetched": 442
+  },
+  {
+   "lo": 330,
+   "hi": 379,
+   "total": 454,
+   "fetched": 454
+  },
+  {
+   "lo": 380,
+   "hi": 439,
+   "total": 448,
+   "fetched": 448
+  },
+  {
+   "lo": 440,
+   "hi": 509,
+   "total": 397,
+   "fetched": 397
+  },
+  {
+   "lo": 510,
+   "hi": 599,
+   "total": 413,
+   "fetched": 413
+  },
+  {
+   "lo": 600,
+   "hi": 699,
+   "total": 354,
+   "fetched": 354
+  },
+  {
+   "lo": 700,
+   "hi": 829,
+   "total": 393,
+   "fetched": 393
+  },
+  {
+   "lo": 830,
+   "hi": 999,
+   "total": 353,
+   "fetched": 353
+  },
+  {
+   "lo": 1000,
+   "hi": 1199,
+   "total": 337,
+   "fetched": 337
+  },
+  {
+   "lo": 1200,
+   "hi": 1449,
+   "total": 286,
+   "fetched": 286
+  },
+  {
+   "lo": 1450,
+   "hi": 1749,
+   "total": 285,
+   "fetched": 285
+  },
+  {
+   "lo": 1750,
+   "hi": 2099,
+   "total": 230,
+   "fetched": 230
+  },
+  {
+   "lo": 2100,
+   "hi": 2599,
+   "total": 242,
+   "fetched": 242
+  },
+  {
+   "lo": 2600,
+   "hi": 3199,
+   "total": 232,
+   "fetched": 232
+  },
+  {
+   "lo": 3200,
+   "hi": 3999,
+   "total": 199,
+   "fetched": 199
+  },
+  {
+   "lo": 4000,
+   "hi": 4999,
+   "total": 174,
+   "fetched": 174
+  },
+  {
+   "lo": 5000,
+   "hi": 6499,
+   "total": 191,
+   "fetched": 191
+  },
+  {
+   "lo": 6500,
+   "hi": 8499,
+   "total": 138,
+   "fetched": 138
+  },
+  {
+   "lo": 8500,
+   "hi": 10999,
+   "total": 118,
+   "fetched": 118
+  },
+  {
+   "lo": 11000,
+   "hi": 14999,
+   "total": 107,
+   "fetched": 107
+  },
+  {
+   "lo": 15000,
+   "hi": 19999,
+   "total": 73,
+   "fetched": 73
+  },
+  {
+   "lo": 20000,
+   "hi": 29999,
+   "total": 86,
+   "fetched": 86
+  },
+  {
+   "lo": 30000,
+   "hi": 49999,
+   "total": 58,
+   "fetched": 58
+  },
+  {
+   "lo": 50000,
+   "hi": null,
+   "total": 31,
+   "fetched": 31
+  }
+ ],
+ "repositories": 11015,
+ "overCap": []
+}

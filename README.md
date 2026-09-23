@@ -44,6 +44,13 @@ Supply-chain security research and audits.
   is open is the step from modules to owners, what arrives through cgo in a module graph, and the
   toolchain directive that makes the go command download and run a different toolchain by default.
   Appendix in [prior-art/go-supply-chain-sources.md](prior-art/go-supply-chain-sources.md).
+- [ecosystems/go/](ecosystems/go/) — what one `go build` trusts and what it runs: 400
+  repositories from a frame of 11,015, 360 resolved. A median Go project declares 10 modules and
+  trusts 41 distinct owners, naming 8 of them — 78 % never named, against npm's 87 %. Go runs no
+  install script and has a checksum database, and both hold; what they do not change is how many
+  parties can put code into the build. 45.6 % of projects carry at least one module whose
+  manifest can make the go command download and execute a different toolchain, which nobody had
+  measured. Owner derivation published with its code before the run, and reported two ways.
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the additional checks with their

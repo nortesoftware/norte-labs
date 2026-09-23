@@ -1,0 +1,20 @@
+{"fullName": "barrydeen/haven", "rank": 4, "status": "ok", "packages": 417, "cgoPackages": 4, "asmPackages": 53, "modules": 63, "cgoModules": ["github.com/PowerDNS/lmdb-go", "std"], "stderrTail": ""}
+{"fullName": "dnaeon/makefile-graph", "rank": 53, "status": "ok", "packages": 113, "cgoPackages": 0, "asmPackages": 15, "modules": 6, "cgoModules": [], "stderrTail": ""}
+{"fullName": "BitBoxSwiss/bitbox-wallet-app", "rank": 191, "status": "ok", "packages": 575, "cgoPackages": 7, "asmPackages": 50, "modules": 61, "cgoModules": ["github.com/BitBoxSwiss/bitbox-wallet-app", "github.com/breez/breez-sdk-spark-go", "github.com/ethereum/go-ethereum", "github.com/karalabe/hid", "std"], "stderrTail": ""}
+{"fullName": "ericls/imgdd", "rank": 192, "status": "ok", "packages": 597, "cgoPackages": 3, "asmPackages": 37, "modules": 94, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "zsio/netsgo", "rank": 96, "status": "ok", "packages": 472, "cgoPackages": 3, "asmPackages": 42, "modules": 80, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "CyCoreSystems/audiosocket", "rank": 143, "status": "ok", "packages": 128, "cgoPackages": 2, "asmPackages": 26, "modules": 3, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "jordanhubbard/loom", "rank": 323, "status": "ok", "packages": 564, "cgoPackages": 3, "asmPackages": 41, "modules": 47, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "streamingfast/substreams", "rank": 336, "status": "ok", "packages": 1717, "cgoPackages": 5, "asmPackages": 63, "modules": 293, "cgoModules": ["github.com/bytecodealliance/wasmtime-go/v41", "rogchap.com/v8go", "std"], "stderrTail": ""}
+{"fullName": "mvt-project/androidqf", "rank": 224, "status": "ok", "packages": 233, "cgoPackages": 3, "asmPackages": 35, "modules": 17, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "londek/ipadecrypt", "rank": 310, "status": "ok", "packages": 271, "cgoPackages": 4, "asmPackages": 37, "modules": 20, "cgoModules": ["github.com/ebitengine/purego", "std"], "stderrTail": ""}
+{"fullName": "checkpoint-restore/go-criu", "rank": 22, "status": "ok", "packages": 229, "cgoPackages": 2, "asmPackages": 18, "modules": 7, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "Clivern/Poodle", "rank": 218, "status": "ok", "packages": 240, "cgoPackages": 2, "asmPackages": 36, "modules": 16, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "cockroachdb/swiss", "rank": 399, "status": "ok", "packages": 61, "cgoPackages": 0, "asmPackages": 15, "modules": 2, "cgoModules": [], "stderrTail": ""}
+{"fullName": "samber/slog-http", "rank": 95, "status": "ok", "packages": 214, "cgoPackages": 2, "asmPackages": 33, "modules": 5, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "runpod/runpodctl", "rank": 361, "status": "ok", "packages": 375, "cgoPackages": 3, "asmPackages": 42, "modules": 51, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "VictoriaMetrics/metrics", "rank": 99, "status": "ok", "packages": 196, "cgoPackages": 2, "asmPackages": 33, "modules": 4, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "thriftrw/thriftrw-go", "rank": 354, "status": "ok", "packages": 442, "cgoPackages": 3, "asmPackages": 45, "modules": 33, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "in4it/ecs-deploy", "rank": 11, "status": "ok", "packages": 470, "cgoPackages": 3, "asmPackages": 38, "modules": 67, "cgoModules": ["std"], "stderrTail": ""}
+{"fullName": "fiatjaf/relayer", "rank": 389, "status": "ok", "packages": 1481, "cgoPackages": 6, "asmPackages": 50, "modules": 117, "cgoModules": ["github.com/DataDog/zstd", "github.com/cockroachdb/pebble", "github.com/mattn/go-sqlite3", "std"], "stderrTail": ""}
+{"fullName": "stigoleg/keep-alive", "rank": 247, "status": "ok", "packages": 177, "cgoPackages": 2, "asmPackages": 27, "modules": 24, "cgoModules": ["std"], "stderrTail": ""}
