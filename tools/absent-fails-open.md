@@ -70,7 +70,7 @@ when one is selected via `GOTOOLCHAIN`.
 This matters to the argument above in a way the five audited cases cannot. It was not drawn and
 it was not chosen — it surfaced while sweeping prior art for a different question entirely — so
 it is not subject to the selection bias that the rest of this note is hedged against. It is also
-a gate rather than a reporter, which is the distinction the fifth draw left open and the sixth is
+a gate rather than a reporter, which is the distinction the first draw left open and the second is
 meant to test.
 
 It does not settle anything by itself. One unselected case is one case, and it was found inside a
@@ -97,30 +97,48 @@ sample. Enough to write down and look for; not enough to call it how these contr
 
 ## The drawn case, and what it settles
 
-The bias was then tested the only way it could be: a fifth target was drawn at random from the
-inventory of 59 remaining candidates, under a seed fixed and committed before the draw ran, and
-audited the same way whatever it turned out to be. Nobody picked it for its shape. It came out
+The bias was then tested the only way it could be: a fourth target was drawn at random from the
+58 remaining tools in the inventory, under a fixed seed, and audited the same way whatever it
+turned out to be. Nobody picked it for its shape. It came out
 **google/capslock**, which the inventory had already rated a poor fit. The record of the draw is
 not published; what it establishes — that this target was not chosen for convenience — is.
 
-**The pattern did not appear** ([capslock/](capslock/)). On every leg the tool does the opposite
-of what the pattern describes. It aborts with exit 2 when any package fails to load, rather than
-reporting on a partial graph. Everything its analysis cannot follow — reflection, cgo, assembly,
-`unsafe`, `go:linkname`, `os/exec`, `plugin` — is emitted as a capability of its own rather than
-dropped, and `docs/caveats.md` gives that as the reason: "so that capabilities are not missed
-without any indication to the user". Its one unsurfaced blind spot, data races on interface and
-slice types, is documented as unsurfaced. It errs towards over-reporting.
+**The pattern did not appear** in the default mode or on the error path, which is what was
+examined ([capslock/](capslock/)). On every leg examined the tool does the opposite of what the
+pattern describes. It aborts with exit 2 when any package fails to load, rather than reporting on
+a partial graph. Everything its analysis cannot follow — reflection, cgo, assembly, `unsafe`,
+`go:linkname`, `os/exec`, `plugin` — is emitted as a capability of its own rather than dropped,
+and `docs/caveats.md` gives that as the reason: "so that capabilities are not missed without any
+indication to the user". Its one unsurfaced blind spot, data races on interface and slice types,
+is documented as unsurfaced. It errs towards over-reporting.
 
 So this note stays what it was: an observation about four cases selected for their form, plus one
-drawn case where the form is absent. It is not a claim about how these controls are written in
-general, and the draw is the reason it cannot be upgraded into one on the evidence here.
+drawn case where the form is absent from the mode examined. It is not a claim about how these
+controls are written in general, and the draw is the reason it cannot be upgraded into one on the
+evidence here.
 
-What the drawn case does add is a negative worth having. Capslock is the one tool of the five
+What the drawn case does add is a negative worth having. Capslock is the only tool in this note
 that states the principle explicitly as a design goal, in a document about its own limits. That
 is a cheap thing for any of the others to have done and none of them did — which is a remark
-about documentation practice, not about a defect, and is as far as five cases will carry it.
+about documentation practice, not about a defect, and is as far as these cases will carry it.
 
-One asymmetry to keep in view: Capslock is a reporting tool and makes a weaker claim than the
-four before it. A tool that promises less has less to misreport. Whether the pattern is about how
-controls are written or about what happens when a tool's promise outruns its mechanism is not
-settled by five cases either, and the second reading is the one a sixth draw should be aimed at.
+One asymmetry to keep in view: in the mode examined, Capslock reports, and makes a weaker claim
+than the tools before it. A tool that promises less has less to misreport. It also has a mode that
+gates — `-output=compare` exits 1 when capabilities differ from a saved baseline — and that mode
+was not examined. Whether the pattern is about how controls are written or about what happens when
+a tool's promise outruns its mechanism is not settled by these cases either, and the second
+reading is the one the second draw is aimed at
+([gate-or-report-2026-09-24.md](gate-or-report-2026-09-24.md)).
+
+## Corrections, 2026-09-24
+
+- The drawn target was the fourth audited in this directory, not a fifth, and the draw that tests
+  the second reading is the second, not a sixth. The candidates numbered 58, not 59: Harden-Runner
+  is in the inventory twice, under two categories, and held two places. The duplicate did not
+  change the result.
+- Capslock was described as a reporting tool. Its default mode reports; `-output=compare` gates.
+  The audit examined the default mode and the error path, not the comparison, and the scope is
+  set out in [capslock/](capslock/#scope-corrected-2026-09-24).
+- This note said the seed was fixed and committed before the draw ran. The commit with the seed
+  and the commit with the result reached GitHub in the same push, on 2026-09-24 at 05:01:13 UTC
+  (push event 22028704157), so that order is not on any public record and is no longer claimed.

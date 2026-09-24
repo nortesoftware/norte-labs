@@ -1,15 +1,17 @@
-# google/capslock — audited because it was drawn, and the pattern is not there
+# google/capslock — audited because it was drawn; the pattern is not in its default mode
 
 The fourth target was not chosen. It was drawn at random from the inventory of remaining
-candidates, under a seed fixed and committed before the draw ran, precisely so that the pattern in
+candidates, under a fixed seed, precisely so that the pattern in
 [../absent-fails-open.md](../absent-fails-open.md) would face a case nobody selected for its
 shape. There is no selection bias to discount here, and that is the whole point of the exercise:
 the inventory had already rated Capslock a poor fit and `enforces_or_detects: report only`, and it
 was audited anyway. The record of the draw is not published; what matters publicly is that this
 target was not picked for its convenience.
 
-**Result: no finding.** Audited at `a295785` (2026-09-22). The reasons are set out below because
-a negative result is only worth anything if it says what was looked for and where.
+**Result: no finding in the default mode and on the error path.** Audited at `a295785`
+(2026-09-22). The comparison mode, which gates, was not examined; see
+[Scope](#scope-corrected-2026-09-24). The reasons are set out below because a negative result is
+only worth anything if it says what was looked for and where.
 
 ## What it promises
 
@@ -17,9 +19,10 @@ a negative result is only worth anything if it says what was looked for and wher
 given package can access. This works by classifying the **capabilities** of Go packages by
 following transitive calls to privileged standard library operations."
 
-It does not claim to be a gate. The README places it "in conjunction with other security signals
-to indicate which code requires additional scrutiny", which is a weaker and more accurate claim
-than any of the three tools audited before it made.
+In its default mode it does not claim to be a gate. The README places it "in conjunction with
+other security signals to indicate which code requires additional scrutiny", which is a weaker and
+more accurate claim than any of the three tools audited before it made. Its comparison mode is a
+gate, and is outside what was examined here; see [Scope](#scope-corrected-2026-09-24).
 
 ## The four questions, and why each fails to bite
 
@@ -73,9 +76,9 @@ No published finding that Capslock reports fewer capabilities than it can see wi
 The nearest work is [GoLeash](https://arxiv.org/pdf/2505.11016), which argues for runtime policy
 enforcement for Go on the ground that static capability analysis cannot observe what a program
 actually does — an argument about the method's limits, made from the limits the tool documents,
-not a report that the tool misstates them. Third-party integrations exist that do turn it into a
-gate ([capcheck](https://github.com/git-pkgs/capcheck), Capslock analysis on deps.dev); whether
-those integrations preserve the exit-code semantics is a question about them, not about Capslock.
+not a report that the tool misstates them. Third-party integrations also gate on it
+([capcheck](https://github.com/git-pkgs/capcheck), Capslock analysis on deps.dev); whether they
+preserve its exit-code semantics is a question about them, not about Capslock.
 
 ## What was not done
 
@@ -84,6 +87,27 @@ anything was claimed rather than after. The degraded-mode conclusion rests on re
 unambiguous path — one `if` whose body returns an error that `main` turns into `os.Exit(2)` — and
 the rest rests on documentation that states the design principle and on the capability list that
 implements it. Running it would add confirmation, not change the reading.
+
+## Scope, corrected 2026-09-24
+
+What was examined is the default mode, which prints the capabilities it finds, and the error
+path, which aborts. What was not examined is `-output=compare`, which reads a capability file
+saved from an earlier run and exits according to whether anything changed. The command's own
+documentation at `a295785` states it, in `cmd/capslock/capslock.go`: "The exit status code is 2
+for an error, 1 if a difference is found when a comparison is requested, and 0 otherwise." The
+README gives the use: "alerting on unexpected capability changes to stop potential supply chain
+threats before they can become an issue."
+
+That is a gating mode, off by default. An earlier version of this write-up said the tool "does
+not claim to be a gate". The four questions above were asked of the default mode and the error
+path only, and the result stands for those. For the comparison none of the four has been asked.
+One of them is pointed: whether a package absent from the saved baseline counts as a difference
+or is passed over is the absent-path question, and it is unexamined.
+
+An earlier version also said the seed was "fixed and committed before the draw ran". The commit
+with the seed and the commit with the result reached GitHub in the same push, on 2026-09-24 at
+05:01:13 UTC (push event 22028704157), so that order is not on any public record and is no
+longer claimed.
 
 ## Channel
 
