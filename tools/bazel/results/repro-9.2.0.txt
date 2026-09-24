@@ -1,0 +1,62 @@
+### Bazel 9.2.0, Linux 6.12.107+deb13-amd64
+
+### 1. linux-sandbox, by default, lets an action read a file it did not declare
+    read bazel exit 0  exists=yes cat_rc=0 SECRET 
+    read_blocked bazel exit 0  exists=yes cat_rc=1 cat: <probe>: Permission denied 
+    (control: the same read, with the file blocked)
+
+### 2. and reach the network
+    net  bazel exit 0  connect_rc=0 
+    net_blocked bazel exit 0  connect_rc=1 
+    (control: the same connection from an action tagged block-network)
+
+### 3. the flag run/build.mdx recommends
+    bazel exit 2: ERROR: --ignore_unsupported_sandboxing :: Unrecognized option: --ignore_unsupported_sandboxing
+
+### 4. --sandbox_block_path on a path that does not exist
+    bazel exit with the flag 0, without 0
+    console lines that differ, flag against no flag: 0
+    the same at --sandbox_debug -s: 0; lines naming the path as a mount: 0
+    (control: with the path present, lines at --sandbox_debug -s naming it as a mount: 3)
+
+### 5. the path appears while action A runs; B is set up afterwards
+    appear bazel exit 0  early cat_rc=1 cat: <probe>: No such file or directory mounts=0 late  cat_rc=0 SECRET mounts=0 
+    appear bazel exit 0  exists=yes cat_rc=1 cat: <probe>: Permission denied 
+    appear_c bazel exit 0  early cat_rc=1 cat: <probe>: Permission denied mounts=1 late  cat_rc=1 cat: <probe>: Permission denied mounts=1 
+    appear_c bazel exit 0  exists=yes cat_rc=1 cat: <probe>: Permission denied 
+    (control: present from the start, both blocked)
+    appear_d bazel exit 0  early cat_rc=1 cat: <probe>: No such file or directory mounts=0 late  cat_rc=0 SECRET mounts=0 
+    appear_d bazel exit 0  exists=yes cat_rc=0 SECRET 
+    (control: no flag, both read it)
+
+### 6. an applied block, and the host replaces the path while A runs
+    rename:
+    replace_rename bazel exit 0  early cat_rc=1 cat: <probe>: Permission denied mounts=1 late  cat_rc=0 REPLACED mounts=0 
+    replace_rename bazel exit 0  exists=yes cat_rc=1 cat: <probe>: Permission denied 
+    recreate:
+    replace_recreate bazel exit 0  early cat_rc=1 cat: <probe>: Permission denied mounts=1 late  cat_rc=0 REPLACED mounts=0 
+    replace_recreate bazel exit 0  exists=yes cat_rc=1 cat: <probe>: Permission denied 
+    inplace:
+    replace_inplace bazel exit 0  early cat_rc=1 cat: <probe>: Permission denied mounts=1 late  cat_rc=1 cat: <probe>: Permission denied mounts=1 
+    replace_inplace bazel exit 0  exists=yes cat_rc=1 cat: <probe>: Permission denied 
+    none:
+    replace_none bazel exit 0  early cat_rc=1 cat: <probe>: Permission denied mounts=1 late  cat_rc=1 cat: <probe>: Permission denied mounts=1 
+    replace_none bazel exit 0  exists=yes cat_rc=1 cat: <probe>: Permission denied 
+    (controls: inplace and none keep A blocked)
+    rename, no flag:
+    replace_noflag bazel exit 0  early cat_rc=0 SECRET mounts=0 late  cat_rc=0 REPLACED mounts=0 
+
+### 7. processwrapper-sandbox, and the fallback to it
+    pw_flag bazel exit 0  exists=yes cat_rc=0 SECRET 
+    console lines that differ, flag against no flag: 0
+    fb_block bazel exit 0  exists=yes cat_rc=0 SECRET 
+      processes: 1 internal, 1 processwrapper-sandbox.
+    fb_block_c bazel exit 0  exists=yes cat_rc=1 cat: <probe>: Permission denied 
+      processes: 1 internal, 1 linux-sandbox.
+    (control: the same wrapper with user namespaces available)
+    fb_net bazel exit 0  connect_rc=0 
+      processes: 1 internal, 1 processwrapper-sandbox.
+    fb_net_c bazel exit 0  connect_rc=1 
+      processes: 1 internal, 1 linux-sandbox.
+    console lines that differ, fallback against control: 2
+repro exit=0
