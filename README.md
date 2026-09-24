@@ -1,7 +1,6 @@
 # norte-labs
 
-Supply-chain security research and tooling audits. Measurements first, prior art before
-every measurement, verification before every claim.
+Supply-chain security research and audits.
 
 ## What is here
 
