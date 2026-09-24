@@ -14,6 +14,7 @@ what the tool reports when the control it names cannot reach what it claims to c
 | [`google/capslock`](capslock/) | Drawn at random rather than chosen. No finding, written up anyway. |
 
 The recurring shape across the first three is in [absent-fails-open.md](absent-fails-open.md).
+Every tool in the inventory classified as gating or reporting, before the next target is drawn from the ones that gate: [gate-or-report-2026-09-24.md](gate-or-report-2026-09-24.md).
 ## Inventory, 2026-09-22
 
 69 tools across five categories; 11 of them already assessed in the sandbox survey that produced
