@@ -1,9 +1,12 @@
-# google/capslock — audited because it was drawn, and the mold does not bite
+# google/capslock — audited because it was drawn, and the pattern is not there
 
-The fourth target was not chosen. It was drawn from the inventory under a seed published before
-the draw ran ([../unmolded-draw.md](../unmolded-draw.md)), precisely so that the pattern in
+The fourth target was not chosen. It was drawn at random from the inventory of remaining
+candidates, under a seed fixed and committed before the draw ran, precisely so that the pattern in
 [../absent-fails-open.md](../absent-fails-open.md) would face a case nobody selected for its
-shape. The inventory had rated Capslock `mold_fit: low` and `enforces_or_detects: report only`.
+shape. There is no selection bias to discount here, and that is the whole point of the exercise:
+the inventory had already rated Capslock a poor fit and `enforces_or_detects: report only`, and it
+was audited anyway. The record of the draw is not published; what matters publicly is that this
+target was not picked for its convenience.
 
 **Result: no finding.** Audited at `a295785` (2026-09-22). The reasons are set out below because
 a negative result is only worth anything if it says what was looked for and where.
@@ -62,7 +65,7 @@ behaviour diverge, and it says so itself.
 
 The `docs/caveats.md` document also opens on false positives — static analysis assumes every
 branch may execute, so a capability can be reported for a path that never runs. The tool errs
-towards over-reporting, which is the opposite direction from the one the mold looks for.
+towards over-reporting, which is the opposite direction from the one these audits look for.
 
 ## Prior art
 

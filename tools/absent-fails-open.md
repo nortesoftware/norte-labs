@@ -70,12 +70,12 @@ when one is selected via `GOTOOLCHAIN`.
 This matters to the argument above in a way the five audited cases cannot. It was not drawn and
 it was not chosen — it surfaced while sweeping prior art for a different question entirely — so
 it is not subject to the selection bias that the rest of this note is hedged against. It is also
-a gate rather than a reporter, which is the distinction the [fifth draw](unmolded-draw.md) left
-open and the sixth is meant to test.
+a gate rather than a reporter, which is the distinction the fifth draw left open and the sixth is
+meant to test.
 
 It does not settle anything by itself. One unselected case is one case, and it was found inside a
-search whose subject matter was adjacent. But it is the first instance here that did not come
-through the mold, and it should be counted separately from the five that did.
+search whose subject matter was adjacent. But it is the first instance here that was not
+selected for its shape, and it should be counted separately from the five that were.
 
 ## What would test it
 
@@ -86,8 +86,8 @@ worth running are the ones that could:
   and would bound the pattern. `nsjail` looks like this from reading: every seccomp failure path
   in `sandbox.cc` logs and returns false. It is on the list for that reason as much as any other.
 - A tool that reports achievement rather than intent would be the counterexample. None of the
-  four above does, but the sample is four, all chosen for a mold that selects for this. Picking a
-  target *without* the mold in mind is the honest next step, and has not been done.
+  four above does, but the sample is four, every one of them picked because it looked like this.
+  Picking a target without that in mind is the honest next step, and has not been done.
 - The asymmetry argument only works while the two code paths really are symmetric. If a
   maintainer answers that whitelist and blacklist differ for a reason — and there may be one —
   that half of the firejail case goes, and the diagnostic gap stands on its own.
@@ -98,9 +98,10 @@ sample. Enough to write down and look for; not enough to call it how these contr
 ## The drawn case, and what it settles
 
 The bias was then tested the only way it could be: a fifth target was drawn at random from the
-inventory of 59 remaining candidates, under a seed committed before the draw ran
-([unmolded-draw.md](unmolded-draw.md)), and audited by the same method whatever it turned out to
-be. It came out **google/capslock**, which the inventory had already rated a poor fit.
+inventory of 59 remaining candidates, under a seed fixed and committed before the draw ran, and
+audited the same way whatever it turned out to be. Nobody picked it for its shape. It came out
+**google/capslock**, which the inventory had already rated a poor fit. The record of the draw is
+not published; what it establishes — that this target was not chosen for convenience — is.
 
 **The pattern did not appear** ([capslock/](capslock/)). On every leg the tool does the opposite
 of what the pattern describes. It aborts with exit 2 when any package fails to load, rather than

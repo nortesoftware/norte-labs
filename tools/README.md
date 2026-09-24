@@ -3,38 +3,17 @@
 Audits of supply-chain security tools: what the documentation promises, what the code does, and
 what the tool reports when the control it names cannot reach what it claims to cover.
 
-## The shape these audits look for
 
-Three earlier audits found the same thing three times, and the pattern is narrower than "the
-control failed".
+## What these produced
 
-| | what the control cannot see | what it says about it |
-|---|---|---|
-| `cplt` | Landlock mediates `open(2)`, not `stat(2)` or `faccessat(2)` | the kernel answers "present and readable", and a check-then-use config loader believes it, then takes `EACCES` in code that never expected it |
-| `nono` | grants for paths that do not exist are skipped, and the session's denial record does not carry what the sandbox caused | *"No path denials were observed during this session"*, printed over 32 runs that the sandbox itself broke ([nolabs-ai/nono#1796](https://github.com/nolabs-ai/nono/issues/1796), open since 2026-09-06) |
-| `pmg` | the network policy is installed on 2 of 17 shipped profiles | the other 15 carry `allow_outbound` and `deny_outbound: '*:*'` anyway |
+| target | outcome |
+|---|---|
+| [`microsoft/sbom-tool`](sbom-tool/) | `ValidateFormat` prints that validation failed and exits 0. Sent to MSRC per its `SECURITY.md`, tracked as **VULN-229761**, classified Security Feature Bypass. |
+| [`netblue30/firejail`](firejail/) | A blacklist for a path that is not there is skipped with no line at any verbosity, and a seccomp filter that fails to install is reported as installed. Sent 2026-09-23 to the address in `SECURITY.md`. A related ordering defect was added as a comment on [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248). |
+| [`npm audit signatures`](npm-audit-signatures/) | It does not report how many packages it skipped for want of registry keys, so a partially verified tree reads as a fully verified one. Filed as [npm/cli#10018](https://github.com/npm/cli/issues/10018). |
+| [`google/capslock`](capslock/) | Drawn at random rather than chosen. No finding, written up anyway. |
 
-The gap is between what a configuration declares and what the backend actually reaches, with
-nothing emitted to say the gap is there. `pmg` is the sharpest case and also the most often
-misremembered: the TOCTOU objection to seccomp user notification was examined and did not hold —
-for npm the filter is never installed, so there is no notification to race. `profiles/go.yml`
-states it in the tool's own words: *"They are NOT kernel-enforced."*
-
-So an audit asks, in this order:
-
-1. what the documentation promises, quoted;
-2. what the code does;
-3. **degraded mode** — when the control cannot be applied, does it abort, warn, or carry on
-   silently, and does the report distinguish "clean" from "not checked";
-4. **across platforms** — does the same command under the same words get a weaker control on one
-   platform;
-5. **absent paths and fields** — a path that does not exist, a manifest field that is missing, a
-   signature that is absent rather than wrong, an SBOM with no entry for a component.
-
-Absent is where these tools fail open, and it recurs across mechanisms: `nono` drops a grant for a
-path that is not there without a line at any verbosity, and firejail globs a blacklist for a path
-that is not there into a no-op.
-
+The recurring shape across the first three is in [absent-fails-open.md](absent-fails-open.md).
 ## Inventory, 2026-09-22
 
 69 tools across five categories; 11 of them already assessed in the sandbox survey that produced
@@ -111,8 +90,8 @@ is reproduced, including that `--seccomp.print` reads the filter files rather th
 6.12 and is stated as unreproduced. Reported 2026-09-23 to `netblue30@protonmail.com`.
 
 The recurrence is written up separately in [absent-fails-open.md](absent-fails-open.md), and
-tested against a drawn target in [unmolded-draw.md](unmolded-draw.md) and
-[capslock/](capslock/) — where it does not appear.
+tested against a target picked by seeded random draw — [capslock/](capslock/), where it does not
+appear.
 
 ### 3. `npm audit signatures` — npm/cli
 
@@ -166,13 +145,13 @@ Channel: mature, with a documented process and a long advisory history.
   adoption is the weakest. Worth taking if a fourth is wanted.
 - **`bubblewrap`** — deliberately excluded. Its SECURITY.md says it "is not a security boundary
   between the user and the OS" and that the protection "is entirely determined by the arguments
-  passed". The mold does not bite a tool that declines to promise; its callers are the target.
+  passed". A tool that declines to promise is not the target; its callers are.
 
 ## What this host cannot decide
 
 Every macOS backend in the sandbox category — `srt`, the agent CLIs, `birdcage`, Bazel's
 `darwin-sandbox`, Nix on Darwin — rests on `sandbox-exec`, which Apple deprecated and never
-documented. The cross-platform leg of the mold therefore cannot be *run* here, only read. A
+documented. The cross-platform leg therefore cannot be *run* here, only read. A
 worked example of the divergence is already in hand: `birdcage`'s macOS deny-all profile carries a
 global `(allow file-read-metadata)`, acknowledged in a comment at `src/macos.rs`, while its Linux
 backend implements the same library call with mount namespaces where the path is not visible at
