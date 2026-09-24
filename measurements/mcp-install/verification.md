@@ -185,3 +185,6 @@ self-registration 4, install scripts 12.6 %, all with DEFF ≈ 1; 10 s of idle h
 (39/40); dummy credentials do not suppress activity in servers that start (4/4), and those that
 abort remain unobserved; the sandbox does not change what is observed (20/20); the sample is
 simple random, with no detectable bias on 11 covariates.
+- One third-party personal e-mail address was redacted from `cells.ndjson`, in the startup
+  banner a server prints on stderr. It is replaced by `[redacted]`, padded so the banner's
+  box rule still aligns. No figure reads it.

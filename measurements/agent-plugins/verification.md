@@ -403,3 +403,7 @@ the one Cursor loads. Both inflate counts of runs, not the plugin-level rates.
   `zardoy.inline-debugger`, and the `www.schemastore.org` fetches recorded for
   `redhat.vscode-extension-dashbuilder-editor`, are a dependency extension's, not the sampled
   extension's.
+- Four third-party personal e-mail addresses were redacted from the published cells after the
+  run: two in `cells-cursor.ndjson`, one in `cells-devin.ndjson` — all three an address npm
+  itself prints in a deprecation warning — and one in `population-openvsx.ndjson`, the `bugs`
+  field of a declared manifest. Each is replaced by `[redacted]`. No figure reads these fields.

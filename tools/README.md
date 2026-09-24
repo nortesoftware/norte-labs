@@ -178,3 +178,11 @@ global `(allow file-read-metadata)`, acknowledged in a comment at `src/macos.rs`
 backend implements the same library call with mount namespaces where the path is not visible at
 all — so `stat()` succeeds on every path on macOS and fails on Linux, under one API. The project is
 archived, which makes it a poor report target and a good citation.
+
+## A note on the inventory's contacts
+
+`inventory.ndjson` records each project's `security_channel` — how a report reaches it. Where
+that channel is a role address the project publishes (`security@…`, `secure@…`), the address is
+in the field. Where it is a maintainer's personal address, the field says where to find it
+instead of repeating it. Three entries are affected. Reports actually sent are a different
+matter: `tools/firejail/` names the address it went to, because that is the record of the report.
