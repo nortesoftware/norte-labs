@@ -41,7 +41,7 @@ composition.
 ## 2. The owner count does not depend on the derivation
 
 Go has no publisher accounts, so an owner has to be derived from the module path, and the
-derivation is a judgement. Two rules were published with their code before the run
+derivation is a judgement. Two rules are published with their code
 ([src/owner.py](src/owner.py)) and both are reported:
 
 | | rule A, repository owner | rule B, declared prefix |

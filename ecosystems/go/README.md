@@ -9,9 +9,11 @@ Prior art: [../../prior-art/go-supply-chain.md](../../prior-art/go-supply-chain.
 count is **not found** in all four modalities; the toolchain directive is documented and
 unmeasured; cgo is measured over projects' own code and not over module graphs.
 
-**This file and [src/owner.py](src/owner.py) were committed before the measurement ran.** The
-owner derivation is the contribution and also the soft spot, so the rule is published first, in
-full, with the code, and a second rule is reported beside it.
+The owner derivation is the contribution and also the soft spot, so the rule is published in
+full, with the code, and a second rule is reported beside it. **It was not published before the
+measurement ran:** this file and [src/owner.py](src/owner.py) reached GitHub in the same push as
+the results, on 2026-09-24. An earlier version of this paragraph said otherwise; the correction
+and the push record are in [verification.md](verification.md#corrections).
 
 ## Frame and sample
 
@@ -63,7 +65,7 @@ Rule A merges: `k8s.io/api` and `github.com/kubernetes/klog` become one owner. R
 apart. A is the better answer to "who can change my build"; B is the better answer to "how many
 names did I have to trust". Neither is the truth, which is the point of publishing both.
 
-### Cases declared in advance
+### Cases the rule names
 
 - **Vanity hosts** are resolved by Rule A and kept whole by Rule B; that is the main source of
   divergence between the two counts.

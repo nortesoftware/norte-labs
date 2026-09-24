@@ -14,7 +14,8 @@ and the band records are kept in `results/frame-2026-09-23-bands.json`. Three ch
 ## The two owner rules against each other
 
 The headline depends on deriving an owner from a module path, which Go does not do for you. Both
-rules were committed with their code before the run. Over 360 projects the medians are 41 and 42,
+rules are published with their code; that they were fixed before the run is not something the
+public record shows (see Corrections). Over 360 projects the medians are 41 and 42,
 the ratio is 1.00 at the median and 1.03 at p90. The derivation is therefore not load-bearing for
 the figure. This was checked because it could have gone the other way, and if it had, the
 sensitivity would have been the result rather than a footnote.
@@ -83,5 +84,24 @@ the sampling plan, is what bounded it.
   the top 20 most-starred CGO repositories. The figures are not used in the findings, and the
   correction is recorded in [../../prior-art/go-supply-chain.md](../../prior-art/go-supply-chain.md).
 - `golang.org/x/*` resolves under rule A to `go.googlesource.com`, a host with no account
-  element, and not to `github.com/golang`. This was declared before the run rather than adjusted
-  after seeing its effect on the count.
+  element, and not to `github.com/golang`. The rule states it; an earlier version of this entry
+  said it was declared before the run, which the public record does not show (see the next
+  entry).
+- **Withdrawn: that the owner rule was published before the measurement ran.** This directory
+  said so four times — "This file and src/owner.py were committed before the measurement ran",
+  "the rule is published first", "Two rules were published with their code before the run", "Both
+  rules were committed with their code before the run" — and headed a section "Cases declared in
+  advance"; the repository README said "Owner derivation published with its code before the run".
+  GitHub's record of pushes to this repository does not support it. No push reached GitHub
+  between 2026-09-17 20:41:23 UTC and 2026-09-24 03:43:03 UTC. The commit carrying the rule and
+  the one carrying the measurement arrived together, in one push of 39 commits at 2026-09-24
+  05:01:13 UTC (push event 22028704157), as `aab01e7` and `bd01c5b`. A force-push at 05:47:14 UTC
+  (push event 22012709753) replaced them with the commits now on `main`, `cf613ef` and `6fbb1ac`;
+  the files in this directory are identical in both, tree for tree. The dates those commits
+  carry, 2026-09-23 09:00 and 15:20 UTC, are author dates from local commits and are not times
+  anything was published. The history was rewritten locally before that push, when all 39 commits
+  received committer dates between 05:00:53 and 05:00:55 UTC, and again by the force-push; 20 of
+  the 39 author dates are later than the push itself, the last of them 13:28 UTC. Whether the
+  rule was fixed before the run cannot be shown from the public record, so it is no longer
+  claimed. What can be checked is unchanged: the rule and its code are published, both rules are
+  reported, and they give medians of 41 and 42.

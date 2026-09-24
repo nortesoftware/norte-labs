@@ -55,7 +55,9 @@ Supply-chain security research and audits.
   install script and has a checksum database, and both hold; what they do not change is how many
   parties can put code into the build. 45.6 % of projects carry at least one module whose
   manifest can make the go command download and execute a different toolchain, which nobody had
-  measured. Owner derivation published with its code before the run, and reported two ways.
+  measured. Owner derivation published with its code and reported two ways; an earlier claim
+  that it was published before the run is withdrawn in
+  [verification.md](ecosystems/go/verification.md#corrections).
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the additional checks with their
