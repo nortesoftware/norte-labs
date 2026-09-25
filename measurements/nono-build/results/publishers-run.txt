@@ -1,0 +1,11 @@
+registry versions 548, crates 501
+CONTROL serde 1.0.229 -> dtolnay; aws-config 1.12.0 -> aws-sdk-rust-ci; chacha20 0.10.2 -> RustCrypto/stream-ciphers
+  100/548
+  200/548
+  300/548
+  400/548
+  500/548
+versions: by an account 483, by trusted publishing 62, unknown 3
+publishers: 158 accounts + 26 repositories = 184; without automation accounts and repositories: 157 (automation: ['aws-sdk-rust-ci'])
+REPRODUCTION 30 fetched again: 30 match, 0 differ []
+exit=0

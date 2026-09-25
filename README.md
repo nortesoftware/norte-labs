@@ -76,6 +76,10 @@ Supply-chain security research and audits.
   of shared frameworks. Read from lockfiles and the registry, nothing installed. npm only:
   PyPI's registry does not record who uploaded a release, so the count cannot be made there;
   that is a limit of the measurement, not work left to do.
+- [measurements/nono-build/](measurements/nono-build/) — who published the crates nono, a
+  sandbox, is built from: 548 versions of 501 crates in its `Cargo.lock`, 184 publishers against
+  a median npm project's 165, and 227 accounts and 51 teams by permission against 401 accounts. One
+  project, not a sample.
 
 ## Conventions
 

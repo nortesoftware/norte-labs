@@ -17,3 +17,7 @@
   from lockfiles and the registry, nothing installed. Findings in
   [instruction-gap/findings.md](instruction-gap/findings.md); additional checks and corrections
   in [instruction-gap/verification.md](instruction-gap/verification.md).
+- [nono-build/](nono-build/) — who published the crates one sandbox is built from: nono's
+  `Cargo.lock`, 548 versions of 501 crates, counted the way instruction-gap counts npm. 184
+  publishers, against a median npm project's 165; 227 accounts and 51 teams by permission, against
+  401 accounts. One project, not a sample.

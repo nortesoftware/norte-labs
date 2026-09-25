@@ -1,0 +1,3430 @@
+[
+ {
+  "crate": "adler2",
+  "owners": [
+   "oyvindln"
+  ]
+ },
+ {
+  "crate": "aes",
+  "owners": [
+   "github:rustcrypto:block-ciphers",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "ahash",
+  "owners": [
+   "tkaitchuck"
+  ]
+ },
+ {
+  "crate": "aho-corasick",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "alloca",
+  "owners": [
+   "playX18"
+  ]
+ },
+ {
+  "crate": "allocator-api2",
+  "owners": [
+   "zakarumych"
+  ]
+ },
+ {
+  "crate": "ambient-id",
+  "owners": [
+   "astral-crates-bot",
+   "woodruffw"
+  ]
+ },
+ {
+  "crate": "android_system_properties",
+  "owners": [
+   "nical"
+  ]
+ },
+ {
+  "crate": "anes",
+  "owners": [
+   "lb034582341",
+   "qwandor"
+  ]
+ },
+ {
+  "crate": "anstream",
+  "owners": [
+   "epage",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "anstyle",
+  "owners": [
+   "epage",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "anstyle-parse",
+  "owners": [
+   "epage",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "anstyle-query",
+  "owners": [
+   "epage",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "anstyle-wincon",
+  "owners": [
+   "epage",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "anyhow",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "arc-swap",
+  "owners": [
+   "github:rust-bus:maintainers",
+   "vorner"
+  ]
+ },
+ {
+  "crate": "arrayvec",
+  "owners": [
+   "bluss",
+   "github:rust-bus:maintainers"
+  ]
+ },
+ {
+  "crate": "asn1-rs",
+  "owners": [
+   "chifflier"
+  ]
+ },
+ {
+  "crate": "asn1-rs-derive",
+  "owners": [
+   "chifflier"
+  ]
+ },
+ {
+  "crate": "asn1-rs-impl",
+  "owners": [
+   "chifflier"
+  ]
+ },
+ {
+  "crate": "astral-reqwest-middleware",
+  "owners": [
+   "astral-crates-bot",
+   "charliermarsh"
+  ]
+ },
+ {
+  "crate": "async-broadcast",
+  "owners": [
+   "github:smol-rs:admins"
+  ]
+ },
+ {
+  "crate": "async-channel",
+  "owners": [
+   "github:smol-rs:admins"
+  ]
+ },
+ {
+  "crate": "async-compression",
+  "owners": [
+   "Nemo157",
+   "NobodyXu",
+   "robjtede",
+   "yoshuawuyts"
+  ]
+ },
+ {
+  "crate": "async-executor",
+  "owners": [
+   "github:smol-rs:admins"
+  ]
+ },
+ {
+  "crate": "async-fs",
+  "owners": [
+   "github:smol-rs:admins"
+  ]
+ },
+ {
+  "crate": "async-io",
+  "owners": [
+   "github:smol-rs:admins"
+  ]
+ },
+ {
+  "crate": "async-lock",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "async-process",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "async-recursion",
+  "owners": [
+   "dcchut"
+  ]
+ },
+ {
+  "crate": "async-signal",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "async-task",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "async-trait",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "atomic-waker",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "autocfg",
+  "owners": [
+   "cuviper",
+   "matklad"
+  ]
+ },
+ {
+  "crate": "aws-config",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners"
+  ]
+ },
+ {
+  "crate": "aws-credential-types",
+  "owners": [
+   "aws-sdk-rust-ci"
+  ]
+ },
+ {
+  "crate": "aws-lc-rs",
+  "owners": [
+   "crypto-alg",
+   "github:aws:aws-lc-rs-team",
+   "justsmth",
+   "skmcgrail"
+  ]
+ },
+ {
+  "crate": "aws-lc-sys",
+  "owners": [
+   "crypto-alg",
+   "github:aws:aws-lc-rs-team",
+   "justsmth",
+   "skmcgrail"
+  ]
+ },
+ {
+  "crate": "aws-runtime",
+  "owners": [
+   "aws-sdk-rust-ci"
+  ]
+ },
+ {
+  "crate": "aws-sdk-sso",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners"
+  ]
+ },
+ {
+  "crate": "aws-sdk-ssooidc",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners"
+  ]
+ },
+ {
+  "crate": "aws-sdk-sts",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners"
+  ]
+ },
+ {
+  "crate": "aws-sigv4",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners"
+  ]
+ },
+ {
+  "crate": "aws-smithy-async",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners",
+   "github:awslabs:smithy-rs-server"
+  ]
+ },
+ {
+  "crate": "aws-smithy-http",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners",
+   "github:awslabs:smithy-rs-server"
+  ]
+ },
+ {
+  "crate": "aws-smithy-http-client",
+  "owners": [
+   "aws-sdk-rust-ci"
+  ]
+ },
+ {
+  "crate": "aws-smithy-json",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners",
+   "github:awslabs:smithy-rs-server"
+  ]
+ },
+ {
+  "crate": "aws-smithy-observability",
+  "owners": [
+   "aws-sdk-rust-ci"
+  ]
+ },
+ {
+  "crate": "aws-smithy-query",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners",
+   "github:awslabs:smithy-rs-server"
+  ]
+ },
+ {
+  "crate": "aws-smithy-runtime",
+  "owners": [
+   "aws-sdk-rust-ci"
+  ]
+ },
+ {
+  "crate": "aws-smithy-runtime-api",
+  "owners": [
+   "aws-sdk-rust-ci"
+  ]
+ },
+ {
+  "crate": "aws-smithy-runtime-api-macros",
+  "owners": [
+   "aws-sdk-rust-ci"
+  ]
+ },
+ {
+  "crate": "aws-smithy-schema",
+  "owners": [
+   "aws-sdk-rust-ci"
+  ]
+ },
+ {
+  "crate": "aws-smithy-types",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners",
+   "github:awslabs:smithy-rs-server"
+  ]
+ },
+ {
+  "crate": "aws-smithy-xml",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners",
+   "github:awslabs:smithy-rs-server"
+  ]
+ },
+ {
+  "crate": "aws-types",
+  "owners": [
+   "aws-sdk-rust-ci",
+   "github:awslabs:rust-sdk-owners"
+  ]
+ },
+ {
+  "crate": "base64",
+  "owners": [
+   "alicemaz",
+   "marshallpierce"
+  ]
+ },
+ {
+  "crate": "base64-simd",
+  "owners": [
+   "Nugine"
+  ]
+ },
+ {
+  "crate": "base64ct",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "bit-set",
+  "owners": [
+   "Gankra",
+   "github:contain-rs:owners",
+   "pczarn"
+  ]
+ },
+ {
+  "crate": "bit-vec",
+  "owners": [
+   "Gankra",
+   "github:contain-rs:owners",
+   "pczarn"
+  ]
+ },
+ {
+  "crate": "bitflags",
+  "owners": [
+   "KodrAus",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "block-buffer",
+  "owners": [
+   "github:rustcrypto:utils",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "block-padding",
+  "owners": [
+   "github:rustcrypto:utils",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "blocking",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "borrow-or-share",
+  "owners": [
+   "yescallop"
+  ]
+ },
+ {
+  "crate": "bstr",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "bumpalo",
+  "owners": [
+   "alexcrichton",
+   "fitzgen"
+  ]
+ },
+ {
+  "crate": "bytecount",
+  "owners": [
+   "llogiq"
+  ]
+ },
+ {
+  "crate": "byteorder",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "bytes",
+  "owners": [
+   "Darksonn",
+   "carllerche",
+   "github:tokio-rs:core"
+  ]
+ },
+ {
+  "crate": "bytes-utils",
+  "owners": [
+   "vorner"
+  ]
+ },
+ {
+  "crate": "cast",
+  "owners": [
+   "japaric"
+  ]
+ },
+ {
+  "crate": "cbc",
+  "owners": [
+   "github:rustcrypto:block-ciphers",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "cbindgen",
+  "owners": [
+   "emilio",
+   "eqrion"
+  ]
+ },
+ {
+  "crate": "cc",
+  "owners": [
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "cfg-if",
+  "owners": [
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "cfg_aliases",
+  "owners": [
+   "github:katharostech:crates-io-publishers",
+   "zicklag"
+  ]
+ },
+ {
+  "crate": "chacha20",
+  "owners": [
+   "github:rustcrypto:stream-ciphers",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "chrono",
+  "owners": [
+   "github:chronotope:release-manager",
+   "lifthrasiir"
+  ]
+ },
+ {
+  "crate": "ciborium",
+  "owners": [
+   "github:enarx:owners",
+   "npmccallum"
+  ]
+ },
+ {
+  "crate": "ciborium-io",
+  "owners": [
+   "github:enarx:owners",
+   "npmccallum"
+  ]
+ },
+ {
+  "crate": "ciborium-ll",
+  "owners": [
+   "github:enarx:owners",
+   "npmccallum"
+  ]
+ },
+ {
+  "crate": "cipher",
+  "owners": [
+   "github:rustcrypto:traits",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "clap",
+  "owners": [
+   "github:clap-rs:admins",
+   "github:rust-cli:maintainers",
+   "kbknapp"
+  ]
+ },
+ {
+  "crate": "clap_builder",
+  "owners": [
+   "epage",
+   "github:clap-rs:admins",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "clap_complete",
+  "owners": [
+   "epage",
+   "github:clap-rs:admins",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "clap_derive",
+  "owners": [
+   "github:clap-rs:admins",
+   "kbknapp"
+  ]
+ },
+ {
+  "crate": "clap_lex",
+  "owners": [
+   "epage",
+   "github:clap-rs:admins",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "cmake",
+  "owners": [
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "cmov",
+  "owners": [
+   "github:rustcrypto:utils",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "cmpv2",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "cms",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "colorchoice",
+  "owners": [
+   "epage",
+   "github:rust-cli:maintainers"
+  ]
+ },
+ {
+  "crate": "colored",
+  "owners": [
+   "hwittenborn",
+   "kurtlawrence",
+   "mackwic"
+  ]
+ },
+ {
+  "crate": "combine",
+  "owners": [
+   "Marwes"
+  ]
+ },
+ {
+  "crate": "compression-codecs",
+  "owners": [
+   "NobodyXu",
+   "robjtede",
+   "yoshuawuyts"
+  ]
+ },
+ {
+  "crate": "compression-core",
+  "owners": [
+   "NobodyXu",
+   "robjtede",
+   "yoshuawuyts"
+  ]
+ },
+ {
+  "crate": "concurrent-queue",
+  "owners": [
+   "github:crossbeam-rs:admins",
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "const-oid",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "core-foundation",
+  "owners": [
+   "github:servo:cargo-publish",
+   "larsbergstrom",
+   "mbrubeck",
+   "metajack",
+   "pcwalton"
+  ]
+ },
+ {
+  "crate": "core-foundation-sys",
+  "owners": [
+   "github:servo:cargo-publish",
+   "larsbergstrom"
+  ]
+ },
+ {
+  "crate": "cpufeatures",
+  "owners": [
+   "github:rustcrypto:utils",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "crc32fast",
+  "owners": [
+   "srijs"
+  ]
+ },
+ {
+  "crate": "criterion",
+  "owners": [
+   "berkus",
+   "bheisler",
+   "github:rust-bus:maintainers",
+   "lemmih"
+  ]
+ },
+ {
+  "crate": "criterion-plot",
+  "owners": [
+   "berkus",
+   "bheisler",
+   "github:rust-bus:maintainers",
+   "japaric",
+   "lemmih"
+  ]
+ },
+ {
+  "crate": "crmf",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "crossbeam-deque",
+  "owners": [
+   "Amanieu",
+   "github:crossbeam-rs:admins",
+   "jeehoonkang",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "crossbeam-epoch",
+  "owners": [
+   "Amanieu",
+   "github:crossbeam-rs:admins",
+   "jeehoonkang",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "crossbeam-utils",
+  "owners": [
+   "Amanieu",
+   "github:crossbeam-rs:admins",
+   "jeehoonkang",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "crunchy",
+  "owners": [
+   "eira-fransham"
+  ]
+ },
+ {
+  "crate": "crypto-common",
+  "owners": [
+   "github:rustcrypto:traits",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "ctutils",
+  "owners": [
+   "github:rustcrypto:utils",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "data-encoding",
+  "owners": [
+   "ia0"
+  ]
+ },
+ {
+  "crate": "dbus",
+  "owners": [
+   "diwic"
+  ]
+ },
+ {
+  "crate": "dbus-secret-service",
+  "owners": [
+   "brotskydotcom"
+  ]
+ },
+ {
+  "crate": "defmt",
+  "owners": [
+   "github:knurling-rs:crate-owners",
+   "japaric",
+   "jonathanpallant",
+   "knurling-infra"
+  ]
+ },
+ {
+  "crate": "defmt-macros",
+  "owners": [
+   "github:knurling-rs:crate-owners",
+   "japaric",
+   "jonathanpallant",
+   "knurling-infra"
+  ]
+ },
+ {
+  "crate": "defmt-parser",
+  "owners": [
+   "github:knurling-rs:crate-owners",
+   "japaric",
+   "jonathanpallant",
+   "knurling-infra"
+  ]
+ },
+ {
+  "crate": "der",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "der-parser",
+  "owners": [
+   "chifflier"
+  ]
+ },
+ {
+  "crate": "der_derive",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "deranged",
+  "owners": [
+   "jhpratt"
+  ]
+ },
+ {
+  "crate": "digest",
+  "owners": [
+   "github:rustcrypto:traits",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "directories",
+  "owners": [
+   "soc"
+  ]
+ },
+ {
+  "crate": "dirs",
+  "owners": [
+   "soc"
+  ]
+ },
+ {
+  "crate": "dirs-sys",
+  "owners": [
+   "soc"
+  ]
+ },
+ {
+  "crate": "displaydoc",
+  "owners": [
+   "Manishearth",
+   "yaahc"
+  ]
+ },
+ {
+  "crate": "dns-lookup",
+  "owners": [
+   "keeperofdakeys"
+  ]
+ },
+ {
+  "crate": "dunce",
+  "owners": [
+   "kornelski"
+  ]
+ },
+ {
+  "crate": "dyn-clone",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "either",
+  "owners": [
+   "bluss",
+   "cuviper",
+   "jswrenn"
+  ]
+ },
+ {
+  "crate": "email_address",
+  "owners": [
+   "johnstonskj"
+  ]
+ },
+ {
+  "crate": "endi",
+  "owners": [
+   "zeenix"
+  ]
+ },
+ {
+  "crate": "enumflags2",
+  "owners": [
+   "meithecatte"
+  ]
+ },
+ {
+  "crate": "enumflags2_derive",
+  "owners": [
+   "meithecatte"
+  ]
+ },
+ {
+  "crate": "equivalent",
+  "owners": [
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "errno",
+  "owners": [
+   "lambda-fairy",
+   "sunfishcode"
+  ]
+ },
+ {
+  "crate": "event-listener",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "event-listener-strategy",
+  "owners": [
+   "github:smol-rs:admins",
+   "notgull"
+  ]
+ },
+ {
+  "crate": "fancy-regex",
+  "owners": [
+   "github:fancy-regex:crate-owners",
+   "keith-hall",
+   "raphlinus",
+   "robinst"
+  ]
+ },
+ {
+  "crate": "fastrand",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "find-msvc-tools",
+  "owners": [
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "flagset",
+  "owners": [
+   "github:enarx:owners",
+   "npmccallum"
+  ]
+ },
+ {
+  "crate": "flate2",
+  "owners": [
+   "Byron",
+   "joshtriplett",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "fluent-uri",
+  "owners": [
+   "yescallop"
+  ]
+ },
+ {
+  "crate": "fnv",
+  "owners": [
+   "SimonSapin",
+   "github:servo:cargo-publish"
+  ]
+ },
+ {
+  "crate": "foldhash",
+  "owners": [
+   "orlp"
+  ]
+ },
+ {
+  "crate": "form_urlencoded",
+  "owners": [
+   "SimonSapin",
+   "github:servo:cargo-publish",
+   "github:servo:rust-url"
+  ]
+ },
+ {
+  "crate": "fraction",
+  "owners": [
+   "dnsl48"
+  ]
+ },
+ {
+  "crate": "fs_extra",
+  "owners": [
+   "webdesus"
+  ]
+ },
+ {
+  "crate": "futures",
+  "owners": [
+   "cramertj",
+   "rust-lang-owner",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "futures-channel",
+  "owners": [
+   "cramertj",
+   "rust-lang-owner",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "futures-core",
+  "owners": [
+   "cramertj",
+   "rust-lang-owner",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "futures-io",
+  "owners": [
+   "cramertj",
+   "rust-lang-owner",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "futures-lite",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "futures-macro",
+  "owners": [
+   "cramertj",
+   "rust-lang-owner",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "futures-sink",
+  "owners": [
+   "cramertj",
+   "rust-lang-owner",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "futures-task",
+  "owners": [
+   "cramertj",
+   "rust-lang-owner",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "futures-util",
+  "owners": [
+   "cramertj",
+   "rust-lang-owner",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "generic-array",
+  "owners": [
+   "fizyk20",
+   "novacrazy"
+  ]
+ },
+ {
+  "crate": "getrandom",
+  "owners": [
+   "dhardy",
+   "github:rust-random:maintainers"
+  ]
+ },
+ {
+  "crate": "globset",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "h2",
+  "owners": [
+   "carllerche",
+   "olix0r",
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "half",
+  "owners": [
+   "VoidStarKat"
+  ]
+ },
+ {
+  "crate": "hashbrown",
+  "owners": [
+   "Amanieu",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "heck",
+  "owners": [
+   "jplatte",
+   "withoutboats"
+  ]
+ },
+ {
+  "crate": "hermit-abi",
+  "owners": [
+   "mkroening",
+   "stlankes"
+  ]
+ },
+ {
+  "crate": "hex",
+  "owners": [
+   "KokaKiwi"
+  ]
+ },
+ {
+  "crate": "hkdf",
+  "owners": [
+   "github:rustcrypto:kdfs",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "hmac",
+  "owners": [
+   "github:rustcrypto:macs",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "http",
+  "owners": [
+   "carllerche",
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "http-body",
+  "owners": [
+   "carllerche",
+   "github:hyperium:http-util",
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "http-body-util",
+  "owners": [
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "httparse",
+  "owners": [
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "httpdate",
+  "owners": [
+   "pyfisch"
+  ]
+ },
+ {
+  "crate": "hybrid-array",
+  "owners": [
+   "github:rustcrypto:utils",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "hyper",
+  "owners": [
+   "github:hyperium:core",
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "hyper-rustls",
+  "owners": [
+   "ctz",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "hyper-timeout",
+  "owners": [
+   "hjr3"
+  ]
+ },
+ {
+  "crate": "hyper-util",
+  "owners": [
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "iana-time-zone",
+  "owners": [
+   "Kijewski",
+   "astraw"
+  ]
+ },
+ {
+  "crate": "iana-time-zone-haiku",
+  "owners": [
+   "Kijewski",
+   "astraw"
+  ]
+ },
+ {
+  "crate": "icu_collections",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release",
+   "sffc"
+  ]
+ },
+ {
+  "crate": "icu_locale_core",
+  "owners": [
+   "github:unicode-org:icu4x-release",
+   "sffc"
+  ]
+ },
+ {
+  "crate": "icu_normalizer",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release"
+  ]
+ },
+ {
+  "crate": "icu_normalizer_data",
+  "owners": [
+   "github:unicode-org:icu4x-release",
+   "sffc"
+  ]
+ },
+ {
+  "crate": "icu_properties",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release",
+   "sffc"
+  ]
+ },
+ {
+  "crate": "icu_properties_data",
+  "owners": [
+   "github:unicode-org:icu4x-release",
+   "sffc"
+  ]
+ },
+ {
+  "crate": "icu_provider",
+  "owners": [
+   "github:unicode-org:icu4x-release",
+   "zbraniecki"
+  ]
+ },
+ {
+  "crate": "idna",
+  "owners": [
+   "SimonSapin",
+   "github:servo:cargo-publish",
+   "github:servo:rust-url"
+  ]
+ },
+ {
+  "crate": "idna_adapter",
+  "owners": [
+   "Manishearth",
+   "hsivonen",
+   "valenting"
+  ]
+ },
+ {
+  "crate": "ignore",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "indexmap",
+  "owners": [
+   "bluss",
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "inout",
+  "owners": [
+   "github:rustcrypto:utils",
+   "newpavlov"
+  ]
+ },
+ {
+  "crate": "ipnet",
+  "owners": [
+   "krisprice"
+  ]
+ },
+ {
+  "crate": "is-docker",
+  "owners": [
+   "TheLarkInn"
+  ]
+ },
+ {
+  "crate": "is-wsl",
+  "owners": [
+   "TheLarkInn"
+  ]
+ },
+ {
+  "crate": "is_terminal_polyfill",
+  "owners": [
+   "epage"
+  ]
+ },
+ {
+  "crate": "itertools",
+  "owners": [
+   "bluss",
+   "jswrenn"
+  ]
+ },
+ {
+  "crate": "itoa",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "jiff",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "jiff-static",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "jiff-tzdb",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "jiff-tzdb-platform",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "jni",
+  "owners": [
+   "dmitry-timofeev",
+   "jrobsonchase",
+   "rib",
+   "stanislav-tkach"
+  ]
+ },
+ {
+  "crate": "jni-macros",
+  "owners": [
+   "rib"
+  ]
+ },
+ {
+  "crate": "jni-sys",
+  "owners": [
+   "rib",
+   "sfackler"
+  ]
+ },
+ {
+  "crate": "jni-sys-macros",
+  "owners": [
+   "rib"
+  ]
+ },
+ {
+  "crate": "jobserver",
+  "owners": [
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "js-sys",
+  "owners": [
+   "RReverser",
+   "daxpedda",
+   "github:wasm-bindgen:wasm-bindgen-publish",
+   "guybedford"
+  ]
+ },
+ {
+  "crate": "jsonc-parser",
+  "owners": [
+   "dsherret"
+  ]
+ },
+ {
+  "crate": "jsonschema",
+  "owners": [
+   "Stranger6667"
+  ]
+ },
+ {
+  "crate": "jsonschema-regex",
+  "owners": [
+   "Stranger6667"
+  ]
+ },
+ {
+  "crate": "jsonschema-value",
+  "owners": [
+   "Stranger6667"
+  ]
+ },
+ {
+  "crate": "keyring",
+  "owners": [
+   "brotskydotcom",
+   "hwchen"
+  ]
+ },
+ {
+  "crate": "landlock",
+  "owners": [
+   "l0kod"
+  ]
+ },
+ {
+  "crate": "lazy_static",
+  "owners": [
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "libc",
+  "owners": [
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "libdbus-sys",
+  "owners": [
+   "diwic"
+  ]
+ },
+ {
+  "crate": "libredox",
+  "owners": [
+   "4lDO2",
+   "jackpot51"
+  ]
+ },
+ {
+  "crate": "linux-raw-sys",
+  "owners": [
+   "sunfishcode"
+  ]
+ },
+ {
+  "crate": "litemap",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release"
+  ]
+ },
+ {
+  "crate": "lock_api",
+  "owners": [
+   "Amanieu",
+   "faern"
+  ]
+ },
+ {
+  "crate": "log",
+  "owners": [
+   "KodrAus",
+   "github:rust-lang-nursery:log-owners",
+   "huonw",
+   "rust-lang-owner",
+   "sfackler"
+  ]
+ },
+ {
+  "crate": "lru-slab",
+  "owners": [
+   "Ralith"
+  ]
+ },
+ {
+  "crate": "matchers",
+  "owners": [
+   "hawkw"
+  ]
+ },
+ {
+  "crate": "memchr",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "memoffset",
+  "owners": [
+   "Gilnaa",
+   "RalfJung"
+  ]
+ },
+ {
+  "crate": "micromap",
+  "owners": [
+   "yegor256"
+  ]
+ },
+ {
+  "crate": "minimal-lexical",
+  "owners": [
+   "Alexhuszagh"
+  ]
+ },
+ {
+  "crate": "miniz_oxide",
+  "owners": [
+   "Frommi",
+   "oyvindln"
+  ]
+ },
+ {
+  "crate": "mio",
+  "owners": [
+   "carllerche",
+   "github:tokio-rs:mio-core"
+  ]
+ },
+ {
+  "crate": "nix",
+  "owners": [
+   "carllerche",
+   "github:nix-rust:nix-maintainers"
+  ]
+ },
+ {
+  "crate": "nom",
+  "owners": [
+   "Geal"
+  ]
+ },
+ {
+  "crate": "nu-ansi-term",
+  "owners": [
+   "github:nushell:publishing",
+   "sholderbach",
+   "sophiajt"
+  ]
+ },
+ {
+  "crate": "num",
+  "owners": [
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "num-bigint",
+  "owners": [
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "num-cmp",
+  "owners": [
+   "lifthrasiir"
+  ]
+ },
+ {
+  "crate": "num-complex",
+  "owners": [
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "num-conv",
+  "owners": [
+   "jhpratt"
+  ]
+ },
+ {
+  "crate": "num-integer",
+  "owners": [
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "num-iter",
+  "owners": [
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "num-rational",
+  "owners": [
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "num-traits",
+  "owners": [
+   "cuviper"
+  ]
+ },
+ {
+  "crate": "oid-registry",
+  "owners": [
+   "chifflier"
+  ]
+ },
+ {
+  "crate": "once_cell",
+  "owners": [
+   "matklad",
+   "vorner"
+  ]
+ },
+ {
+  "crate": "once_cell_polyfill",
+  "owners": [
+   "epage"
+  ]
+ },
+ {
+  "crate": "oorandom",
+  "owners": [
+   "icefoxen"
+  ]
+ },
+ {
+  "crate": "open",
+  "owners": [
+   "Byron"
+  ]
+ },
+ {
+  "crate": "openssl-probe",
+  "owners": [
+   "alexcrichton",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "option-ext",
+  "owners": [
+   "soc"
+  ]
+ },
+ {
+  "crate": "ordered-stream",
+  "owners": [
+   "danieldg",
+   "zeenix"
+  ]
+ },
+ {
+  "crate": "outref",
+  "owners": [
+   "Nugine"
+  ]
+ },
+ {
+  "crate": "page_size",
+  "owners": [
+   "Elzair"
+  ]
+ },
+ {
+  "crate": "parking",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "parking_lot",
+  "owners": [
+   "Amanieu",
+   "faern"
+  ]
+ },
+ {
+  "crate": "parking_lot_core",
+  "owners": [
+   "Amanieu",
+   "faern"
+  ]
+ },
+ {
+  "crate": "pem",
+  "owners": [
+   "jcreekmore"
+  ]
+ },
+ {
+  "crate": "pem-rfc7468",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "percent-encoding",
+  "owners": [
+   "SimonSapin",
+   "github:servo:cargo-publish",
+   "github:servo:rust-url"
+  ]
+ },
+ {
+  "crate": "pin-project",
+  "owners": [
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "pin-project-internal",
+  "owners": [
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "pin-project-lite",
+  "owners": [
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "pin-utils",
+  "owners": [
+   "MajorBreakfast",
+   "github:rust-lang-nursery:futures",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "piper",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "pkg-config",
+  "owners": [
+   "joshtriplett",
+   "rust-lang-owner",
+   "sdroege"
+  ]
+ },
+ {
+  "crate": "polling",
+  "owners": [
+   "github:smol-rs:admins",
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "portable-atomic",
+  "owners": [
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "portable-atomic-util",
+  "owners": [
+   "taiki-e"
+  ]
+ },
+ {
+  "crate": "potential_utf",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release",
+   "sffc"
+  ]
+ },
+ {
+  "crate": "powerfmt",
+  "owners": [
+   "jhpratt"
+  ]
+ },
+ {
+  "crate": "ppv-lite86",
+  "owners": [
+   "kazcw"
+  ]
+ },
+ {
+  "crate": "prettyplease",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "proc-macro-crate",
+  "owners": [
+   "bkchr"
+  ]
+ },
+ {
+  "crate": "proc-macro2",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "proptest",
+  "owners": [
+   "AltSysrq",
+   "Centril",
+   "github:proptest-rs:publish"
+  ]
+ },
+ {
+  "crate": "prost",
+  "owners": [
+   "danburkert",
+   "github:tokio-rs:prost-core"
+  ]
+ },
+ {
+  "crate": "prost-derive",
+  "owners": [
+   "danburkert",
+   "github:tokio-rs:prost-core"
+  ]
+ },
+ {
+  "crate": "prost-types",
+  "owners": [
+   "danburkert",
+   "github:tokio-rs:prost-core"
+  ]
+ },
+ {
+  "crate": "quick-error",
+  "owners": [
+   "tailhook"
+  ]
+ },
+ {
+  "crate": "quinn",
+  "owners": [
+   "Ralith",
+   "djc"
+  ]
+ },
+ {
+  "crate": "quinn-proto",
+  "owners": [
+   "Ralith",
+   "djc"
+  ]
+ },
+ {
+  "crate": "quinn-udp",
+  "owners": [
+   "Ralith",
+   "djc",
+   "mxinden"
+  ]
+ },
+ {
+  "crate": "quote",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "r-efi",
+  "owners": [
+   "dvdhrm"
+  ]
+ },
+ {
+  "crate": "rand",
+  "owners": [
+   "dhardy",
+   "github:rust-random:maintainers"
+  ]
+ },
+ {
+  "crate": "rand_chacha",
+  "owners": [
+   "dhardy",
+   "github:rust-random:maintainers"
+  ]
+ },
+ {
+  "crate": "rand_core",
+  "owners": [
+   "dhardy",
+   "github:rust-random:maintainers"
+  ]
+ },
+ {
+  "crate": "rand_pcg",
+  "owners": [
+   "dhardy",
+   "github:rust-random:maintainers"
+  ]
+ },
+ {
+  "crate": "rand_xorshift",
+  "owners": [
+   "dhardy",
+   "github:rust-random:maintainers"
+  ]
+ },
+ {
+  "crate": "rcgen",
+  "owners": [
+   "est31",
+   "github:rustls:rcgen-publish"
+  ]
+ },
+ {
+  "crate": "redox_syscall",
+  "owners": [
+   "4lDO2",
+   "jackpot51"
+  ]
+ },
+ {
+  "crate": "redox_users",
+  "owners": [
+   "MggMuggins",
+   "jackpot51"
+  ]
+ },
+ {
+  "crate": "ref-cast",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "ref-cast-impl",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "referencing",
+  "owners": [
+   "Stranger6667"
+  ]
+ },
+ {
+  "crate": "regex",
+  "owners": [
+   "BurntSushi",
+   "github:rust-lang-nursery:regex-owners",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "regex-automata",
+  "owners": [
+   "BurntSushi",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "regex-lite",
+  "owners": [
+   "BurntSushi",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "regex-syntax",
+  "owners": [
+   "BurntSushi",
+   "github:rust-lang-nursery:regex-owners",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "regress",
+  "owners": [
+   "raskad",
+   "ridiculousfish"
+  ]
+ },
+ {
+  "crate": "reqwest",
+  "owners": [
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "ring",
+  "owners": [
+   "briansmith"
+  ]
+ },
+ {
+  "crate": "rustc-hash",
+  "owners": [
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "rustc_version",
+  "owners": [
+   "Kimundi",
+   "djc"
+  ]
+ },
+ {
+  "crate": "rusticata-macros",
+  "owners": [
+   "chifflier"
+  ]
+ },
+ {
+  "crate": "rustix",
+  "owners": [
+   "sunfishcode"
+  ]
+ },
+ {
+  "crate": "rustls",
+  "owners": [
+   "ctz",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "rustls-native-certs",
+  "owners": [
+   "ctz",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "rustls-pki-types",
+  "owners": [
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "rustls-platform-verifier",
+  "owners": [
+   "complexspaces",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "rustls-platform-verifier-android",
+  "owners": [
+   "complexspaces",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "rustls-webpki",
+  "owners": [
+   "ctz",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "rustversion",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "rusty-fork",
+  "owners": [
+   "AltSysrq"
+  ]
+ },
+ {
+  "crate": "ryu",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "ryu-js",
+  "owners": [
+   "HalidOdat",
+   "Razican",
+   "github:boa-dev:owners"
+  ]
+ },
+ {
+  "crate": "same-file",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "schannel",
+  "owners": [
+   "sfackler",
+   "steffengy"
+  ]
+ },
+ {
+  "crate": "schemars",
+  "owners": [
+   "GREsau"
+  ]
+ },
+ {
+  "crate": "schemars_derive",
+  "owners": [
+   "GREsau"
+  ]
+ },
+ {
+  "crate": "scopeguard",
+  "owners": [
+   "Amanieu",
+   "bluss"
+  ]
+ },
+ {
+  "crate": "secrecy",
+  "owners": [
+   "tony-iqlusion"
+  ]
+ },
+ {
+  "crate": "secret-service",
+  "owners": [
+   "brotskydotcom",
+   "complexspaces",
+   "hwchen"
+  ]
+ },
+ {
+  "crate": "security-framework",
+  "owners": [
+   "djc",
+   "kornelski"
+  ]
+ },
+ {
+  "crate": "security-framework-sys",
+  "owners": [
+   "djc",
+   "kornelski"
+  ]
+ },
+ {
+  "crate": "semver",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "serde",
+  "owners": [
+   "dtolnay",
+   "github:serde-rs:publish"
+  ]
+ },
+ {
+  "crate": "serde_core",
+  "owners": [
+   "dtolnay",
+   "github:serde-rs:publish"
+  ]
+ },
+ {
+  "crate": "serde_derive",
+  "owners": [
+   "dtolnay",
+   "github:serde-rs:publish"
+  ]
+ },
+ {
+  "crate": "serde_derive_internals",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "serde_json",
+  "owners": [
+   "dtolnay",
+   "github:serde-rs:publish"
+  ]
+ },
+ {
+  "crate": "serde_json_canonicalizer",
+  "owners": [
+   "evik42"
+  ]
+ },
+ {
+  "crate": "serde_repr",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "serde_spanned",
+  "owners": [
+   "epage",
+   "github:toml-rs:maintainers"
+  ]
+ },
+ {
+  "crate": "serde_tokenstream",
+  "owners": [
+   "ahl"
+  ]
+ },
+ {
+  "crate": "serde_urlencoded",
+  "owners": [
+   "nox"
+  ]
+ },
+ {
+  "crate": "serde_yaml_ng",
+  "owners": [
+   "acatton"
+  ]
+ },
+ {
+  "crate": "sha1",
+  "owners": [
+   "github:rustcrypto:hashes",
+   "newpavlov",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "sha2",
+  "owners": [
+   "github:rustcrypto:hashes",
+   "newpavlov",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "sharded-slab",
+  "owners": [
+   "hawkw"
+  ]
+ },
+ {
+  "crate": "shlex",
+  "owners": [
+   "comex",
+   "fenhl"
+  ]
+ },
+ {
+  "crate": "signal-hook-registry",
+  "owners": [
+   "github:rust-bus:maintainers",
+   "vorner"
+  ]
+ },
+ {
+  "crate": "signature",
+  "owners": [
+   "github:rustcrypto:traits",
+   "newpavlov",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "sigstore-bundle",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-crypto",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-fulcio",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-merkle",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-oidc",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-rekor",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-sign",
+  "owners": [
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-trust-root",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-tsa",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-tuf",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-types",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "sigstore-verify",
+  "owners": [
+   "baszalmstra",
+   "jku",
+   "wolfv"
+  ]
+ },
+ {
+  "crate": "simd-adler32",
+  "owners": [
+   "mcountryman"
+  ]
+ },
+ {
+  "crate": "simd_cesu8",
+  "owners": [
+   "seancroach"
+  ]
+ },
+ {
+  "crate": "simdutf8",
+  "owners": [
+   "hkratz"
+  ]
+ },
+ {
+  "crate": "similar",
+  "owners": [
+   "mitsuhiko"
+  ]
+ },
+ {
+  "crate": "slab",
+  "owners": [
+   "carllerche",
+   "github:tokio-rs:core"
+  ]
+ },
+ {
+  "crate": "smallvec",
+  "owners": [
+   "Ms2ger",
+   "SimonSapin",
+   "github:servo:cargo-publish"
+  ]
+ },
+ {
+  "crate": "socket2",
+  "owners": [
+   "Thomasdezeeuw",
+   "github:tokio-rs:socket2",
+   "rust-lang-owner",
+   "sfackler"
+  ]
+ },
+ {
+  "crate": "socks",
+  "owners": [
+   "sfackler"
+  ]
+ },
+ {
+  "crate": "spiffe",
+  "owners": [
+   "maxlambrecht"
+  ]
+ },
+ {
+  "crate": "spki",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "stable_deref_trait",
+  "owners": [
+   "Kimundi",
+   "Storyyeller",
+   "jpernst"
+  ]
+ },
+ {
+  "crate": "static_assertions",
+  "owners": [
+   "nvzqz"
+  ]
+ },
+ {
+  "crate": "strsim",
+  "owners": [
+   "dguo",
+   "maxbachmann"
+  ]
+ },
+ {
+  "crate": "strum",
+  "owners": [
+   "Peternator7"
+  ]
+ },
+ {
+  "crate": "strum_macros",
+  "owners": [
+   "Peternator7"
+  ]
+ },
+ {
+  "crate": "subtle",
+  "owners": [
+   "github:dalek-cryptography:subtle-maintainers",
+   "isislovecruft"
+  ]
+ },
+ {
+  "crate": "syn",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "sync_wrapper",
+  "owners": [
+   "github:actyx:developers",
+   "rkuhn"
+  ]
+ },
+ {
+  "crate": "synstructure",
+  "owners": [
+   "mystor"
+  ]
+ },
+ {
+  "crate": "tempfile",
+  "owners": [
+   "Stebalien"
+  ]
+ },
+ {
+  "crate": "thiserror",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "thiserror-impl",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "thread_local",
+  "owners": [
+   "Amanieu"
+  ]
+ },
+ {
+  "crate": "time",
+  "owners": [
+   "jhpratt"
+  ]
+ },
+ {
+  "crate": "time-core",
+  "owners": [
+   "jhpratt"
+  ]
+ },
+ {
+  "crate": "time-macros",
+  "owners": [
+   "jhpratt"
+  ]
+ },
+ {
+  "crate": "tinystr",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release",
+   "raphlinus",
+   "zbraniecki"
+  ]
+ },
+ {
+  "crate": "tinytemplate",
+  "owners": [
+   "bheisler",
+   "github:rust-bus:maintainers"
+  ]
+ },
+ {
+  "crate": "tinyvec",
+  "owners": [
+   "Lokathor",
+   "github:rust-bus:maintainers"
+  ]
+ },
+ {
+  "crate": "tinyvec_macros",
+  "owners": [
+   "Soveu"
+  ]
+ },
+ {
+  "crate": "tls_codec",
+  "owners": [
+   "franziskuskiefer",
+   "github:rustcrypto:formats"
+  ]
+ },
+ {
+  "crate": "tls_codec_derive",
+  "owners": [
+   "franziskuskiefer",
+   "github:rustcrypto:formats"
+  ]
+ },
+ {
+  "crate": "tokio",
+  "owners": [
+   "Darksonn",
+   "carllerche",
+   "github:tokio-rs:core"
+  ]
+ },
+ {
+  "crate": "tokio-macros",
+  "owners": [
+   "carllerche",
+   "github:tokio-rs:core"
+  ]
+ },
+ {
+  "crate": "tokio-rustls",
+  "owners": [
+   "djc",
+   "github:rustls:publishers",
+   "quininer"
+  ]
+ },
+ {
+  "crate": "tokio-stream",
+  "owners": [
+   "Darksonn",
+   "carllerche",
+   "github:tokio-rs:core"
+  ]
+ },
+ {
+  "crate": "tokio-tungstenite",
+  "owners": [
+   "agalakhov",
+   "daniel-abramov"
+  ]
+ },
+ {
+  "crate": "tokio-util",
+  "owners": [
+   "Darksonn",
+   "carllerche",
+   "github:tokio-rs:core"
+  ]
+ },
+ {
+  "crate": "toml",
+  "owners": [
+   "epage",
+   "github:toml-rs:maintainers"
+  ]
+ },
+ {
+  "crate": "toml_datetime",
+  "owners": [
+   "epage",
+   "github:toml-rs:maintainers"
+  ]
+ },
+ {
+  "crate": "toml_edit",
+  "owners": [
+   "epage",
+   "github:toml-rs:maintainers",
+   "ordian"
+  ]
+ },
+ {
+  "crate": "toml_parser",
+  "owners": [
+   "epage",
+   "github:toml-rs:maintainers"
+  ]
+ },
+ {
+  "crate": "toml_writer",
+  "owners": [
+   "epage",
+   "github:toml-rs:maintainers"
+  ]
+ },
+ {
+  "crate": "tonic",
+  "owners": [
+   "LucioFranco",
+   "carllerche",
+   "github:hyperium:tonic"
+  ]
+ },
+ {
+  "crate": "tonic-prost",
+  "owners": [
+   "LucioFranco"
+  ]
+ },
+ {
+  "crate": "tower",
+  "owners": [
+   "carllerche",
+   "github:tower-rs:publish",
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "tower-http",
+  "owners": [
+   "carllerche",
+   "github:tower-rs:publish"
+  ]
+ },
+ {
+  "crate": "tower-layer",
+  "owners": [
+   "carllerche",
+   "github:tower-rs:publish"
+  ]
+ },
+ {
+  "crate": "tower-service",
+  "owners": [
+   "carllerche",
+   "github:tower-rs:publish",
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "tracing",
+  "owners": [
+   "carllerche",
+   "github:tokio-rs:publish-tracing",
+   "hawkw"
+  ]
+ },
+ {
+  "crate": "tracing-attributes",
+  "owners": [
+   "github:tokio-rs:publish-tracing",
+   "hawkw"
+  ]
+ },
+ {
+  "crate": "tracing-core",
+  "owners": [
+   "github:tokio-rs:publish-tracing",
+   "hawkw"
+  ]
+ },
+ {
+  "crate": "tracing-log",
+  "owners": [
+   "github:tokio-rs:publish-tracing",
+   "hawkw"
+  ]
+ },
+ {
+  "crate": "tracing-subscriber",
+  "owners": [
+   "davidbarsky",
+   "github:tokio-rs:publish-tracing",
+   "hawkw"
+  ]
+ },
+ {
+  "crate": "try-lock",
+  "owners": [
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "tungstenite",
+  "owners": [
+   "agalakhov",
+   "daniel-abramov"
+  ]
+ },
+ {
+  "crate": "typenum",
+  "owners": [
+   "paholg"
+  ]
+ },
+ {
+  "crate": "typify",
+  "owners": [
+   "ahl"
+  ]
+ },
+ {
+  "crate": "typify-impl",
+  "owners": [
+   "ahl"
+  ]
+ },
+ {
+  "crate": "typify-macro",
+  "owners": [
+   "ahl"
+  ]
+ },
+ {
+  "crate": "uds_windows",
+  "owners": [
+   "haraldh"
+  ]
+ },
+ {
+  "crate": "unarray",
+  "owners": [
+   "cameron1024"
+  ]
+ },
+ {
+  "crate": "unicode-general-category",
+  "owners": [
+   "github:yeslogic:developers-prince",
+   "wezm"
+  ]
+ },
+ {
+  "crate": "unicode-ident",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "unicode-width",
+  "owners": [
+   "Manishearth",
+   "SimonSapin",
+   "huonw",
+   "kwantam",
+   "sujayakar"
+  ]
+ },
+ {
+  "crate": "unsafe-libyaml",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "untrusted",
+  "owners": [
+   "briansmith"
+  ]
+ },
+ {
+  "crate": "ureq",
+  "owners": [
+   "algesten",
+   "jsha"
+  ]
+ },
+ {
+  "crate": "ureq-proto",
+  "owners": [
+   "algesten",
+   "jsha"
+  ]
+ },
+ {
+  "crate": "url",
+  "owners": [
+   "Hoverbear",
+   "SimonSapin",
+   "github:servo:cargo-publish",
+   "github:servo:rust-url",
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "urlencoding",
+  "owners": [
+   "bt",
+   "github:rust-bus:maintainers",
+   "kornelski"
+  ]
+ },
+ {
+  "crate": "utf8-zero",
+  "owners": [
+   "algesten"
+  ]
+ },
+ {
+  "crate": "utf8_iter",
+  "owners": [
+   "hsivonen"
+  ]
+ },
+ {
+  "crate": "utf8parse",
+  "owners": [
+   "chrisduerr",
+   "github:alacritty:publishers",
+   "jwilm"
+  ]
+ },
+ {
+  "crate": "uuid",
+  "owners": [
+   "KodrAus",
+   "rust-lang-owner"
+  ]
+ },
+ {
+  "crate": "uuid-simd",
+  "owners": [
+   "Nugine"
+  ]
+ },
+ {
+  "crate": "valuable",
+  "owners": [
+   "carllerche",
+   "github:tokio-rs:core",
+   "hawkw"
+  ]
+ },
+ {
+  "crate": "version_check",
+  "owners": [
+   "SergioBenitez"
+  ]
+ },
+ {
+  "crate": "vsimd",
+  "owners": [
+   "Nugine"
+  ]
+ },
+ {
+  "crate": "vt100",
+  "owners": [
+   "doy"
+  ]
+ },
+ {
+  "crate": "vte",
+  "owners": [
+   "chrisduerr",
+   "github:alacritty:publishers",
+   "jwilm"
+  ]
+ },
+ {
+  "crate": "wait-timeout",
+  "owners": [
+   "alexcrichton"
+  ]
+ },
+ {
+  "crate": "walkdir",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "want",
+  "owners": [
+   "seanmonstar"
+  ]
+ },
+ {
+  "crate": "wasi",
+  "owners": [
+   "alexcrichton",
+   "sunfishcode"
+  ]
+ },
+ {
+  "crate": "wasip2",
+  "owners": [
+   "alexcrichton",
+   "wasmtime-publish"
+  ]
+ },
+ {
+  "crate": "wasm-bindgen",
+  "owners": [
+   "RReverser",
+   "daxpedda",
+   "github:wasm-bindgen:wasm-bindgen-publish",
+   "guybedford"
+  ]
+ },
+ {
+  "crate": "wasm-bindgen-futures",
+  "owners": [
+   "daxpedda",
+   "github:wasm-bindgen:wasm-bindgen-publish",
+   "guybedford"
+  ]
+ },
+ {
+  "crate": "wasm-bindgen-macro",
+  "owners": [
+   "RReverser",
+   "daxpedda",
+   "github:wasm-bindgen:wasm-bindgen-publish",
+   "guybedford"
+  ]
+ },
+ {
+  "crate": "wasm-bindgen-macro-support",
+  "owners": [
+   "RReverser",
+   "daxpedda",
+   "github:wasm-bindgen:wasm-bindgen-publish",
+   "guybedford"
+  ]
+ },
+ {
+  "crate": "wasm-bindgen-shared",
+  "owners": [
+   "RReverser",
+   "daxpedda",
+   "github:wasm-bindgen:wasm-bindgen-publish",
+   "guybedford"
+  ]
+ },
+ {
+  "crate": "web-sys",
+  "owners": [
+   "RReverser",
+   "daxpedda",
+   "github:wasm-bindgen:wasm-bindgen-publish",
+   "guybedford"
+  ]
+ },
+ {
+  "crate": "web-time",
+  "owners": [
+   "daxpedda"
+  ]
+ },
+ {
+  "crate": "webpki-root-certs",
+  "owners": [
+   "cpu",
+   "ctz",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "webpki-roots",
+  "owners": [
+   "ctz",
+   "djc",
+   "github:rustls:publishers"
+  ]
+ },
+ {
+  "crate": "which",
+  "owners": [
+   "Xaeroxe",
+   "harryfei"
+  ]
+ },
+ {
+  "crate": "winapi",
+  "owners": [
+   "retep998"
+  ]
+ },
+ {
+  "crate": "winapi-i686-pc-windows-gnu",
+  "owners": [
+   "retep998"
+  ]
+ },
+ {
+  "crate": "winapi-util",
+  "owners": [
+   "BurntSushi"
+  ]
+ },
+ {
+  "crate": "winapi-x86_64-pc-windows-gnu",
+  "owners": [
+   "retep998"
+  ]
+ },
+ {
+  "crate": "windows-core",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows-implement",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows-interface",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows-link",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows-result",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows-strings",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows-sys",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows-targets",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows_aarch64_gnullvm",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows_aarch64_msvc",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows_i686_gnu",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows_i686_gnullvm",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows_i686_msvc",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows_x86_64_gnu",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows_x86_64_gnullvm",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "windows_x86_64_msvc",
+  "owners": [
+   "kennykerr"
+  ]
+ },
+ {
+  "crate": "winnow",
+  "owners": [
+   "epage"
+  ]
+ },
+ {
+  "crate": "wit-bindgen",
+  "owners": [
+   "wasmtime-publish"
+  ]
+ },
+ {
+  "crate": "writeable",
+  "owners": [
+   "github:unicode-org:icu4x-release",
+   "zbraniecki"
+  ]
+ },
+ {
+  "crate": "x509-cert",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "x509-parser",
+  "owners": [
+   "chifflier"
+  ]
+ },
+ {
+  "crate": "x509-tsp",
+  "owners": [
+   "github:rustcrypto:formats",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "xdg-home",
+  "owners": [
+   "zeenix"
+  ]
+ },
+ {
+  "crate": "xmlparser",
+  "owners": [
+   "RazrFalcon",
+   "udoprog"
+  ]
+ },
+ {
+  "crate": "yasna",
+  "owners": [
+   "est31",
+   "qnighy"
+  ]
+ },
+ {
+  "crate": "yoke",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release"
+  ]
+ },
+ {
+  "crate": "yoke-derive",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release"
+  ]
+ },
+ {
+  "crate": "zbus",
+  "owners": [
+   "zeenix"
+  ]
+ },
+ {
+  "crate": "zbus_macros",
+  "owners": [
+   "zeenix"
+  ]
+ },
+ {
+  "crate": "zbus_names",
+  "owners": [
+   "zeenix"
+  ]
+ },
+ {
+  "crate": "zerocopy",
+  "owners": [
+   "joshlf",
+   "jswrenn"
+  ]
+ },
+ {
+  "crate": "zerocopy-derive",
+  "owners": [
+   "joshlf"
+  ]
+ },
+ {
+  "crate": "zerofrom",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release"
+  ]
+ },
+ {
+  "crate": "zerofrom-derive",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release"
+  ]
+ },
+ {
+  "crate": "zeroize",
+  "owners": [
+   "github:rustcrypto:utils",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "zeroize_derive",
+  "owners": [
+   "github:rustcrypto:utils",
+   "tarcieri"
+  ]
+ },
+ {
+  "crate": "zerotrie",
+  "owners": [
+   "github:unicode-org:icu4x-release",
+   "sffc"
+  ]
+ },
+ {
+  "crate": "zerovec",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release"
+  ]
+ },
+ {
+  "crate": "zerovec-derive",
+  "owners": [
+   "Manishearth",
+   "github:unicode-org:icu4x-release"
+  ]
+ },
+ {
+  "crate": "zmij",
+  "owners": [
+   "dtolnay"
+  ]
+ },
+ {
+  "crate": "zvariant",
+  "owners": [
+   "zeenix"
+  ]
+ },
+ {
+  "crate": "zvariant_derive",
+  "owners": [
+   "zeenix"
+  ]
+ },
+ {
+  "crate": "zvariant_utils",
+  "owners": [
+   "zeenix"
+  ]
+ }
+]

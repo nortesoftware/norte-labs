@@ -1,0 +1,3838 @@
+[
+ {
+  "crate": "adler2",
+  "version": "2.0.1",
+  "published_by": "oyvindln",
+  "trustpub_repository": null,
+  "created_at": "2025-06-09T22:31:53.608434Z"
+ },
+ {
+  "crate": "aes",
+  "version": "0.8.4",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2024-02-13T15:55:26.335296Z"
+ },
+ {
+  "crate": "ahash",
+  "version": "0.8.12",
+  "published_by": "tkaitchuck",
+  "trustpub_repository": null,
+  "created_at": "2025-05-08T05:05:32.999746Z"
+ },
+ {
+  "crate": "aho-corasick",
+  "version": "1.1.4",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2025-10-28T21:09:48.086878Z"
+ },
+ {
+  "crate": "alloca",
+  "version": "0.4.0",
+  "published_by": "playXE",
+  "trustpub_repository": null,
+  "created_at": "2023-08-03T12:08:27.714601Z"
+ },
+ {
+  "crate": "allocator-api2",
+  "version": "0.2.21",
+  "published_by": "zakarumych",
+  "trustpub_repository": null,
+  "created_at": "2024-12-01T14:49:16.555989Z"
+ },
+ {
+  "crate": "ambient-id",
+  "version": "0.0.11",
+  "published_by": null,
+  "trustpub_repository": "astral-sh/ambient-id",
+  "created_at": "2026-02-09T17:09:58.546116Z"
+ },
+ {
+  "crate": "android_system_properties",
+  "version": "0.1.5",
+  "published_by": "nical",
+  "trustpub_repository": null,
+  "created_at": "2022-08-30T10:42:28.363547Z"
+ },
+ {
+  "crate": "anes",
+  "version": "0.1.6",
+  "published_by": "zrzka",
+  "trustpub_repository": null,
+  "created_at": "2019-11-29T16:07:46.712497Z"
+ },
+ {
+  "crate": "anstream",
+  "version": "1.0.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-02-11T13:23:11.167553Z"
+ },
+ {
+  "crate": "anstyle",
+  "version": "1.0.14",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-03-13T18:59:28.450723Z"
+ },
+ {
+  "crate": "anstyle-parse",
+  "version": "1.0.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-02-11T13:23:08.814303Z"
+ },
+ {
+  "crate": "anstyle-query",
+  "version": "1.1.5",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2025-11-13T17:30:22.615151Z"
+ },
+ {
+  "crate": "anstyle-wincon",
+  "version": "3.0.11",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2025-11-13T17:30:26.488661Z"
+ },
+ {
+  "crate": "anyhow",
+  "version": "1.0.103",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-06-25T20:43:34.173928Z"
+ },
+ {
+  "crate": "arc-swap",
+  "version": "1.9.2",
+  "published_by": "vorner",
+  "trustpub_repository": null,
+  "created_at": "2026-06-28T17:45:51.059560Z"
+ },
+ {
+  "crate": "arrayvec",
+  "version": "0.7.8",
+  "published_by": "bluss",
+  "trustpub_repository": null,
+  "created_at": "2026-07-02T12:44:35.487269Z"
+ },
+ {
+  "crate": "asn1-rs",
+  "version": "0.7.2",
+  "published_by": "chifflier",
+  "trustpub_repository": null,
+  "created_at": "2026-05-18T09:47:40.580276Z"
+ },
+ {
+  "crate": "asn1-rs-derive",
+  "version": "0.6.0",
+  "published_by": "chifflier",
+  "trustpub_repository": null,
+  "created_at": "2025-01-16T16:52:21.067659Z"
+ },
+ {
+  "crate": "asn1-rs-impl",
+  "version": "0.2.0",
+  "published_by": "chifflier",
+  "trustpub_repository": null,
+  "created_at": "2024-02-23T08:38:59.472174Z"
+ },
+ {
+  "crate": "astral-reqwest-middleware",
+  "version": "0.5.1",
+  "published_by": null,
+  "trustpub_repository": "astral-sh/reqwest-middleware",
+  "created_at": "2026-02-09T10:34:44.787416Z"
+ },
+ {
+  "crate": "async-broadcast",
+  "version": "0.7.2",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2024-12-23T21:10:23.927278Z"
+ },
+ {
+  "crate": "async-channel",
+  "version": "2.5.0",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2025-07-06T07:06:07.101546Z"
+ },
+ {
+  "crate": "async-compression",
+  "version": "0.4.42",
+  "published_by": null,
+  "trustpub_repository": "Nullus157/async-compression",
+  "created_at": "2026-04-24T12:03:22.005226Z"
+ },
+ {
+  "crate": "async-executor",
+  "version": "1.14.0",
+  "published_by": "notgull",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T16:45:48.706047Z"
+ },
+ {
+  "crate": "async-fs",
+  "version": "2.2.0",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2025-09-14T14:07:03.987502Z"
+ },
+ {
+  "crate": "async-io",
+  "version": "2.6.0",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2025-09-14T14:03:50.201510Z"
+ },
+ {
+  "crate": "async-lock",
+  "version": "3.4.2",
+  "published_by": "notgull",
+  "trustpub_repository": null,
+  "created_at": "2025-12-21T16:24:46.954239Z"
+ },
+ {
+  "crate": "async-process",
+  "version": "2.5.0",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2025-09-14T14:11:17.759362Z"
+ },
+ {
+  "crate": "async-recursion",
+  "version": "1.1.1",
+  "published_by": "dcchut",
+  "trustpub_repository": null,
+  "created_at": "2024-04-25T16:06:43.164603Z"
+ },
+ {
+  "crate": "async-signal",
+  "version": "0.2.14",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-04-07T11:50:26.817406Z"
+ },
+ {
+  "crate": "async-task",
+  "version": "4.7.1",
+  "published_by": "notgull",
+  "trustpub_repository": null,
+  "created_at": "2024-04-27T23:06:20.560257Z"
+ },
+ {
+  "crate": "async-trait",
+  "version": "0.1.89",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2025-08-14T17:34:24.542203Z"
+ },
+ {
+  "crate": "atomic-waker",
+  "version": "1.1.2",
+  "published_by": "notgull",
+  "trustpub_repository": null,
+  "created_at": "2023-09-25T17:45:09.388277Z"
+ },
+ {
+  "crate": "autocfg",
+  "version": "1.5.1",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2026-05-22T11:03:04.576867Z"
+ },
+ {
+  "crate": "aws-config",
+  "version": "1.12.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-09-04T19:07:41.516716Z"
+ },
+ {
+  "crate": "aws-credential-types",
+  "version": "1.3.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-08T19:08:20.561050Z"
+ },
+ {
+  "crate": "aws-lc-rs",
+  "version": "1.18.1",
+  "published_by": "justsmth",
+  "trustpub_repository": null,
+  "created_at": "2026-09-01T20:08:57.927841Z"
+ },
+ {
+  "crate": "aws-lc-sys",
+  "version": "0.45.0",
+  "published_by": "justsmth",
+  "trustpub_repository": null,
+  "created_at": "2026-09-01T13:00:11.051728Z"
+ },
+ {
+  "crate": "aws-runtime",
+  "version": "1.9.2",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-09-04T19:06:16.878739Z"
+ },
+ {
+  "crate": "aws-sdk-sso",
+  "version": "1.109.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-09-04T19:06:56.666403Z"
+ },
+ {
+  "crate": "aws-sdk-ssooidc",
+  "version": "1.111.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-09-04T19:07:01.502485Z"
+ },
+ {
+  "crate": "aws-sdk-sts",
+  "version": "1.114.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-09-04T19:07:06.667147Z"
+ },
+ {
+  "crate": "aws-sigv4",
+  "version": "1.5.1",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-08T19:08:55.193683Z"
+ },
+ {
+  "crate": "aws-smithy-async",
+  "version": "1.3.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-07T18:15:23.316813Z"
+ },
+ {
+  "crate": "aws-smithy-http",
+  "version": "0.64.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-07T18:17:21.128942Z"
+ },
+ {
+  "crate": "aws-smithy-http-client",
+  "version": "1.4.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-08-19T17:12:45.873703Z"
+ },
+ {
+  "crate": "aws-smithy-json",
+  "version": "0.63.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-07T18:18:48.471549Z"
+ },
+ {
+  "crate": "aws-smithy-observability",
+  "version": "0.3.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-07T18:16:48.256708Z"
+ },
+ {
+  "crate": "aws-smithy-query",
+  "version": "0.62.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-14T17:40:09.783215Z"
+ },
+ {
+  "crate": "aws-smithy-runtime",
+  "version": "1.14.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-08-19T17:13:20.623614Z"
+ },
+ {
+  "crate": "aws-smithy-runtime-api",
+  "version": "1.16.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-09-03T18:37:36.356005Z"
+ },
+ {
+  "crate": "aws-smithy-runtime-api-macros",
+  "version": "1.1.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-07T18:15:31.688733Z"
+ },
+ {
+  "crate": "aws-smithy-schema",
+  "version": "0.2.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-07T18:18:09.792415Z"
+ },
+ {
+  "crate": "aws-smithy-types",
+  "version": "1.6.3",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-09-03T18:37:02.842212Z"
+ },
+ {
+  "crate": "aws-smithy-xml",
+  "version": "0.62.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-07-14T17:39:32.220040Z"
+ },
+ {
+  "crate": "aws-types",
+  "version": "1.6.0",
+  "published_by": "aws-sdk-rust-ci",
+  "trustpub_repository": null,
+  "created_at": "2026-09-04T19:05:42.526733Z"
+ },
+ {
+  "crate": "base64",
+  "version": "0.22.1",
+  "published_by": "marshallpierce",
+  "trustpub_repository": null,
+  "created_at": "2024-04-30T23:16:40.343739Z"
+ },
+ {
+  "crate": "base64",
+  "version": "0.23.1",
+  "published_by": "marshallpierce",
+  "trustpub_repository": null,
+  "created_at": "2026-08-04T12:34:31.976297Z"
+ },
+ {
+  "crate": "base64-simd",
+  "version": "0.8.0",
+  "published_by": "Nugine",
+  "trustpub_repository": null,
+  "created_at": "2022-12-28T03:07:32.705641Z"
+ },
+ {
+  "crate": "base64ct",
+  "version": "1.8.3",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2026-01-12T04:41:30.672776Z"
+ },
+ {
+  "crate": "bit-set",
+  "version": "0.8.0",
+  "published_by": "pczarn",
+  "trustpub_repository": null,
+  "created_at": "2024-07-16T17:18:45.390925Z"
+ },
+ {
+  "crate": "bit-vec",
+  "version": "0.8.0",
+  "published_by": "pczarn",
+  "trustpub_repository": null,
+  "created_at": "2024-07-16T17:14:52.246887Z"
+ },
+ {
+  "crate": "bit-vec",
+  "version": "0.9.1",
+  "published_by": "pczarn",
+  "trustpub_repository": null,
+  "created_at": "2026-03-12T11:58:25.849464Z"
+ },
+ {
+  "crate": "bitflags",
+  "version": "1.3.2",
+  "published_by": "KodrAus",
+  "trustpub_repository": null,
+  "created_at": "2021-08-16T04:16:02.683020Z"
+ },
+ {
+  "crate": "bitflags",
+  "version": "2.13.0",
+  "published_by": "KodrAus",
+  "trustpub_repository": null,
+  "created_at": "2026-06-05T23:58:31.563102Z"
+ },
+ {
+  "crate": "block-buffer",
+  "version": "0.10.4",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2023-03-09T02:08:25.969182Z"
+ },
+ {
+  "crate": "block-buffer",
+  "version": "0.12.1",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/utils",
+  "created_at": "2026-06-11T15:40:05.682576Z"
+ },
+ {
+  "crate": "block-padding",
+  "version": "0.3.3",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2023-04-02T00:37:44.797774Z"
+ },
+ {
+  "crate": "blocking",
+  "version": "1.6.2",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2025-07-06T05:56:38.164932Z"
+ },
+ {
+  "crate": "borrow-or-share",
+  "version": "0.2.4",
+  "published_by": "yescallop",
+  "trustpub_repository": null,
+  "created_at": "2025-11-02T17:53:51.804782Z"
+ },
+ {
+  "crate": "bstr",
+  "version": "1.13.0",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-07-14T22:49:28.361846Z"
+ },
+ {
+  "crate": "bumpalo",
+  "version": "3.20.3",
+  "published_by": "fitzgen",
+  "trustpub_repository": null,
+  "created_at": "2026-05-22T14:59:11.132139Z"
+ },
+ {
+  "crate": "bytecount",
+  "version": "0.6.9",
+  "published_by": "llogiq",
+  "trustpub_repository": null,
+  "created_at": "2025-06-03T06:59:49.131630Z"
+ },
+ {
+  "crate": "byteorder",
+  "version": "1.5.0",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2023-10-06T00:45:57.877036Z"
+ },
+ {
+  "crate": "bytes",
+  "version": "1.12.1",
+  "published_by": "Darksonn",
+  "trustpub_repository": null,
+  "created_at": "2026-07-08T10:01:28.616466Z"
+ },
+ {
+  "crate": "bytes-utils",
+  "version": "0.1.4",
+  "published_by": "vorner",
+  "trustpub_repository": null,
+  "created_at": "2023-11-17T14:26:14.682124Z"
+ },
+ {
+  "crate": "cast",
+  "version": "0.3.0",
+  "published_by": "japaric",
+  "trustpub_repository": null,
+  "created_at": "2021-09-04T11:07:33.449935Z"
+ },
+ {
+  "crate": "cbc",
+  "version": "0.1.2",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2022-03-24T13:46:59.874582Z"
+ },
+ {
+  "crate": "cbindgen",
+  "version": "0.29.4",
+  "published_by": "emilio",
+  "trustpub_repository": null,
+  "created_at": "2026-06-09T19:03:00.526368Z"
+ },
+ {
+  "crate": "cc",
+  "version": "1.2.67",
+  "published_by": null,
+  "trustpub_repository": "rust-lang/cc-rs",
+  "created_at": "2026-07-11T07:53:34.040701Z"
+ },
+ {
+  "crate": "cfg-if",
+  "version": "1.0.4",
+  "published_by": "rust-lang-owner",
+  "trustpub_repository": null,
+  "created_at": "2025-10-15T08:12:46.455816Z"
+ },
+ {
+  "crate": "cfg_aliases",
+  "version": "0.2.1",
+  "published_by": "zicklag",
+  "trustpub_repository": null,
+  "created_at": "2024-05-10T16:29:14.741823Z"
+ },
+ {
+  "crate": "chacha20",
+  "version": "0.10.2",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/stream-ciphers",
+  "created_at": "2026-08-27T17:51:13.045493Z"
+ },
+ {
+  "crate": "chrono",
+  "version": "0.4.45",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-06-04T12:16:42.063037Z"
+ },
+ {
+  "crate": "ciborium",
+  "version": "0.2.2",
+  "published_by": "rjzak",
+  "trustpub_repository": null,
+  "created_at": "2024-01-24T03:04:25.973012Z"
+ },
+ {
+  "crate": "ciborium-io",
+  "version": "0.2.2",
+  "published_by": "rjzak",
+  "trustpub_repository": null,
+  "created_at": "2024-01-24T03:02:36.662214Z"
+ },
+ {
+  "crate": "ciborium-ll",
+  "version": "0.2.2",
+  "published_by": "rjzak",
+  "trustpub_repository": null,
+  "created_at": "2024-01-24T03:03:42.992548Z"
+ },
+ {
+  "crate": "cipher",
+  "version": "0.4.4",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2023-03-09T00:11:40.449460Z"
+ },
+ {
+  "crate": "clap",
+  "version": "4.6.6",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-08-06T14:03:25.998957Z"
+ },
+ {
+  "crate": "clap_builder",
+  "version": "4.6.6",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-08-06T14:03:23.670959Z"
+ },
+ {
+  "crate": "clap_complete",
+  "version": "4.6.9",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-08-06T13:28:20.621576Z"
+ },
+ {
+  "crate": "clap_derive",
+  "version": "4.6.4",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-07-21T21:59:21.295220Z"
+ },
+ {
+  "crate": "clap_lex",
+  "version": "1.1.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-03-12T19:10:37.648756Z"
+ },
+ {
+  "crate": "cmake",
+  "version": "0.1.58",
+  "published_by": "rust-lang-owner",
+  "trustpub_repository": null,
+  "created_at": "2026-03-26T17:58:29.356302Z"
+ },
+ {
+  "crate": "cmov",
+  "version": "0.5.4",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/utils",
+  "created_at": "2026-05-28T19:07:33.005301Z"
+ },
+ {
+  "crate": "cmpv2",
+  "version": "0.2.0",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2023-06-25T21:36:40.153640Z"
+ },
+ {
+  "crate": "cms",
+  "version": "0.2.3",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2024-01-08T22:22:03.260666Z"
+ },
+ {
+  "crate": "colorchoice",
+  "version": "1.0.5",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-03-13T18:59:29.020348Z"
+ },
+ {
+  "crate": "colored",
+  "version": "3.1.1",
+  "published_by": "hwittenborn",
+  "trustpub_repository": null,
+  "created_at": "2026-01-16T16:13:51.893178Z"
+ },
+ {
+  "crate": "combine",
+  "version": "4.6.7",
+  "published_by": "Marwes",
+  "trustpub_repository": null,
+  "created_at": "2024-04-10T09:56:27.206101Z"
+ },
+ {
+  "crate": "compression-codecs",
+  "version": "0.4.38",
+  "published_by": null,
+  "trustpub_repository": "Nullus157/async-compression",
+  "created_at": "2026-04-24T12:03:16.269620Z"
+ },
+ {
+  "crate": "compression-core",
+  "version": "0.4.32",
+  "published_by": null,
+  "trustpub_repository": "Nullus157/async-compression",
+  "created_at": "2026-04-24T12:02:56.565052Z"
+ },
+ {
+  "crate": "concurrent-queue",
+  "version": "2.5.0",
+  "published_by": "notgull",
+  "trustpub_repository": null,
+  "created_at": "2024-04-26T14:26:18.816602Z"
+ },
+ {
+  "crate": "const-oid",
+  "version": "0.9.6",
+  "published_by": "baloo",
+  "trustpub_repository": null,
+  "created_at": "2023-12-15T00:13:20.730670Z"
+ },
+ {
+  "crate": "const-oid",
+  "version": "0.10.2",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2026-01-07T23:11:57.242553Z"
+ },
+ {
+  "crate": "core-foundation",
+  "version": "0.9.4",
+  "published_by": "jrmuizel",
+  "trustpub_repository": null,
+  "created_at": "2023-11-30T16:04:49.362965Z"
+ },
+ {
+  "crate": "core-foundation",
+  "version": "0.10.1",
+  "published_by": "jdm",
+  "trustpub_repository": null,
+  "created_at": "2025-05-26T12:40:41.787847Z"
+ },
+ {
+  "crate": "core-foundation-sys",
+  "version": "0.8.7",
+  "published_by": "wusyong",
+  "trustpub_repository": null,
+  "created_at": "2024-08-11T00:48:27.870880Z"
+ },
+ {
+  "crate": "cpufeatures",
+  "version": "0.2.17",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2025-01-25T01:35:46.131569Z"
+ },
+ {
+  "crate": "cpufeatures",
+  "version": "0.3.0",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/utils",
+  "created_at": "2026-02-05T06:28:26.637925Z"
+ },
+ {
+  "crate": "crc32fast",
+  "version": "1.5.0",
+  "published_by": "srijs",
+  "trustpub_repository": null,
+  "created_at": "2025-07-13T15:09:03.117494Z"
+ },
+ {
+  "crate": "criterion",
+  "version": "0.8.2",
+  "published_by": null,
+  "trustpub_repository": "criterion-rs/criterion.rs",
+  "created_at": "2026-02-04T10:43:03.398729Z"
+ },
+ {
+  "crate": "criterion-plot",
+  "version": "0.8.2",
+  "published_by": null,
+  "trustpub_repository": "criterion-rs/criterion.rs",
+  "created_at": "2026-02-04T10:41:23.096352Z"
+ },
+ {
+  "crate": "crmf",
+  "version": "0.2.0",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2023-06-25T19:36:57.069859Z"
+ },
+ {
+  "crate": "crossbeam-deque",
+  "version": "0.8.7",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-07-06T15:52:31.437200Z"
+ },
+ {
+  "crate": "crossbeam-epoch",
+  "version": "0.9.20",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-07-06T18:09:38.968039Z"
+ },
+ {
+  "crate": "crossbeam-utils",
+  "version": "0.8.22",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-07-06T15:51:40.163512Z"
+ },
+ {
+  "crate": "crunchy",
+  "version": "0.2.4",
+  "published_by": "eira-fransham",
+  "trustpub_repository": null,
+  "created_at": "2025-06-25T12:54:43.146786Z"
+ },
+ {
+  "crate": "crypto-common",
+  "version": "0.1.7",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2025-11-12T14:20:00.210277Z"
+ },
+ {
+  "crate": "crypto-common",
+  "version": "0.2.2",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/traits",
+  "created_at": "2026-05-19T16:01:22.304187Z"
+ },
+ {
+  "crate": "ctutils",
+  "version": "0.4.2",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/utils",
+  "created_at": "2026-04-02T20:44:34.184153Z"
+ },
+ {
+  "crate": "data-encoding",
+  "version": "2.11.0",
+  "published_by": "ia0",
+  "trustpub_repository": null,
+  "created_at": "2026-04-24T12:02:50.630393Z"
+ },
+ {
+  "crate": "dbus",
+  "version": "0.9.12",
+  "published_by": "diwic",
+  "trustpub_repository": null,
+  "created_at": "2026-07-03T14:50:11.202558Z"
+ },
+ {
+  "crate": "dbus-secret-service",
+  "version": "4.1.0",
+  "published_by": "brotskydotcom",
+  "trustpub_repository": null,
+  "created_at": "2025-08-26T02:01:48.814159Z"
+ },
+ {
+  "crate": "defmt",
+  "version": "1.1.1",
+  "published_by": "jonathanpallant",
+  "trustpub_repository": null,
+  "created_at": "2026-07-03T14:14:30.344251Z"
+ },
+ {
+  "crate": "defmt-macros",
+  "version": "1.1.1",
+  "published_by": "jonathanpallant",
+  "trustpub_repository": null,
+  "created_at": "2026-07-03T14:14:21.833924Z"
+ },
+ {
+  "crate": "defmt-parser",
+  "version": "1.0.0",
+  "published_by": "Veykril",
+  "trustpub_repository": null,
+  "created_at": "2025-04-01T14:32:40.061093Z"
+ },
+ {
+  "crate": "der",
+  "version": "0.7.10",
+  "published_by": "baloo",
+  "trustpub_repository": null,
+  "created_at": "2025-04-18T14:53:09.810695Z"
+ },
+ {
+  "crate": "der",
+  "version": "0.8.1",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/formats",
+  "created_at": "2026-07-09T05:02:38.440237Z"
+ },
+ {
+  "crate": "der-parser",
+  "version": "10.0.0",
+  "published_by": "chifflier",
+  "trustpub_repository": null,
+  "created_at": "2025-01-21T09:43:38.524624Z"
+ },
+ {
+  "crate": "der_derive",
+  "version": "0.7.3",
+  "published_by": "baloo",
+  "trustpub_repository": null,
+  "created_at": "2024-07-09T20:34:52.277671Z"
+ },
+ {
+  "crate": "der_derive",
+  "version": "0.8.0",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2026-02-11T21:49:46.979038Z"
+ },
+ {
+  "crate": "deranged",
+  "version": "0.5.8",
+  "published_by": "jhpratt",
+  "trustpub_repository": null,
+  "created_at": "2026-02-21T21:37:43.676837Z"
+ },
+ {
+  "crate": "digest",
+  "version": "0.10.7",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2023-05-19T17:11:30.893794Z"
+ },
+ {
+  "crate": "digest",
+  "version": "0.11.3",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/traits",
+  "created_at": "2026-05-03T12:54:48.023505Z"
+ },
+ {
+  "crate": "directories",
+  "version": "6.0.0",
+  "published_by": "soc",
+  "trustpub_repository": null,
+  "created_at": "2025-01-12T17:19:05.177535Z"
+ },
+ {
+  "crate": "dirs",
+  "version": "6.0.0",
+  "published_by": "soc",
+  "trustpub_repository": null,
+  "created_at": "2025-01-12T17:19:23.581020Z"
+ },
+ {
+  "crate": "dirs-sys",
+  "version": "0.5.0",
+  "published_by": "soc",
+  "trustpub_repository": null,
+  "created_at": "2025-01-11T22:10:02.119353Z"
+ },
+ {
+  "crate": "displaydoc",
+  "version": "0.2.6",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-05-27T05:02:21.664626Z"
+ },
+ {
+  "crate": "dns-lookup",
+  "version": "2.1.1",
+  "published_by": "keeperofdakeys",
+  "trustpub_repository": null,
+  "created_at": "2025-08-22T09:28:47.617438Z"
+ },
+ {
+  "crate": "dunce",
+  "version": "1.0.5",
+  "published_by": "kornelski",
+  "trustpub_repository": null,
+  "created_at": "2024-08-04T01:36:46.487482Z"
+ },
+ {
+  "crate": "dyn-clone",
+  "version": "1.0.20",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2025-07-27T19:29:46.625527Z"
+ },
+ {
+  "crate": "either",
+  "version": "1.16.0",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2026-05-20T19:19:09.870842Z"
+ },
+ {
+  "crate": "email_address",
+  "version": "0.2.9",
+  "published_by": "johnstonskj",
+  "trustpub_repository": null,
+  "created_at": "2024-07-31T22:44:11.017703Z"
+ },
+ {
+  "crate": "endi",
+  "version": "1.1.1",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2025-11-26T17:18:58.382799Z"
+ },
+ {
+  "crate": "enumflags2",
+  "version": "0.7.12",
+  "published_by": "meithecatte",
+  "trustpub_repository": null,
+  "created_at": "2025-06-09T22:16:25.147642Z"
+ },
+ {
+  "crate": "enumflags2_derive",
+  "version": "0.7.12",
+  "published_by": "meithecatte",
+  "trustpub_repository": null,
+  "created_at": "2025-06-09T22:15:13.358677Z"
+ },
+ {
+  "crate": "equivalent",
+  "version": "1.0.2",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2025-02-14T22:14:18.212755Z"
+ },
+ {
+  "crate": "errno",
+  "version": "0.3.14",
+  "published_by": "sunfishcode",
+  "trustpub_repository": null,
+  "created_at": "2025-09-09T04:35:15.362504Z"
+ },
+ {
+  "crate": "event-listener",
+  "version": "5.4.2",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2026-07-27T11:31:20.582548Z"
+ },
+ {
+  "crate": "event-listener-strategy",
+  "version": "0.5.4",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2025-03-27T17:31:33.741698Z"
+ },
+ {
+  "crate": "fancy-regex",
+  "version": "0.19.2",
+  "published_by": "keith-hall",
+  "trustpub_repository": null,
+  "created_at": "2026-09-13T02:28:32.654499Z"
+ },
+ {
+  "crate": "fastrand",
+  "version": "2.4.1",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-04-07T00:22:06.835758Z"
+ },
+ {
+  "crate": "find-msvc-tools",
+  "version": "0.1.9",
+  "published_by": null,
+  "trustpub_repository": "rust-lang/cc-rs",
+  "created_at": "2026-01-30T06:51:20.083997Z"
+ },
+ {
+  "crate": "flagset",
+  "version": "0.4.7",
+  "published_by": "rjzak",
+  "trustpub_repository": null,
+  "created_at": "2025-04-04T00:44:54.941020Z"
+ },
+ {
+  "crate": "flate2",
+  "version": "1.1.9",
+  "published_by": "Byron",
+  "trustpub_repository": null,
+  "created_at": "2026-02-03T06:50:17.589Z"
+ },
+ {
+  "crate": "fluent-uri",
+  "version": "0.4.1",
+  "published_by": "yescallop",
+  "trustpub_repository": null,
+  "created_at": "2025-11-04T16:55:20.820735Z"
+ },
+ {
+  "crate": "fnv",
+  "version": "1.0.7",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2020-05-14T16:06:29.223002Z"
+ },
+ {
+  "crate": "foldhash",
+  "version": "0.2.0",
+  "published_by": "orlp",
+  "trustpub_repository": null,
+  "created_at": "2025-08-23T19:14:01.103482Z"
+ },
+ {
+  "crate": "form_urlencoded",
+  "version": "1.2.2",
+  "published_by": "valenting",
+  "trustpub_repository": null,
+  "created_at": "2025-08-21T08:47:43.939560Z"
+ },
+ {
+  "crate": "fraction",
+  "version": "0.17.0",
+  "published_by": "dnsl48",
+  "trustpub_repository": null,
+  "created_at": "2026-08-22T19:46:13.717628Z"
+ },
+ {
+  "crate": "fs_extra",
+  "version": "1.3.0",
+  "published_by": "webdesus",
+  "trustpub_repository": null,
+  "created_at": "2023-02-03T17:59:27.093041Z"
+ },
+ {
+  "crate": "futures",
+  "version": "0.3.32",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T13:34:33.755186Z"
+ },
+ {
+  "crate": "futures-channel",
+  "version": "0.3.32",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T13:34:11.393573Z"
+ },
+ {
+  "crate": "futures-core",
+  "version": "0.3.32",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T13:34:00.949238Z"
+ },
+ {
+  "crate": "futures-io",
+  "version": "0.3.32",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T13:34:03.262345Z"
+ },
+ {
+  "crate": "futures-lite",
+  "version": "2.6.1",
+  "published_by": "notgull",
+  "trustpub_repository": null,
+  "created_at": "2025-08-04T00:29:25.672150Z"
+ },
+ {
+  "crate": "futures-macro",
+  "version": "0.3.32",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T13:34:15.968827Z"
+ },
+ {
+  "crate": "futures-sink",
+  "version": "0.3.32",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T13:34:05.738731Z"
+ },
+ {
+  "crate": "futures-task",
+  "version": "0.3.32",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T13:34:08.069888Z"
+ },
+ {
+  "crate": "futures-util",
+  "version": "0.3.32",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-02-15T13:34:23.225488Z"
+ },
+ {
+  "crate": "generic-array",
+  "version": "0.14.7",
+  "published_by": "novacrazy",
+  "trustpub_repository": null,
+  "created_at": "2023-03-28T00:01:29.542246Z"
+ },
+ {
+  "crate": "getrandom",
+  "version": "0.2.17",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2026-01-11T21:09:53.669788Z"
+ },
+ {
+  "crate": "getrandom",
+  "version": "0.3.4",
+  "published_by": "josephlr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-14T17:47:36.464125Z"
+ },
+ {
+  "crate": "getrandom",
+  "version": "0.4.3",
+  "published_by": null,
+  "trustpub_repository": "rust-random/getrandom",
+  "created_at": "2026-06-17T18:01:59.979552Z"
+ },
+ {
+  "crate": "globset",
+  "version": "0.4.20",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-08-04T13:59:29.810360Z"
+ },
+ {
+  "crate": "h2",
+  "version": "0.4.19",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-08-24T12:18:29.059381Z"
+ },
+ {
+  "crate": "half",
+  "version": "2.7.1",
+  "published_by": "VoidStarKat",
+  "trustpub_repository": null,
+  "created_at": "2025-10-14T03:59:26.575229Z"
+ },
+ {
+  "crate": "hashbrown",
+  "version": "0.17.1",
+  "published_by": "rust-lang-owner",
+  "trustpub_repository": null,
+  "created_at": "2026-05-09T04:35:04.251Z"
+ },
+ {
+  "crate": "heck",
+  "version": "0.5.0",
+  "published_by": "jplatte",
+  "trustpub_repository": null,
+  "created_at": "2024-03-12T22:42:23.303234Z"
+ },
+ {
+  "crate": "hermit-abi",
+  "version": "0.5.2",
+  "published_by": "mkroening",
+  "trustpub_repository": null,
+  "created_at": "2025-06-11T15:37:43.898056Z"
+ },
+ {
+  "crate": "hex",
+  "version": "0.4.3",
+  "published_by": "KokaKiwi",
+  "trustpub_repository": null,
+  "created_at": "2021-03-03T10:48:58.682837Z"
+ },
+ {
+  "crate": "hkdf",
+  "version": "0.12.4",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2023-12-13T13:35:31.185347Z"
+ },
+ {
+  "crate": "hmac",
+  "version": "0.12.1",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2022-02-17T10:50:37.938406Z"
+ },
+ {
+  "crate": "hmac",
+  "version": "0.13.0",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/MACs",
+  "created_at": "2026-03-29T23:19:21.430299Z"
+ },
+ {
+  "crate": "http",
+  "version": "0.2.12",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2024-03-04T16:35:58.700814Z"
+ },
+ {
+  "crate": "http",
+  "version": "1.5.0",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-07-29T14:57:21.755258Z"
+ },
+ {
+  "crate": "http-body",
+  "version": "0.4.6",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2023-12-08T18:14:37.802524Z"
+ },
+ {
+  "crate": "http-body",
+  "version": "1.1.0",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-07-13T17:25:06.475903Z"
+ },
+ {
+  "crate": "http-body-util",
+  "version": "0.1.5",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-08-12T15:22:21.622138Z"
+ },
+ {
+  "crate": "httparse",
+  "version": "1.10.1",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2025-03-03T14:44:09.975762Z"
+ },
+ {
+  "crate": "httpdate",
+  "version": "1.0.3",
+  "published_by": "pyfisch",
+  "trustpub_repository": null,
+  "created_at": "2023-08-13T10:55:54.391658Z"
+ },
+ {
+  "crate": "hybrid-array",
+  "version": "0.4.13",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/hybrid-array",
+  "created_at": "2026-06-27T19:16:49.073993Z"
+ },
+ {
+  "crate": "hyper",
+  "version": "1.11.1",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-08-28T12:22:30.892284Z"
+ },
+ {
+  "crate": "hyper-rustls",
+  "version": "0.27.9",
+  "published_by": "cpu",
+  "trustpub_repository": null,
+  "created_at": "2026-04-14T15:13:14.819824Z"
+ },
+ {
+  "crate": "hyper-timeout",
+  "version": "0.5.2",
+  "published_by": "hjr3",
+  "trustpub_repository": null,
+  "created_at": "2024-11-03T19:44:30.127358Z"
+ },
+ {
+  "crate": "hyper-util",
+  "version": "0.1.20",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-02-02T14:17:16.623245Z"
+ },
+ {
+  "crate": "iana-time-zone",
+  "version": "0.1.65",
+  "published_by": null,
+  "trustpub_repository": "strawlab/iana-time-zone",
+  "created_at": "2026-01-28T08:40:52.528531Z"
+ },
+ {
+  "crate": "iana-time-zone-haiku",
+  "version": "0.1.2",
+  "published_by": "astraw",
+  "trustpub_repository": null,
+  "created_at": "2023-05-12T08:43:45.406909Z"
+ },
+ {
+  "crate": "icu_collections",
+  "version": "2.2.0",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:47:29.993915Z"
+ },
+ {
+  "crate": "icu_locale_core",
+  "version": "2.2.0",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:47:14.338833Z"
+ },
+ {
+  "crate": "icu_normalizer",
+  "version": "2.2.0",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:48:32.747637Z"
+ },
+ {
+  "crate": "icu_normalizer_data",
+  "version": "2.2.0",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:48:28.011113Z"
+ },
+ {
+  "crate": "icu_properties",
+  "version": "2.2.0",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:48:15.723593Z"
+ },
+ {
+  "crate": "icu_properties_data",
+  "version": "2.2.0",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:48:08.591352Z"
+ },
+ {
+  "crate": "icu_provider",
+  "version": "2.2.0",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:47:42.181210Z"
+ },
+ {
+  "crate": "idna",
+  "version": "1.1.0",
+  "published_by": "valenting",
+  "trustpub_repository": null,
+  "created_at": "2025-08-21T08:48:20.326736Z"
+ },
+ {
+  "crate": "idna_adapter",
+  "version": "1.2.2",
+  "published_by": "hsivonen",
+  "trustpub_repository": null,
+  "created_at": "2026-04-27T17:45:54.838641Z"
+ },
+ {
+  "crate": "ignore",
+  "version": "0.4.30",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-07-17T13:14:35.794408Z"
+ },
+ {
+  "crate": "indexmap",
+  "version": "2.14.0",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2026-04-09T18:03:04.469058Z"
+ },
+ {
+  "crate": "inout",
+  "version": "0.1.4",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2025-02-21T09:30:09.032605Z"
+ },
+ {
+  "crate": "ipnet",
+  "version": "2.12.0",
+  "published_by": "krisprice",
+  "trustpub_repository": null,
+  "created_at": "2026-03-03T00:44:44.752166Z"
+ },
+ {
+  "crate": "is-docker",
+  "version": "0.2.0",
+  "published_by": "TheLarkInn",
+  "trustpub_repository": null,
+  "created_at": "2023-01-22T20:19:07.012131Z"
+ },
+ {
+  "crate": "is-wsl",
+  "version": "0.4.0",
+  "published_by": "TheLarkInn",
+  "trustpub_repository": null,
+  "created_at": "2023-01-27T19:50:09.059226Z"
+ },
+ {
+  "crate": "is_terminal_polyfill",
+  "version": "1.70.2",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2025-10-21T17:00:14.577881Z"
+ },
+ {
+  "crate": "itertools",
+  "version": "0.13.0",
+  "published_by": "jswrenn",
+  "trustpub_repository": null,
+  "created_at": "2024-05-16T15:37:32.015123Z"
+ },
+ {
+  "crate": "itertools",
+  "version": "0.14.0",
+  "published_by": "jswrenn",
+  "trustpub_repository": null,
+  "created_at": "2024-12-31T12:32:06.925445Z"
+ },
+ {
+  "crate": "itoa",
+  "version": "1.0.18",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-03-20T00:12:37.043881Z"
+ },
+ {
+  "crate": "jiff",
+  "version": "0.2.32",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-07-09T01:23:41.444082Z"
+ },
+ {
+  "crate": "jiff-static",
+  "version": "0.2.32",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-07-09T01:23:36.115780Z"
+ },
+ {
+  "crate": "jiff-tzdb",
+  "version": "0.1.8",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-07-09T01:22:38.861508Z"
+ },
+ {
+  "crate": "jiff-tzdb-platform",
+  "version": "0.1.3",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2025-03-23T00:40:18.397031Z"
+ },
+ {
+  "crate": "jni",
+  "version": "0.22.4",
+  "published_by": "rib",
+  "trustpub_repository": null,
+  "created_at": "2026-03-16T15:38:08.740007Z"
+ },
+ {
+  "crate": "jni-macros",
+  "version": "0.22.4",
+  "published_by": "rib",
+  "trustpub_repository": null,
+  "created_at": "2026-03-16T13:29:39.385205Z"
+ },
+ {
+  "crate": "jni-sys",
+  "version": "0.4.1",
+  "published_by": "rib",
+  "trustpub_repository": null,
+  "created_at": "2026-01-09T00:33:31.392921Z"
+ },
+ {
+  "crate": "jni-sys-macros",
+  "version": "0.4.1",
+  "published_by": "rib",
+  "trustpub_repository": null,
+  "created_at": "2026-01-09T00:23:44.614075Z"
+ },
+ {
+  "crate": "jobserver",
+  "version": "0.1.35",
+  "published_by": "rust-lang-owner",
+  "trustpub_repository": null,
+  "created_at": "2026-07-06T01:43:15.155394Z"
+ },
+ {
+  "crate": "js-sys",
+  "version": "0.3.103",
+  "published_by": null,
+  "trustpub_repository": "wasm-bindgen/wasm-bindgen",
+  "created_at": "2026-06-24T19:05:16.303404Z"
+ },
+ {
+  "crate": "jsonc-parser",
+  "version": "0.33.1",
+  "published_by": null,
+  "trustpub_repository": "dprint/jsonc-parser",
+  "created_at": "2026-07-26T14:11:31.439967Z"
+ },
+ {
+  "crate": "jsonschema",
+  "version": "0.56.0",
+  "published_by": "Stranger6667",
+  "trustpub_repository": null,
+  "created_at": "2026-09-10T08:19:25.646308Z"
+ },
+ {
+  "crate": "jsonschema-regex",
+  "version": "0.56.0",
+  "published_by": "Stranger6667",
+  "trustpub_repository": null,
+  "created_at": "2026-09-10T08:18:22.741793Z"
+ },
+ {
+  "crate": "jsonschema-value",
+  "version": "0.56.0",
+  "published_by": "Stranger6667",
+  "trustpub_repository": null,
+  "created_at": "2026-09-10T08:18:18.749649Z"
+ },
+ {
+  "crate": "keyring",
+  "version": "3.6.3",
+  "published_by": "brotskydotcom",
+  "trustpub_repository": null,
+  "created_at": "2025-07-27T04:50:05.479097Z"
+ },
+ {
+  "crate": "landlock",
+  "version": "0.4.7",
+  "published_by": "l0kod",
+  "trustpub_repository": null,
+  "created_at": "2026-07-27T18:17:45.897265Z"
+ },
+ {
+  "crate": "lazy_static",
+  "version": "1.5.0",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2024-06-21T22:48:42.440092Z"
+ },
+ {
+  "crate": "libc",
+  "version": "0.2.189",
+  "published_by": "rust-lang-owner",
+  "trustpub_repository": null,
+  "created_at": "2026-07-21T21:33:28.018110Z"
+ },
+ {
+  "crate": "libdbus-sys",
+  "version": "0.2.7",
+  "published_by": "diwic",
+  "trustpub_repository": null,
+  "created_at": "2025-12-11T07:27:13.286122Z"
+ },
+ {
+  "crate": "libredox",
+  "version": "0.1.18",
+  "published_by": "jackpot51",
+  "trustpub_repository": null,
+  "created_at": "2026-07-01T14:01:56.854648Z"
+ },
+ {
+  "crate": "linux-raw-sys",
+  "version": "0.12.1",
+  "published_by": "sunfishcode",
+  "trustpub_repository": null,
+  "created_at": "2025-12-23T00:00:07.059646Z"
+ },
+ {
+  "crate": "litemap",
+  "version": "0.8.2",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:46:54.696058Z"
+ },
+ {
+  "crate": "lock_api",
+  "version": "0.4.14",
+  "published_by": "Amanieu",
+  "trustpub_repository": null,
+  "created_at": "2025-10-03T23:33:12.850087Z"
+ },
+ {
+  "crate": "log",
+  "version": "0.4.33",
+  "published_by": "KodrAus",
+  "trustpub_repository": null,
+  "created_at": "2026-06-20T22:08:55.268745Z"
+ },
+ {
+  "crate": "lru-slab",
+  "version": "0.1.2",
+  "published_by": "Ralith",
+  "trustpub_repository": null,
+  "created_at": "2025-04-19T16:52:25.183724Z"
+ },
+ {
+  "crate": "matchers",
+  "version": "0.2.0",
+  "published_by": "hawkw",
+  "trustpub_repository": null,
+  "created_at": "2024-07-01T22:20:07.033866Z"
+ },
+ {
+  "crate": "memchr",
+  "version": "2.8.3",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-07-08T00:49:54.408285Z"
+ },
+ {
+  "crate": "memoffset",
+  "version": "0.9.1",
+  "published_by": "Gilnaa",
+  "trustpub_repository": null,
+  "created_at": "2024-03-26T19:58:31.849513Z"
+ },
+ {
+  "crate": "micromap",
+  "version": "0.3.0",
+  "published_by": "yegor256",
+  "trustpub_repository": null,
+  "created_at": "2026-03-11T12:04:41.955320Z"
+ },
+ {
+  "crate": "minimal-lexical",
+  "version": "0.2.1",
+  "published_by": "Alexhuszagh",
+  "trustpub_repository": null,
+  "created_at": "2021-10-04T10:48:13.942306Z"
+ },
+ {
+  "crate": "miniz_oxide",
+  "version": "0.8.9",
+  "published_by": "oyvindln",
+  "trustpub_repository": null,
+  "created_at": "2025-06-09T22:26:12.218895Z"
+ },
+ {
+  "crate": "mio",
+  "version": "1.2.2",
+  "published_by": "Thomasdezeeuw",
+  "trustpub_repository": null,
+  "created_at": "2026-07-13T15:39:09.471139Z"
+ },
+ {
+  "crate": "nix",
+  "version": "0.29.0",
+  "published_by": "SteveLauC",
+  "trustpub_repository": null,
+  "created_at": "2024-05-24T12:23:09.842537Z"
+ },
+ {
+  "crate": "nix",
+  "version": "0.31.3",
+  "published_by": "SteveLauC",
+  "trustpub_repository": null,
+  "created_at": "2026-05-11T07:01:18.650221Z"
+ },
+ {
+  "crate": "nom",
+  "version": "7.1.3",
+  "published_by": "Geal",
+  "trustpub_repository": null,
+  "created_at": "2023-01-15T21:06:03.248351Z"
+ },
+ {
+  "crate": "nu-ansi-term",
+  "version": "0.50.3",
+  "published_by": "cptpiepmatz",
+  "trustpub_repository": null,
+  "created_at": "2025-10-10T17:34:18.972478Z"
+ },
+ {
+  "crate": "num",
+  "version": "0.4.3",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2024-05-08T16:40:50.854279Z"
+ },
+ {
+  "crate": "num-bigint",
+  "version": "0.4.8",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2026-07-05T01:20:47.603095Z"
+ },
+ {
+  "crate": "num-cmp",
+  "version": "0.1.0",
+  "published_by": null,
+  "trustpub_repository": null,
+  "created_at": "2017-03-02T12:27:31.839910Z"
+ },
+ {
+  "crate": "num-complex",
+  "version": "0.4.6",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2024-05-07T23:51:24.022830Z"
+ },
+ {
+  "crate": "num-conv",
+  "version": "0.2.2",
+  "published_by": "jhpratt",
+  "trustpub_repository": null,
+  "created_at": "2026-05-18T18:35:52.284847Z"
+ },
+ {
+  "crate": "num-integer",
+  "version": "0.1.46",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2024-02-08T01:42:29.084925Z"
+ },
+ {
+  "crate": "num-iter",
+  "version": "0.1.46",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2026-07-07T19:51:46.163752Z"
+ },
+ {
+  "crate": "num-rational",
+  "version": "0.4.2",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2024-05-08T02:55:34.629412Z"
+ },
+ {
+  "crate": "num-traits",
+  "version": "0.2.19",
+  "published_by": "cuviper",
+  "trustpub_repository": null,
+  "created_at": "2024-05-03T21:27:39.856244Z"
+ },
+ {
+  "crate": "oid-registry",
+  "version": "0.8.1",
+  "published_by": "chifflier",
+  "trustpub_repository": null,
+  "created_at": "2025-02-10T12:58:00.890947Z"
+ },
+ {
+  "crate": "once_cell",
+  "version": "1.21.4",
+  "published_by": "matklad",
+  "trustpub_repository": null,
+  "created_at": "2026-03-12T10:59:52.512992Z"
+ },
+ {
+  "crate": "once_cell_polyfill",
+  "version": "1.70.2",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2025-10-21T16:41:12.320992Z"
+ },
+ {
+  "crate": "oorandom",
+  "version": "11.1.5",
+  "published_by": "icefoxen",
+  "trustpub_repository": null,
+  "created_at": "2025-03-07T13:10:16.263607Z"
+ },
+ {
+  "crate": "open",
+  "version": "5.4.0",
+  "published_by": "Byron",
+  "trustpub_repository": null,
+  "created_at": "2026-07-12T08:10:59.325603Z"
+ },
+ {
+  "crate": "openssl-probe",
+  "version": "0.2.1",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-01-20T19:53:29.225766Z"
+ },
+ {
+  "crate": "option-ext",
+  "version": "0.2.0",
+  "published_by": "soc",
+  "trustpub_repository": null,
+  "created_at": "2023-01-11T19:28:05.598091Z"
+ },
+ {
+  "crate": "ordered-stream",
+  "version": "0.2.0",
+  "published_by": "danieldg",
+  "trustpub_repository": null,
+  "created_at": "2023-02-11T15:42:09.415977Z"
+ },
+ {
+  "crate": "outref",
+  "version": "0.5.2",
+  "published_by": "Nugine",
+  "trustpub_repository": null,
+  "created_at": "2025-01-15T09:06:04.205242Z"
+ },
+ {
+  "crate": "page_size",
+  "version": "0.6.0",
+  "published_by": "Elzair",
+  "trustpub_repository": null,
+  "created_at": "2023-08-03T21:00:43.475697Z"
+ },
+ {
+  "crate": "parking",
+  "version": "2.2.1",
+  "published_by": "notgull",
+  "trustpub_repository": null,
+  "created_at": "2024-09-07T17:39:03.956479Z"
+ },
+ {
+  "crate": "parking_lot",
+  "version": "0.12.5",
+  "published_by": "Amanieu",
+  "trustpub_repository": null,
+  "created_at": "2025-10-03T23:34:14.078935Z"
+ },
+ {
+  "crate": "parking_lot_core",
+  "version": "0.9.12",
+  "published_by": "Amanieu",
+  "trustpub_repository": null,
+  "created_at": "2025-10-03T23:33:43.164426Z"
+ },
+ {
+  "crate": "pem",
+  "version": "3.0.6",
+  "published_by": "jcreekmore",
+  "trustpub_repository": null,
+  "created_at": "2025-10-10T13:56:14.146634Z"
+ },
+ {
+  "crate": "pem",
+  "version": "4.0.0",
+  "published_by": "jcreekmore",
+  "trustpub_repository": null,
+  "created_at": "2026-07-28T13:38:46.529827Z"
+ },
+ {
+  "crate": "pem-rfc7468",
+  "version": "0.7.0",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2023-02-26T21:47:10.921213Z"
+ },
+ {
+  "crate": "percent-encoding",
+  "version": "2.3.2",
+  "published_by": "valenting",
+  "trustpub_repository": null,
+  "created_at": "2025-08-21T08:46:50.131801Z"
+ },
+ {
+  "crate": "pin-project",
+  "version": "1.1.13",
+  "published_by": null,
+  "trustpub_repository": "taiki-e/pin-project",
+  "created_at": "2026-05-13T18:32:09.030433Z"
+ },
+ {
+  "crate": "pin-project-internal",
+  "version": "1.1.13",
+  "published_by": null,
+  "trustpub_repository": "taiki-e/pin-project",
+  "created_at": "2026-05-13T18:32:07.416866Z"
+ },
+ {
+  "crate": "pin-project-lite",
+  "version": "0.2.17",
+  "published_by": null,
+  "trustpub_repository": "taiki-e/pin-project-lite",
+  "created_at": "2026-02-27T15:19:08.132543Z"
+ },
+ {
+  "crate": "pin-utils",
+  "version": "0.1.0",
+  "published_by": "cramertj",
+  "trustpub_repository": null,
+  "created_at": "2020-04-22T16:13:27.095776Z"
+ },
+ {
+  "crate": "piper",
+  "version": "0.2.5",
+  "published_by": "notgull",
+  "trustpub_repository": null,
+  "created_at": "2026-02-28T06:00:20.764458Z"
+ },
+ {
+  "crate": "pkg-config",
+  "version": "0.3.33",
+  "published_by": "sdroege",
+  "trustpub_repository": null,
+  "created_at": "2026-04-12T09:24:38.262980Z"
+ },
+ {
+  "crate": "polling",
+  "version": "3.11.0",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2025-09-14T14:00:51.946852Z"
+ },
+ {
+  "crate": "portable-atomic",
+  "version": "1.13.1",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2026-01-31T15:53:52.940631Z"
+ },
+ {
+  "crate": "portable-atomic-util",
+  "version": "0.2.7",
+  "published_by": null,
+  "trustpub_repository": "taiki-e/portable-atomic-util",
+  "created_at": "2026-04-16T15:38:33.398099Z"
+ },
+ {
+  "crate": "potential_utf",
+  "version": "0.1.5",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:47:17.427589Z"
+ },
+ {
+  "crate": "powerfmt",
+  "version": "0.2.0",
+  "published_by": "jhpratt",
+  "trustpub_repository": null,
+  "created_at": "2023-10-13T22:04:23.598335Z"
+ },
+ {
+  "crate": "ppv-lite86",
+  "version": "0.2.21",
+  "published_by": "kazcw",
+  "trustpub_repository": null,
+  "created_at": "2025-03-09T20:01:40.419162Z"
+ },
+ {
+  "crate": "prettyplease",
+  "version": "0.3.0",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-07-18T20:47:50.263251Z"
+ },
+ {
+  "crate": "proc-macro-crate",
+  "version": "3.5.0",
+  "published_by": "bkchr",
+  "trustpub_repository": null,
+  "created_at": "2026-03-04T11:12:33.029865Z"
+ },
+ {
+  "crate": "proc-macro2",
+  "version": "1.0.106",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-01-21T22:08:20.164561Z"
+ },
+ {
+  "crate": "proptest",
+  "version": "1.11.0",
+  "published_by": "tzemanovic",
+  "trustpub_repository": null,
+  "created_at": "2026-03-24T11:01:38.993611Z"
+ },
+ {
+  "crate": "prost",
+  "version": "0.14.4",
+  "published_by": "caspermeijn",
+  "trustpub_repository": null,
+  "created_at": "2026-06-07T10:13:40.918481Z"
+ },
+ {
+  "crate": "prost-derive",
+  "version": "0.14.4",
+  "published_by": "caspermeijn",
+  "trustpub_repository": null,
+  "created_at": "2026-06-07T10:13:30.605513Z"
+ },
+ {
+  "crate": "prost-types",
+  "version": "0.14.4",
+  "published_by": "caspermeijn",
+  "trustpub_repository": null,
+  "created_at": "2026-06-07T10:13:51.361558Z"
+ },
+ {
+  "crate": "quick-error",
+  "version": "1.2.3",
+  "published_by": "tailhook",
+  "trustpub_repository": null,
+  "created_at": "2020-01-02T20:56:38.589874Z"
+ },
+ {
+  "crate": "quinn",
+  "version": "0.11.11",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-06-22T09:43:28.028417Z"
+ },
+ {
+  "crate": "quinn-proto",
+  "version": "0.11.16",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-07-04T19:17:45.066838Z"
+ },
+ {
+  "crate": "quinn-udp",
+  "version": "0.5.15",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-07-04T19:17:31.033662Z"
+ },
+ {
+  "crate": "quote",
+  "version": "1.0.46",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-06-22T04:57:07.247700Z"
+ },
+ {
+  "crate": "r-efi",
+  "version": "5.3.0",
+  "published_by": "dvdhrm",
+  "trustpub_repository": null,
+  "created_at": "2025-06-17T09:12:38.227277Z"
+ },
+ {
+  "crate": "r-efi",
+  "version": "6.0.0",
+  "published_by": "dvdhrm",
+  "trustpub_repository": null,
+  "created_at": "2026-02-03T09:53:46.251122Z"
+ },
+ {
+  "crate": "rand",
+  "version": "0.8.7",
+  "published_by": null,
+  "trustpub_repository": "rust-random/rand",
+  "created_at": "2026-07-11T11:16:35.816522Z"
+ },
+ {
+  "crate": "rand",
+  "version": "0.9.5",
+  "published_by": null,
+  "trustpub_repository": "rust-random/rand",
+  "created_at": "2026-07-11T11:16:46.750480Z"
+ },
+ {
+  "crate": "rand",
+  "version": "0.10.2",
+  "published_by": null,
+  "trustpub_repository": "rust-random/rand",
+  "created_at": "2026-07-02T09:01:38.792937Z"
+ },
+ {
+  "crate": "rand_chacha",
+  "version": "0.3.1",
+  "published_by": "dhardy",
+  "trustpub_repository": null,
+  "created_at": "2021-06-09T19:46:38.636012Z"
+ },
+ {
+  "crate": "rand_chacha",
+  "version": "0.9.0",
+  "published_by": "dhardy",
+  "trustpub_repository": null,
+  "created_at": "2025-01-27T13:38:26.609781Z"
+ },
+ {
+  "crate": "rand_core",
+  "version": "0.6.4",
+  "published_by": "dhardy",
+  "trustpub_repository": null,
+  "created_at": "2022-09-15T13:23:44.548230Z"
+ },
+ {
+  "crate": "rand_core",
+  "version": "0.9.5",
+  "published_by": "dhardy",
+  "trustpub_repository": null,
+  "created_at": "2026-01-13T09:22:22.780002Z"
+ },
+ {
+  "crate": "rand_core",
+  "version": "0.10.1",
+  "published_by": null,
+  "trustpub_repository": "rust-random/rand_core",
+  "created_at": "2026-04-13T15:26:43.049921Z"
+ },
+ {
+  "crate": "rand_pcg",
+  "version": "0.10.2",
+  "published_by": "dhardy",
+  "trustpub_repository": null,
+  "created_at": "2026-04-11T13:36:48.925934Z"
+ },
+ {
+  "crate": "rand_xorshift",
+  "version": "0.4.0",
+  "published_by": "dhardy",
+  "trustpub_repository": null,
+  "created_at": "2025-01-27T14:40:36.244226Z"
+ },
+ {
+  "crate": "rcgen",
+  "version": "0.14.10",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-08-28T21:30:01.600392Z"
+ },
+ {
+  "crate": "redox_syscall",
+  "version": "0.5.18",
+  "published_by": "4lDO2",
+  "trustpub_repository": null,
+  "created_at": "2025-10-04T14:57:04.747959Z"
+ },
+ {
+  "crate": "redox_users",
+  "version": "0.5.2",
+  "published_by": "jackpot51",
+  "trustpub_repository": null,
+  "created_at": "2025-07-31T15:00:26.808829Z"
+ },
+ {
+  "crate": "ref-cast",
+  "version": "1.0.25",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2025-09-28T23:18:50.147823Z"
+ },
+ {
+  "crate": "ref-cast-impl",
+  "version": "1.0.25",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2025-09-28T23:18:44.950844Z"
+ },
+ {
+  "crate": "referencing",
+  "version": "0.56.0",
+  "published_by": "Stranger6667",
+  "trustpub_repository": null,
+  "created_at": "2026-09-10T08:18:13.394620Z"
+ },
+ {
+  "crate": "regex",
+  "version": "1.13.1",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-07-15T20:19:35.162139Z"
+ },
+ {
+  "crate": "regex-automata",
+  "version": "0.4.18",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-08-04T13:10:37.385020Z"
+ },
+ {
+  "crate": "regex-lite",
+  "version": "0.1.9",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-02-03T13:47:43.407798Z"
+ },
+ {
+  "crate": "regex-syntax",
+  "version": "0.8.11",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2026-06-09T15:00:25.566550Z"
+ },
+ {
+  "crate": "regress",
+  "version": "0.12.0",
+  "published_by": "ridiculousfish",
+  "trustpub_repository": null,
+  "created_at": "2026-08-23T22:32:55.828904Z"
+ },
+ {
+  "crate": "reqwest",
+  "version": "0.13.4",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-05-25T17:12:48.317444Z"
+ },
+ {
+  "crate": "ring",
+  "version": "0.17.14",
+  "published_by": "briansmith",
+  "trustpub_repository": null,
+  "created_at": "2025-03-11T19:42:03.889273Z"
+ },
+ {
+  "crate": "rustc-hash",
+  "version": "2.1.3",
+  "published_by": "Noratrieb",
+  "trustpub_repository": null,
+  "created_at": "2026-07-02T19:13:03.150587Z"
+ },
+ {
+  "crate": "rustc_version",
+  "version": "0.4.1",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2024-08-28T09:21:22.033328Z"
+ },
+ {
+  "crate": "rusticata-macros",
+  "version": "4.1.0",
+  "published_by": "chifflier",
+  "trustpub_repository": null,
+  "created_at": "2022-02-07T10:59:17.467859Z"
+ },
+ {
+  "crate": "rustix",
+  "version": "1.1.4",
+  "published_by": "sunfishcode",
+  "trustpub_repository": null,
+  "created_at": "2026-02-22T16:22:51.655697Z"
+ },
+ {
+  "crate": "rustls",
+  "version": "0.23.45",
+  "published_by": "ctz",
+  "trustpub_repository": null,
+  "created_at": "2026-09-14T15:11:17.808465Z"
+ },
+ {
+  "crate": "rustls-native-certs",
+  "version": "0.8.4",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-06-01T12:16:09.573832Z"
+ },
+ {
+  "crate": "rustls-pki-types",
+  "version": "1.15.0",
+  "published_by": "ctz",
+  "trustpub_repository": null,
+  "created_at": "2026-06-30T15:34:22.650195Z"
+ },
+ {
+  "crate": "rustls-platform-verifier",
+  "version": "0.7.0",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-04-12T09:27:15.687200Z"
+ },
+ {
+  "crate": "rustls-platform-verifier-android",
+  "version": "0.1.1",
+  "published_by": "cpu",
+  "trustpub_repository": null,
+  "created_at": "2024-07-29T13:27:11.000250Z"
+ },
+ {
+  "crate": "rustls-webpki",
+  "version": "0.103.15",
+  "published_by": "cpu",
+  "trustpub_repository": null,
+  "created_at": "2026-08-21T16:40:00.687282Z"
+ },
+ {
+  "crate": "rustversion",
+  "version": "1.0.23",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-07-07T02:10:26.015429Z"
+ },
+ {
+  "crate": "rusty-fork",
+  "version": "0.3.1",
+  "published_by": "AltSysrq",
+  "trustpub_repository": null,
+  "created_at": "2025-10-04T22:48:23.194025Z"
+ },
+ {
+  "crate": "ryu",
+  "version": "1.0.23",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-02-08T20:34:03.456199Z"
+ },
+ {
+  "crate": "ryu-js",
+  "version": "1.0.3",
+  "published_by": "jasonwilliams",
+  "trustpub_repository": null,
+  "created_at": "2026-07-10T21:05:46.645363Z"
+ },
+ {
+  "crate": "same-file",
+  "version": "1.0.6",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2020-01-11T17:02:30.960838Z"
+ },
+ {
+  "crate": "schannel",
+  "version": "0.1.29",
+  "published_by": "steffengy",
+  "trustpub_repository": null,
+  "created_at": "2026-03-10T09:17:10.165757Z"
+ },
+ {
+  "crate": "schemars",
+  "version": "0.8.22",
+  "published_by": "GREsau",
+  "trustpub_repository": null,
+  "created_at": "2025-02-25T12:19:02.684808Z"
+ },
+ {
+  "crate": "schemars_derive",
+  "version": "0.8.22",
+  "published_by": "GREsau",
+  "trustpub_repository": null,
+  "created_at": "2025-02-25T12:18:32.996466Z"
+ },
+ {
+  "crate": "scopeguard",
+  "version": "1.2.0",
+  "published_by": "Amanieu",
+  "trustpub_repository": null,
+  "created_at": "2023-07-17T13:47:53.232324Z"
+ },
+ {
+  "crate": "secrecy",
+  "version": "0.10.3",
+  "published_by": "tony-iqlusion",
+  "trustpub_repository": null,
+  "created_at": "2024-10-09T19:23:36.825181Z"
+ },
+ {
+  "crate": "secret-service",
+  "version": "4.0.0",
+  "published_by": "complexspaces",
+  "trustpub_repository": null,
+  "created_at": "2024-06-21T02:05:16.403010Z"
+ },
+ {
+  "crate": "security-framework",
+  "version": "2.11.1",
+  "published_by": "kornelski",
+  "trustpub_repository": null,
+  "created_at": "2024-07-14T13:04:24.799065Z"
+ },
+ {
+  "crate": "security-framework",
+  "version": "3.7.0",
+  "published_by": "kornelski",
+  "trustpub_repository": null,
+  "created_at": "2026-02-20T00:28:54.024219Z"
+ },
+ {
+  "crate": "security-framework-sys",
+  "version": "2.17.0",
+  "published_by": "kornelski",
+  "trustpub_repository": null,
+  "created_at": "2026-02-20T00:27:26.362406Z"
+ },
+ {
+  "crate": "semver",
+  "version": "1.0.28",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-04-04T00:25:14.379075Z"
+ },
+ {
+  "crate": "serde",
+  "version": "1.0.229",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-07-18T23:05:13.266456Z"
+ },
+ {
+  "crate": "serde_core",
+  "version": "1.0.229",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-07-18T23:05:10.896830Z"
+ },
+ {
+  "crate": "serde_derive",
+  "version": "1.0.229",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-07-18T23:05:07.504375Z"
+ },
+ {
+  "crate": "serde_derive_internals",
+  "version": "0.29.1",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2024-05-15T07:36:03.615748Z"
+ },
+ {
+  "crate": "serde_json",
+  "version": "1.0.151",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-07-20T05:54:44.078083Z"
+ },
+ {
+  "crate": "serde_json_canonicalizer",
+  "version": "0.3.2",
+  "published_by": "evik42",
+  "trustpub_repository": null,
+  "created_at": "2026-02-03T08:38:15.415263Z"
+ },
+ {
+  "crate": "serde_repr",
+  "version": "0.1.20",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2025-03-04T00:16:18.920627Z"
+ },
+ {
+  "crate": "serde_spanned",
+  "version": "1.1.1",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-03-31T19:06:07.042176Z"
+ },
+ {
+  "crate": "serde_tokenstream",
+  "version": "0.3.0",
+  "published_by": "ahl",
+  "trustpub_repository": null,
+  "created_at": "2026-07-20T17:06:40.726893Z"
+ },
+ {
+  "crate": "serde_urlencoded",
+  "version": "0.7.1",
+  "published_by": "nox",
+  "trustpub_repository": null,
+  "created_at": "2022-01-17T11:26:21.628923Z"
+ },
+ {
+  "crate": "serde_yaml_ng",
+  "version": "0.10.0",
+  "published_by": "acatton",
+  "trustpub_repository": null,
+  "created_at": "2024-05-26T19:57:45.710414Z"
+ },
+ {
+  "crate": "sha1",
+  "version": "0.10.7",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/hashes",
+  "created_at": "2026-07-10T14:30:11.575923Z"
+ },
+ {
+  "crate": "sha1",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/hashes",
+  "created_at": "2026-03-27T14:07:50.054737Z"
+ },
+ {
+  "crate": "sha2",
+  "version": "0.10.9",
+  "published_by": "newpavlov",
+  "trustpub_repository": null,
+  "created_at": "2025-04-30T14:38:09.894118Z"
+ },
+ {
+  "crate": "sha2",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/hashes",
+  "created_at": "2026-03-25T15:05:27.949444Z"
+ },
+ {
+  "crate": "sharded-slab",
+  "version": "0.1.7",
+  "published_by": "hawkw",
+  "trustpub_repository": null,
+  "created_at": "2023-10-04T19:37:55.401239Z"
+ },
+ {
+  "crate": "shlex",
+  "version": "2.0.1",
+  "published_by": "fenhl",
+  "trustpub_repository": null,
+  "created_at": "2026-05-17T18:56:12.775983Z"
+ },
+ {
+  "crate": "signal-hook-registry",
+  "version": "1.4.8",
+  "published_by": "vorner",
+  "trustpub_repository": null,
+  "created_at": "2025-12-25T17:35:43.742246Z"
+ },
+ {
+  "crate": "signature",
+  "version": "2.2.0",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2023-11-12T20:49:39.435224Z"
+ },
+ {
+  "crate": "sigstore-bundle",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T12:05:59.758821Z"
+ },
+ {
+  "crate": "sigstore-crypto",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T11:43:27.709213Z"
+ },
+ {
+  "crate": "sigstore-fulcio",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T12:07:43.079093Z"
+ },
+ {
+  "crate": "sigstore-merkle",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T11:44:00.210314Z"
+ },
+ {
+  "crate": "sigstore-oidc",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T12:06:51.434098Z"
+ },
+ {
+  "crate": "sigstore-rekor",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T12:05:10.969648Z"
+ },
+ {
+  "crate": "sigstore-sign",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T12:09:38.487966Z"
+ },
+ {
+  "crate": "sigstore-trust-root",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T12:04:11.383463Z"
+ },
+ {
+  "crate": "sigstore-tsa",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T11:44:49.195375Z"
+ },
+ {
+  "crate": "sigstore-tuf",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T11:45:42.299012Z"
+ },
+ {
+  "crate": "sigstore-types",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T11:42:47.830340Z"
+ },
+ {
+  "crate": "sigstore-verify",
+  "version": "0.11.0",
+  "published_by": null,
+  "trustpub_repository": "sigstore/sigstore-rust",
+  "created_at": "2026-07-08T12:08:38.162462Z"
+ },
+ {
+  "crate": "simd-adler32",
+  "version": "0.3.10",
+  "published_by": "mcountryman",
+  "trustpub_repository": null,
+  "created_at": "2026-07-14T17:42:45.047242Z"
+ },
+ {
+  "crate": "simd_cesu8",
+  "version": "1.2.0",
+  "published_by": "seancroach",
+  "trustpub_repository": null,
+  "created_at": "2026-07-13T21:51:49.803302Z"
+ },
+ {
+  "crate": "simdutf8",
+  "version": "0.1.5",
+  "published_by": "hkratz",
+  "trustpub_repository": null,
+  "created_at": "2024-09-22T09:18:22.610907Z"
+ },
+ {
+  "crate": "similar",
+  "version": "3.2.0",
+  "published_by": null,
+  "trustpub_repository": "mitsuhiko/similar",
+  "created_at": "2026-08-17T09:45:01.478395Z"
+ },
+ {
+  "crate": "slab",
+  "version": "0.4.12",
+  "published_by": "Darksonn",
+  "trustpub_repository": null,
+  "created_at": "2026-01-31T12:59:22.609198Z"
+ },
+ {
+  "crate": "smallvec",
+  "version": "1.15.2",
+  "published_by": "emilio",
+  "trustpub_repository": null,
+  "created_at": "2026-06-11T20:52:32.050589Z"
+ },
+ {
+  "crate": "socket2",
+  "version": "0.6.5",
+  "published_by": "Thomasdezeeuw",
+  "trustpub_repository": null,
+  "created_at": "2026-07-13T19:45:58.436336Z"
+ },
+ {
+  "crate": "socks",
+  "version": "0.3.4",
+  "published_by": "sfackler",
+  "trustpub_repository": null,
+  "created_at": "2022-02-19T14:41:21.720238Z"
+ },
+ {
+  "crate": "spiffe",
+  "version": "0.16.0",
+  "published_by": "maxlambrecht",
+  "trustpub_repository": null,
+  "created_at": "2026-06-08T15:07:33.705921Z"
+ },
+ {
+  "crate": "spki",
+  "version": "0.7.3",
+  "published_by": "baloo",
+  "trustpub_repository": null,
+  "created_at": "2023-11-28T19:35:46.555229Z"
+ },
+ {
+  "crate": "spki",
+  "version": "0.8.0",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/formats",
+  "created_at": "2026-04-04T14:18:33.991540Z"
+ },
+ {
+  "crate": "stable_deref_trait",
+  "version": "1.2.1",
+  "published_by": "Storyyeller",
+  "trustpub_repository": null,
+  "created_at": "2025-10-09T05:24:54.643083Z"
+ },
+ {
+  "crate": "static_assertions",
+  "version": "1.1.0",
+  "published_by": "nvzqz",
+  "trustpub_repository": null,
+  "created_at": "2019-11-03T17:02:11.618786Z"
+ },
+ {
+  "crate": "strsim",
+  "version": "0.11.1",
+  "published_by": "maxbachmann",
+  "trustpub_repository": null,
+  "created_at": "2024-04-02T22:18:09.406790Z"
+ },
+ {
+  "crate": "strum",
+  "version": "0.28.0",
+  "published_by": "Peternator7",
+  "trustpub_repository": null,
+  "created_at": "2026-02-22T15:46:16.247520Z"
+ },
+ {
+  "crate": "strum_macros",
+  "version": "0.28.0",
+  "published_by": "Peternator7",
+  "trustpub_repository": null,
+  "created_at": "2026-02-22T15:46:01.148831Z"
+ },
+ {
+  "crate": "subtle",
+  "version": "2.6.1",
+  "published_by": "isislovecruft",
+  "trustpub_repository": null,
+  "created_at": "2024-06-24T17:25:24.458503Z"
+ },
+ {
+  "crate": "syn",
+  "version": "2.0.119",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-07-15T00:23:48.828241Z"
+ },
+ {
+  "crate": "syn",
+  "version": "3.0.6",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-09-16T22:31:12.314477Z"
+ },
+ {
+  "crate": "sync_wrapper",
+  "version": "1.0.2",
+  "published_by": "rkuhn",
+  "trustpub_repository": null,
+  "created_at": "2024-11-20T16:29:59.416129Z"
+ },
+ {
+  "crate": "synstructure",
+  "version": "0.13.2",
+  "published_by": "mystor",
+  "trustpub_repository": null,
+  "created_at": "2025-04-30T16:37:46.407388Z"
+ },
+ {
+  "crate": "tempfile",
+  "version": "3.27.0",
+  "published_by": "Stebalien",
+  "trustpub_repository": null,
+  "created_at": "2026-03-11T00:20:04.812840Z"
+ },
+ {
+  "crate": "thiserror",
+  "version": "2.0.20",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-08-08T06:22:23.795550Z"
+ },
+ {
+  "crate": "thiserror-impl",
+  "version": "2.0.20",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-08-08T06:22:19.469295Z"
+ },
+ {
+  "crate": "thread_local",
+  "version": "1.1.10",
+  "published_by": "Amanieu",
+  "trustpub_repository": null,
+  "created_at": "2026-07-10T21:20:29.158200Z"
+ },
+ {
+  "crate": "time",
+  "version": "0.3.55",
+  "published_by": null,
+  "trustpub_repository": "time-rs/time",
+  "created_at": "2026-08-01T08:08:34.139758Z"
+ },
+ {
+  "crate": "time-core",
+  "version": "0.1.9",
+  "published_by": "jhpratt",
+  "trustpub_repository": null,
+  "created_at": "2026-06-12T08:14:02.976372Z"
+ },
+ {
+  "crate": "time-macros",
+  "version": "0.2.32",
+  "published_by": null,
+  "trustpub_repository": "time-rs/time",
+  "created_at": "2026-07-20T08:27:37.909264Z"
+ },
+ {
+  "crate": "tinystr",
+  "version": "0.8.3",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:47:09.398585Z"
+ },
+ {
+  "crate": "tinytemplate",
+  "version": "1.2.1",
+  "published_by": "bheisler",
+  "trustpub_repository": null,
+  "created_at": "2021-03-04T00:05:08.069396Z"
+ },
+ {
+  "crate": "tinyvec",
+  "version": "1.12.0",
+  "published_by": "Lokathor",
+  "trustpub_repository": null,
+  "created_at": "2026-07-10T20:03:55.974590Z"
+ },
+ {
+  "crate": "tinyvec_macros",
+  "version": "0.1.1",
+  "published_by": "Soveu",
+  "trustpub_repository": null,
+  "created_at": "2023-02-02T23:03:04.651564Z"
+ },
+ {
+  "crate": "tls_codec",
+  "version": "0.4.2",
+  "published_by": "franziskuskiefer",
+  "trustpub_repository": null,
+  "created_at": "2025-02-10T07:26:17.047590Z"
+ },
+ {
+  "crate": "tls_codec_derive",
+  "version": "0.4.2",
+  "published_by": "franziskuskiefer",
+  "trustpub_repository": null,
+  "created_at": "2025-02-10T07:25:58.254205Z"
+ },
+ {
+  "crate": "tokio",
+  "version": "1.53.1",
+  "published_by": "Darksonn",
+  "trustpub_repository": null,
+  "created_at": "2026-07-20T17:06:09.996426Z"
+ },
+ {
+  "crate": "tokio-macros",
+  "version": "2.7.0",
+  "published_by": "Darksonn",
+  "trustpub_repository": null,
+  "created_at": "2026-04-03T07:38:45.955074Z"
+ },
+ {
+  "crate": "tokio-rustls",
+  "version": "0.26.5",
+  "published_by": "djc",
+  "trustpub_repository": null,
+  "created_at": "2026-09-04T08:52:06.163215Z"
+ },
+ {
+  "crate": "tokio-stream",
+  "version": "0.1.18",
+  "published_by": "Darksonn",
+  "trustpub_repository": null,
+  "created_at": "2026-01-04T12:56:36.227934Z"
+ },
+ {
+  "crate": "tokio-tungstenite",
+  "version": "0.30.0",
+  "published_by": "daniel-abramov",
+  "trustpub_repository": null,
+  "created_at": "2026-07-11T12:58:44.438987Z"
+ },
+ {
+  "crate": "tokio-util",
+  "version": "0.7.18",
+  "published_by": "Darksonn",
+  "trustpub_repository": null,
+  "created_at": "2026-01-04T12:56:25.475048Z"
+ },
+ {
+  "crate": "toml",
+  "version": "0.9.12+spec-1.1.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-02-10T18:10:32.779034Z"
+ },
+ {
+  "crate": "toml",
+  "version": "1.1.3+spec-1.1.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-07-14T13:09:47.863140Z"
+ },
+ {
+  "crate": "toml_datetime",
+  "version": "0.7.5+spec-1.1.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2025-12-18T13:26:19.285628Z"
+ },
+ {
+  "crate": "toml_datetime",
+  "version": "1.1.1+spec-1.1.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-03-31T19:06:07.594537Z"
+ },
+ {
+  "crate": "toml_edit",
+  "version": "0.25.13+spec-1.1.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-07-14T13:09:48.650874Z"
+ },
+ {
+  "crate": "toml_parser",
+  "version": "1.1.2+spec-1.1.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T21:24:07.453914Z"
+ },
+ {
+  "crate": "toml_writer",
+  "version": "1.1.2+spec-1.1.0",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-07-14T13:09:46.208101Z"
+ },
+ {
+  "crate": "tonic",
+  "version": "0.14.6",
+  "published_by": null,
+  "trustpub_repository": "hyperium/tonic",
+  "created_at": "2026-05-07T00:09:48.159613Z"
+ },
+ {
+  "crate": "tonic-prost",
+  "version": "0.14.6",
+  "published_by": null,
+  "trustpub_repository": "hyperium/tonic",
+  "created_at": "2026-05-07T00:10:03.809919Z"
+ },
+ {
+  "crate": "tower",
+  "version": "0.5.3",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-01-12T18:43:05.227461Z"
+ },
+ {
+  "crate": "tower-http",
+  "version": "0.6.11",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2026-05-18T12:51:03.996149Z"
+ },
+ {
+  "crate": "tower-layer",
+  "version": "0.3.3",
+  "published_by": "LucioFranco",
+  "trustpub_repository": null,
+  "created_at": "2024-08-13T16:53:54.096608Z"
+ },
+ {
+  "crate": "tower-service",
+  "version": "0.3.3",
+  "published_by": "LucioFranco",
+  "trustpub_repository": null,
+  "created_at": "2024-08-13T16:23:33.548845Z"
+ },
+ {
+  "crate": "tracing",
+  "version": "0.1.44",
+  "published_by": "hds",
+  "trustpub_repository": null,
+  "created_at": "2025-12-18T14:26:12.360139Z"
+ },
+ {
+  "crate": "tracing-attributes",
+  "version": "0.1.31",
+  "published_by": "hds",
+  "trustpub_repository": null,
+  "created_at": "2025-11-26T11:23:01.809940Z"
+ },
+ {
+  "crate": "tracing-core",
+  "version": "0.1.36",
+  "published_by": "hds",
+  "trustpub_repository": null,
+  "created_at": "2025-12-18T14:13:04.171045Z"
+ },
+ {
+  "crate": "tracing-log",
+  "version": "0.2.0",
+  "published_by": "hawkw",
+  "trustpub_repository": null,
+  "created_at": "2023-10-25T17:01:37.024993Z"
+ },
+ {
+  "crate": "tracing-subscriber",
+  "version": "0.3.23",
+  "published_by": "hds",
+  "trustpub_repository": null,
+  "created_at": "2026-03-13T10:04:15.571048Z"
+ },
+ {
+  "crate": "try-lock",
+  "version": "0.2.5",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2023-12-07T16:13:16.960779Z"
+ },
+ {
+  "crate": "tungstenite",
+  "version": "0.30.0",
+  "published_by": "daniel-abramov",
+  "trustpub_repository": null,
+  "created_at": "2026-07-11T12:50:30.264231Z"
+ },
+ {
+  "crate": "typenum",
+  "version": "1.20.1",
+  "published_by": "paholg",
+  "trustpub_repository": null,
+  "created_at": "2026-05-29T16:00:41.793255Z"
+ },
+ {
+  "crate": "typify",
+  "version": "0.8.0",
+  "published_by": "ahl",
+  "trustpub_repository": null,
+  "created_at": "2026-09-09T18:45:36.250332Z"
+ },
+ {
+  "crate": "typify-impl",
+  "version": "0.8.0",
+  "published_by": "ahl",
+  "trustpub_repository": null,
+  "created_at": "2026-09-09T18:45:19.588006Z"
+ },
+ {
+  "crate": "typify-macro",
+  "version": "0.8.0",
+  "published_by": "ahl",
+  "trustpub_repository": null,
+  "created_at": "2026-09-09T18:45:28.381245Z"
+ },
+ {
+  "crate": "uds_windows",
+  "version": "1.2.1",
+  "published_by": "haraldh",
+  "trustpub_repository": null,
+  "created_at": "2026-03-14T15:31:37.094401Z"
+ },
+ {
+  "crate": "unarray",
+  "version": "0.1.4",
+  "published_by": "cameron1024",
+  "trustpub_repository": null,
+  "created_at": "2022-11-30T17:09:42.916530Z"
+ },
+ {
+  "crate": "unicode-general-category",
+  "version": "1.1.0",
+  "published_by": "wezm",
+  "trustpub_repository": null,
+  "created_at": "2025-09-16T00:44:45.093075Z"
+ },
+ {
+  "crate": "unicode-ident",
+  "version": "1.0.24",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-02-16T02:46:44.304053Z"
+ },
+ {
+  "crate": "unicode-width",
+  "version": "0.2.2",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T14:33:47.922595Z"
+ },
+ {
+  "crate": "unsafe-libyaml",
+  "version": "0.2.11",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2024-03-17T05:44:18.590756Z"
+ },
+ {
+  "crate": "untrusted",
+  "version": "0.7.1",
+  "published_by": "briansmith",
+  "trustpub_repository": null,
+  "created_at": "2020-04-28T16:30:45.676425Z"
+ },
+ {
+  "crate": "untrusted",
+  "version": "0.9.0",
+  "published_by": "briansmith",
+  "trustpub_repository": null,
+  "created_at": "2021-07-13T22:13:26.650010Z"
+ },
+ {
+  "crate": "ureq",
+  "version": "3.4.1",
+  "published_by": "algesten",
+  "trustpub_repository": null,
+  "created_at": "2026-09-06T10:07:56.416828Z"
+ },
+ {
+  "crate": "ureq-proto",
+  "version": "0.6.3",
+  "published_by": "algesten",
+  "trustpub_repository": null,
+  "created_at": "2026-09-13T13:08:39.031889Z"
+ },
+ {
+  "crate": "url",
+  "version": "2.5.8",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-01-05T22:14:31.414927Z"
+ },
+ {
+  "crate": "urlencoding",
+  "version": "2.1.3",
+  "published_by": "kornelski",
+  "trustpub_repository": null,
+  "created_at": "2023-07-21T15:12:17.534094Z"
+ },
+ {
+  "crate": "utf8-zero",
+  "version": "0.8.1",
+  "published_by": "algesten",
+  "trustpub_repository": null,
+  "created_at": "2026-02-28T13:41:16.493477Z"
+ },
+ {
+  "crate": "utf8_iter",
+  "version": "1.0.4",
+  "published_by": "hsivonen",
+  "trustpub_repository": null,
+  "created_at": "2023-12-01T17:26:51.542538Z"
+ },
+ {
+  "crate": "utf8parse",
+  "version": "0.2.2",
+  "published_by": "chrisduerr",
+  "trustpub_repository": null,
+  "created_at": "2024-06-08T07:07:41.813419Z"
+ },
+ {
+  "crate": "uuid",
+  "version": "1.26.1",
+  "published_by": "KodrAus",
+  "trustpub_repository": null,
+  "created_at": "2026-09-10T00:30:44.938530Z"
+ },
+ {
+  "crate": "uuid-simd",
+  "version": "0.8.0",
+  "published_by": "Nugine",
+  "trustpub_repository": null,
+  "created_at": "2022-12-28T03:07:07.231984Z"
+ },
+ {
+  "crate": "valuable",
+  "version": "0.1.1",
+  "published_by": "taiki-e",
+  "trustpub_repository": null,
+  "created_at": "2025-01-17T00:46:34.256238Z"
+ },
+ {
+  "crate": "version_check",
+  "version": "0.9.5",
+  "published_by": "SergioBenitez",
+  "trustpub_repository": null,
+  "created_at": "2024-07-25T23:38:14.142737Z"
+ },
+ {
+  "crate": "vsimd",
+  "version": "0.8.0",
+  "published_by": "Nugine",
+  "trustpub_repository": null,
+  "created_at": "2022-12-28T03:06:21.978295Z"
+ },
+ {
+  "crate": "vt100",
+  "version": "0.16.2",
+  "published_by": "doy",
+  "trustpub_repository": null,
+  "created_at": "2025-07-12T01:05:19.727192Z"
+ },
+ {
+  "crate": "vte",
+  "version": "0.15.0",
+  "published_by": "chrisduerr",
+  "trustpub_repository": null,
+  "created_at": "2025-02-02T16:23:10.564882Z"
+ },
+ {
+  "crate": "wait-timeout",
+  "version": "0.2.1",
+  "published_by": "alexcrichton",
+  "trustpub_repository": null,
+  "created_at": "2025-02-03T12:22:33.904538Z"
+ },
+ {
+  "crate": "walkdir",
+  "version": "2.5.0",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2024-03-01T17:55:09.221032Z"
+ },
+ {
+  "crate": "want",
+  "version": "0.3.1",
+  "published_by": "seanmonstar",
+  "trustpub_repository": null,
+  "created_at": "2023-06-14T21:50:52.862160Z"
+ },
+ {
+  "crate": "wasi",
+  "version": "0.11.1+wasi-snapshot-preview1",
+  "published_by": "alexcrichton",
+  "trustpub_repository": null,
+  "created_at": "2025-06-10T14:23:45.376914Z"
+ },
+ {
+  "crate": "wasip2",
+  "version": "1.0.4+wasi-0.2.12",
+  "published_by": "alexcrichton",
+  "trustpub_repository": null,
+  "created_at": "2026-06-12T17:42:43.116313Z"
+ },
+ {
+  "crate": "wasm-bindgen",
+  "version": "0.2.126",
+  "published_by": null,
+  "trustpub_repository": "wasm-bindgen/wasm-bindgen",
+  "created_at": "2026-06-24T19:05:14.113437Z"
+ },
+ {
+  "crate": "wasm-bindgen-futures",
+  "version": "0.4.76",
+  "published_by": null,
+  "trustpub_repository": "wasm-bindgen/wasm-bindgen",
+  "created_at": "2026-06-24T19:05:21.877025Z"
+ },
+ {
+  "crate": "wasm-bindgen-macro",
+  "version": "0.2.126",
+  "published_by": null,
+  "trustpub_repository": "wasm-bindgen/wasm-bindgen",
+  "created_at": "2026-06-24T19:05:12.160113Z"
+ },
+ {
+  "crate": "wasm-bindgen-macro-support",
+  "version": "0.2.126",
+  "published_by": null,
+  "trustpub_repository": "wasm-bindgen/wasm-bindgen",
+  "created_at": "2026-06-24T19:05:09.928049Z"
+ },
+ {
+  "crate": "wasm-bindgen-shared",
+  "version": "0.2.126",
+  "published_by": null,
+  "trustpub_repository": "wasm-bindgen/wasm-bindgen",
+  "created_at": "2026-06-24T19:05:05.208846Z"
+ },
+ {
+  "crate": "web-sys",
+  "version": "0.3.103",
+  "published_by": null,
+  "trustpub_repository": "wasm-bindgen/wasm-bindgen",
+  "created_at": "2026-06-24T19:05:19.041869Z"
+ },
+ {
+  "crate": "web-time",
+  "version": "1.1.0",
+  "published_by": "daxpedda",
+  "trustpub_repository": null,
+  "created_at": "2024-03-01T10:51:46.373917Z"
+ },
+ {
+  "crate": "webpki-root-certs",
+  "version": "1.0.8",
+  "published_by": "ctz",
+  "trustpub_repository": null,
+  "created_at": "2026-06-17T08:47:06.602493Z"
+ },
+ {
+  "crate": "webpki-roots",
+  "version": "1.0.9",
+  "published_by": "ctz",
+  "trustpub_repository": null,
+  "created_at": "2026-07-18T09:30:44.802479Z"
+ },
+ {
+  "crate": "which",
+  "version": "8.0.6",
+  "published_by": "Xaeroxe",
+  "trustpub_repository": null,
+  "created_at": "2026-08-26T18:06:08.860806Z"
+ },
+ {
+  "crate": "winapi",
+  "version": "0.3.9",
+  "published_by": "retep998",
+  "trustpub_repository": null,
+  "created_at": "2020-06-26T11:34:33.480855Z"
+ },
+ {
+  "crate": "winapi-i686-pc-windows-gnu",
+  "version": "0.4.0",
+  "published_by": null,
+  "trustpub_repository": null,
+  "created_at": "2018-01-18T00:55:38.910834Z"
+ },
+ {
+  "crate": "winapi-util",
+  "version": "0.1.11",
+  "published_by": "BurntSushi",
+  "trustpub_repository": null,
+  "created_at": "2025-09-07T12:24:31.232695Z"
+ },
+ {
+  "crate": "winapi-x86_64-pc-windows-gnu",
+  "version": "0.4.0",
+  "published_by": null,
+  "trustpub_repository": null,
+  "created_at": "2018-01-18T00:55:12.008307Z"
+ },
+ {
+  "crate": "windows-core",
+  "version": "0.62.2",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T19:15:14.207850Z"
+ },
+ {
+  "crate": "windows-implement",
+  "version": "0.60.2",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T19:13:31.467507Z"
+ },
+ {
+  "crate": "windows-interface",
+  "version": "0.59.3",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T19:14:18.053188Z"
+ },
+ {
+  "crate": "windows-link",
+  "version": "0.2.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:35:08.351469Z"
+ },
+ {
+  "crate": "windows-result",
+  "version": "0.4.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T19:14:39.441465Z"
+ },
+ {
+  "crate": "windows-strings",
+  "version": "0.5.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T19:15:01.410695Z"
+ },
+ {
+  "crate": "windows-sys",
+  "version": "0.52.0",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2023-11-15T18:55:55.748059Z"
+ },
+ {
+  "crate": "windows-sys",
+  "version": "0.59.0",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-30T15:26:17.224105Z"
+ },
+ {
+  "crate": "windows-sys",
+  "version": "0.60.2",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-06-12T18:59:32.492403Z"
+ },
+ {
+  "crate": "windows-sys",
+  "version": "0.61.2",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T19:18:30.163595Z"
+ },
+ {
+  "crate": "windows-targets",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:44:18.100049Z"
+ },
+ {
+  "crate": "windows-targets",
+  "version": "0.53.5",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T19:18:45.726277Z"
+ },
+ {
+  "crate": "windows_aarch64_gnullvm",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:43:36.557711Z"
+ },
+ {
+  "crate": "windows_aarch64_gnullvm",
+  "version": "0.53.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:33:29.033577Z"
+ },
+ {
+  "crate": "windows_aarch64_msvc",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:43:40.566034Z"
+ },
+ {
+  "crate": "windows_aarch64_msvc",
+  "version": "0.53.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:33:33.380608Z"
+ },
+ {
+  "crate": "windows_i686_gnu",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:43:46.438870Z"
+ },
+ {
+  "crate": "windows_i686_gnu",
+  "version": "0.53.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:33:40.576678Z"
+ },
+ {
+  "crate": "windows_i686_gnullvm",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:43:50.092560Z"
+ },
+ {
+  "crate": "windows_i686_gnullvm",
+  "version": "0.53.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:33:44.926477Z"
+ },
+ {
+  "crate": "windows_i686_msvc",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:43:54.897517Z"
+ },
+ {
+  "crate": "windows_i686_msvc",
+  "version": "0.53.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:33:49.033999Z"
+ },
+ {
+  "crate": "windows_x86_64_gnu",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:43:58.189149Z"
+ },
+ {
+  "crate": "windows_x86_64_gnu",
+  "version": "0.53.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:33:55.996108Z"
+ },
+ {
+  "crate": "windows_x86_64_gnullvm",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:44:03.184321Z"
+ },
+ {
+  "crate": "windows_x86_64_gnullvm",
+  "version": "0.53.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:34:01.241547Z"
+ },
+ {
+  "crate": "windows_x86_64_msvc",
+  "version": "0.52.6",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2024-07-03T19:44:07.225369Z"
+ },
+ {
+  "crate": "windows_x86_64_msvc",
+  "version": "0.53.1",
+  "published_by": "kennykerr",
+  "trustpub_repository": null,
+  "created_at": "2025-10-06T17:34:07.266605Z"
+ },
+ {
+  "crate": "winnow",
+  "version": "0.7.15",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-03-05T19:00:42.033522Z"
+ },
+ {
+  "crate": "winnow",
+  "version": "1.0.4",
+  "published_by": "epage",
+  "trustpub_repository": null,
+  "created_at": "2026-07-13T14:31:41.405838Z"
+ },
+ {
+  "crate": "wit-bindgen",
+  "version": "0.57.1",
+  "published_by": null,
+  "trustpub_repository": "bytecodealliance/wit-bindgen",
+  "created_at": "2026-04-17T17:49:55.029832Z"
+ },
+ {
+  "crate": "writeable",
+  "version": "0.6.3",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-02T21:36:45.212867Z"
+ },
+ {
+  "crate": "x509-cert",
+  "version": "0.2.5",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2023-12-24T00:56:13.305498Z"
+ },
+ {
+  "crate": "x509-cert",
+  "version": "0.3.0",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/formats",
+  "created_at": "2026-07-09T05:36:14.335238Z"
+ },
+ {
+  "crate": "x509-parser",
+  "version": "0.18.1",
+  "published_by": "chifflier",
+  "trustpub_repository": null,
+  "created_at": "2026-02-05T09:30:31.546618Z"
+ },
+ {
+  "crate": "x509-tsp",
+  "version": "0.1.0",
+  "published_by": "tarcieri",
+  "trustpub_repository": null,
+  "created_at": "2023-06-26T14:24:31.346062Z"
+ },
+ {
+  "crate": "xdg-home",
+  "version": "1.3.0",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2024-08-09T16:07:03.131017Z"
+ },
+ {
+  "crate": "xmlparser",
+  "version": "0.13.6",
+  "published_by": "RazrFalcon",
+  "trustpub_repository": null,
+  "created_at": "2023-09-30T15:21:25.478529Z"
+ },
+ {
+  "crate": "yasna",
+  "version": "0.6.0",
+  "published_by": "est31",
+  "trustpub_repository": null,
+  "created_at": "2026-03-14T04:29:57.441431Z"
+ },
+ {
+  "crate": "yoke",
+  "version": "0.8.3",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-06-03T20:59:17.678438Z"
+ },
+ {
+  "crate": "yoke-derive",
+  "version": "0.8.2",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:46:42.411874Z"
+ },
+ {
+  "crate": "zbus",
+  "version": "4.4.0",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2024-07-22T16:21:15.251370Z"
+ },
+ {
+  "crate": "zbus_macros",
+  "version": "4.4.0",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2024-07-22T16:20:50.957887Z"
+ },
+ {
+  "crate": "zbus_names",
+  "version": "3.0.0",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2024-02-12T12:42:01.811264Z"
+ },
+ {
+  "crate": "zerocopy",
+  "version": "0.8.54",
+  "published_by": "joshlf",
+  "trustpub_repository": null,
+  "created_at": "2026-07-08T21:17:04.973021Z"
+ },
+ {
+  "crate": "zerocopy-derive",
+  "version": "0.8.54",
+  "published_by": "joshlf",
+  "trustpub_repository": null,
+  "created_at": "2026-07-08T21:16:59.281547Z"
+ },
+ {
+  "crate": "zerofrom",
+  "version": "0.1.8",
+  "published_by": "sffc",
+  "trustpub_repository": null,
+  "created_at": "2026-05-12T09:08:18.380489Z"
+ },
+ {
+  "crate": "zerofrom-derive",
+  "version": "0.1.7",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:46:45.862563Z"
+ },
+ {
+  "crate": "zeroize",
+  "version": "1.9.0",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/utils",
+  "created_at": "2026-06-12T18:42:35.275395Z"
+ },
+ {
+  "crate": "zeroize_derive",
+  "version": "1.5.0",
+  "published_by": null,
+  "trustpub_repository": "RustCrypto/utils",
+  "created_at": "2026-06-12T18:21:55.086967Z"
+ },
+ {
+  "crate": "zerotrie",
+  "version": "0.2.4",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:47:36.504286Z"
+ },
+ {
+  "crate": "zerovec",
+  "version": "0.11.6",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:47:05.291512Z"
+ },
+ {
+  "crate": "zerovec-derive",
+  "version": "0.11.3",
+  "published_by": "Manishearth",
+  "trustpub_repository": null,
+  "created_at": "2026-04-01T16:47:01.030163Z"
+ },
+ {
+  "crate": "zmij",
+  "version": "1.0.23",
+  "published_by": "dtolnay",
+  "trustpub_repository": null,
+  "created_at": "2026-07-13T12:58:53.705886Z"
+ },
+ {
+  "crate": "zvariant",
+  "version": "4.2.0",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2024-07-19T18:15:54.252530Z"
+ },
+ {
+  "crate": "zvariant_derive",
+  "version": "4.2.0",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2024-07-19T18:15:34.640585Z"
+ },
+ {
+  "crate": "zvariant_utils",
+  "version": "2.1.0",
+  "published_by": "zeenix",
+  "trustpub_repository": null,
+  "created_at": "2024-07-19T18:09:35.067913Z"
+ }
+]
