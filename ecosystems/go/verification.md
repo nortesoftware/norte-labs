@@ -15,7 +15,8 @@ and the band records are kept in `results/frame-2026-09-23-bands.json`. Three ch
 
 The headline depends on deriving an owner from a module path, which Go does not do for you. Both
 rules are published with their code; that they were fixed before the run is not something the
-public record shows (see Corrections). Over 360 projects the medians are 41 and 42,
+public record shows (see Corrections). Over 360 projects the medians are 41 and 42 with the
+project counted as its own dependency and 40 to 41 and 41 to 42 without it (see Corrections), and
 the ratio is 1.00 at the median and 1.03 at p90. The derivation is therefore not load-bearing for
 the figure. This was checked because it could have gone the other way, and if it had, the
 sensitivity would have been the result rather than a footnote.
@@ -23,9 +24,11 @@ sensitivity would have been the result rather than a footnote.
 ## Modules whose owner cannot be resolved
 
 Of 65,050 resolutions, 120 reached a host that answers but publishes no `go-import` tag and 34
-reached no host at all. Both are reported as their own categories. Attributing them to the host
-in their path would have inflated the owner count with names nobody controls, and dropping them
-would have hidden that a live build graph contains modules whose publisher cannot be identified.
+reached no host at all; about 20 of those 34 are sampled projects' own module paths, counted by the
+fault described under Corrections, not modules of unknown publisher. Both are reported as their own
+categories. Attributing them to the host in their path would have inflated the owner count with
+names nobody controls, and dropping them would have hidden that a live build graph contains modules
+whose publisher cannot be identified.
 
 ## Three instrument faults, all found during the run
 
@@ -77,7 +80,8 @@ the sampling plan, is what bounded it.
 
 - The pilot that motivated this measurement used `cli/cli`, which resolves 465 modules and 202
   owners with 80 % never named. Those figures are a single hand-picked project and are not the
-  result; the frame medians are 82 modules, 41 owners and 78 %. The pilot is cited nowhere in the
+  result; the frame medians are 81 modules, 40 to 41 owners and 78 to 82 % (82, 41 and 78 % as
+  first published, with the project counted). The pilot is cited nowhere in the
   findings.
 - An earlier reading of the prior art attributed `#cgo` directive frequencies from Chen et al.
   (JSS 231, 2026) to a 920-project sample. The denominator is 101 manually labelled files inside
@@ -104,4 +108,41 @@ the sampling plan, is what bounded it.
   the 39 author dates are later than the push itself, the last of them 13:28 UTC. Whether the
   rule was fixed before the run cannot be shown from the public record, so it is no longer
   claimed. What can be checked is unchanged: the rule and its code are published, both rules are
-  reported, and they give medians of 41 and 42.
+  reported, and they give medians of 41 and 42 as first published, 40 to 41 and 41 to 42 without
+  the project itself.
+- findings.md §3, and the repository README, said that 45.6 % of projects carry at least one module
+  whose manifest can make the go command download and run a different toolchain. They do not. The
+  go command reads the `toolchain` line of the main module or workspace and of nothing else: the
+  module reference says the directive "only has an effect when the module is the main module", and
+  `modGoToolchain` in `cmd/go/internal/toolchain/select.go` reads only the `go.work` or `go.mod` of
+  the working directory. In a dependency the line is ignored. The count stands and means less:
+  45.6 % of projects have a module in the graph that carries the line. It was also given with a
+  Wilson interval, [40.5–50.7], which treats the 360 projects as independent. They are not: with
+  the ecosystem as the cluster the design effect is 20.9, and with 19 clusters no interval is worth
+  quoting as a number, as the report already said of the owner counts. The figure that describes
+  the mechanism is the 12.8 % whose own `go.mod` names a toolchain [9.7–16.6], design effect 1.1.
+  The title of commit `6fbb1ac` carries the claim, and the headline figures 10, 41 and 8, and is
+  left as it is. `src/report.py` now prints both design effects and the split by cluster.
+- The headline counted each project as one of its own dependencies. `walk.py` reads `go list -m -f
+  '{{.Path}} {{.Version}} {{.Indirect}}' all`, whose first line is the main module with an empty
+  version, so the line splits into two fields, the second is taken as the version, and the module
+  is taken as direct. Every project therefore counted itself among its modules and its direct
+  modules, and its own owner among the owners it named. instruction-gap counts only registry
+  packages, so npm's figures leave the project out. 19 projects with no dependency at all showed
+  one module, one owner and none unnamed. Without the project, modules and direct are exact: median
+  81 and 9, not 82 and 10. Owners and named are not, because the cells keep owner sets and not
+  which module each owner came from, so whether the project's owner also owns another module in the
+  graph is unknown. Taking each case at its extreme gives a median of 40 to 41 owners, 7 to 8
+  named, and a never-named share of 78 to 82 %, where 78 % was published. The per-cluster figures
+  move the same way, and "carries two and names both" for a project that matches no marker
+  described the project itself. `src/report.py` prints the bounds under *Without the project
+  itself*. Clusters are still assigned with the project's own path, which is why a project with no
+  dependency sits in the hashicorp cluster. The same fault put the project's own path among the
+  module resolutions: about 20 of the 34 that reached no host are projects' own paths, most with no
+  dot in them, such as `gonet` or `ragflow`, not modules whose publisher cannot be identified.
+  `walk.py` is left as it ran; a new run would read `{{.Main}}` and drop the main module.
+- findings.md §1 said the developer chose "a tenth" of the parties; its own figures, 8 named of
+  41, said about a fifth.
+- findings.md §3 said the toolchain versions named run from `go1.23.0` to `go1.26.5`. Those were
+  the extremes of the twelve most frequent. Across all graphs they run from `go1.21.0` to
+  `go1.27.1`.

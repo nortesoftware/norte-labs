@@ -113,7 +113,8 @@ def cluster_robust_mean(vals, clusters):
 
 L = []
 L.append('# ecosystems/go — generated report\n')
-L.append(f'{len(cells)} cells, {len(ok)} resolved. Shares are n/N with 95 % Wilson intervals; '
+L.append(f'{len(cells)} cells, {len(ok)} resolved. Shares are n/N with 95 % Wilson intervals, and the '
+         'toolchain shares their design effect beside them; '
          'medians carry p10 and p90; means carry a cluster-robust interval with the ecosystem '
          'as the cluster, and the design effect against the iid interval.\n')
 st = collections.Counter(c.get('status') for c in cells)
@@ -130,11 +131,11 @@ if ok:
     fracB = [100*a/b if b else 0 for a, b in zip(neverB, ob)]
     cl = [cluster(c) for c in ok]
 
-    L.append('## The graph\n')
+    L.append('## The graph, the project counted as its own dependency\n')
     L.append(f'- modules resolved: median {med(mods)} [p10 {q(mods,.1)}, p90 {q(mods,.9)}]; '
              f'direct: median {med(direct)} [p10 {q(direct,.1)}, p90 {q(direct,.9)}]')
     L.append('')
-    L.append('## Owners, both rules\n')
+    L.append('## Owners, both rules, the project counted as its own dependency\n')
     for nm, tot, dirn, nev, fr in (('A (repository owner)', oa, doa, neverA, fracA),
                                    ('B (declared prefix)', ob, dob, neverB, fracB)):
         m, se, deff = cluster_robust_mean([float(x) for x in tot], cl)
@@ -158,6 +159,46 @@ if ok:
         f'{k} {v} ({100*v/tot_how:.1f} %)' for k, v in how.most_common()))
 
     L.append('')
+    # walk.py reads `go list -m all`, whose first line is the main module with no version; it
+    # was parsed as a direct dependency, so the project counts as one of its own modules and its
+    # owner as an owner it named. npm's count leaves the project out. Modules and direct are
+    # exact without it. Owners and named are not: the cells keep owner sets, not which module
+    # each owner came from, so whether the project's owner also owns another module is unknown.
+    # It owns nothing else (drop it from both), another direct module (keep both), or only
+    # indirect ones (keep it as an owner, drop it from named). That bounds each project.
+    solo = [c['modules'] == 1 for c in ok]
+    L.append('## Without the project itself\n')
+    L.append('The main module was counted as a direct dependency (verification.md). Modules and '
+             'direct are exact without it; owners, named and the never-named share are bounded, '
+             'because the cells do not record whether the project\'s owner also owns another '
+             'module in the graph.\n')
+    m1 = [x - 1 for x in mods]; d1 = [x - 1 for x in direct]
+    L.append(f'- modules resolved: median {med(m1)} [p10 {q(m1,.1)}, p90 {q(m1,.9)}]; direct: '
+             f'median {med(d1)} [p10 {q(d1,.1)}, p90 {q(d1,.9)}]; {sum(solo)} projects have no '
+             'dependency at all')
+    for nm, tot, dirn, nev in (('A', oa, doa, neverA), ('B', ob, dob, neverB)):
+        lo_o = [0 if s else x - 1 for x, s in zip(tot, solo)]
+        hi_o = [0 if s else x for x, s in zip(tot, solo)]
+        lo_d = [0 if s else x - 1 for x, s in zip(dirn, solo)]
+        hi_d = [0 if s else x for x, s in zip(dirn, solo)]
+        lo_f = [0 if s else 100*n/o for n, o, s in zip(nev, tot, solo)]
+        hi_f = [0 if s else 100*(n+1)/o for n, o, s in zip(nev, tot, solo)]
+        L.append(f'- rule {nm}: owners median {med(lo_o)} to {med(hi_o)}; named median {med(lo_d)} '
+                 f'to {med(hi_d)}; never-named median share {med(lo_f):.1f} % to {med(hi_f):.1f} % '
+                 f'[p10 {q(lo_f,.1):.0f}–{q(hi_f,.1):.0f} %, p90 {q(lo_f,.9):.0f}–{q(hi_f,.9):.0f} %]')
+    L.append('')
+    L.append('| cluster | n | no dependency | median owners A | median never-named A |')
+    L.append('|---|---|---|---|---|')
+    bc = collections.defaultdict(list)
+    for c, k, s in zip(ok, cl, solo): bc[k].append((c, s))
+    for k, cs in sorted(bc.items(), key=lambda kv: (-len(kv[1]), kv[0]))[:8]:
+        a = [len(c['ownersA']) for c, s in cs]
+        n = [len(set(c['ownersA']) - set(c['directOwnersA'])) for c, s in cs]
+        lo = [0 if s else 100*x/o for x, o, (c, s) in zip(n, a, cs)]
+        hi = [0 if s else 100*(x+1)/o for x, o, (c, s) in zip(n, a, cs)]
+        L.append(f'| {k} | {len(cs)} | {sum(s for c, s in cs)} | {med([0 if s else x-1 for x, (c, s) in zip(a, cs)])} to {med([0 if s else x for x, (c, s) in zip(a, cs)])} '
+                 f'| {med(lo):.0f} to {med(hi):.0f} % |')
+    L.append('')
     i_a, G, avg = icc([float(x) for x in oa], cl)
     js, jd, ns, nd = jaccard_overlap(ok, cl)
     L.append('## The design effect\n')
@@ -170,7 +211,7 @@ if ok:
              'number: the medians and the per-cluster figures below are the citable ones, and '
              'the means are not independent draws.')
     L.append('')
-    L.append('## By cluster\n')
+    L.append('## By cluster, the project counted as its own dependency\n')
     bycl = collections.defaultdict(list)
     for c, k in zip(ok, cl): bycl[k].append(c)
     L.append('| cluster | n | median modules | median owners A | median owners B | median never-named A |')
@@ -188,6 +229,18 @@ if ok:
     L.append(f'- sampled projects whose own go.mod names a toolchain: {wilson(len(ownTc), len(ok))}')
     L.append(f'- projects with at least one module in the graph naming a toolchain: '
              f'{wilson(len(anyTc), len(ok))}')
+    # a share is the mean of a 0/1 indicator; projects in one ecosystem share the modules that
+    # carry the directive, so the Wilson interval above treats as independent what is not. With
+    # 19 clusters the cluster-robust interval is not worth quoting, so only the design effect is
+    for label, have in (('own go.mod', ownTc), ('a module in the graph', anyTc)):
+        ids = {id(c) for c in have}
+        m, se, deff = cluster_robust_mean([1.0 if id(c) in ids else 0.0 for c in ok], cl)
+        L.append(f'  - {label}: design effect {deff:.1f}')
+    by = collections.defaultdict(lambda: [0, 0])
+    for c, k in zip(ok, cl):
+        by[k][0] += 1; by[k][1] += bool(c.get('graphToolchains'))
+    L.append('- a module in the graph naming a toolchain, by cluster: ' + '; '.join(
+        f'{k} {v[1]}/{v[0]}' for k, v in sorted(by.items(), key=lambda kv: (-kv[1][0], kv[0]))))
     ntc = [len(c.get('graphToolchains') or {}) for c in ok]
     L.append(f'- modules naming a toolchain per project: median {med(ntc)} '
              f'[p90 {q(ntc,.9)}, max {max(ntc) if ntc else 0}]')

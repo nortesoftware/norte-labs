@@ -49,14 +49,17 @@ Supply-chain security research and audits.
   is open is the step from modules to owners, what arrives through cgo in a module graph, and the
   toolchain directive that makes the go command download and run a different toolchain by default.
   Appendix in [prior-art/go-supply-chain-sources.md](prior-art/go-supply-chain-sources.md).
-- [ecosystems/go/](ecosystems/go/) — what one `go build` trusts and what it runs: 400
-  repositories from a frame of 11,015, 360 resolved. A median Go project declares 10 modules and
-  trusts 41 distinct owners, naming 8 of them — 78 % never named, against npm's 87 %. Go runs no
-  install script and has a checksum database, and both hold; what they do not change is how many
-  parties can put code into the build. 45.6 % of projects carry at least one module whose
-  manifest can make the go command download and execute a different toolchain, which nobody had
-  measured. Owner derivation published with its code and reported two ways; an earlier claim
-  that it was published before the run is withdrawn in
+- [ecosystems/go/](ecosystems/go/) — what one `go build` trusts and what it runs: 400 repositories
+  from a frame of 11,015, 360 resolved. A median Go project declares 9 modules and trusts 40 or 41
+  distinct owners, naming 7 or 8 of them: between 78 and 82 % never named, against npm's 87 %. The
+  10, 41, 8 and 78 % first given here were wrong: they counted each project as one of its own
+  dependencies. Go runs no install script and has a checksum database, and both hold; what they do
+  not change is how many parties can put code into the build. 12.8 % of projects name a toolchain
+  in their own `go.mod`, which under the default makes the go command download and run it wherever
+  the installed Go is older. The 45.6 % first given here, of projects carrying such a module
+  anywhere in the graph, was wrong: the go command ignores that line in a dependency. Owner
+  derivation published with its code and reported two ways; these corrections, and the withdrawal
+  of an earlier claim that the derivation was published before the run, are in
   [verification.md](ecosystems/go/verification.md#corrections).
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
