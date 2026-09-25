@@ -11,7 +11,7 @@ what the tool reports when the control it names cannot reach what it claims to c
 | [`microsoft/sbom-tool`](sbom-tool/) | `ValidateFormat` prints that validation failed and exits 0. Sent to MSRC per its `SECURITY.md`, tracked as **VULN-229761**, classified Security Feature Bypass. |
 | [`netblue30/firejail`](firejail/) | A blacklist for a path that is not there is skipped with no line at any verbosity, and a seccomp filter that fails to install is reported as installed. Sent 2026-09-23 to the address in `SECURITY.md`. A related ordering defect was added as a comment on [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248). |
 | [`npm audit signatures`](npm-audit-signatures/) | It does not report how many packages it skipped for want of registry keys, so a partially verified tree reads as a fully verified one. Filed as [npm/cli#10018](https://github.com/npm/cli/issues/10018). |
-| [`google/capslock`](capslock/) | Drawn at random rather than chosen. No finding, written up anyway. |
+| [`google/capslock`](capslock/) | Drawn at random rather than chosen. No finding in the default mode, the one examined; written up anyway. |
 | [`bazelbuild/bazel`](bazel/) | Drawn at random from the tools that gate; the record of the draw is not published. Under linux-sandbox, `--sandbox_block_path` skips a path that does not exist when an action's sandbox is set up, with no line at any verbosity tried, and an action already running reads the path once it appears; a block that was applied is lost for a running action when the host renames over the path or deletes and recreates it. Filed as documentation: [#31318](https://github.com/bazelbuild/bazel/issues/31318), with [#31316](https://github.com/bazelbuild/bazel/issues/31316) on a stale `build.mdx` paragraph and [#31317](https://github.com/bazelbuild/bazel/issues/31317) on sandbox pages that contradict each other. |
 
 The recurring shape across the first three is in [absent-fails-open.md](absent-fails-open.md).
@@ -82,6 +82,8 @@ known for:
   setup is a no-op; the question is what happens when the path appears afterwards, and whether any
   output distinguishes a rule that matched nothing from a rule that was applied.
 
+Channel: mature, with a documented process and a long advisory history.
+
 **Audited, 2026-09-23: [tools/firejail/](firejail/).** Both reproduced on 0.9.74, with the code
 checked against `ccdf4ea` first so the report is not about an EOL version. The blacklist finding
 came out stronger than expected: the same program implements "the path is not there at setup"
@@ -92,8 +94,8 @@ is reproduced, including that `--seccomp.print` reads the filter files rather th
 6.12 and is stated as unreproduced. Reported 2026-09-23 to `netblue30@protonmail.com`.
 
 The recurrence is written up separately in [absent-fails-open.md](absent-fails-open.md), and
-tested against a target picked by seeded random draw — [capslock/](capslock/), where it does not
-appear.
+tested against targets picked by seeded random draw — [capslock/](capslock/), where it did not
+appear in the mode examined, and [bazel/](bazel/), where it did.
 
 ### 3. `npm audit signatures` — npm/cli
 
@@ -117,16 +119,6 @@ npm/cli#5479 asked for `E400` to be treated like `E404` precisely so those depen
 skipped rather than fail. What is left is that the mixed case reports no coverage figure, which
 is a reporting gap and not a vulnerability. Filed as a public issue instead, npm/cli#10018; the four-submission
 limit is not worth spending on a report whose own prior art shows the behaviour was asked for.
-
-espace filters —
-  and execution proceeds unconditionally. `src/firejail/seccomp.c` warns once when the kernel is
-  too old. A sandbox whose syscall filter did not install keeps running, still called a sandbox.
-- **Absent paths.** `src/firejail/fs.c` globs blacklist patterns with `GLOB_NOCHECK`, with the
-  comment that profiles blacklist files that may not exist. A blacklist entry for a path absent at
-  setup is a no-op; the question is what happens when the path appears afterwards, and whether any
-  output distinguishes a rule that matched nothing from a rule that was applied.
-
-Channel: mature, with a documented process and a long advisory history.
 
 ## Runners-up, and why not now
 
@@ -167,3 +159,11 @@ that channel is a role address the project publishes (`security@…`, `secure@�
 in the field. Where it is a maintainer's personal address, the field says where to find it
 instead of repeating it. Three entries are affected. Reports actually sent are a different
 matter: `tools/firejail/` names the address it went to, because that is the record of the report.
+
+## Corrections, 2026-09-25
+
+- An earlier edit left a copy of the end of the firejail section after the npm section,
+  starting mid-word, and took firejail's channel line with it. The copy is removed and the line
+  is back in the firejail section.
+- The Capslock row said "No finding", and the firejail section said the recurrence does not
+  appear in Capslock. Only its default mode was examined, and the second draw, Bazel, did show it.

@@ -11,15 +11,18 @@ nothing covers it. The operator has no way to tell a rule that is working from a
 applied.
 
 **nono** ([nolabs-ai/nono#1796](https://github.com/nolabs-ai/nono/issues/1796), open since
-2026-09-06). Permission grants for paths that are not present are dropped "silently without any
-diagnostic message at any verbosity level". The same report records the session summary printing
-`No path denials were observed during this session` across 32 runs the sandbox itself broke.
+2026-09-06). A profile's group grant for a path that is not present "is skipped with no message
+at any verbosity"; a path given with `--allow` is dropped too, and that one warns. The same report
+records that across 32 logged runs every failure the sandbox caused printed `No path denials were
+observed during this session`. Here the dropped path is a grant, so the program loses access it
+was given: this instance fails quietly, and closed.
 
 **firejail** ([tools/firejail/](firejail/)). `disable_file()` returns as soon as `realpath()`
 fails with `ENOENT`, before any print and before the filesystem log. `--debug-blacklists`, the
 flag whose purpose is debugging blacklists, is read only inside the branch where the blacklist
 was applied. A blacklist entry for a missing path produces no line at any verbosity, and the path
-it named is writable and readable inside the sandbox.
+it named is writable and readable inside the sandbox. The manual says so; what is missing is the
+diagnostic.
 
 Two instances is a recurrence, not a law. What makes it worth writing down is the second half of
 the firejail case: the same program implements the same condition twice and reports it once. The
@@ -42,9 +45,11 @@ directory has hit so far:
 - microsoft/sbom-tool ([tools/sbom-tool/](sbom-tool/)): the exit code is assigned from a ternary
   whose condition is the literal `true`, so it reports the validation it set out to do and never
   the result.
-- npm `audit signatures`, read but not yet audited: a package counts as `missing` only when the
-  registry returned keys, and the key lookup returns `null` on a TUF error or a 404, so with no
-  keys an unsigned package is neither verified nor missing.
+- npm `audit signatures` ([npm-audit-signatures/](npm-audit-signatures/), audited after this was
+  first written): a package counts as `missing` only when the registry returned keys, and the key
+  lookup returns `null` on a TUF error or a 404, so with no keys an unsigned package is neither
+  verified nor missing. The skip is intentional and was asked for; what stands is that a tree
+  partly from a keyless registry reports no coverage figure.
 - pmg, from the earlier survey: a network allowlist present in fifteen of seventeen shipped
   profiles and installed by nothing, with `profiles/go.yml` saying so — "They are NOT
   kernel-enforced."
@@ -67,7 +72,7 @@ read as "nothing is wrong with this module". The report frames the consequence f
 turns on by default: "a malicious module proxy can serve altered versions of the Go toolchain"
 when one is selected via `GOTOOLCHAIN`.
 
-This matters to the argument above in a way the five audited cases cannot. It was not drawn and
+This matters to the argument above in a way the five tools above cannot. It was not drawn and
 it was not chosen — it surfaced while sweeping prior art for a different question entirely — so
 it is not subject to the selection bias that the rest of this note is hedged against. It is also
 a gate rather than a reporter, which is the distinction the first draw left open and the second is
@@ -112,7 +117,7 @@ and `docs/caveats.md` gives that as the reason: "so that capabilities are not mi
 indication to the user". Its one unsurfaced blind spot, data races on interface and slice types,
 is documented as unsurfaced. It errs towards over-reporting.
 
-So this note stays what it was: an observation about four cases selected for their form, plus one
+So this note stays what it was: an observation about five tools selected for their form, plus one
 drawn case where the form is absent from the mode examined. It is not a claim about how these
 controls are written in general, and the draw is the reason it cannot be upgraded into one on the
 evidence here.
@@ -150,9 +155,10 @@ shipped in 7.3.0. What was missing was any statement of what it means.
 
 So the count is one of two drawn cases, and the other is partial: in Capslock I examined only the
 default mode. Two cases establish nothing. They do change what this note is. It is no longer only
-about cases chosen for their form. Four were chosen, and one turned up while I was looking for
-something else. Two were drawn, one with the pattern and one without it in the mode examined. That
-is too few to say how often the pattern turns up in a tool nobody picked, and I don't know.
+about cases chosen for their form. Five tools were chosen, and one case turned up while I was
+looking for something else. Two were drawn, one with the pattern and one without it in the mode
+examined. That is too few to say how often the pattern turns up in a tool nobody picked, and I
+don't know.
 
 ## Corrections, 2026-09-24
 
@@ -166,3 +172,20 @@ is too few to say how often the pattern turns up in a tool nobody picked, and I 
 - This note said the seed was fixed and committed before the draw ran. The commit with the seed
   and the commit with the result reached GitHub in the same push, on 2026-09-24 at 05:01:13 UTC
   (push event 22028704157), so that order is not on any public record and is no longer claimed.
+
+## Corrections, 2026-09-25
+
+- The nono paragraph put in quotation marks a sentence that is not in #1796, "silently without any
+  diagnostic message at any verbosity level". The issue says a group path "is skipped with no
+  message at any verbosity", and that a path given with `--allow` is dropped with a warning. The
+  paragraph also read "across 32 logged runs" as 32 runs the sandbox broke; the issue says every
+  failure the sandbox caused, across those runs, printed the footer. And it left out that in nono
+  the dropped path is a grant, so that instance fails closed. Of the two instances of the narrow
+  pattern, firejail's is the one that fails open.
+- npm `audit signatures` was listed as read but not yet audited. It was audited afterwards, and
+  the entry now says what stands.
+- "The five audited cases" were five tools, not five audits: pmg was read and not run, and npm
+  had not been audited yet. Two later passages counted four tools chosen for their form; they were
+  five, nono, firejail, sbom-tool, npm and pmg.
+- The firejail paragraph did not say that firejail's manual documents the open path. It does,
+  and the finding is the missing diagnostic.
