@@ -130,6 +130,30 @@ a tool's promise outruns its mechanism is not settled by these cases either, and
 reading is the one the second draw is aimed at
 ([gate-or-report-2026-09-24.md](gate-or-report-2026-09-24.md)).
 
+## The second drawn case
+
+A second target was drawn, this time from the tools that gate
+([gate-or-report-2026-09-24.md](gate-or-report-2026-09-24.md)). That file reached GitHub at
+11:09:08 UTC on 2026-09-24 (push event 22037394009). Bazel was first named in public as the target
+more than ten hours later. As with the first draw, the record of the draw is not published. It
+came out bazelbuild/bazel ([bazel/](bazel/)).
+
+The narrow pattern appeared there, in the shape described at the top of this note. Under
+linux-sandbox, `--sandbox_block_path` skips a path that does not exist when an action's sandbox is
+set up. No line names it at any verbosity I tried. If the path appears while the action runs, the
+action reads it. The same flag also loses a block it did apply, for the running action, when the
+host renames over the path or deletes and recreates it.
+
+The draw chose the target, not the mechanism. I asked Bazel the questions I ask every target, and
+the one about absent paths led to that flag. The skip itself was requested in public in 2018 and
+shipped in 7.3.0. What was missing was any statement of what it means.
+
+So the count is one of two drawn cases, and the other is partial: in Capslock I examined only the
+default mode. Two cases establish nothing. They do change what this note is. It is no longer only
+about cases chosen for their form. Four were chosen, and one turned up while I was looking for
+something else. Two were drawn, one with the pattern and one without it in the mode examined. That
+is too few to say how often the pattern turns up in a tool nobody picked, and I don't know.
+
 ## Corrections, 2026-09-24
 
 - The drawn target was the fourth audited in this directory, not a fifth, and the draw that tests
