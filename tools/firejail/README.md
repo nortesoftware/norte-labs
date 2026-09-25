@@ -46,6 +46,12 @@ the jail." The finding here is the missing diagnostic, not the behaviour — a r
 nothing and a rule that worked are indistinguishable at every verbosity — and it is narrowed to
 that.
 
+The same sentence covers a blacklisted file that the host replaces while a jail runs, by renaming
+a new file over it or by deleting and recreating it: the new file is created after firejail start.
+Firejail blacklists with bind mounts, and since Linux 3.18 the kernel detaches such a mount when
+its path is replaced from outside, which [../bazel/](../bazel/) measured in Bazel. I did not
+measure it in firejail.
+
 The same condition is reported elsewhere in the same program. `fs_whitelist.c:668` handles a
 `realpath` that returns NULL by printing, under `--debug` or `--debug-whitelists`:
 
