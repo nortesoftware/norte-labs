@@ -18,10 +18,19 @@ def wilson(k, n):
     h = z * math.sqrt(p*(1-p)/n + z*z/(4*n*n))
     return f'{100*p:.1f} % [{100*(c-h)/den:.1f}–{100*(c+h)/den:.1f}]'
 
+class Q(float):
+    """A quantile kept exact for every use and rounded once, to one decimal, where it is printed
+    without a format of its own."""
+    def __str__(self): return str(int(self)) if self.is_integer() else f'{float(self):.1f}'
+    __repr__ = __str__
+
 def q(v, f):
-    if not v: return 0
-    s = sorted(v); i = max(0, min(len(s)-1, int(round(f*(len(s)-1)))))
-    return s[i]
+    # Linear interpolation between order statistics, as instruction-gap computes them; an
+    # order statistic alone is one of the two middle values when n is even.
+    if not v: return Q(0)
+    s = sorted(v); x = f*(len(s)-1); i = int(x)
+    val = s[i] if i + 1 >= len(s) else s[i] + (s[i+1] - s[i])*(x - i)
+    return Q(val)
 
 def med(v): return q(v, 0.5)
 
@@ -84,10 +93,7 @@ def jaccard_overlap(ok, cl):
     sets = [set(c['ownersA']) for c in ok]
     same, diff = [], []
     idx = list(range(len(ok)))
-    pairs = list(itertools.combinations(idx, 2))
-    if len(pairs) > 20000:
-        pairs = pairs[::max(1, len(pairs)//20000)]
-    for i, j in pairs:
+    for i, j in itertools.combinations(idx, 2):
         u = len(sets[i] | sets[j])
         if not u: continue
         v = len(sets[i] & sets[j])/u
@@ -168,7 +174,7 @@ if ok:
     # indirect ones (keep it as an owner, drop it from named). That bounds each project.
     solo = [c['modules'] == 1 for c in ok]
     L.append('## Without the project itself\n')
-    L.append('The main module was counted as a direct dependency (verification.md). Modules and '
+    L.append('The main module was counted as a direct dependency (README.md, Corrections). Modules and '
              'direct are exact without it; owners, named and the never-named share are bounded, '
              'because the cells do not record whether the project\'s owner also owns another '
              'module in the graph.\n')
@@ -181,11 +187,13 @@ if ok:
         hi_o = [0 if s else x for x, s in zip(tot, solo)]
         lo_d = [0 if s else x - 1 for x, s in zip(dirn, solo)]
         hi_d = [0 if s else x for x, s in zip(dirn, solo)]
-        lo_f = [0 if s else 100*n/o for n, o, s in zip(nev, tot, solo)]
-        hi_f = [0 if s else 100*(n+1)/o for n, o, s in zip(nev, tot, solo)]
+        # A project with no dependency has no owner besides itself, so no share: it is left out
+        # of the share, as instruction-gap leaves out a project with no publisher.
+        lo_f = [100*n/o for n, o, s in zip(nev, tot, solo) if not s]
+        hi_f = [100*(n+1)/o for n, o, s in zip(nev, tot, solo) if not s]
         L.append(f'- rule {nm}: owners median {med(lo_o)} to {med(hi_o)}; named median {med(lo_d)} '
                  f'to {med(hi_d)}; never-named median share {med(lo_f):.1f} % to {med(hi_f):.1f} % '
-                 f'[p10 {q(lo_f,.1):.0f}–{q(hi_f,.1):.0f} %, p90 {q(lo_f,.9):.0f}–{q(hi_f,.9):.0f} %]')
+                 f'[p10 {q(lo_f,.1):.1f}–{q(hi_f,.1):.1f} %, p90 {q(lo_f,.9):.1f}–{q(hi_f,.9):.1f} %]')
     L.append('')
     L.append('| cluster | n | no dependency | median owners A | median never-named A |')
     L.append('|---|---|---|---|---|')
@@ -194,10 +202,10 @@ if ok:
     for k, cs in sorted(bc.items(), key=lambda kv: (-len(kv[1]), kv[0]))[:8]:
         a = [len(c['ownersA']) for c, s in cs]
         n = [len(set(c['ownersA']) - set(c['directOwnersA'])) for c, s in cs]
-        lo = [0 if s else 100*x/o for x, o, (c, s) in zip(n, a, cs)]
-        hi = [0 if s else 100*(x+1)/o for x, o, (c, s) in zip(n, a, cs)]
+        lo = [100*x/o for x, o, (c, s) in zip(n, a, cs) if not s]
+        hi = [100*(x+1)/o for x, o, (c, s) in zip(n, a, cs) if not s]
         L.append(f'| {k} | {len(cs)} | {sum(s for c, s in cs)} | {med([0 if s else x-1 for x, (c, s) in zip(a, cs)])} to {med([0 if s else x for x, (c, s) in zip(a, cs)])} '
-                 f'| {med(lo):.0f} to {med(hi):.0f} % |')
+                 f'| {med(lo):.1f} to {med(hi):.1f} % |')
     L.append('')
     i_a, G, avg = icc([float(x) for x in oa], cl)
     js, jd, ns, nd = jaccard_overlap(ok, cl)
@@ -226,7 +234,7 @@ if ok:
     L.append('## The toolchain directive\n')
     ownTc = [c for c in ok if c.get('ownToolchain')]
     anyTc = [c for c in ok if c.get('graphToolchains')]
-    L.append(f'- sampled projects whose own go.mod names a toolchain: {wilson(len(ownTc), len(ok))}')
+    L.append(f'- resolved projects whose own go.mod names a toolchain: {wilson(len(ownTc), len(ok))}')
     L.append(f'- projects with at least one module in the graph naming a toolchain: '
              f'{wilson(len(anyTc), len(ok))}')
     # a share is the mean of a 0/1 indicator; projects in one ecosystem share the modules that

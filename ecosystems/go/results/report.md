@@ -8,42 +8,42 @@
 
 ## The graph, the project counted as its own dependency
 
-- modules resolved: median 82 [p10 6, p90 515]; direct: median 10 [p10 2, p90 38]
+- modules resolved: median 82 [p10 6, p90 516.1]; direct: median 10 [p10 2, p90 38]
 
 ## Owners, both rules, the project counted as its own dependency
 
-- **Rule A (repository owner)** — owners per project: median 41 [p10 3, p90 215]; mean 79.7 ± 53.4 (cluster-robust, design effect 29.53)
-  - named in the project's own go.mod: median 8 [p10 2, p90 24]
-  - never named: median 35 [p10 0, p90 178], median share 78 % [p10 0 %, p90 92 %]
-- **Rule B (declared prefix)** — owners per project: median 42 [p10 3, p90 217]; mean 80.5 ± 53.9 (cluster-robust, design effect 29.56)
-  - named in the project's own go.mod: median 8 [p10 2, p90 24]
-  - never named: median 36 [p10 0, p90 179], median share 79 % [p10 0 %, p90 93 %]
+- **Rule A (repository owner)** — owners per project: median 41 [p10 3, p90 215.9]; mean 79.7 ± 53.4 (cluster-robust, design effect 29.53)
+  - named in the project's own go.mod: median 8 [p10 2, p90 24.1]
+  - never named: median 35 [p10 0, p90 178.8], median share 78 % [p10 0 %, p90 92 %]
+- **Rule B (declared prefix)** — owners per project: median 42 [p10 3, p90 217.9]; mean 80.5 ± 53.9 (cluster-robust, design effect 29.56)
+  - named in the project's own go.mod: median 8 [p10 2, p90 24.1]
+  - never named: median 35.5 [p10 0, p90 179.9], median share 79 % [p10 0 %, p90 93 %]
 
 - **Sensitivity**: rule B counts 1.00x the owners of rule A at the median [p10 1.00, p90 1.03]. The gap is vanity hosts fronting forge accounts.
 - rule A resolution: forge 46164 (71.0 %); meta 18732 (28.8 %); unresolved 120 (0.2 %); unreachable 34 (0.1 %)
 
 ## Without the project itself
 
-The main module was counted as a direct dependency (verification.md). Modules and direct are exact without it; owners, named and the never-named share are bounded, because the cells do not record whether the project's owner also owns another module in the graph.
+The main module was counted as a direct dependency (README.md, Corrections). Modules and direct are exact without it; owners, named and the never-named share are bounded, because the cells do not record whether the project's owner also owns another module in the graph.
 
-- modules resolved: median 81 [p10 5, p90 514]; direct: median 9 [p10 1, p90 37]; 19 projects have no dependency at all
-- rule A: owners median 40 to 41; named median 7 to 8; never-named median share 78.4 % to 82.0 % [p10 0–48 %, p90 92–94 %]
-- rule B: owners median 41 to 42; named median 7 to 8; never-named median share 78.8 % to 81.9 % [p10 0–49 %, p90 93–94 %]
+- modules resolved: median 81 [p10 5, p90 515.1]; direct: median 9 [p10 1, p90 37]; 19 projects have no dependency at all
+- rule A: owners median 40 to 41; named median 7 to 8; never-named median share 79.5 % to 82.8 % [p10 40.0–57.1 %, p90 92.7–94.6 %]
+- rule B: owners median 41 to 42; named median 7 to 8; never-named median share 80.0 % to 83.1 % [p10 40.0–57.1 %, p90 92.8–94.6 %]
 
 | cluster | n | no dependency | median owners A | median never-named A |
 |---|---|---|---|---|
-| kubernetes | 94 | 0 | 133 to 134 | 89 to 89 % |
-| gcp | 52 | 0 | 49 to 50 | 81 to 83 % |
-| none | 52 | 18 | 1 to 2 | 0 to 33 % |
-| testify | 41 | 0 | 10 to 11 | 62 to 71 % |
-| docker | 33 | 0 | 97 to 98 | 83 to 85 % |
-| aws | 17 | 0 | 53 to 54 | 75 to 79 % |
-| cobra | 17 | 0 | 22 to 23 | 71 to 80 % |
-| hashicorp | 11 | 1 | 29 to 30 | 72 to 76 % |
+| kubernetes | 94 | 0 | 134.5 to 135.5 | 88.7 to 89.6 % |
+| gcp | 52 | 0 | 48 to 49 | 80.0 to 83.1 % |
+| none | 52 | 18 | 1 to 2 | 0.0 to 50.0 % |
+| testify | 41 | 0 | 10 to 11 | 62.5 to 71.4 % |
+| docker | 33 | 0 | 97 to 98 | 82.6 to 84.5 % |
+| aws | 17 | 0 | 53 to 54 | 75.0 to 78.6 % |
+| cobra | 17 | 0 | 22 to 23 | 71.4 to 80.4 % |
+| hashicorp | 11 | 1 | 29 to 30 | 73.5 to 75.9 % |
 
 ## The design effect
 
-- clusters: 19, mean size 18.9. Owner-set overlap (Jaccard) for two projects in the same cluster is 0.225 against 0.103 across clusters (2833 same-cluster pairs, 18707 across), which is what makes the grouping real rather than assumed.
+- clusters: 19, mean size 18.9. Owner-set overlap (Jaccard) for two projects in the same cluster is 0.230 against 0.103 across clusters (8802 same-cluster pairs, 55818 across), which is what makes the grouping real rather than assumed.
 - intra-class correlation of owners per project: 0.561
 - With this many clusters the cluster-robust interval is not worth quoting as a number: the medians and the per-cluster figures below are the citable ones, and the means are not independent draws.
 
@@ -51,29 +51,29 @@ The main module was counted as a direct dependency (verification.md). Modules an
 
 | cluster | n | median modules | median owners A | median owners B | median never-named A |
 |---|---|---|---|---|---|
-| kubernetes | 94 | 309 | 134 | 136 | 89 % |
-| none | 52 | 4 | 2 | 2 | 0 % |
-| gcp | 52 | 102 | 50 | 50 | 81 % |
+| kubernetes | 94 | 311 | 135.5 | 136.5 | 89 % |
+| none | 52 | 3.5 | 2 | 2 | 0 % |
+| gcp | 52 | 101.5 | 49 | 50 | 80 % |
 | testify | 41 | 19 | 11 | 11 | 62 % |
 | docker | 33 | 166 | 98 | 98 | 83 % |
 | aws | 17 | 136 | 54 | 55 | 75 % |
 | cobra | 17 | 39 | 23 | 24 | 71 % |
 | hashicorp | 11 | 55 | 30 | 30 | 72 % |
-| charm | 10 | 47 | 24 | 24 | 76 % |
+| charm | 10 | 48.5 | 25 | 25 | 77 % |
 | prometheus | 7 | 47 | 28 | 29 | 79 % |
-| libp2p | 6 | 370 | 163 | 164 | 89 % |
+| libp2p | 6 | 590 | 236 | 238.5 | 92 % |
 | ethereum | 5 | 433 | 233 | 232 | 86 % |
-| azure | 4 | 63 | 31 | 31 | 73 % |
+| azure | 4 | 55.5 | 25.5 | 25.5 | 67 % |
 | gin | 3 | 53 | 32 | 33 | 89 % |
 | gorm | 3 | 39 | 15 | 15 | 78 % |
-| etcd | 2 | 15 | 9 | 9 | 52 % |
+| etcd | 2 | 38.5 | 18 | 18.5 | 59 % |
 | opentelemetry | 1 | 12 | 8 | 8 | 62 % |
 | fiber | 1 | 135 | 86 | 85 | 83 % |
 | cosmos | 1 | 548 | 290 | 294 | 94 % |
 
 ## The toolchain directive
 
-- sampled projects whose own go.mod names a toolchain: 12.8 % [9.7–16.6]
+- resolved projects whose own go.mod names a toolchain: 12.8 % [9.7–16.6]
 - projects with at least one module in the graph naming a toolchain: 45.6 % [40.5–50.7]
   - own go.mod: design effect 1.1
   - a module in the graph: design effect 20.9
