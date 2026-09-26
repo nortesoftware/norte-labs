@@ -38,9 +38,9 @@ median and inside its middle half.
 
 A different question: who may publish a crate now, from crates.io's owners endpoint, on
 2026-09-24. **278 owners**, 227 of them user accounts and 51 GitHub teams, where a team is any
-number of people. 220 of the 501 crates, 44 %, have exactly one owner. The npm figure for the
-same question is instruction-gap's accounts with permission to publish, a median of **401**.
-Whether nono has fewer depends on the size of the 51 teams, which was not measured. 16 of the 158
+number of people. 220 of the 501 crates, 44 %, have exactly one owner. npm has no figure for the
+same question: instruction-gap's 401 counts the maintainers each version recorded when it was
+published. 16 of the 158
 publishing accounts are not among the 278 owners at all, and 75 versions were published by an
 account that is no longer an owner of that crate.
 
@@ -63,3 +63,9 @@ It is one lockfile of one project. A lockfile resolves every platform's dependen
 on one machine compiles fewer. Owners are as of 2026-09-24; publishers are as recorded for each
 version when it was published. Nothing was built or run. Whether nono's tree is larger or smaller
 than a typical Rust tool's was not measured.
+
+## Corrections, 2026-09-25
+
+- *Owners* set nono's owners against instruction-gap's 401 as the same question. The 401 counts
+  the maintainers each version recorded when it was published, not who may publish now, and the
+  comparison is gone.

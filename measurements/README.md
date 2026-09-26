@@ -9,15 +9,15 @@
   plugins, the 171 Devin marketplace plugins, the 73 Zed context-server extensions. The
   mcp-install instrument over four whole populations, run first against the ACP registry's
   own CI as field truth. Findings in [agent-plugins/findings.md](agent-plugins/findings.md);
-  additional checks and corrections in [agent-plugins/verification.md](agent-plugins/verification.md).
+  corrections in [agent-plugins/README.md](agent-plugins/README.md#corrections).
 - [instruction-gap/](instruction-gap/) — what one `npm install` brings: for 892 lockfiles from a
   random sample of GitHub repositories (JavaScript/TypeScript, ≥ 100 stars, active), the direct
   dependencies declared against the versions resolved, the distinct publishers behind them, the
   publishers of install-time code, the hosts, and the design effect of shared frameworks. Read
   from lockfiles and the registry, nothing installed. Findings in
-  [instruction-gap/findings.md](instruction-gap/findings.md); additional checks and corrections
-  in [instruction-gap/verification.md](instruction-gap/verification.md).
+  [instruction-gap/findings.md](instruction-gap/findings.md); corrections in
+  [instruction-gap/README.md](instruction-gap/README.md#corrections).
 - [nono-build/](nono-build/) — who published the crates one sandbox is built from: nono's
   `Cargo.lock`, 548 versions of 501 crates, counted the way instruction-gap counts npm. 184
-  publishers, against a median npm project's 165; 227 accounts and 51 teams by permission, against
-  401 accounts. One project, not a sample.
+  publishers, against a median npm project's 165; 227 accounts and 51 teams that may publish. One
+  project, not a sample.

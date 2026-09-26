@@ -30,10 +30,8 @@ Supply-chain security research and audits.
   330 Cursor plugins, 171 Devin plugins, 73 Zed context servers — whole populations, no
   sample — and 600 Open VSX extensions activated inside a headless editor under the same
   trace, a seeded sample of the gallery behind Cursor and Windsurf. Install scripts, egress,
-  telemetry, `$HOME` paths, what hooks download, which extensions write into another agent's
-  configuration and how many of them do it at every editor start, what a quarantine means;
-  harness, per-cell results, generated report, findings, additional checks with their
-  corrections.
+  telemetry, `$HOME` paths, what hooks download, what a quarantine means; harness, per-cell
+  results, generated report, findings, and the corrections in its README.
 - [tools/](tools/) — audits of supply-chain security tools: what the documentation promises, what
   the code does, and what the tool reports when the control it names cannot reach what it claims
   to cover. Inventory of 69 tools across install sandboxes, package scanners, CI gates, provenance
@@ -51,35 +49,30 @@ Supply-chain security research and audits.
   Appendix in [prior-art/go-supply-chain-sources.md](prior-art/go-supply-chain-sources.md).
 - [ecosystems/go/](ecosystems/go/) — what one `go build` trusts and what it runs: 400 repositories
   from a frame of 11,015, 360 resolved. A median Go project declares 9 modules and trusts 40 or 41
-  distinct owners, naming 7 or 8 of them: between 78 and 82 % never named, against npm's 87 %. The
-  10, 41, 8 and 78 % first given here were wrong: they counted each project as one of its own
-  dependencies. Go runs no install script and has a checksum database, and both hold; what they do
-  not change is how many parties can put code into the build. 12.8 % of projects name a toolchain
-  in their own `go.mod`, which under the default makes the go command download and run it wherever
-  the installed Go is older. The 45.6 % first given here, of projects carrying such a module
-  anywhere in the graph, was wrong: the go command ignores that line in a dependency. Owner
-  derivation published with its code and reported two ways; these corrections, and the withdrawal
-  of an earlier claim that the derivation was published before the run, are in
-  [verification.md](ecosystems/go/verification.md#corrections).
+  distinct owners, naming 7 or 8 of them; of those with a dependency, between 79.5 and 82.8 % never
+  named, against npm's 87 %. Go runs no install script and has a checksum database, and both
+  hold; what they do not change is how many parties can put code into the build. 12.8 % of the
+  360 name a toolchain in their own `go.mod`, which under the default makes the go command
+  download and run it wherever the installed Go is older. Owner derivation published with its
+  code and reported two ways; corrections in its [README](ecosystems/go/README.md#corrections).
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
-  Harness, per-cell results, generated report, findings, and the additional checks with their
-  retractions.
+  Harness, per-cell results, generated report, findings, and the corrections in its README.
 - [prior-art/instruction-gap.md](prior-art/instruction-gap.md) — has anyone counted, per real
   project, the publishers behind what one `npm install` brings? Per package yes (2019); per
   synthetic stack yes (2026); per declared sample of real projects no. Appendix in
   [prior-art/instruction-gap-sources.md](prior-art/instruction-gap-sources.md).
 - [measurements/instruction-gap/](measurements/instruction-gap/) — 892 lockfiles from a random
-  sample of GitHub repositories: a median project declares 26 packages and receives 604
-  versions from 165 publishing identities, 87 % of them behind nothing it named; who is in
-  nine trees of ten; the install-time code and who publishes it; the hosts; the design effect
-  of shared frameworks. Read from lockfiles and the registry, nothing installed. npm only:
-  PyPI's registry does not record who uploaded a release, so the count cannot be made there;
-  that is a limit of the measurement, not work left to do.
+  sample of GitHub repositories: a median project declares 26 packages and receives 604 versions
+  from 165 publishing identities; over the 881 with a publisher, a median 87 % of a project's
+  publishers are behind nothing it named; who is in nine trees of ten; the install-time code and who
+  publishes it; the hosts; the design effect of shared frameworks. Read from lockfiles and the
+  registry, nothing installed. npm only: PyPI's registry does not record who uploaded a release, so
+  the count cannot be made there; that is a limit of the measurement, not work left to do.
 - [measurements/nono-build/](measurements/nono-build/) — who published the crates nono, a
   sandbox, is built from: 548 versions of 501 crates in its `Cargo.lock`, 184 publishers against
-  a median npm project's 165, and 227 accounts and 51 teams by permission against 401 accounts. One
-  project, not a sample.
+  a median npm project's 165, and 227 accounts and 51 teams that may publish. One project, not a
+  sample.
 
 ## Conventions
 

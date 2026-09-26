@@ -6,7 +6,7 @@ intentional. What the command does not do is say how many packages it skipped, s
 some dependencies came from a keyless registry produces the same output shape and the same exit
 code as one where every dependency was checked.
 
-Audited against npm 10.9.8. Filed as a public issue,
+Audited against npm 10.9.8, and run again on 12.1.0. Filed as a public issue,
 [npm/cli#10018](https://github.com/npm/cli/issues/10018), and deliberately not as a vulnerability
 — see *Verdict*.
 
@@ -44,6 +44,14 @@ count, not under `missing`, not under `invalid`. The line a reader takes away is
 tree's total dependency count is not printed beside the audited count, so the two cannot be
 compared without counting the lockfile separately.
 
+From npm 11.2.0 ([npm/cli#8080](https://github.com/npm/cli/pull/8080)) each registry whose keys
+are not in Sigstore's trust root gets one line before
+the summary: `npm warn Fetching verification keys using TUF failed.  Fetching directly from
+<registry>.` On 12.1.0 both trees above print it for the keyless registry, and the summaries and
+exit codes are unchanged. A third tree, `lodash` and a package from a local registry that serves
+a key and signs, prints the same line word for word, and its package verifies. The warning
+names the registry. It does not say whether that registry's packages were checked.
+
 Measure the exit status from the command and not through a pipe; after `npm audit signatures |
 head` the status is `head`'s and both rows read as 0.
 
@@ -57,8 +65,11 @@ the first place.
 
 ## Prior art
 
-- **Is the checked-versus-could-not-check gap reported?** Not found. No issue or pull request in
-  `npm/cli` discusses the coverage figure, and `auditedWithKeysCount` appears in no issue.
+- **Is the checked-versus-could-not-check gap reported?** Not as an issue: none in `npm/cli`
+  discusses the coverage figure, and `auditedWithKeysCount` appears in none.
+  [npm/rfcs#550](https://github.com/npm/rfcs/pull/550), opened 2022-03-10 and accepted
+  2026-05-29, anticipates it: a mirror or proxy that omits signatures, and "The best we can do
+  for now in this case is warn users that some packages don't have signatures."
 - **Is the key lookup returning `null` on `E404`/`E400` reported?** Yes, and it is the intended
   behaviour rather than a defect.
   [npm/cli#5479](https://github.com/npm/cli/issues/5479) (opened 2022-09-07, closed 2022-09-21)
@@ -91,3 +102,11 @@ right venue here. The right venue is a public issue: `audit signatures` should r
 of packages it skipped for want of registry keys, so that a partially verified tree cannot be
 mistaken for a fully verified one. Filed 2026-09-23 as
 [npm/cli#10018](https://github.com/npm/cli/issues/10018); text as filed: [issue.md](issue.md).
+
+## Corrections, 2026-09-25
+
+- The output was described as giving no sign of the skipped packages. That holds on 10.9.8,
+  where it was reproduced. From 11.2.0 a warning names each registry outside Sigstore's trust
+  root; on 12.1.0 it reads the same for a registry whose packages were verified.
+- *Prior art* said no discussion of the gap was found. npm/rfcs#550, opened 2022-03-10,
+  anticipates it.
