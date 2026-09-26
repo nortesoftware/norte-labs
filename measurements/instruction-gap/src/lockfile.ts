@@ -60,6 +60,7 @@ export interface Lock {
   nodes: Node[];
   declared: Declared[] | null; // null when the lockfile does not embed manifests (yarn v1)
   workspaces: string[];        // workspace paths the lockfile knows about
+  links?: string[];            // npm: names of workspace packages, linked rather than resolved
 }
 
 const FIELDS: Declared['field'][] = ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'];
@@ -98,6 +99,7 @@ function parseNpm(text: string): Lock {
   const nodes: Node[] = [];
   const declared: Declared[] = [];
   const workspaces: string[] = [];
+  const links: string[] = [];
   if (j.packages) {
     for (const [path, p] of Object.entries<any>(j.packages)) {
       if (path === '' || !path.includes('node_modules/')) {
@@ -106,18 +108,18 @@ function parseNpm(text: string): Lock {
         declared.push(...declaredFrom(p, path || '.'));
         continue;
       }
-      if (p.link) continue; // a symlink to a workspace package
+      if (p.link) { links.push(p.name || path.replace(/^.*node_modules\//, '')); continue; } // a symlink to a workspace package
       const name = p.name || path.replace(/^.*node_modules\//, '');
       const resolved = p.resolved ?? null;
       const kind = p.resolved ? kindOf(resolved) : (p.version && /^(file|link):/.test(p.version) ? 'link' : (resolved === null && p.version ? 'registry' : 'other'));
       nodes.push({
         name, version: String(p.version ?? ''), kind, resolved,
         host: resolved ? hostOf(resolved) : (kind === 'registry' ? 'registry' : null),
-        integrity: p.integrity ?? null, dev: !!p.dev || null, optional: !!p.optional || null,
+        integrity: p.integrity ?? null, dev: !!p.dev, optional: !!p.optional || null,
         hasInstallScript: p.hasInstallScript === true ? true : (p.hasInstallScript === false ? false : null),
       });
     }
-    return { manager: 'npm', lockfileVersion: v, nodes, declared, workspaces };
+    return { manager: 'npm', lockfileVersion: v, nodes, declared, workspaces, links };
   }
   // v1: nested `dependencies` trees, no manifests
   const walk = (deps: any) => {

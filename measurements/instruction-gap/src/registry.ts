@@ -1,6 +1,6 @@
 // For every registry package a sampled lockfile resolves, read the version's
-// manifest from the npm registry: who published it (`_npmUser`), who may
-// publish it (`maintainers`), whether it runs code at install (`scripts`), and
+// manifest from the npm registry: who published it (`_npmUser`), who its
+// maintainers were when it was published (`maintainers`), whether it runs code at install (`scripts`), and
 // where its tarball lives. Versions published through trusted publishing carry
 // "GitHub Actions" as the user; for those the provenance attestation names the
 // repository and workflow that did the publishing, and that pair is the
@@ -25,7 +25,7 @@ export interface VersionRecord {
   publisher: string | null;          // npm account that published, or 'gha:<owner>/<repo>' for trusted publishing
   publisherKind: 'user' | 'trusted-publishing' | 'unknown' | null;
   publishedAt: string | null;        // not in the version document; left null (the packument has it, not fetched)
-  maintainers: string[];             // accounts that may publish, at read time
+  maintainers: string[];             // the version's maintainer list, as recorded when it was published
   install: { preinstall: boolean; install: boolean; postinstall: boolean };
   hasInstallScript: boolean;
   tarballHost: string | null;

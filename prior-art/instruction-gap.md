@@ -173,7 +173,7 @@ hosts and the measurement says so.
 ## 6. Who published a version
 
 The data path exists and is documented. npm's per-version manifest carries `_npmUser` (the
-account that published), `maintainers` (the accounts that may), `scripts`, `dist.tarball` and,
+account that published), `maintainers` (the package's maintainers when that version was published), `scripts`, `dist.tarball` and,
 since 2023, provenance attestations; for versions published through trusted publishing the user
 is *"GitHub Actions"* with a `trustedPublisher.oidcConfigId`, and the identity has to come from
 the attestation's repository or, absent one, from the manifest. Santos-Grueiro ("On Good

@@ -1,13 +1,14 @@
 // One cell per project: what the developer declared, what the lockfile
-// resolves, who published it, who may publish it, what runs at install, and
+// resolves, who published it, who maintained it, what runs at install, and
 // where it all comes from. Joins the lockfile (lockfile.ts) to the registry
 // records (registry.ts). No network.
 //
 // Definitions used throughout the report:
 //   direct      = distinct package names declared in dependencies,
 //                 devDependencies or optionalDependencies of the root and of
-//                 every workspace manifest the lockfile embeds (peers counted
-//                 apart: managers differ on installing them)
+//                 every workspace manifest the lockfile embeds, the project's own
+//                 workspace packages left out (peers counted apart: managers
+//                 differ on installing them)
 //   resolved    = distinct (name, version) pairs the lockfile pins; a package
 //                 present in two versions counts twice, a copy of the same
 //                 version nested twice counts once
@@ -17,7 +18,8 @@
 //   publisher   = the npm account that published the resolved version, or the
 //                 GitHub repository named by the provenance of a version
 //                 published through trusted publishing
-//   maintainer  = an account on the package's maintainer list at read time
+//   maintainer  = an account on the maintainer list the resolved version
+//                 recorded when it was published, not the package's list today
 //
 // Usage: node compute.ts <population.ndjson> <store-dir> <registry.ndjson> <cells.ndjson>
 
@@ -86,6 +88,7 @@ function main() {
     if (!declared) { declared = declaredFromManifests(dir, ['package.json', ...(r.workspaceManifests || []).map((p: string) => join('ws', p))]); source = 'manifests'; }
     const wsNames = new Set<string>();
     for (const n of lock.nodes) if (n.kind === 'link') wsNames.add(n.name);
+    for (const n of lock.links || []) wsNames.add(n);
     const byField: Record<string, number> = {};
     const directNames = new Set<string>();
     const exactNames = new Map<string, string>();

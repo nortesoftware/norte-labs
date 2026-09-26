@@ -1,6 +1,6 @@
 # instruction-gap — generated report
 
-Generated 2026-09-17T17:10:32.801Z from `results/population.ndjson` and `results/cells.ndjson`. Shares carry 95 % Wilson intervals; means carry a cluster-robust interval (framework clusters).
+Generated 2026-09-26T03:01:51.642Z from `results/population.ndjson` and `results/cells.ndjson`. Shares carry 95 % Wilson intervals; means carry a cluster-robust interval (framework clusters).
 
 ## Frame and sample
 
@@ -29,35 +29,37 @@ Projects committing more than one lockfile: 42/898 = 4.7 % [3.5 %–6.3 %].
 
 | per project | p10 | p25 | median | p75 | p90 | mean |
 |---|---|---|---|---|---|---|
-| direct dependencies declared | 5.1 | 13.0 | **26.0** | 56.3 | 104.0 | 44.0 |
+| direct dependencies declared | 5.1 | 13.0 | **26.0** | 56.0 | 104.0 | 43.9 |
 | resolved (name, version) pairs | 112.0 | 292.8 | **604.0** | 1074.0 | 1653.0 | 775.8 |
 | resolved distinct names | 111.1 | 272.8 | **543.0** | 927.0 | 1411.8 | 669.2 |
 | distinct publishers | 40.0 | 93.8 | **165.0** | 259.0 | 378.9 | 194.2 |
 | distinct maintainer accounts | 106.1 | 238.8 | **401.0** | 628.0 | 925.7 | 473.7 |
-| ratio resolved / direct | 8.7 | 12.9 | **19.1** | 27.7 | 45.4 | 25.8 |
-| ratio publishers / direct | 2.4 | 3.5 | **5.3** | 7.7 | 12.7 | 7.0 |
-| ratio maintainers / direct | 6.0 | 8.6 | **12.9** | 19.9 | 30.8 | 17.6 |
+| ratio resolved / direct | 8.7 | 13.0 | **19.1** | 27.8 | 45.5 | 25.8 |
+| ratio publishers / direct | 2.5 | 3.5 | **5.3** | 7.7 | 12.7 | 7.0 |
+| ratio maintainers / direct | 6.0 | 8.7 | **12.9** | 19.9 | 30.9 | 17.7 |
 | publishers behind a direct dependency | 5.0 | 10.0 | **18.0** | 36.0 | 64.0 | 28.6 |
 | publishers behind no direct dependency | 34.0 | 80.8 | **143.0** | 227.3 | 329.7 | 165.6 |
-| share of publishers the developer never named | 0.8 | 0.8 | **0.9** | 0.9 | 0.9 | 0.8 |
+| share of publishers the developer never named (the 881 with a publisher) | 0.8 | 0.8 | **0.9** | 0.9 | 0.9 | 0.8 |
 | publishers that are not automation (name heuristic) | 30.0 | 74.0 | **130.0** | 213.0 | 316.6 | 156.9 |
-| ratio non-automation publishers / direct | 1.8 | 2.6 | **4.3** | 6.4 | 10.6 | 5.8 |
+| ratio non-automation publishers / direct | 1.8 | 2.7 | **4.3** | 6.4 | 10.6 | 5.8 |
 
-Production only (the 461 npm lockfiles mark dev dependencies; dev ones excluded):
+Over the 881 projects with at least one publisher: never named, median 86.7 % [p10 76.0 %, p90 94.2 %]; automation name, median 18.6 %.
 
-| per project (npm lockfiles) | p10 | p25 | median | p75 | p90 | mean |
+Production only (the 489 lockfiles that mark dev dependencies, 483 npm, 6 pnpm; dev ones excluded):
+
+| per project (lockfiles that mark dev dependencies) | p10 | p25 | median | p75 | p90 | mean |
 |---|---|---|---|---|---|---|
-| direct dependencies in `dependencies` | 0.0 | 1.0 | **5.0** | 18.0 | 38.0 | 14.4 |
-| resolved versions not marked dev | 0.0 | 1.0 | **53.0** | 200.0 | 473.0 | 172.0 |
-| publishers behind them | 0.0 | 1.0 | **20.0** | 69.0 | 146.0 | 51.8 |
-| ratio publishers / direct, production | 0.0 | 0.9 | **2.5** | 4.8 | 10.0 | 4.7 |
+| direct dependencies in `dependencies` | 0.0 | 1.0 | **5.0** | 17.0 | 32.0 | 13.2 |
+| resolved versions not marked dev | 0.0 | 1.0 | **53.0** | 200.0 | 480.0 | 179.1 |
+| publishers behind them | 0.0 | 1.0 | **20.0** | 69.0 | 148.2 | 53.0 |
+| ratio publishers / direct, production | 0.0 | 1.0 | **2.6** | 5.0 | 10.0 | 5.0 |
 
 Publisher kinds, summed over projects (a publisher counts once per project):
 
 - npm user accounts: 147576; trusted-publishing repositories: 25615; of all of these, 33215 carry an automation name; versions whose publisher could not be read: 198.
 - share of a project's publishers that are trusted-publishing repositories: median 12.6 %, mean 14.4 %.
 - projects with at least one trusted-publishing publisher: 653/892 = 73.2 % [70.2 %–76.0 %]; versions with a provenance attestation: 103416 of 691842 read.
-- registry lookups: 691842 read, 17 versions no longer on the registry, 1 errors; 156 resolved pairs are not registry packages (git, tarball).
+- registry lookups: 691842 read, 17 versions no longer on the registry, 1 errors; 156 resolved pairs are not registry packages (git, tarball or another source).
 
 ## Decisions the manager made
 
@@ -68,7 +70,7 @@ Publisher kinds, summed over projects (a publisher counts once per project):
 | share of direct specs pinned exactly | 0.0 | 0.0 | **0.0** | 0.1 | 0.5 | 0.1 |
 | packages present in more than one version | 1.0 | 14.0 | **44.5** | 109.0 | 190.8 | 80.1 |
 
-Projects pinning at least one direct dependency exactly: 471/892 = 52.8 % [49.5 %–56.1 %]; projects pinning all of them: 28/892 = 3.1 % [2.2 %–4.5 %].
+Projects pinning at least one direct dependency exactly: 469/892 = 52.6 % [49.3 %–55.8 %]; projects pinning all of them: 28/892 = 3.1 % [2.2 %–4.5 %].
 
 ## Code that runs at install
 
@@ -81,7 +83,7 @@ Projects resolving at least one package with an install script (preinstall, inst
 | publishers with install-time code | 0.0 | 1.0 | **3.0** | 5.0 | 7.0 | 3.4 |
 | maintainer accounts behind install-time code | 0.0 | 2.0 | **5.0** | 9.0 | 17.9 | 7.4 |
 
-Projects where install-time code comes from a package the developer never named: 740/892 = 83.0 % [80.4 %–85.3 %].
+Projects where install-time code comes from a package the developer never named: 761/892 = 85.3 % [82.8 %–87.5 %].
 
 ## Hosts
 
@@ -108,7 +110,7 @@ Only npm and yarn v1 lockfiles record a URL per package (572 projects); pnpm, Ya
 Projects with at least one resolved URL outside registry.npmjs.org and its yarn alias: 67/572 = 11.7 % [9.3 %–14.6 %].
 Over all 892 projects, those resolving at least one git or tarball dependency: 68/892 = 7.6 % [6.1 %–9.6 %].
 
-Tarball hosts recorded by the registry for the resolved versions: registry.npmjs.org 691842.
+Tarball hosts recorded by the registry for the resolved versions, summed over projects: registry.npmjs.org 691842.
 
 ## Who is in every tree: publisher concentration
 
@@ -178,8 +180,8 @@ Share of a project's publishers that are in the common core (present in ≥ 50 %
 | mean of | mean | iid 95 % | cluster-robust 95 % | DEFF | ICC | clusters (mean size) |
 |---|---|---|---|---|---|---|
 | resolved / direct | 25.8 | [23.5–28.1] | [19.9–31.7] | 6.5 | 0.037 | 21 (42.5) |
-| publishers / direct | 7.0 | [6.5–7.5] | [5.2–8.8] | 11.4 | 0.081 | 21 (42.5) |
-| maintainers / direct | 17.6 | [16.2–19.0] | [13.1–22.1] | 10.4 | 0.072 | 21 (42.5) |
+| publishers / direct | 7.0 | [6.5–7.6] | [5.2–8.8] | 11.4 | 0.081 | 21 (42.5) |
+| maintainers / direct | 17.7 | [16.3–19.0] | [13.2–22.1] | 10.3 | 0.072 | 21 (42.5) |
 | distinct publishers | 194.2 | [184.6–203.8] | [136.2–252.2] | 36.5 | 0.286 | 21 (42.5) |
 | resolved versions | 775.8 | [730.2–821.4] | [512.0–1039.6] | 33.5 | 0.261 | 21 (42.5) |
 | log10 publishers | 2.1 | [2.1–2.1] | [1.9–2.3] | 41.1 | 0.311 | 21 (42.5) |
@@ -190,7 +192,7 @@ Publisher-set overlap (Jaccard) between pairs of projects: same framework 0.212 
 
 | manager | projects | median direct | median resolved | median publishers | median publishers/direct | lockfile records URLs |
 |---|---|---|---|---|---|---|
-| npm | 492 | 19.0 | 445.0 | 132.0 | 5.7 | yes |
+| npm | 492 | 19.0 | 445.0 | 132.0 | 5.8 | yes |
 | pnpm | 246 | 46.5 | 875.0 | 216.5 | 4.5 | no |
 | yarn | 80 | 33.5 | 850.5 | 208.0 | 5.7 | yes |
 | bun | 50 | 33.5 | 638.5 | 170.0 | 3.8 | no |

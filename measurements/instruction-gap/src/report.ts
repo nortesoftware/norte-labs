@@ -87,13 +87,19 @@ function main() {
   const notChosen = cells.map(c => c.publishers.notChosen), behind = cells.map(c => c.publishers.behindDirect);
   L.push(row('publishers behind a direct dependency', behind));
   L.push(row('publishers behind no direct dependency', notChosen));
-  const shareNotChosen = cells.map(c => c.publishers.total ? c.publishers.notChosen / c.publishers.total : 0);
-  L.push(row('share of publishers the developer never named', shareNotChosen));
+  // A share has no value for a project with no publisher; those are left out, as ecosystems/go
+  // leaves out the projects with no dependency.
+  const withPub = cells.filter(c => c.publishers.total > 0);
+  const shareNotChosen = withPub.map(c => c.publishers.notChosen / c.publishers.total);
+  const shareAutomation = withPub.map(c => c.publishers.automation / c.publishers.total);
+  L.push(row(`share of publishers the developer never named (the ${withPub.length} with a publisher)`, shareNotChosen));
   L.push(row('publishers that are not automation (name heuristic)', cells.map(c => c.publishers.total - c.publishers.automation)));
   L.push(row('ratio non-automation publishers / direct', cells.map(c => (c.publishers.total - c.publishers.automation) / Math.max(1, c.declared.direct))));
+  L.push('', `Over the ${withPub.length} projects with at least one publisher: never named, median ${pct(q(shareNotChosen, 0.5))} [p10 ${pct(q(shareNotChosen, 0.1))}, p90 ${pct(q(shareNotChosen, 0.9))}]; automation name, median ${pct(q(shareAutomation, 0.5))}.`);
   const npmCells = cells.filter(c => c.prod);
-  L.push('', `Production only (the ${npmCells.length} npm lockfiles mark dev dependencies; dev ones excluded):`, '');
-  L.push('| per project (npm lockfiles) | p10 | p25 | median | p75 | p90 | mean |', '|---|---|---|---|---|---|---|');
+  const prodByManager = [...npmCells.reduce((m, c) => m.set(c.manager, (m.get(c.manager) || 0) + 1), new Map<string, number>())].map(([k, n]) => `${n} ${k}`).join(', ');
+  L.push('', `Production only (the ${npmCells.length} lockfiles that mark dev dependencies, ${prodByManager}; dev ones excluded):`, '');
+  L.push('| per project (lockfiles that mark dev dependencies) | p10 | p25 | median | p75 | p90 | mean |', '|---|---|---|---|---|---|---|');
   L.push(row('direct dependencies in `dependencies`', npmCells.map(c => c.declared.byField.dependencies || 0)));
   L.push(row('resolved versions not marked dev', npmCells.map(c => c.prod!.versions)));
   L.push(row('publishers behind them', npmCells.map(c => c.prod!.publishers)));
@@ -106,7 +112,7 @@ function main() {
   const withGha = cells.filter(c => c.publishers.trustedPublishing > 0).length;
   L.push(`- projects with at least one trusted-publishing publisher: ${share(withGha, cells.length)}; versions with a provenance attestation: ${cells.reduce((a, c) => a + c.provenance.versionsWithAttestation, 0)} of ${cells.reduce((a, c) => a + c.lookup.ok, 0)} read.`);
   const lookupOk = cells.reduce((a, c) => a + c.lookup.ok, 0), lookupMissing = cells.reduce((a, c) => a + c.lookup.missing, 0), lookupErr = cells.reduce((a, c) => a + c.lookup.error, 0), nonReg = cells.reduce((a, c) => a + c.lookup.nonRegistry, 0);
-  L.push(`- registry lookups: ${lookupOk} read, ${lookupMissing} versions no longer on the registry, ${lookupErr} errors; ${nonReg} resolved pairs are not registry packages (git, tarball).`);
+  L.push(`- registry lookups: ${lookupOk} read, ${lookupMissing} versions no longer on the registry, ${lookupErr} errors; ${nonReg} resolved pairs are not registry packages (git, tarball or another source).`);
 
   H('## Decisions the manager made');
   const dec = cells.map(c => c.decisions.versionsByManager), never = cells.map(c => c.decisions.namesNeverNamed);
@@ -127,7 +133,9 @@ function main() {
   L.push(row('of which direct dependencies', cells.map(c => c.install.direct)));
   L.push(row('publishers with install-time code', cells.map(c => c.install.publishers)));
   L.push(row('maintainer accounts behind install-time code', cells.map(c => c.maintainers.withInstallScript)));
-  const instNotDirect = cells.filter(c => c.install.names > c.install.direct).length;
+  // install.direct counts versions, so the comparison is with install.versions: a project counts
+  // when some install-time version belongs to a name the developer did not declare.
+  const instNotDirect = cells.filter(c => c.install.versions > c.install.direct).length;
   L.push('', `Projects where install-time code comes from a package the developer never named: ${share(instNotDirect, cells.length)}.`);
 
   H('## Hosts');
@@ -146,7 +154,7 @@ function main() {
   L.push(`Over all ${cells.length} projects, those resolving at least one git or tarball dependency: ${share(otherKinds, cells.length)}.`);
   const tb = new Map<string, number>();
   for (const c of cells) for (const [h, n] of Object.entries(c.tarballHosts)) tb.set(h, (tb.get(h) || 0) + n);
-  L.push('', `Tarball hosts recorded by the registry for the resolved versions: ${[...tb.entries()].map(([h, n]) => `${h} ${n}`).join(', ')}.`);
+  L.push('', `Tarball hosts recorded by the registry for the resolved versions, summed over projects: ${[...tb.entries()].map(([h, n]) => `${h} ${n}`).join(', ')}.`);
 
   H('## Who is in every tree: publisher concentration');
   const reach = new Map<string, number>();

@@ -1,7 +1,7 @@
 // Draw the sample from the frame and fetch what each project declares and
 // resolves, pinned to one commit.
 //
-// The frame (frame.ts) is ordered by sha256(seed + fullName) — a simple random
+// The frame (frame.ts) is ordered by sha256(seed + "\n" + fullName) — a simple random
 // order anyone can reproduce from the frame file — and the first N candidates
 // are taken. For each candidate: the default branch's head commit is read and
 // pinned; the root listing tells whether the project has a package.json and
