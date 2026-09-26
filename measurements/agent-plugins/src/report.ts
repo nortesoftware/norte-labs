@@ -31,7 +31,7 @@ const rate = (k: number, n: number) => `${k}/${n} = ${wilson(k, n)}`;
 const BASELINE_PREFIXES = new Set(['~/.npmrc', '~/.npm', '~/.npm/_cacache', '~/.npm/_logs', '~/.npm/_npx', '~/.npm/_update-notifier-last-checked', '~/.local', '~/.local/lib', '~/.local/bin', '~/.local/share', '~/.cache/uv', '~/.gitconfig', '~/.config/git', '~/.git', '~/proj/.git', '~/.curlrc', '~/package.json', '~/node_modules', '~/.node_modules', '~/.node_libraries', '~', '~/proj', '~/proj/node_modules', '~/proj/package.json', '~/proj/package-lock.json', '~/proj/npm-shrinkwrap.json', '~/proj/yarn.lock', '~/proj/.npmrc', '~/proj/.venv', '~/proj/agent', '~/proj/plugin', '~/proj/data', '~/.cache', '~/.cache/bun', '~/.bun', '~/.config', '~/.jq', '~/jq', '~/jq/main.jq', '~/.config/uv', '~/uv.toml', '~/proj/uv.toml', '~/pyproject.toml', '~/proj/pyproject.toml', '~/.npm/node_modules', '~/node_modules/.bin', '~/.cursor/plugin-data']);
 const CREDENTIAL_PREFIXES = ['~/.ssh', '~/.aws', '~/.config/gh', '~/.netrc', '~/.git-credentials', '~/.env', '~/.docker', '~/.kube', '~/.pypirc', '~/.cargo', '~/.config/gcloud', '~/.claude', '~/.claude.json', '~/.cursor', '~/.codex', '~/.gemini', '~/.config/Claude', '~/.config/anthropic', '~/.bash_history', '~/Documents', '~/.zshrc', '~/.bashrc', '~/.profile'];
 const AGENT_CONFIG_PREFIXES = ['~/.claude', '~/.claude.json', '~/.cursor', '~/.codex', '~/.gemini', '~/.config/Claude', '~/.config/zed', '~/.config/Code'];
-const TELEMETRY_HOSTS = /posthog|segment\.io|sentry\.io|ingest\.sentry|mixpanel|amplitude|google-analytics|googletagmanager|clearcut|play\.googleapis|datadoghq|bugsnag|statsig|launchdarkly|unleash|telemetry|analytics|honeycomb|newrelic|logrocket|hotjar|intercom|vercel-insights|plausible|umami|rudderstack|\.rum\.|rum\.aliyuncs|visualstudio\.com|applicationinsights|\bingest\./i;
+const TELEMETRY_HOSTS = /posthog|segment\.io|sentry\.io|ingest\.sentry|mixpanel|amplitude|google-analytics|googletagmanager|clearcut|play\.googleapis|datadoghq|bugsnag|statsig|launchdarkly|unleash|telemetry|analytics|honeycomb|newrelic|logrocket|hotjar|intercom|vercel-insights|plausible|umami|rudderstack|\.rum\.|rum\.aliyuncs|dc\.services\.visualstudio\.com|applicationinsights|\bingest\./i;
 
 const isProductEndpoint = (h: string) => /^mcp\./.test(h);
 const isCredPath = (p: string) => CREDENTIAL_PREFIXES.some((c) => p === c || p.startsWith(c + '/'));
@@ -177,7 +177,9 @@ function reportOpenVsx(all: Cell[]): void {
     if (h.prefix === '~/proj/.env' && (h.reads ?? 0) > 0 && h.contentAccessed) envReads.add(c.subject);
   }
   const netCells = new Set([...xHosts.values()].flatMap((s) => [...s]));
-  L.push(`- first run, extension host and its children (${activated.length} activated; processes in the subtree median ${median(procCounts)}, max ${Math.max(0, ...procCounts)}): contacted a host beyond the editor's own ${rate(netCells.size, activated.length || 1)}; hosts (cells): ${top(xHosts, 40).join('; ') || 'none'}; loopback only (a local server of their own): ${loopCells.size}`);
+  // loopback and nothing beyond the editor's own hosts
+  const loopOnly = [...loopCells].filter((s) => !netCells.has(s));
+  L.push(`- first run, extension host and its children (${activated.length} activated; processes in the subtree median ${median(procCounts)}, max ${Math.max(0, ...procCounts)}): contacted a host beyond the editor's own ${rate(netCells.size, activated.length || 1)}; hosts (cells): ${top(xHosts, 40).join('; ') || 'none'}; loopback and no host beyond the baseline: ${loopOnly.length} (any loopback host: ${loopCells.size})`);
   const telCells = new Set([...xa.telemetryHosts.values()].flatMap((s) => [...s]));
   L.push(`- first run: telemetry-looking hosts: ${top(xa.telemetryHosts).join('; ') || 'none'} — ${rate(telCells.size, activated.length || 1)}`);
   const credRead = new Map<string, Set<string>>(); const agentWrite = new Map<string, Set<string>>();
