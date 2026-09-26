@@ -1,13 +1,13 @@
 # MCP: install and first start — results
 
-Cells: 600 (npm 420, PyPI 180). Generated 2026-09-14T21:51Z. Rates with 95 % Wilson intervals.
+Cells: 600 (npm 420, PyPI 180). Generated 2026-09-26T04:07Z. Rates with 95 % Wilson intervals.
 
 ## Install
 
 - npm: install completed 404/420 = 96.2 % [93.9 %–97.6 %]; median 7 s.
-  - failures: version missing from the package registry 6 · other 5 · package does not exist (404) 4 · timeout 1
+  - failures: version missing from the package registry 6 · package does not exist (404) 3 · the package supports another platform 3 · a dependency is missing from the package registry 1 · install script failed 1 · other 1 · timeout 1
 - PyPI: install completed 175/180 = 97.2 % [93.7 %–98.8 %]; median 2 s.
-  - failures: version missing from the package registry 3 · other 2
+  - failures: build failure (sdist) 2 · a dependency is missing from the package registry 1 · Python version 1 · version missing from the package registry 1
 
 ### npm (404 completed installs)
 
@@ -123,7 +123,7 @@ Decoys with content opened, by cells:
 - `initialize` handshake ok: 347/579 = 59.9 % [55.9 %–63.8 %] of attempted; `tools/list`: 344/579 = 59.4 % [55.4 %–63.3 %]
   - npm: handshake 282/404 = 69.8 % [65.2 %–74.1 %]
   - PyPI: handshake 65/175 = 37.1 % [30.3 %–44.5 %]
-- no handshake (231): broken by mcp 2.x (FastMCP renamed; dependency unpinned) 53 · exception at start 42 · exited with code 1 38 · requires a variable/credential 28 · prints usage (subcommand/arguments missing) 21 · exited without speaking MCP 21 · module not found 14 · no response (alive, no JSON-RPC) 7 · exited with code 127 2 · fails to connect to a service 2 · exited with code 2 2 · exited with code 3 1
+- no handshake (231): broken by the FastMCP rename in mcp 2.0 (dependency unpinned) 52 · exception at start 42 · requires a variable/credential 28 · prints usage 21 · exited without speaking MCP 21 · exited with code 1 21 · module not found 15 · the binary could not be executed 13 · no response (alive, no JSON-RPC) 7 · the binary was not found 4 · exited with code 127 2 · fails to connect to a service 2 · exited with code 2 2 · exited with code 3 1
 
 ### Declared tools (344 servers with `tools/list`)
 
@@ -266,10 +266,10 @@ Decoys with content opened, by cells:
 | rate | k/n | Wilson (iid) | cluster-robust | DEFF | clusters |
 |---|---|---|---|---|---|
 | npm: tree with an install script | 51/404 | 12.6 % [9.7 %–16.2 %] | [9.3 %–16.0 %] | 1.06 | 359 |
-| first start: handshake ok | 347/579 | 59.9 % [55.9 %–63.8 %] | [54.3 %–65.5 %] | 1.97 | 500 |
-| PyPI: broken by mcp 2.x | 53/175 | 30.3 % [24.0 %–37.5 %] | [15.9 %–44.7 %] | 4.49 | 143 |
-| PyPI: pypi.org at start (fastmcp) | 21/175 | 12.0 % [8.0 %–17.6 %] | [5.0 %–19.0 %] | 2.13 | 143 |
-| first start: any egress | 47/579 | 8.1 % [6.2 %–10.6 %] | [5.4 %–10.8 %] | 1.47 | 500 |
-| first start: telemetry | 4/579 | 0.7 % [0.3 %–1.8 %] | [0.0 %–1.4 %] | 1.01 | 500 |
-| first start: decoy opened | 18/579 | 3.1 % [2.0 %–4.9 %] | [1.7 %–4.5 %] | 1.02 | 500 |
-| first start: ~/.env read | 9/579 | 1.6 % [0.8 %–2.9 %] | [0.5 %–2.6 %] | 1.01 | 500 |
+| first start: handshake ok | 347/579 | 59.9 % [55.9 %–63.8 %] | [53.9 %–65.9 %] | 2.25 | 499 |
+| PyPI: broken by the FastMCP rename (mcp 2.0) | 52/175 | 29.7 % [23.4 %–36.9 %] | [14.1 %–45.3 %] | 5.30 | 142 |
+| PyPI: pypi.org at start (fastmcp) | 21/175 | 12.0 % [8.0 %–17.6 %] | [4.8 %–19.2 %] | 2.22 | 142 |
+| first start: any egress | 47/579 | 8.1 % [6.2 %–10.6 %] | [5.4 %–10.8 %] | 1.49 | 499 |
+| first start: telemetry | 4/579 | 0.7 % [0.3 %–1.8 %] | [0.0 %–1.4 %] | 1.01 | 499 |
+| first start: decoy opened | 18/579 | 3.1 % [2.0 %–4.9 %] | [1.7 %–4.5 %] | 1.02 | 499 |
+| first start: ~/.env read | 9/579 | 1.6 % [0.8 %–2.9 %] | [0.5 %–2.6 %] | 1.02 | 499 |

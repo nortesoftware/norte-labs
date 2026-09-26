@@ -652,7 +652,7 @@
  {
   "id": "darwin-memo",
   "version": "0.7.1",
-  "outcome": "broken-2x",
+  "outcome": "other-failure",
   "mcp_spec": null,
   "allows_2": null,
   "fastmcp_spec": null,

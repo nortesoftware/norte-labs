@@ -144,7 +144,7 @@ function main(): void {
   // Publisher = GitHub/GitLab owner from repositoryUrl, else the registry namespace.
   // Cells from one publisher are not independent (same template, same SDK pin),
   // so the headline rates are repeated with a cluster-robust variance and the
-  // design effect (robust variance / iid variance). See verification.md, "Design effect".
+  // design effect (robust variance / iid variance).
   H('## Cluster-robust intervals by publisher');
   L.push('| rate | k/n | Wilson (iid) | cluster-robust | DEFF | clusters |', '|---|---|---|---|---|---|');
   const TEL = new Set(['us.i.posthog.com', 'play.googleapis.com', 'mobile.events.data.microsoft.com', 'usage.gistrec.cloud']);
@@ -154,7 +154,7 @@ function main(): void {
   const rows: [string, Cell[], (c: Cell) => boolean][] = [
     ['npm: tree with an install script', npmOk, (c) => c.install.npm.installScripts.length > 0],
     ['first start: handshake ok', attempted, (c) => Boolean(c.firstRun.client?.initializeOk)],
-    ['PyPI: broken by mcp 2.x', pyAtt, (c) => /mcp\.server\.fastmcp|this is mcp 2\.x/i.test(c.firstRun.client?.stderrTail ?? '')],
+    ['PyPI: broken by the FastMCP rename (mcp 2.0)', pyAtt, (c) => RENAMED.test(c.firstRun.client?.stderrTail ?? '')],
     ['PyPI: pypi.org at start (fastmcp)', pyAtt, (c) => fh(c).some((h) => h.host === 'pypi.org')],
     ['first start: any egress', attempted, (c) => fh(c).length > 0],
     ['first start: telemetry', attempted, (c) => fh(c).some((h) => TEL.has(h.host))],
@@ -226,7 +226,10 @@ function homeSection(L: string[], cells: Cell[], get: (c: Cell) => any, isInstal
 
 export function publisherKey(c: Cell): string {
   const m = /^https?:\/\/(github\.com|gitlab\.com)\/([^/]+)\//i.exec(c.repositoryUrl ?? '');
-  return m ? `${m[1].toLowerCase()}/${m[2].toLowerCase()}` : `ns:${c.namespace}`;
+  if (m) return `${m[1].toLowerCase()}/${m[2].toLowerCase()}`;
+  // an io.github.<owner> namespace is that GitHub owner, so one publisher is one cluster
+  const gh = /^io\.github\.(.+)$/i.exec(c.namespace ?? '');
+  return gh ? `github.com/${gh[1].toLowerCase()}` : `ns:${c.namespace}`;
 }
 export function clusterRobust(rows: [string, number][]): { k: number; n: number; p: number; se: number; deff: number; clusters: number } {
   const n = rows.length; const k = rows.reduce((a, [, y]) => a + y, 0); const p = k / n;
@@ -237,24 +240,40 @@ export function clusterRobust(rows: [string, number][]): { k: number; n: number;
   return { k, n, p, se: Math.sqrt(vr), deff: vi > 0 ? vr / vi : NaN, clusters: cl.size };
 }
 function failReason(c: Cell): string {
-  const s = (c.install.stderrTail ?? '').toLowerCase();
+  const raw = c.install.stderrTail ?? '';
+  const s = raw.toLowerCase();
   if (c.install.signal === 'SIGKILL') return 'timeout';
-  if (/requires-python|requires python|python_version|no interpreter found/.test(s)) return 'Python version';
-  if (/build backend|failed to build|error: subprocess-exited|build failures/.test(s)) return 'build failure (sdist)';
-  if (/no solution found|not found in the package registry|no matching distribution|could not find a version|no versions/.test(s)) return 'version missing from the package registry';
-  if (/404|e404|not found/.test(s)) return 'package does not exist (404)';
-  if (/etarget|no matching version/.test(s)) return 'version missing from the package registry';
+  // The registry's: the listed version, or the package, is not in the package registry. A name
+  // other than the cell's own is a dependency the package asks for, which is the package's.
+  const own = (name: string) => name.toLowerCase() === c.identifier.toLowerCase();
+  const nv = /No matching version found for (@?[^@\s]+)@/.exec(raw) ?? /there is no version of ([^=\s]+)==/.exec(raw);
+  if (nv) return own(nv[1]) ? 'version missing from the package registry' : 'a dependency is missing from the package registry';
+  const nf = /'(@?[^'@]+)@[^']*' is not in this registry/.exec(raw);
+  if (nf) return own(nf[1]) ? 'package does not exist (404)' : 'a dependency is missing from the package registry';
+  if (/depends on [^\s]+==\S+, we can conclude that/.test(raw)) return 'a dependency is missing from the package registry';
+  if (/notsup|ebadplatform|valid os/.test(s)) return 'the package supports another platform';
+  // uv's message is cut at the start of the tail kept, so "Python>=" can arrive as "hon>=".
+  if (/requires-python|requires python|python_version|no interpreter found|(?:pyt)?hon>=\d/.test(s)) return 'Python version';
+  if (/pyconfig\.h|fatal error:|build backend|failed to build|error: subprocess-exited|build failures/.test(s)) return 'build failure (sdist)';
+  if (/module_not_found|cannot find module/.test(s)) return 'install script failed';
   if (/eresolve|peer dep/.test(s)) return 'dependency conflict';
   if (/gyp|node-gyp|prebuild/.test(s)) return 'build failure (node-gyp)';
   if (/network|enotfound|econnreset|etimedout|fetch failed/.test(s)) return 'network';
   if (/ebadengine|unsupported engine/.test(s)) return 'unsupported engine';
   return 'other';
 }
+// Counted: the rename's own import error, and nothing wider. A package's message that names
+// mcp.server.fastmcp while mcp itself is missing (an optional extra not installed) is not it,
+// and other breaks of 2.x are not in this count.
+const RENAMED = /no module named 'mcp\.server\.fastmcp'|this is mcp 2\.x/i;
 function noHandshakeReason(c: Cell): string {
   const cl = c.firstRun.client; const err = ((cl.stderrTail ?? '') + ' ' + (c.firstRun.stderrTail ?? '')).toLowerCase(); const first = (cl.firstStdoutLine ?? '').toLowerCase();
   if (!cl.spawned) return 'did not start';
-  if (/usage:|--help|options:|commands:/.test(first) || /usage:/.test(err)) return 'prints usage (subcommand/arguments missing)';
-  if (/mcp\.server\.fastmcp|this is mcp 2\.x/.test(err)) return 'broken by mcp 2.x (FastMCP renamed; dependency unpinned)';
+  // strace's own failures: the server was never executed
+  if (/strace: cannot stat/.test(err)) return 'the binary was not found';
+  if (/exec format error/.test(err)) return 'the binary could not be executed';
+  if (/usage:|--help|options:|commands:/.test(first) || /usage:/.test(err)) return 'prints usage';
+  if (RENAMED.test(err)) return 'broken by the FastMCP rename in mcp 2.0 (dependency unpinned)';
   if (/modulenotfounderror|cannot find module|no module named|err_module_not_found/.test(err)) return 'module not found';
   if (/environment variable|env var|api[_ ]key|token|missing required|is required|not set/.test(err)) return 'requires a variable/credential';
   if (/econnrefused|connection refused|could not connect|connect(ion)? error|getaddrinfo|enotfound/.test(err)) return 'fails to connect to a service';

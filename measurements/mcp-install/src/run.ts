@@ -27,7 +27,7 @@ import type { PopRow, ArgSpec, EnvSpec } from './population.ts';
 
 const ROOT = '/var/tmp/nl-mcp-install';
 const FH = join(ROOT, 'home');
-// Additional arms (measurements/mcp-install/verification.md): NL_NO_BWRAP=1 runs the
+// Additional arms: NL_NO_BWRAP=1 runs the
 // cell unconfined with $HOME pointed at the decoy directory instead of bind-mounting it
 // over the real $HOME path; NL_IDLE_MS lengthens the post-handshake idle window.
 const NO_BWRAP = process.env.NL_NO_BWRAP === '1';
