@@ -5,6 +5,11 @@
 lockfiles read, 88,376 package versions looked up. Corrections are at the end of this file,
 [below](#corrections).
 
+The lockfiles and manifests behind these cells are in
+[norte-labs dataset v1](https://doi.org/10.5281/zenodo.23047444), with the provenance of each file
+and a codebook; for the 97 projects whose repository has no license GitHub detects, the dataset
+holds a pointer to each file, not the file.
+
 A developer writes one command, `npm install` or its equivalent, with a package.json that
 declares D direct dependencies. How many decisions does the package manager take on the
 developer's behalf, and how many distinct publishers end up with code on the machine that the
