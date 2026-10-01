@@ -406,8 +406,9 @@ The method itself is published, for agent skills: *Do Not Mention This to the Us
 disclosure); the ASE 2026 credential study (17,022 skills in a sandbox with mock credentials);
 MalSkillBench (strace and inotifywait in Docker on 3,214 generated samples; 703 wild samples
 verified by hand); SkillDetonate (sandbox with OS-boundary taint, 97 % detection at 2 % false
-positives); Zenity's AI Total (Black Hat USA 2026, "tens of thousands" of skills detonated).
-Different population, same instrument shape; none has crossed to IDE extensions or plugins.
+positives); Zenity's detonation chamber (Black Hat USA 2026, "tens of thousands" of skills
+detonated). Different population, same instrument shape; none has crossed to IDE extensions or
+plugins.
 
 What does not exist:
 
@@ -546,8 +547,9 @@ requests with reasons (16 for user safety, of 2,281 plugins).
 **Question.** Which tools scan these populations, by what method, and with what published rate?
 Does any operator scan?
 
-**Verdict: exists** for VS Code and Open VSX, all static or antivirus, no published precision;
-**not found** for Cursor plugins, Zed and Continue.
+**Verdict: exists** for VS Code and Open VSX, mostly static or antivirus (Microsoft and Koi state a
+sandbox run without describing it), no published precision; **not found** for Cursor plugins, Zed
+and Continue.
 
 Operators: Open VSX (the pipeline above — blocklist, gitleaks-rule secrets, YARA, ClamAV, name
 similarity and Yeeth Security's "Argus", a multi-stage static and LLM scanner run "against every
@@ -586,11 +588,12 @@ validation set (31,132 skills scanned); Context Matters (238,180 skills: marketp
 "up to 46.8 %", 0.52 % after repository context); ClawHub Security Signals (67,453 versions,
 pairwise scanner overlap ≤ 10.4 %); After the Party (human-adjudicated sensitivity 21.67–61.06 %);
 Cloak and Detonate (eight scanners bypassed > 90 %; a sandboxed runtime auditor 97 % at 2 % false
-positives); ATR (96,096 skills, a 57.7 % precision floor); Snyk (90–100 % recall, 0 % false
-positives on a curated 100); Cisco (99.16 % precision on MaliciousSkillBench, 60.75 % precision /
-7.75 % recall on a source-disjoint split); Manifold (one enterprise scanner flagged > 40 % of 19,000
-skills). Method precedents for a marketplace-wide dynamic study exist for browser extension stores
-only (Hulk, 2014; "Did I Vet You Before?", TSC 2026).
+positives); ATR (96,096 skills; the 57.7 % precision floor it gave was withdrawn by the project on
+2026-09-22); Snyk (90–100 % recall, 0 % false positives on a curated 100); Cisco (99.16 % precision
+on MaliciousSkillBench, 60.75 % precision / 7.75 % recall on a source-disjoint split); Manifold (one
+enterprise scanner flagged > 40 % of 19,000 skills). Method precedents for a marketplace-wide
+dynamic study exist for browser extension stores only (Hulk, 2014; "Did I Vet You Before?", TSC
+2026).
 
 What does not exist: a scanner or a measurement of Zed's WASM extensions or of Cursor Marketplace
 bundles; precision or detections-per-N for any VSIX scanner or for either operator's pipeline; a
@@ -676,11 +679,11 @@ strace in a decoy home.
 - The population that the mcp-install instrument covers without change: the hooks and the bundled
   MCP servers of Cursor Marketplace plugins (330, 271 with MCP servers, 324 pinned to a commit;
   `cursor/plugins` holds 15 first-party and 64 third-party), of the Devin marketplace (171) and, if
-  wanted, of the unreviewed cursor.directory; the 41 ACP agents; the MCP servers of Zed's
-  context-server extensions (58 among the 1,000 the API lists). Small populations: a census is one
-  API call, and the sample can be the population. The comparison the ACP registry invites is direct:
-  its CI already installs every agent outside its quarantine list (8 of the 41 on 2026-09-16) and
-  records pass/fail; the instrument records what the install did.
+  wanted, of cursor.directory, whose submissions an agent reviews; the 41 ACP agents; the MCP
+  servers of Zed's context-server extensions (58 among the 1,000 the API lists). Small populations:
+  a census is one API call, and the sample can be the population. The comparison the ACP registry
+  invites is direct: its CI already installs every agent outside its quarantine list (8 of the 41 on
+  2026-09-16) and records pass/fail; the instrument records what the install did.
 - Zed extensions proper need Zed's WASM host to observe first-use downloads; the declaration to
   compare against is `extension.toml` (`provides`, capabilities) and the registry's own
   `download_count`.
@@ -742,3 +745,14 @@ strace in a decoy home.
   a day to around 3-5 alerts.
 - The 17,884 `totalSize` of 2026-09-16 is the one kept in
   `registries/agent-plugins/data/catalog-counts-2026-09-16.json`.
+
+## Corrections, 2026-10-01
+
+- The scanners verdict said all static or antivirus. Microsoft and Koi each state a sandbox run
+  without describing it; the verdict now says mostly.
+- Zenity's method was called AI Total. The Black Hat abstract names an agent detonation chamber and
+  offers AITOTAL only as a scanner to use.
+- ATR was given with a 57.7 % precision floor. The project withdrew the figure on 2026-09-22, and
+  the text says so.
+- The list of populations the instrument covers still called cursor.directory unreviewed; an agent
+  reviews its submissions.

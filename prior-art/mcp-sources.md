@@ -2,6 +2,8 @@
 
 Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026-09-11 sweep. Every listed source was opened and its figures compared with the text (status `confirmed` or `partially_confirmed`); figures are quoted as they appear in the source. The "not used" sections are sources found during the search that could not be opened or whose figures did not survive the comparison. The list of searches is the absence record: it backs every "partial" and "not found".
 
+Since the sweep, 91 of these 312 entries have not been read again against their sources, and 54 have had only their quotations matched, word for word, against the page at the URL given; the rest were read again on 2026-09-30 and 2026-10-01 and corrected where the source says otherwise.
+
 ## Ecosystem census
 
 **Verdict:** exists · 44 supporting sources · 13 not used · 94 searches
@@ -576,14 +578,14 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 18. **Classic Vulnerabilities Meet AI Infrastructure: Why MCP Needs AppSec** — Endor Labs; Peyton Kennedy (restating Endor Labs 2025 Dependency Management Report) — 2026-01-23  
    <https://www.endorlabs.com/learn/classic-vulnerabilities-meet-ai-infrastructure-why-mcp-needs-appsec>  
    Static sensitive-API prevalence across 2,614 MCP implementations - capability presence, not misuse or mismatch.
-   - Figures: “'among 2,614 MCP implementations: 82% use file system operations prone to Path Traversal (CWE-22); 67% use sensitive APIs related to Code Injection (CWE-94); 34% use sensitive APIs related to Command Injection (CWE-78)'” · “'5-7% used APIs tied to Cross-Site Scripting (CWE-79, 7%), SQL Injection (CWE-89, 6%), Open Redirect (CWE-601, 5%)'”
+   - Figures: “'among 2,614 MCP implementations: 82% use file system operations prone to Path Traversal (CWE-22); 67% use sensitive APIs related to Code Injection (CWE-94); 34% use sensitive APIs related to Command Injection (CWE-78)'” · “'5-7% used APIs tied to Cross-Site Scripting (CWE-79, 7%), SQL Injection (CWE-89, 6%), and Open Redirect (CWE-601, 5%)'”
    - Sample/method: Static sensitive-API usage analysis of 2,614 MCP implementations per the Endor Labs 2025 Dependency Management Report; selection and date not given in this post.
    - Limitations: Secondary restatement of a vendor report (primary not opened); measures presence of API classes, not declared-vs-actual.
 
 19. **State of MCP Server Security 2025: Research Report** — Astrix Security; Tal Skverer — 2025-10-15  
    <https://astrix.security/learn/blog/state-of-mcp-server-security-2025/>  
    Largest measurement of the declared credential surface (README-stated credential types, storage and auth method) across 5,205 open-source servers - declared side only.
-   - Figures: “'Approximately 88% of servers require credentials'” · “'Over half (53%) rely on static API keys or Personal Access Tokens (PATs)'; 'Only 8.5% use OAuth'” · “'79% of API keys are passed via simple environment variables'” · “'26.4% of servers landed in the Unknown bucket'; '5,205 unique open-source implementations' of 'approximately 20,000 repositories in GitHub implementing MCP servers'”
+   - Figures: “'Approximately 88% of servers require credentials'” · “'Over half (53%) rely on static API keys or Personal Access Tokens (PATs)'; 'Only 8.5% use OAuth'” · “'79% of API keys are passed via simple environment variables'” · “'26.4% of servers landed in the "Unknown" bucket'; '5,205 distinct GitHub repositories' of an estimated 'total of 20,000 repositories in GitHub implementing MCP servers'”
    - Sample/method: LLM-based analyzer over README.md of 5,205 GitHub repositories; sampling from the ~20,000 estimate and collection date not stated.
    - Limitations: README-only; LLM classification with 26.4% unknown; no runtime comparison and no OAuth scopes requested-vs-used; vendor report.
 
@@ -668,7 +670,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
    <https://arxiv.org/abs/2609.07360>  
    Byte-level audit of how MCP servers are declared and pre-approved in 3,171 coding-agent configuration repos - the client-side declaration surface, no observation of server behaviour.
    - Figures: “'3,171 public GitHub repositories: 2,660 setups that assemble two or more component types, and 511 published skill collections'” · “'9.8% of setups install an MCP server with no version pinned'; '3.1% pre-approve arbitrary command execution behind a scoped-looking grant such as Bash(python:*)'” · “'16.0% of setups (95% CI 14.6 to 17.4) carry a confirmed security defect'; 'No repository in the corpus exhibits a credential-to-network exfiltration path'” · “harness has 'no lockfile, no install-time check, and no vocabulary for what a component may do'”
-   - Sample/method: Topic-query discovery of 3,171 GitHub repos; decidable byte-level rules; human adjudication.
+   - Sample/method: Topic-query discovery of 3,171 GitHub repos; decidable byte-level rules; mechanical re-derivation and language-model adjudication ('no human scoring of the verdicts has been done', v1).
    - Limitations: Configuration files only; Claude Code-centric; no observation of declared servers.
 
 32. **docker/mcp-registry docs/configuration.md (server.yaml declaration schema)** — Docker (GitHub docker/mcp-registry) — inspected 2026-09-11 (repo pushed 2026-09-11)  
@@ -715,7 +717,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 
 38. **Zenity Labs Discovers Dozens of Malicious AI Agent Skills Evading Detection, Launches AI Total** — Zenity (press release, Black Hat USA 2026) — 2026-08-03 / dateline August 6, 2026  
    <https://zenity.io/company-overview/newsroom/company-news/zenity-labs-discovers-dozens-of-malicious-ai-agent-skills-evading-detection-launches-ai-total>  
-   Vendor 'Agent Detonation Chamber' that records runtime domains/packages/files and compares them to claimed behaviour - for agent skills, with MCP servers only 'planned'.
+   Vendor 'Agent Detonation Chamber' that records runtime domains/packages/files and compares them to claimed behaviour - for agent skills only; extension to 'additional components of the AI supply chain' (MCP servers not named) is only planned.
    - Figures: “'What a skill actually does, compared to what it claims to do, becomes the verdict.'” · “'More than 30% of dangerous identified skills abuse Claude Code and OpenClaw as malware droppers'” · “'One malicious skill uncovered during the research amassed more than 250,000 installs while remaining undetected for several months'” · “'Zenity Labs plans to extend AI Total to additional components of the AI supply chain.'”
    - Sample/method: Sandbox detonation of skills from public registries; no sample size or registry list on the page.
    - Limitations: Press release; skills not MCP servers; no declared-vs-observed rate; full report at labs.zenity.io not opened.
@@ -866,7 +868,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 1. **The Vulnerable MCP Project: Comprehensive Model Context Protocol Security Database** — vulnerablemcp.info (Vineeth Sai) — undated; entries 2025-03-29 to 2026-02-04  
    <https://vulnerablemcp.info/>  
    [TRACKER status=stale] Searchable community database of MCP vulnerabilities with severity, category, discoverer, date and source per entry - the closest thing to a public MCP incident inventory, but the newest entry is 2026-02-04 (seven months old), with no update stamp or inclusion methodology.
-   - Figures: “50 Vulnerabilities; 13 Critical; 32 Researchers” · “Categories: Prompt Injection 13, Input Validation 17, Auth Failures 5, Session Mgmt 2, Integrity 4, Trust Model 4”
+   - Figures: “50 Vulnerabilities; 13 Critical; 32 Researchers” · “Categories: Prompt Injection 13, Input Validation 17, Auth Failures 5, Session Mgmt 2, Integrity 4, Trust Model 4, Credentials 1, Network Security 4”
    - Sample/method: Curated community list; no stated inclusion criteria.
    - Limitations: Mixes demos with CVEs; nothing on 2026 worm waves, Deadbugz, OX advisory or Context7 ...
 
@@ -896,19 +898,19 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
    [TRACKER status=monthly-digest] Latest edition of the longest-running periodic MCP security round-up (editions verified for June/July 2025 and June-September 2026 at adversa.ai/blog/top-mcp-security-resources-{june,july,august}-2026/) ...
    - Figures: “Sep: Deadbugz '23 pull requests ... in 74 minutes', payload 'after exactly three tool calls'; CVE-2026-73498 Atlassian MCP CVSS 7.7 fixed v0.22.0 ...” · “Aug: 'July 13 SANS ISC diary counted roughly 200 requests from 49 distinct source IPs'; Jul: Amazon Q 'CVSS 8.5 .. ...”
    - Sample/method: Secondary digest of others' work.
-   - Limitations: Vendor round-up; slug naming not uniform (older 'mcp-security-digest' slugs for Aug 2025 ...
+   - Limitations: Vendor round-up; slug naming not uniform ('mcp-security-digest' slugs for Jun/Jul 2025, 'top-mcp-security-resources' from Aug 2025 on) ...
 
 6. **MCP Security Digest - July 2025** — Adversa AI — 2025-07-03 (June 2025 edition datePublished 2025-06-11)  
    <https://adversa.ai/blog/mcp-security-digest-july-2025/>  
    [TRACKER status=monthly-digest, early edition] Documents the mid-2025 cluster: WordPress AI Engine, Anthropic SQLite reference server, Inspector CVE-2025-49596, VirusTotal census, Hasan et al., Backslash, Asana.
-   - Figures: “WordPress AI Engine '100,000 WordPress Sites Affected', patched June 18, 2025; SQLite server 'forked over 5,000 times before being archived'” · “VirusTotal '17,845 GitHub repositories', 'over 8% showed signs of intentional malice'; '1,899 open-source MCP servers... over 7% ... 5.5%'”
+   - Figures: “WordPress AI Engine '100,000 WordPress Sites Affected', patched June 18, 2025; SQLite server 'forked over 5,000 times before being archived'” · “VirusTotal 'What 17,845 GitHub Repos Taught Us', 'over 8% showed signs of intentional malice'; '1,899 open-source MCP servers... over 7% ... 5.5%'”
    - Sample/method: Secondary round-up.
    - Limitations: Figures relayed without method; 100,000-site figure not on the advisory.
 
 7. **MITRE ATLAS case studies (ATLAS.yaml v5.6.0 deprecated; current ...** — MITRE ATLAS (mitre-atlas/atlas-data) — ATLAS-2026.08 modified 2026-05-27; repo pushed 2026-09-01  
    <https://raw.githubusercontent.com/mitre-atlas/atlas-data/main/dist/ATLAS.yaml>  
    [TRACKER status=institutional, minimal] The only institutional knowledge base indexing MCP events: four MCP-centred case studies of which only AML.CS0053 (Poisoned Postmark MCP Server, reporter Koi Research) is typed 'incident'; Cato Atlassian (CS0039), Backslash NeighborJack (CS0045) and Invariant Labs (CS0054) are 'exercise' ...
-   - Figures: “v5.6.0: 57 case studies, 4 mention MCP (1 incident, 3 exercise)” · “ATLAS-2026.08: 72 case studies (AML.CS0000-CS0071); same 4 MCP entries; Postmark 'reached over 1,000 downloads per week' before the 'rugpull'”
+   - Figures: “v5.6.0: 57 case studies, 4 mention MCP (1 incident, 3 exercise)” · “ATLAS-2026.08: 72 case studies (AML.CS0000-CS0071); the same 4 MCP-centred entries, plus 3 that mention MCP in passing (CS0067 exercise; CS0069 GTG-1002 and CS0070 incidents); Postmark 'reached over 1,000 downloads per week' before the 'rugpull'”
    - Sample/method: Curated case studies; regex over case-study text.
    - Limitations: Fetched v5.6.0 self-declared deprecated; TTP knowledge base not an inventory ...
 
@@ -936,7 +938,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 11. **GitHub Advisory Database search: type:malware mcp** — GitHub Advisory Database (malware from OpenSSF malicious-packages ... — 2026-09-11 live; entries 2025-06-02 to 2026-09-10  
    <https://github.com/advisories?query=type%3Amalware+mcp>  
    [TRACKER status=machine-feed, not curated] Most complete machine-readable trace of malicious MCP-named packages: 240 advisories, with July 2026 spikes (65 pip on 07-21; 70 npm on 07-27 incl. unscoped name-squats of Anthropic reference servers) and an Aug 20 repeat batch ...
-   - Figures: “240 advisories (10 pages); by month 2025-06 2, 07 2, 09 5, 10 3, 11 9, 12 3, 2026-03 1, 04 2, 05 7, 06 7, 07 155, 08 30, 09 14” · “2026-07-27 npm: mcp-server-git/-github/-fetch/-figma/-notion/-postgres/-redis/-sentry/-sequential-thinking/-supabase/-everything; 2026-08-20 repeat ...”
+   - Figures: “240 advisories (10 pages); by month 2025-06 2, 07 2, 09 5, 10 3, 11 9, 12 3, 2026-03 1, 04 2, 05 7, 06 7, 07 155, 08 30, 09 14” · “2026-07-27 npm: mcp-server-git/-github/-fetch/-figma/-notion/-postgres/-redis/-sentry/-sequential-thinking/-supabase; 2026-08-20 repeat of the same ten (mcp-server-everything is a separate 2025-09-12 advisory) ...”
    - Sample/method: UI search, all 10 pages fetched with curl and tallied by datetime.
    - Limitations: Free-text name match; GHSA dates lag OSSF by months (Zapier Nov 2025 -> 2026-08-14 ...
 
@@ -992,7 +994,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 19. **Critical RCE in Anthropic MCP Inspector (CVE-2025-49596)** — Oligo Security (Avi Lumelsky) — 2025-06-27 (CVE 2025-06-13)  
    <https://www.oligo.security/blog/critical-rce-vulnerability-in-anthropic-mcp-inspector-cve-2025-49596>  
    [INCIDENT type=vuln date=2025-06-13 component=@modelcontextprotocol/inspector <0.14.1 discoverer=Oligo (independent report 2025-03-26 also acknowledged) cve=CVE-2025-49596 cvss=9.4] Unauthenticated Inspector proxy (port 6277) plus browser CSRF/0.0.0.0-day/DNS rebinding gives a website RCE on developer machines; fixed 0.14.1. A second Inspector CVE-2025-58444 (XSS to command execution, 8.6, 2025-09-08) is in the GHSA API.
-   - Figures: “CVSS 9.4; fixed 0.14.1; March 26, 2025 independent report; April 18 Oligo HackerOne report; June 13 CVE”
+   - Figures: “CVSS 9.4; fixed 0.14.1; March 26, 2025 independent report; April 18 Oligo report to Anthropic; June 13 CVE”
    - Sample/method: Researcher disclosure.
    - Limitations: Developer tool; no exploitation claimed.
 
@@ -1059,10 +1061,10 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
    - Sample/method: Vulnerability research.
    - Limitations: Host-side; no exploitation.
 
-29. **ContextCrush: The Context7 MCP Server Vulnerability Hiding in Plain Sight** — Noma Security (Eli Ainhorn); CVE via NVD/VulnCheck — 2026-03-05 (CVE-2026-75130 published 2026-08-18)  
-   <https://noma.security/blog/contextcrush-context7-the-mcp-server-vulnerability-hiding-in-plain-sight>  
+29. **ContextCrush: The Context7 MCP Server Vulnerability Hiding in Plain Sight** — Noma Security (Gal Moyal, Eli Ainhorn); CVE via NVD/VulnCheck — 2026-03-05 (CVE-2026-75130 published 2026-08-18)  
+   <https://noma.security/blog/contextcrush-context7-the-mcp-server-vulnerability>  
    [INCIDENT type=vuln date=2026-02-18..03-05 component=Upstash Context7 hosted MCP server 'Custom Rules' (through 2.1.2) discoverer=Noma cve=CVE-2026-75130 cvss=9.0 v3.1 / 6.4 v4.0] User-submitted rules served verbatim to every user querying a library; fixed Feb 23, 2026.
-   - Figures: “'approximately 50,000 GitHub stars'; 'over 8 million npm downloads'” · “NVD: published 2026-08-18, source VulnCheck, CVSS 3.1 9.0 CRITICAL / 4.0 6.4 MEDIUM”
+   - Figures: “'approximately 50,000 stars and more than 8 million npm downloads'” · “NVD: published 2026-08-18, source VulnCheck, CVSS 3.1 9.0 CRITICAL / 4.0 6.4 MEDIUM”
    - Sample/method: Vendor research + NVD API.
    - Limitations: Digital Applied lists it as unfixed despite Noma's Feb 23 fix.
 
@@ -1145,15 +1147,15 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 
 41. **Claude Desktop Extensions Vulnerable to Web-Based Prompt Injection (Koi ...** — Infosecurity Magazine (Kevin Poireault) ... — 2025-11-05 (fix verified 2025-09-19)  
    <https://www.infosecurity-magazine.com/news/claude-desktop-extensions-prompt/>  
-   [INCIDENT type=vuln date=2025-09-19 component=Anthropic Chrome, iMessage, Apple Notes Claude Desktop Extensions discoverer=Koi Security cve=none (Koi CVSS 8.9)] Command injection in three official extensions; HackerOne July 3, 2025; fixed 0.1.9.
-   - Figures: “CVSS 8.9 (Koi rating); fix 0.1.9”
+   [INCIDENT type=vuln date=2025-09-19 component=Anthropic Chrome, iMessage, Apple Notes Claude Desktop Extensions discoverer=Koi Security cve=none (CVSS 8.9, verified by Anthropic)] Command injection in three official extensions; HackerOne July 3, 2025; fixed 0.1.9.
+   - Figures: “CVSS 8.9 (verified by Anthropic through HackerOne); fix 0.1.9”
    - Sample/method: Secondary (Koi primary JS shell).
    - Limitations: No CVE.
 
 42. **Claude Desktop Extensions Exposes Over 10,000 Users to Remote Code Execution ...** — LayerX (Roy Paz) — 2026-02-09  
    <https://layerxsecurity.com/blog/claude-desktop-extensions-rce/>  
    [INCIDENT type=vuln (host, unfixed) date=2026-02-09 component=Claude Desktop Extensions (Calendar connector + Desktop Commander) discoverer=LayerX cve=none] Malicious calendar event triggers git pull and makefile execution without consent; 'execute without sandboxing'; Anthropic 'decided not to fix it at this time'.
-   - Figures: “'over 10,000 active users'; 50 DXT extensions; CVSS 10/10 (self-rated)”
+   - Figures: “'more than 10,000 active users'; 50 DXT extensions; CVSS 10/10 (self-rated)”
    - Sample/method: Single PoC.
    - Limitations: Self-assigned CVSS; unsourced user count.
 
@@ -1171,12 +1173,12 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
    - Sample/method: Vulnerability research.
    - Limitations: Indirect MCP framing.
 
-45. **Azure DevOps MCP Server Vulnerability (hidden HTML comments, confused deputy)** — Manifold Security (Francisco Rosales) — 2026-09-10 (linked from Adversa 2026-08-06)  
+45. **Azure DevOps MCP Server Vulnerability (hidden HTML comments, confused deputy)** — Manifold Security (Francisco Rosales) — 2026-07-21 (linked from Adversa 2026-08-06)  
    <https://www.manifold.security/blog/azure-devops-mcp-server-vulnerability>  
    [INCIDENT type=vuln (PoC, MSRC-triaged) date=2026-08 component=Microsoft Azure DevOps MCP server PR-description tool discoverer=Manifold cve=none] Hidden HTML comments returned verbatim to the agent (no 'spotlighting'), letting a reviewer's agent leak a confidential wiki page onto the attacker's PR.
    - Figures: “'We reported it to MSRC, who acknowledged and triaged the issue.'”
    - Sample/method: PoC.
-   - Limitations: Page date conflicts with digest date.
+   - Limitations: PoC only; no CVE.
 
 46. **IBM ContextForge MCP Gateway default credentials (CVE-2026-78573)** — GitHub Advisory Database (NVD-sourced) — 2026-09-10/11  
    <https://github.com/advisories/GHSA-87q9-x2gp-qchr>  
@@ -1194,7 +1196,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 
 48. **GitHub Advisory Database API: advisories on official MCP SDKs ...** — GitHub Advisory Database (REST API); NVD for CVSS — queried 2026-09-11; entries 2025-06-13 to 2026-07-30  
    <https://api.github.com/advisories?ecosystem=pip&affects=mcp>  
-   [INCIDENT type=vuln (official SDK stream) component=official SDKs/tooling cve=Python SDK CVE-2025-53365, CVE-2025-53366, CVE-2025-66416, CVE-2026-52869, CVE-2026-52870, CVE-2026-59950; TypeScript SDK CVE-2025-66414, CVE-2026-0621, CVE-2026-25536 (cross-client data leak, credits gh-arpeet/ahabian); Go SDK CVE-2026-27896, CVE-2026-33252, CVE-2026-34742, GHSA-q382-vc8q-7jhj; Ruby SDK CVE-2026-33946, CVE-2026-67430, CVE-2026-67431, CVE-2026-67432, CVE-2026-63118, CVE-2026-63119; FastMCP CVE-2026-32871 (10.0), CVE-2025-69196, CVE-2026-27124, CVE-2025-62800, CVE-2025-62801, CVE-2025-64340, GHSA-c2jp-c369-7pvx, GHSA-rcfx-77hg-w2wv; Inspector CVE-2025-49596, CVE-2025-58444; mcp-handler GHSA-w2fm-25vw-vh7f] 33 advisories on the official SDK/tooling layer (Python 6 high; TS 3 high; Go 4 high; Ruby 3 high/3 medium; FastMCP 1 critical/4 high/3 medium; Inspector 1 critical/1 high), of which prior round-ups itemise only CVE-2026-25536.
+   [INCIDENT type=vuln (official SDK stream) component=official SDKs/tooling cve=Python SDK CVE-2025-53365, CVE-2025-53366, CVE-2025-66416, CVE-2026-52869, CVE-2026-52870, CVE-2026-59950; TypeScript SDK CVE-2025-66414, CVE-2026-0621, CVE-2026-25536 (cross-client data leak, credits gh-arpeet/ahabian); Go SDK CVE-2026-27896, CVE-2026-33252, CVE-2026-34742, GHSA-q382-vc8q-7jhj; Ruby SDK CVE-2026-33946, CVE-2026-67430, CVE-2026-67431, CVE-2026-67432, CVE-2026-63118, CVE-2026-63119; Java SDK CVE-2026-35568, CVE-2026-34237; Rust SDK (rmcp) CVE-2026-42559; FastMCP CVE-2026-32871 (10.0), CVE-2025-69196, CVE-2026-27124, CVE-2025-62800, CVE-2025-62801, CVE-2025-64340, GHSA-c2jp-c369-7pvx, GHSA-rcfx-77hg-w2wv; Inspector CVE-2025-49596, CVE-2025-58444; mcp-handler GHSA-w2fm-25vw-vh7f] 33 advisories on the official SDK/tooling layer (Python 6 high; TS 3 high; Go 4 high; Ruby 3 high/3 medium; Java 1 high/1 medium; Rust 1 high; FastMCP 1 critical/4 high/3 medium; Inspector 1 critical/1 high; mcp-handler 1 high), of which prior round-ups itemise only CVE-2026-25536.
    - Figures: “Python: CVE-2025-53365/53366 DoS (2025-07-04, 8.7); CVE-2025-66416 DNS rebinding (2025-12-02, 7.6) ...” · “TS: CVE-2025-66414 (7.6), CVE-2026-0621 ReDoS (8.7), CVE-2026-25536 (7.1, 2026-02-04); Go: 7.0/8.2/7.1/7.6-8.1 ...”
    - Sample/method: GHSA REST API ecosystem/affects queries (URLs: ...
    - Limitations: Reviewed advisories only; SDK-level impact depends on deployer code.
@@ -1251,7 +1253,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 56. **Mini Shai-Hulud Strikes Again: 317 npm Packages Compromised (npm account 'atool' ...** — SafeDep; OSSF malicious-packages (credits Amazon Inspector ... — 2026-05-19  
    <https://safedep.io/mini-shai-hulud-strikes-again-314-npm-packages-compromised/>  
    [INCIDENT type=supply-chain-worm date=2026-05-19 component=@antv/mcp-server-antv 0.2.8/0.3.8, @antv/mcp-server-chart 0.10.10/0.11.10, mcp-echarts 0.8.1/0.9.1, mcp-mermaid 0.5.1/0.6.1 discoverer=SafeDep, Socket, Amazon Inspector cve=none] One compromised npm account pushed 637 malicious versions across 317 packages in 22 minutes incl. four MCP servers; payload installs a .claude/settings.json SessionStart hook and VS Code folderOpen task and harvests AWS/K8s/GitHub/npm/SSH secrets (OSSF record: ...
-   - Figures: “317 packages (637 versions); 547 packages under one account; burst 01:39-01:56 UTC; 498KB obfuscated script; exfil t.m-kosche[.]com” · “OSSF record: '631 malicious versions across 314 npm packages in an automated 22-minute burst'; persistence 'Run Copilot' workflow, daemon 'kitty-monitor'”
+   - Figures: “317 packages (637 versions); 547 packages under one account; two waves 01:39-01:56 and 02:05-02:06 UTC; 498KB obfuscated script; exfil t.m-kosche[.]com” · “OSSF record: '631 malicious versions across 314 npm packages in an automated 22-minute burst'; persistence 'Run Copilot' workflow, daemon 'kitty-monitor'”
    - Sample/method: Registry monitoring of npm publishes.
    - Limitations: Slug says 314, body 317; campaign-wide figures.
 
@@ -1286,7 +1288,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 61. **MAL-2025-15093: Malicious code in auth0-mcp-server (npm) (+ GHSA-hfw5-55r9-cx88 ...** — OpenSSF (credit Amazon Inspector); GitHub Advisory Database ... — 2025-08-14 (GHSA 2026-09-02)  
    <https://raw.githubusercontent.com/ossf/malicious-packages/main/osv/malicious/npm/auth0-mcp-server/MAL-2025-15093.json>  
    [INCIDENT type=malicious-package (name collision with Auth0's @auth0/auth0-mcp-server, inferred) date=2025-08-14 component=npm auth0-mcp-server (all versions) discoverer=Amazon Inspector cve=none] Earliest OSSF record of a malicious MCP-named npm package, six weeks before postmark-mcp; GHSA published only 2026-09-02 (reported by OpenSSF, CWE-506).
-   - Figures: “OSSF published 2025-08-14T18:52:04Z; SEMVER introduced '0'; GHSA 'All versions (> 0)'”
+   - Figures: “OSSF published 2025-08-14T18:52:04Z; SEMVER introduced '0'; GHSA affected versions '> 0'”
    - Sample/method: Automated detection.
    - Limitations: No payload description; impersonation not stated.
 
@@ -1299,8 +1301,8 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 
 63. **Malicious code in mcp-server-git (npm) - unscoped name-squat of Anthropic reference ...** — GitHub Advisory Database (amazon-inspector; OSSF MAL-2026-5478) ... — 2026-07-27 (repeat batch 2026-08-20)  
    <https://github.com/advisories/GHSA-hmxw-q2gh-p268>  
-   [INCIDENT type=registry-abuse/name-squat date=2026-07-27 component=npm mcp-server-git 0.0.1/0.0.2 + same-day mcp-server-github/-fetch/-figma/-notion/-postgres/-redis/-sentry/-sequential-thinking/-supabase/-everything discoverer=Amazon Inspector cve=none] Unscoped npm names matching official PyPI reference servers claimed to intercept 'npx mcp-server-git' by AI agents; postinstall beacons hostname/cwd/platform to a workers.dev endpoint; classified an attack 'regardless of the author's self-described canary research framing' ...
-   - Figures: “endpoint https://npx-canary-log.vulnerable-live.workers.dev/log; GHSA-prf3: 'Affected Versions >= 0', 'consider fully compromised'”
+   [INCIDENT type=registry-abuse/name-squat date=2026-07-27 component=npm mcp-server-git 0.0.1/0.0.2 + same-day mcp-server-github/-fetch/-figma/-notion/-postgres/-redis/-sentry/-sequential-thinking/-supabase discoverer=Amazon Inspector cve=none] Unscoped npm names matching official PyPI reference servers claimed to intercept 'npx mcp-server-git' by AI agents; postinstall beacons hostname/cwd/platform to a workers.dev endpoint; classified an attack "regardless of the author's self-described 'canary research' framing" ...
+   - Figures: “endpoint https://npx-canary-log.vulnerable-live.workers.dev/log; GHSA-prf3: 'Affected versions >= 0', 'should be considered fully compromised'”
    - Sample/method: Amazon Inspector static analysis; GitHub boilerplate.
    - Limitations: Beacon-only payload; relationship between the two advisories unclear.
 
@@ -1309,7 +1311,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
    [INCIDENT type=malicious-package (rogue MCP server injection) date=2026-02-20 component=19+ npm packages (aliases official334, javaorg) with McpInject targeting Claude Code, Claude Desktop, Cursor, Continue, Windsurf configs discoverer=Socket cve=none] First documented malware that installs its own MCP server into agent configs, with tool prompt injection to read SSH keys, AWS credentials, .npmrc, .env; 'not yet observed confirmed public propagation'.
    - Figures: “'at least 19 malicious npm packages'; targets ~/.claude/settings.json, ~/.cursor/mcp.json, ~/.continue/config.json, ~/.windsurf/mcp.json ...”
    - Sample/method: Socket malware analysis.
-   - Limitations: No victims; '4 sleeper packages' claim elsewhere not on page.
+   - Limitations: No victims; the IOCs also list four 'Sleeper Packages (not malicious yet)' (ethres, iru-caches, iruchache, uudi); 'not yet observed confirmed public propagation' is said of the ci-quality/code-quality-check GitHub Action.
 
 65. **Mini Shai-Hulud, Miasma, and Hades Worms Target Bioinformatics and MCP Developers via ...** — Socket Threat Research (Kirill Boychenko); GitGuardian ... — 2026-06-08  
    <https://socket.dev/blog/mini-shai-hulud-miasma-and-hades-worms-target-bioinformatics-and-mcp-developers-via-malicious>  
@@ -1328,7 +1330,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 67. **FakeGit campaign uses 7,600 GitHub repos to push SmartLoader malware** — BleepingComputer (Bill Toulas), reporting Island — 2026-07-21  
    <https://www.bleepingcomputer.com/news/security/fakegit-campaign-uses-7-600-github-repos-to-push-smartloader-malware/>  
    [INCIDENT type=registry-abuse/malicious-repos date=2026-07-21 component=~800 GitHub repos posing as AI skills or MCP servers; 600+ listings in LobeHub, Glama, MCP.so, MCP Market discoverer=Island cve=none] Largest documented registry-abuse footprint (SmartLoader/StealC); framed as continuation of Trend Micro's 'Water Kurita', not explicitly linked to Oura.
-   - Figures: “7,600 repos; 14,084,688 download events across 335 release assets; 'over 800 repositories posing as AI skills or MCP servers' ...” · “'Claude Code cloned malicious repositories ... detected suspicious indicators and stopped before execution'”
+   - Figures: “7,600 repos; 14,084,688 download events across 335 release assets; 'Over 800 repositories pretended to be AI skills or MCP servers' ...” · “'Claude Code cloned malicious repositories ... detected suspicious indicators and stopped before execution'”
    - Sample/method: Island enumeration; method unstated.
    - Limitations: Secondary; counters may be bot-inflated.
 
@@ -1385,7 +1387,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
    [MEASUREMENT 0-day discovery] Largest single-study disclosure batch: 106 exploit-confirmed 0-days across 39,884 open-source MCP server repos, 67 CVE IDs assigned, plus 63 reconstructed historical MCP-server CVEs; all IDs redacted as CVE-2026-XXXXX.
    - Figures: “'39,884 real-world open-source MCP server repositories ... 106 0-day vulnerabilities ... 67 CVE IDs assigned to date'” · “'146 candidate CVEs ... 63 MCP-server-relevant CVEs remained'; '52 Python, 71 TypeScript, and 7 JavaScript servers'”
    - Sample/method: Static+dynamic taint analysis; NVD+GHSA keyword ground truth.
-   - Limitations: CVE IDs redacted; appendix list absent.
+   - Limitations: CVE IDs redacted (Appendix B, Table 7, lists the repositories against CVE-2026-XXXXX); the 63 historical CVEs are not listed.
 
 76. **A First Measurement Study on Authentication Security in Real-World Remote MCP Servers** — arXiv (Huijun Zhou, Xiaohan Zhang, Haozhe Zhang, Haoyang Zhang et al.) — 2026-05-21  
    <https://arxiv.org/abs/2605.22333>  
@@ -1964,8 +1966,8 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 
 4. **Official Registry Server.json Requirements (with docs/design/proposed-enhanced-validation.md)** — modelcontextprotocol/registry (GitHub); companion design doc at https://raw.githubusercontent.com/modelcontextprotocol/registry/main/docs/design/proposed-enhanced-validation.md — undated; fetched from main 2026-09-11  
    <https://raw.githubusercontent.com/modelcontextprotocol/registry/main/docs/reference/server-json/official-registry-requirements.md>  
-   Defines the entire publish-time validation of the official registry as namespace authentication, package-ownership verification, restricted registry base URLs and a 4KB _meta cap — no content or security review; the companion design doc admits schema validation was not enforced and proposes a non-blocking 'Linter' tier for security concerns.
-   - Figures: “Namespace authentication - Servers are published under appropriate namespaces” · “Package ownership verification - Publishers actually control referenced packages” · “Restricted registry base urls - Packages are from trusted public registries (NPM: https://registry.npmjs.org only; PyPI: https://pypi.org only; NuGet: https://api.nuget.org/v3/index.json only; Cargo: https://crates.io only)” · “The publisher-provided extension is limited to 4KB (4096 bytes) of JSON” · “proposed-enhanced-validation.md: Currently, the MCP Registry project publishes a server.json schema but does not validate servers against it, allowing non-compliant servers to be published.” · “proposed-enhanced-validation.md: Linter Validation (Tertiary) - Best practice recommendations: Security concerns, style guidelines, naming conventions - Non-blocking: Warnings and suggestions, not errors”
+   Lists the validation the official registry adds to the generic server.json format (namespace authentication, package-ownership verification, restricted registry base URLs, a 4KB _meta cap), none of it a content or security review; the companion design doc says full schema validation is not enforced at publish (only schema version plus ad-hoc and semantic checks) and proposes a non-blocking 'Linter' tier for security concerns.
+   - Figures: “Namespace authentication - Servers are published under appropriate namespaces” · “Package ownership verification - Publishers actually control referenced packages” · “Restricted registry base urls - Packages are from trusted public registries” · “Supported registries: NPM: https://registry.npmjs.org only; PyPI: https://pypi.org only; NuGet: https://api.nuget.org/v3/index.json only; Cargo: https://crates.io only; Docker/OCI: docker.io, ghcr.io, quay.io, *.pkg.dev, *.azurecr.io, mcr.microsoft.com; MCPB: https://github.com releases and https://gitlab.com releases only” · “The publisher-provided extension is limited to 4KB (4096 bytes) of JSON” · “proposed-enhanced-validation.md: Currently, the MCP Registry project publishes a server.json schema but does not validate servers against it, allowing non-compliant servers to be published.” · “proposed-enhanced-validation.md: Linter Validation (Tertiary) - Best practice recommendations: Security concerns, style guidelines, naming conventions - Non-blocking: Warnings and suggestions, not errors”
    - Sample/method: n/a (spec and design documents)
    - Limitations: Undated; the design doc marks Stage 1 schema validation as '(Current)', so the 'does not validate' statement may be stale; 'many violate it' is unquantified.
 
@@ -2007,7 +2009,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 10. **modelcontextprotocol/registry README and repository metadata** — Model Context Protocol (GitHub) — repo created 2025-02-05; API freeze note 2025-10-24; pushed 2026-09-09; metadata read 2026-09-11  
    <https://github.com/modelcontextprotocol/registry>  
    Repo-level facts: still labelled preview with possible data resets, v0.1 API frozen, auth methods GitHub OAuth/OIDC/DNS/HTTP, 7,236 stars, 511 issues; the README itself contains no moderation statement (policy lives in docs/).
-   - Figures: “While the system is now more stable, this is still a preview release and breaking changes or data resets may occur.” · “The Registry API has entered an API freeze (v0.1)...the API will remain stable with no breaking changes (2025-10-24)” · “stargazers_count 7236; pushed_at 2026-09-09T23:33:38Z; license NOASSERTION; issues total_count 511; open_issues_count 161”
+   - Figures: “While the system is now more stable, this is still a preview release and breaking changes or data resets may occur.” · “2025-10-24 update: The Registry API has entered an API freeze (v0.1) 🎉. For the next month or more, the API will remain stable with no breaking changes” · “stargazers_count 7236; pushed_at 2026-09-09T23:33:38Z; license NOASSERTION; issues total_count 511; open_issues_count 161”
    - Sample/method: GitHub REST/search API on 2026-09-11
    - Limitations: README only; counts drift.
 
@@ -2019,7 +2021,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
    - Limitations: Single mid-2025 snapshot; excludes the official registry, Glama, Docker and GitHub registries; 'lack of vetting' inferred from outcomes, no policy documents quoted, no written comparison.
 
 12. **Best MCP Server Directories for Developers** — Descope (Artem Oppermann) — 2026-03-16  
-   <https://www.descope.com/blog/mcp-directories>  
+   <https://www.descope.com/blog/post/mcp-directories>  
    The closest thing found to a per-registry review-policy comparison: side-by-side tables (discoverability, quality standards, security verification, maintenance, installation, 9-criteria matrix) for GitHub MCP Registry, Glama, PulseMCP and MCP Market.
    - Figures: “The GitHub MCP Registry currently lists 87 servers as of March 2026” · “GitHub: Basic validation for server.json, limited to format and namespace uniqueness” · “Glama: A team uses automated scans and manual reviews to ensure that projects have READMEs, valid licenses (and no known vulnerabilities); 14,000+ as of Jan 9 2026” · “PulseMCP: there are no automated code or vulnerability checks. Users must consult the GitHub repository; ~7,640+/8,000” · “MCP Market: the directory provides no security checks or dependency information, and maintainer verifications are missing; ~20,000”
    - Sample/method: Descriptive vendor review; counts quoted from each directory's site at stated dates; no independent measurement.
@@ -2053,7 +2055,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
    - Sample/method: n/a (vendor policy documents)
    - Limitations: Undated; closed vendor directory, not an open registry; no takedown mechanics beyond the linked policy; no rejection statistics.
 
-17. **Connector verification — Verified, Community, Custom (with Anthropic Software Directory Policy)** — Anthropic; policy at https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy — verification page undated; Software Directory Policy effective 2026-04-15  
+17. **Connector verification — Verified, Community, Custom (with Anthropic Software Directory Policy)** — Anthropic; policy at https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy — verification page undated; Software Directory Policy page dated 2026-04-15 (its last-updated date)  
    <https://claude.com/docs/connectors/verification>  
    Defines the meaning of Anthropic's labels (Verified is 'not a security audit'; Community is screened but not reviewed in depth) and the directory policy's initial-plus-ongoing review with removal for non-compliance, bans on guardrail circumvention, financial transactions and AI media generation, and mandatory OAuth 2.0 for authenticated remote servers.
    - Figures: “Verification means Anthropic has reviewed the connector more closely than a Community connector, but it is not a security audit or a guarantee of how the connector will perform.” · “Anthropic screens community connectors before listing, but has not reviewed this connector in depth.” · “once connected, a community connector has the same capabilities and access as any connector you grant.” · “Policy: We conduct both initial and ongoing reviews of Software, and may require developers to address compliance issues to continue being included in our Directories.” · “Policy: Remote MCP servers that connect to a remote service and require authentication must use secure OAuth 2.0 with certificates from recognized authorities.” · “Policy effective date: April 15, 2026”
@@ -2167,16 +2169,16 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 
 33. **mcp-registry-growth data/analytics.csv** — dend/mcp-registry-growth (GitHub; 10 stars; no license; created 2025-09-16) — rows 2025-09-16T20:21:46Z to 2026-09-11T08:50:30Z  
    <https://raw.githubusercontent.com/dend/mcp-registry-growth/main/data/analytics.csv>  
-   The longest longitudinal count series of the official registry: 7,057 rows from 238 unique servers at launch to 30,848 unique (100,132 version records) on 2026-09-11.
+   The longest longitudinal count series of the official registry: 7,057 rows from 238 unique servers on 2025-09-16, eight days after launch, to 30,848 unique (100,132 version records) on 2026-09-11.
    - Figures: “2025-09-16T20:21:46.692Z: total 345, unique 238” · “2025-12-01: total 2256, unique 934” · “2026-03-01: total 7318, unique 2781” · “2026-06-01: total 31472, unique 10381” · “2026-09-01: total 86929, unique 26053” · “2026-09-11T08:50:30.431Z: localCount 70212, remoteCount 40235, total 100132, unique 30848”
    - Sample/method: PowerShell pagination of /v0/servers via nextCursor several times daily; totalCount = version records; uniqueCount = distinct names
    - Limitations: Hobby project; legacy /v0 endpoint; whether deleted entries are excluded not verified.
 
-34. **Census of the registry: 25,125 distinct servers from 82,994 version records (with MCP Registry Census dataset)** — GitHub Discussion by ashishsinha1602; daily dataset at https://huggingface.co/datasets/Ashsinha1/mcp-registry-census (MIT) — discussion 2026-08-27, corrected 2026-09-02; dataset baseline 2026-08-28, updated daily  
+34. **Census of the registry: 25,125 distinct servers from 82,994 version records (with MCP Registry Census dataset)** — GitHub Discussion by ashishsinha1602; dataset at https://huggingface.co/datasets/Ashsinha1/mcp-registry-census (MIT) — discussion 2026-08-27, corrected 2026-09-02; dataset baseline 2026-08-28, its only census (README says 'updated daily'; no commit since)  
    <https://github.com/modelcontextprotocol/registry/discussions/1580>  
-   Independent census of the official registry with publisher concentration and data-quality counts (no repository, no transport, deprecated-still-listed, template placeholders) and a daily 13-metric health series.
-   - Figures: “82,994 version records over 830 pages; 25,125 distinct servers; 15,468 publishers” · “13,848 publishers (89.5%) have registered exactly one server; ten largest account for 15.7%” · “5,643 servers (22.5%) have no repository link” · “Correction (Sep 2, 2026): the unreachable count is 189, not 393” · “commenter: 1,314 servers declare a remote endpoint that is hard-unreachable (620 DNS-dead, 609 HTTP 404, 85 TLS failures), against 2,556 more that are auth-walled” · “dataset 2026-08-28: version_records 84,241; distinct_servers 25,423; publishers 15,709; deprecated 268; no_transport 394; no_repository 5,755; max_versions_one_server 1,175; dup_desc_correct_pct 3.56%”
-   - Sample/method: Full crawl of GET /v0/servers by cursor, dedup by isLatest; daily automated re-fetch for the dataset
+   Independent census of the official registry with publisher concentration and data-quality counts (no repository, no transport, deprecated-still-listed, template placeholders) and one 13-metric census row (2026-08-28) in a dataset its README calls daily.
+   - Figures: “82,994 version records over 830 pages; 25,125 distinct servers; 15,468 publishers” · “13,848 publishers (89.5%) have registered exactly one server; ten largest account for 15.7%” · “5,643 servers (22.5%) have no repository link” · “Correction (Sep 2, 2026): the unreachable count is 189, not 393” · “correction, reporting @erdemt (#1579): 1,314 servers declare a remote endpoint that is hard-unreachable (620 DNS-dead, 609 HTTP 404, 85 TLS failures), against 2,556 more that are auth-walled” · “dataset 2026-08-28: version_records 84,241; distinct_servers 25,423; publishers 15,709; deprecated 268; no_transport 394; no_repository 5,755; max_versions_one_server 1,175; dup_desc_correct_pct 3.56%”
+   - Sample/method: Full crawl of GET /v0/servers by cursor, dedup by isLatest; one re-fetch for the dataset (2026-08-28)
    - Limitations: Official registry only; single individual; counts drift daily; no policy content.
 
 35. **Registry Descriptions Go Stale Unevenly: An 89-Day Measurement of Model Context Protocol Drift** — arXiv; Gautam Bharti (independent); dataset Zenodo 10.5281/zenodo.21709945 — v1 2026-08-02; v2 2026-08-04  
@@ -2189,7 +2191,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 36. **What a Random Draw from the MCP Registry Contains, and What Tool-Use Benchmarks Contain Instead** — arXiv; Haseeb Mohammed Afsar (independent); code github.com/itguruhaseeb/mcp-probe — v1 2026-09-10  
    <https://arxiv.org/abs/2609.10962>  
    A seeded random-sample functional census of the official registry (24,135 entries at 2026-08-22): under half of npm/stdio servers complete a handshake, evidence that listing implies no functional check.
-   - Figures: “From a 24,135-server registry census we draw 400 npm / stdio servers with a published seed” · “7,258 candidates at the 2026-08-22 snapshot” · “Included (handshake completed) 195 48.8%; Excluded: handshake failed 150 37.5%; needs credentials 53 13.3%; package unavailable 2 0.5%” · “zero fatal JSON Schema violations across 2,766 advertised tools” · “tool-level omission rate 58.8% on the random draw against 41.5% on the curated frame (n = 24)”
+   - Figures: “From a 24,135-server registry census we draw 400 npm / stdio servers with a published seed” · “7,258 candidates at the 2026-08-22 snapshot” · “Included (handshake completed) 195 48.8%; Excluded: handshake failed 150 37.5%; needs credentials 53 13.3%; package unavailable 2 0.5%” · “zero fatal JSON Schema violations across 2,766 advertised tools” · “the tool-level omission rate on a random draw is 58.8% against 41.5% on the curated frame” (curated frame n = 24)
    - Sample/method: Full cursor-paginated census; seeded draw of 400 from 7,258 npm/stdio servers; single probe each without credentials
    - Limitations: Official registry only; tiny curated comparison frame; no moderation content.
 
@@ -2972,7 +2974,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 40. **Deadbugz: Currently Active MCP Supply-Chain Campaign** — Pillar Security (Ariel Fogel and co-author) — 2026-08-12  
    <https://www.pillar.security/blog/deadbugz-currently-active-mcp-supply-chain-campaign>  
    Most recent vendor incident write-up: PR-based injection of a malicious remote/local MCP server whose tools/list and prompts/get responses switch to credential-hunting instructions after three tools/call requests per client (runtime-gated metadata poisoning).
-   - Figures: “23 identified campaign-related pull requests from GitHub account zellkernel; 19 were closed and four remained open” · “17 configure a remote MCP server; 4 reference a hidden local Python path; 2 are directory or listing submissions” · “an in-memory, per-client counter for tools/call requests. Once it reaches three, subsequent tools/list and prompts/get responses change.”
+   - Figures: “The public GitHub account zellkernel submitted 23 identified campaign-related pull requests”; “19 were closed and four remained open” · “Seventeen configure a remote MCP server; four reference a hidden local Python path; and two are directory or listing submissions” · “an in-memory, per-client counter for tools/call requests. Once it reaches three, subsequent tools/list and prompts/get responses change.”
    - Sample/method: Incident analysis of PRs and the served endpoint; no population measurement
    - Limitations: No compromise counts; second author name not rendered; CSA secondary notes unreachable (403).
 
@@ -3134,3 +3136,7 @@ Appendix to [mcp.md](mcp.md), generated from the per-topic write-ups of the 2026
 - `canopii.dev direct :: State of MCP Security 2026 PDF :: 2.5 MB PDF; pdftotext; figures and methodology extracted`
 - `akamai.com direct :: new-mcp-specification-security-teams-must-prepare :: 403`
 - `labs.cloudsecurityalliance.org direct :: CSA research notes on Deadbugz :: 403`
+
+## Corrections, 2026-10-01
+
+29 entries said something their source does not: a quotation not word for word, a date, an author, a count, or a summary line that went further than the source or than the entry's own source check. Each now says what the source says.

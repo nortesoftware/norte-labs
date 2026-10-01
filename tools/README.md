@@ -52,9 +52,9 @@ Environment.ExitCode = true ? (int)ExitCode.Success : (int)ExitCode.ValidationEr
 
 The ternary's condition is the literal `true`, so `ValidationError` is unreachable and the only path
 to a non-zero exit is the `catch`, which sets `GeneralError` for an exception — a file that cannot
-be opened. An SBOM that parses and fails validation exits 0. The audit establishes what
-`MultilineSummary()` prints in that case, whether any consumer reads the summary rather than the
-exit code, and how far back the line goes.
+be opened. An SBOM that parses and fails validation exits 0. The audit establishes what the service
+prints in that case, whether any consumer reads the summary rather than the exit code, and how far
+back the line goes.
 
 **Audited, 2026-09-22: [tools/sbom-tool/](sbom-tool/).** Reproduced against the published v4.1.5
 binary — three malformed SBOMs and one file that is not JSON all print `SBOM format validation
@@ -190,3 +190,8 @@ matter: `tools/firejail/` names the address it went to, because that is the reco
   success when there are no dependency changes; an API failure fails the job. nsjail's
   `SECCOMP_IOCTL_NOTIF_ID_VALID` is absent from `syscall.cc`, where the reads are, not from the
   directory: `unotify.cc` checks it to stop once the target is gone.
+
+## Corrections, 2026-10-01
+
+- The sbom-tool entry said the audit establishes what `MultilineSummary()` prints; the method
+  returns the lines, which the service's `PrintLines` prints.

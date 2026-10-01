@@ -64,9 +64,9 @@ Russ Cox's `57001-gotoolchain` design document. Nothing measures it.
 The incident record is the reason this is worth measuring rather than merely noting:
 
 - **CVE-2023-39320** (`golang/go#62198`, reported by Juho Nurminen of Mattermost): the toolchain
-  directive "could be leveraged to execute scripts and binaries relative to the root of the
-  module when the go command was executed within the module". Fixed in Go 1.21.1 — within weeks
-  of the feature shipping.
+  directive "could be leveraged to execute scripts and binaries relative to the root of the module
+  when the 'go' command was executed within the module". Fixed in Go 1.21.1 — within weeks of the
+  feature shipping.
 - **`golang/go#79070`** (2026): "If … the checksum database returns a successful response that
   contains no entry for the module, the go command incorrectly permitted validation to succeed",
   and the report frames it for this path — "a malicious module proxy can serve altered versions
@@ -123,3 +123,8 @@ target, with the sumdb-coverage sub-question as the exception.
   published on 2026-09-30.
 - `GONOSUMCHECK` was named among the ways to turn off the checksum database; no Go release reads
   it. The text now names `GOSUMDB=off`, `GOPRIVATE` and `GONOSUMDB`.
+
+## Corrections, 2026-10-01
+
+- The CVE-2023-39320 quotation dropped the quotation marks the issue puts around `go`; it now
+  carries them.
