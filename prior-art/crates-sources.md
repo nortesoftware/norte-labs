@@ -1,11 +1,12 @@
 # prior-art/crates — sources and searches
 
-Appendix to [crates.md](crates.md). Sweep of 2026-09-25 over four modalities: 140 sources,
-210 recorded searches. Every source listed here was opened unless the entry says otherwise.
+Appendix to [crates.md](crates.md). Sweep of 2026-09-25 over four modalities: 140 source
+entries, 210 recorded searches. Every source listed here was opened unless the entry says otherwise.
 
-The quotations of the industry and community entries were matched word for word against their
-pages on 2026-09-25. On 2026-10-01 the entries behind the sentences of crates.md were read again
-against their sources; the other entries have not been read again since the sweep.
+On 2026-10-01 every quotation and figure in these 140 entries was matched against its source.
+54 entries were read again against their sources: every one where something did not match at
+once, and those behind the sentences of crates.md. In the other 86 only the quotations and
+figures were matched.
 
 
 ## academic
@@ -117,7 +118,7 @@ against their sources; the other entries have not been read again since the swee
 - **Demystifying Compiler Unstable Feature Usage and Impacts in the Rust Ecosystem** — ICSE 2024 (extended in TSE 2025), arXiv 2310.17186; Chenghao Li, Yifei Wu, Wenbo Shen, Zichen Zhao, Rui Chang, Chengwei Liu, et al. (with the tool repository <https://github.com/ZJU-SEC/Cargo-Ecosystem-Monitor>)
   <https://arxiv.org/abs/2310.17186>
   2024 · Q3 Q4 · adjacent
-  Measured: "resolve 592,183 package versions to get 139,525,225 transitive dependencies", an ecosystem dependency graph with raw data as of 2022-08-11. The repository's `OtherTools.md` pastes `cargo supply-chain publishers` output and lists "Untrusted maintainer" as future work.
+  Measured: "resolve 592,183 package versions to get 139,525,225 direct and transitive dependencies", an ecosystem dependency graph with raw data as of 2022-08-11. The repository's `OtherTools.md` pastes `cargo supply-chain publishers` output and lists "Untrusted maintainer" as future work.
   Not measured: per package version, not per project. No owners or publishers. The "untrusted maintainer" direction was never pursued, and the repository is archived.
 
 - **CHRONO-RESOLUTION: A Dependency Resolution Dataset at Release Points for npm, PyPI, and crates.io Packages** — arXiv 2607.15315v1; Imranur Rahman, Jill Marley, Ranindya Paramitha, Laurie Williams
@@ -252,7 +253,7 @@ against their sources; the other entries have not been read again since the swee
   <https://github.com/rust-lang/rfcs/blob/master/text/3691-trusted-publishing-cratesio.md>
   2024 (start date 2024-09-10) · Q1 Q4 · adjacent
   Measured: "A _Trusted Publisher Configuration_ can only be created after an initial manual publishing of a crate"; "A Trusted Publisher Configuration will be _owned_ by the associated crate."
-  Not measured: nothing on adoption. Every trusted-published crate therefore has at least one earlier version with a human `published_by`, unless that version predates 2018-11.
+  Not measured: nothing on adoption. Every trusted-published crate therefore has at least one earlier version with a human `published_by`, unless that version predates 2019-02-22, when crates.io began recording publishers (rust-lang/crates.io#1621).
 
 - **crates.io: development update (July 2026)** — Rust Blog; Tobias Bieniek (crates.io team)
   <https://github.com/rust-lang/blog.rust-lang.org/blob/main/content/crates-io-development-update-2026-07/index.md>
@@ -527,7 +528,7 @@ against their sources; the other entries have not been read again since the swee
 - **Alpha-Omega engagement monthly updates — Rust / Rust Foundation** — OpenSSF Alpha-Omega (GitHub); Rust Foundation staff
   <https://github.com/ossf/alpha-omega/tree/main/alpha/engagements/2025/Rust> ; <https://github.com/ossf/alpha-omega/tree/main/alpha/engagements/2026/Rust%20Foundation>
   2025–2026 (monthly through 2026-08) · Q4 · adjacent
-  Measured: 2025-07: "Trusted publishing is live and being used in production". 2025-09: configurations can be managed with API tokens. 2025-11: GitLab beta, an enforcement flag, and IaC for Rust Project crates; "Walter … is looking for anomalies across the top 500 crates" (publishing from an unusual IP). 2026-04: Adam scanned the repositories of "the top 5000 crates (as measured by downloads in the last 90 days)" for the compromised Trivy action and found only one user. 2026-08: publish-time malware scanning and quarantine after arrayref, and two docs.rs crates moved to trusted publishing.
+  Measured: 2025-07: "Trusted publishing is live and being used in production". 2025-09: configurations can be managed with API tokens. 2025-11: GitLab beta, an enforcement flag, and IaC for Rust Project crates; "Walter has implemented crate and log analytics within DataDog. He is looking for anomalies across the top 500 crates" (a crate task from an IP address not normally used for it). 2026-04: Adam scanned the repositories of "the top 5000 crates (as measured by downloads in the last 90 days)" for the compromised Trivy action and found one that used the compromised action, pinned to specific commits. 2026-08: publish-time malware scanning and quarantine after arrayref, and two docs.rs crates moved to trusted publishing.
   Not measured: no adoption counts. No publisher or owner statistics per crate or per project.
 
 - **Security Initiative Report, February 2024** — Rust Foundation; Joel Marcey, Walter Pearce, Adam Harvey, Tobias Bieniek, Jan David Nose
@@ -675,10 +676,10 @@ against their sources; the other entries have not been read again since the swee
   Not measured: no numbers.
 
 - **Software Supply Chain State of the Union (landing pages)** — JFrog
-  <https://jfrog.com/software-supply-chain-state-of-union-old/> ; <https://jfrog.com/artifact-state-of-union/>
-  2024–2026 · Q4 · no
-  Measured: neither page mentions Rust, Cargo or crates.io. A search-engine snippet attributes "Rust (Cargo) repositories increased 30 percent" (2022) and "Rust growth slowing" to JFrog reports; the 2025 report PDF returned HTTP 403, so the attribution is unconfirmed.
-  Not measured: nothing confirmed on Rust.
+  <https://jfrog.com/software-supply-chain-state-of-union-old/> ; <https://jfrog.com/artifact-state-of-union/> (the live pages return an empty body; Wayback captures of 2026-06-11 and 2023-02-07 read)
+  2023–2026 · Q4 · adjacent
+  Measured: the 2023 report's page, as captured on 2023-02-07, says "The number of Rust (Cargo) repositories has increased 30 percent from January 2022 to October 2022", counting repositories in JFrog's own platform, and ranks Rust (Cargo) 27th by repositories. The capture of the newer page has no mention of Rust. The 2025 report PDF returned HTTP 403.
+  Not measured: repositories in one vendor's platform, not crates, publishers or projects.
 
 - **State of Dependency Management 2022** — Endor Labs; Henrik Plate
   <https://www.endorlabs.com/learn/state-of-dependency-management>
@@ -874,7 +875,7 @@ against their sources; the other entries have not been read again since the swee
 - **State of the Rust/Cargo crates ecosystem (lib.rs/stats)** — lib.rs; Kornel Lesiński
   <https://lib.rs/stats> (read through the Wayback snapshot of 2026-05-07; the live page returns a Cloudflare challenge)
   2026 · Q3, Q4 · adjacent
-  Measured: "There are 63,833 users or teams that have a crate on crates.io. The number of owners is growing at a rate of 1.3× per year." "Lib.rs has indexed 263778 crates." Histogram "Number of direct dependencies": "Number of libraries explicitly used by each crate. Includes dev, build-time and optional dependencies." The zero bin has 35,746 crates, the one bin 19,988, and so on. Also "Number of transitive reverse dependencies (popularity)" and "Number of crates per user" ("How many crates a single account (user or team) owns"). A search-engine snippet of the live page gives 72,674 owners and 336,679 crates; the live page could not be opened.
+  Measured: "There are 63,833 users or teams that have a crate on crates.io. The number of owners is growing at a rate of 1.3× per year." "Lib.rs has indexed 263778 crates." Histogram "Number of direct dependencies": "Number of libraries explicitly used by each crate. Includes dev, build-time and optional dependencies." The zero bin has 35,746 crates, the one bin 19,988, and so on. Also "Number of transitive reverse dependencies (popularity)" and "Number of crates per user" ("How many crates a single account (user or team) owns").
   Not measured: per-crate, over crates.io libraries, not over GitHub applications. Direct only, with no resolved/transitive count per crate. No owners behind a graph. No `published_by`.
 
 - **The state of the Rust dependency ecosystem** — 00f.net; Frank Denis
@@ -1099,3 +1100,13 @@ Four pages were read only through the Wayback Machine: lib.rs/stats (snapshot of
 Full texts not available: Fan et al. (FSE 2025), where ACM returned 403 and the entry rests on the OpenAlex abstract and the Zenodo artifact; Qi & Cao (IET Software 2024), where Wiley returned 403 and the entry rests on the OpenAlex abstract and the authors' repository. Präzi was read from the TU Delft repository because the Springer page was blocked, and Schueller et al. (Scientific Data) from arXiv v2 because nature.com redirected to a login. The JFrog 2025 report PDF returned HTTP 403 and no archived copy could be retrieved. The full ReversingLabs 2026 report is gated; only the press release was read. crates.io/data-access renders client-side, so its text was read from the page's source in the crates.io repository; libraries.io/data is a marketing page, so the Libraries.io dataset was read from Zenodo.
 
 One paper was found by title and not opened: "Claim vs. Capability", on SBOM generation tools for Rust projects (SAC 2025, DOI 10.1145/3672608.3707940).
+
+## Corrections, 2026-10-01
+
+Five entries said something their source does not. A quotation dropped "direct and" without
+marking the cut; another joined two sentences with an ellipsis; one entry dated the start of
+crates.io's publisher records to November 2018, when they start with a change merged on
+2019-02-22; one said a
+vendor's pages never mention Rust, when an archived capture of one does; one carried figures
+from a search-engine snippet that could not be opened, now removed. Each now says what the
+source says.

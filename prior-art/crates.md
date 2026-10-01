@@ -1,7 +1,7 @@
 # Has anyone counted who publishes what one Cargo.lock resolves?
 
 Sweep of 2026-09-25. Four modalities — academic, code and data, industry, community and press —
-140 source entries for 130 sources, and 210 recorded searches; sources and searches in
+140 source entries and 210 recorded searches; sources and searches in
 [crates-sources.md](crates-sources.md).
 
 The same question as [instruction-gap.md](instruction-gap.md) for npm and
@@ -20,10 +20,10 @@ The closest:
 - *On Good Authority* (Santos-Grueiro, arXiv 2606.22593, 2026) reads crates.io's publisher and
   trusted-publishing evidence release by release, per package: 135 crates, 1,739 comparisons. It
   never looks at a project's graph.
-- cargo-vet's `imports.lock` records the publishing account per version, but only for the crates
-  its trust or audit entries need: 100 entries against 262 registry packages in cargo-vet's own
-  lockfile. Its trust entries use the same identity counted here, `published_by` or else the
-  trusted-publishing repository.
+- cargo-vet's `imports.lock` records the publishing account per version, but only for the crates its
+  trust or audit entries need: 100 entries against 262 registry packages in cargo-vet's own lockfile
+  at `fb5cc28` (2026-09-25). Its trust entries use the same identity counted here, `published_by` or
+  else the trusted-publishing repository.
 - A 2021 users.rust-lang.org thread attributes by hand the owners of the nine crates one `rand`
   dependency pulls in.
 
@@ -67,9 +67,11 @@ Not found: lockfile medians over a random sample of Rust repositories, or a desi
   teams and users. It keeps `versions.trustpub_data` private: a version published through
   trusted publishing has no `published_by`, and the repository that published it comes only from
   the per-version API.
-- `published_by` was added by a migration dated November 2018, with no backfill. Versions
-  published before it took effect have no recorded publisher.
-- Owners in the dump are today's. GitHub team membership cannot be listed.
+- `published_by` was added by a migration dated November 2018, with no backfill, and crates.io
+  began filling it with a change merged on 2019-02-22 (rust-lang/crates.io#1621, which took in
+  #1561, "Record who published crate versions"). Versions published before then have no
+  recorded publisher.
+- Owners in a dump are those of its day. GitHub team membership cannot be listed.
 - The `users` table changed on 2026-09-14 to hold every user, and crates.io identities are being
   separated from GitHub logins.
 - Only the latest dump can be downloaded.
@@ -89,3 +91,10 @@ taken through GitHub search, Hacker News, the Rust forums' search and the Waybac
 were blocked and are judged on their abstracts and artifacts. One paper found by title was not
 opened: "Claim vs. Capability: A Comparative Analysis of the SBOM Generation Tools for Rust
 Projects" (SAC 2025).
+
+## Corrections, 2026-10-01
+
+- The sweep was given as 140 source entries for 130 sources; the 130 had no rule behind it, and the
+  count is the 140 entries.
+- The start of crates.io's publisher records is now dated from crates.io: a change merged on
+  2019-02-22, after the migration of November 2018.
