@@ -26,9 +26,9 @@ size figures are what the site or its API showed that day
 | [MCP Market](https://mcpmarket.com) | not identified | — | not documented | — | no | 47,477 |
 | [MCP Toplist](https://mcptoplist.com) | BIFF.ai | aggregator (5 registries) | none; dedup by repo URL / package id | — | no | 126,487 |
 | [Cline marketplace](https://github.com/cline/mcp-marketplace) | Cline | GitHub issue | written manual review: adoption, developer credibility (identity verification), maturity, security (extra scrutiny for finance/crypto), "within a couple of days" | — | no | 199 (2,226 open issues) |
-| [Anthropic Connectors Directory](https://claude.com/docs/connectors/building/review-criteria) | Anthropic | form | automated policy scan → listed as "community"; escalation to "verified review" with a functional test of every tool; "Verified is not a security audit" | initial and ongoing review; removal for non-compliance | no | n/a |
-| [Claude Code plugins](https://code.claude.com/docs/en/discover-plugins) | Anthropic | PR | official: curated at discretion; community: automated validation and safety screening, commit-SHA pinning; "Anthropic cannot verify…" | — | no | n/a |
-| [OpenAI plugins / Apps](https://developers.openai.com/plugins/app-guidelines) | OpenAI | submission | curated-directory criteria: correct tool annotations (a common rejection cause), privacy policy, data minimization | post-approval removal | no | n/a |
+| [Anthropic Connectors Directory](https://claude.com/docs/connectors/building/review-criteria) | Anthropic | form | automated policy scan → listed as "community"; escalation to "verified review" with a functional test of every tool; verification "isn't a security audit" | initial and ongoing review; removal for non-compliance | no | n/a |
+| [Claude Code plugins](https://code.claude.com/docs/en/discover-plugins) | Anthropic | in-app submission forms (to the community marketplace) | official: curated, "at Anthropic's discretion"; community: "automated validation and safety screening", each plugin pinned to a commit SHA; Anthropic "can't verify that they work as intended" | — | no | n/a |
+| [OpenAI plugins / Apps](https://developers.openai.com/plugins/app-guidelines) | OpenAI | submission | curated-directory criteria: correct tool annotations, flagged by an automated review that can be appealed; privacy policy; data minimization | post-approval removal | no | n/a |
 | [Microsoft MCP server certification](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-server-certification) | Microsoft | Partner Center | the strictest documented: verified publisher, automated validation, manual per-tool testing with credentials, adversarial Responsible AI scenarios, continuous monitoring | post-certification monitoring | no | n/a |
 | [Azure API Center MCP registry](https://learn.microsoft.com/en-us/azure/api-center/register-discover-mcp-server) | Microsoft (per organization) | manual registration / sync from APIM or Git | no third-party code review described | — | no | private |
 | [Stacklok ToolHive catalog](https://github.com/stacklok/toolhive-catalog) | Stacklok | PR with `server.json` | written Required/Expected/Recommended rubric (open source only, SHA-pinned dependencies, no unpatched critical/high CVEs, provenance, SLSA, SBOM); an LLM reviewer agent authorized to approve and merge low/medium-risk PRs | — | no | 111 |
@@ -100,3 +100,7 @@ Not measured (open field):
   endpoint domains expired; OX Security's 9 of 11 was a trial balloon, "without review" being the
   Cloud Security Alliance's account; the practitioner tables cover GitHub's catalog and mention
   takedowns; the academic literature covers Anthropic's reference list of servers.
+- The Anthropic Connectors row quoted "Verified is not a security audit"; the page says verification
+  "isn't a security audit". Claude Code's plugins take in-app submissions, not pull requests, and
+  the documentation's words are "can't verify that they work as intended". OpenAI's guidelines
+  call for correct annotations without calling them a common cause of rejection.

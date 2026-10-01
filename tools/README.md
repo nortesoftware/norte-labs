@@ -114,28 +114,29 @@ an invalid signature from a valid one; the audit is whether it distinguishes *ch
 
 **Audited, 2026-09-23: [tools/npm-audit-signatures/](npm-audit-signatures/). The finding did not
 survive intact, and no submission was spent.** Reproduced against npm 10.9.8: a tree resolved
-entirely from a keyless registry errors and exits 1, which is correct; a mixed tree prints
-`audited 1 package` and `1 package has a verified registry signature` and exits 0 with the
-keyless dependency counted nowhere. But the skip itself is intentional and was requested —
-npm/cli#5479 asked for `E400` to be treated like `E404` precisely so those dependencies would be
-skipped rather than fail. What is left is that the mixed case reports no coverage figure, which
-is a reporting gap and not a vulnerability. Filed as a public issue instead, npm/cli#10018; the four-submission
-limit is not worth spending on a report whose own prior art shows the behaviour was asked for.
+entirely from a keyless registry errors and exits 1, which is correct; a mixed tree prints `audited
+1 package` and `1 package has a verified registry signature` and exits 0 with the keyless dependency
+counted nowhere. But the skip itself is intentional and was requested — npm/cli#5479 asked for
+`E400` to be treated like `E404` precisely so those dependencies would be skipped rather than fail.
+What is left is that the mixed case reports no coverage figure, which is a reporting gap and not a
+vulnerability. Filed as a public issue instead, npm/cli#10018, since its own prior art shows the
+behaviour was asked for.
 
 ## Runners-up, and why not now
 
-- **`actions/dependency-review-action`** — carries on and reports success when it finds no changes
-  or when the API call fails. Strong fit and a real gate, but it duplicates the npm/GitHub surface
-  of pick 1; it is the first reserve.
+- **`actions/dependency-review-action`** — carries on and reports success when it finds no
+  dependency changes. Strong fit and a real gate, but it duplicates the npm/GitHub surface of pick
+  1; it is the first reserve.
 - **Trivy** and **Grype** — `case errors.Is(err, ospkgDetector.ErrUnsupportedOS): // do nothing`,
   and a nil distro yielding an empty match set. Very widely deployed, but the behaviour is already
   discussed in their trackers, so the prior-art verdict is *partial* rather than *not found*.
 - **StepSecurity Harden-Runner** — the closest existing work to this programme's shape, with
   published advisories. Most worked, least open.
 - **`nsjail`'s `unotify/`** — reads tracee memory with `process_vm_readv` to decode path and
-  `sockaddr` arguments, and `SECCOMP_IOCTL_NOTIF_ID_VALID` does not appear in that file. The `pmg`
-  shape, unclaimed. Held back only because the project has no SECURITY.md and states it is not an
-  official Google product, which makes disclosure unclear.
+  `sockaddr` arguments in `syscall.cc`, which never checks `SECCOMP_IOCTL_NOTIF_ID_VALID`;
+  `unotify.cc` uses it only to tell whether the target is still alive. The `pmg` shape, unclaimed.
+  Held back only because the project has no SECURITY.md and states it is not an official Google
+  product, which makes disclosure unclear.
 - **`packj`'s sandbox** — promises to prevent exfiltration using a `strace` supervisor that rewrites
   syscall path arguments in the tracee's memory. The mismatch is the strongest in the inventory;
   adoption is the weakest. Worth taking if a fourth is wanted.
@@ -184,3 +185,8 @@ matter: `tools/firejail/` names the address it went to, because that is the reco
 - The sbom-tool entry said PR #617 made the placeholder's value authoritative; it did so for the
   standalone tool only, the one copy it changed. "Security Feature Bypass" is MSRC's
   classification in its researcher portal, which is not public.
+- The npm entry gave a four-submission limit of GitHub's bounty programme as a reason; no source
+  for it is kept, and the sentence now gives the prior art alone. dependency-review-action reports
+  success when there are no dependency changes; an API failure fails the job. nsjail's
+  `SECCOMP_IOCTL_NOTIF_ID_VALID` is absent from `syscall.cc`, where the reads are, not from the
+  directory: `unotify.cc` checks it to stop once the target is gone.

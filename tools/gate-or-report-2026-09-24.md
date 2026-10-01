@@ -125,7 +125,9 @@ Decided in advance:
 
 **Aura** (gates). Exit 1 is shared with scan errors, and the documentation never says what the audit checks are. It does tie the code to the checks and offers it for CI, and the classification is of what the documentation says.
 
-**Harden-Runner** (gates). The action's input `egress-policy` defaults to `block`, and the global block list needs no configuration; the README's own example sets `audit`. Block mode is Linux only.
+**Harden-Runner** (gates). The action's input `egress-policy` defaults to `block`, and the global
+block list needs no configuration; the README's own example sets `audit`. On GitHub-hosted runners
+block mode is Linux only; Windows and macOS get audit mode.
 
 **pinact** (gates). A rewriter with a check mode; the check mode is what gates.
 
@@ -138,3 +140,8 @@ Every quote in the `.ndjson` was fetched from its pinned URL on 2026-09-24 and c
 ## Limits
 
 This is what the documentation says at the pinned commits, not what the tools do. A later commit can say something else, and a tool can do less than its documentation says; the second is what an audit is for.
+
+## Corrections, 2026-10-01
+
+- Harden-Runner's block mode was said to be Linux only; the README's table gives Windows and
+  macOS GitHub-hosted runners audit mode only, and self-hosted runners full support.
