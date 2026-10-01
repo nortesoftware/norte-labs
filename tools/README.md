@@ -9,7 +9,7 @@ what the tool reports when the control it names cannot reach what it claims to c
 | target | outcome |
 |---|---|
 | [`microsoft/sbom-tool`](sbom-tool/) | `ValidateFormat` prints that validation failed and exits 0. Sent to MSRC per its `SECURITY.md`, tracked as **VULN-229761**, classified Security Feature Bypass. |
-| [`netblue30/firejail`](firejail/) | A blacklist for a path that is not there is skipped with no line at any verbosity, and a seccomp filter that fails to install is reported as installed. Sent 2026-09-23 to the address in `SECURITY.md`. A related ordering defect was added as a comment on [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248). |
+| [`netblue30/firejail`](firejail/) | A blacklist for a path that is not there is skipped with no line at any verbosity, and a seccomp filter that fails to install draws one warning, none under `--quiet`, and is then reported as installed. Sent 2026-09-23 to the address in `SECURITY.md`. A related ordering defect was added as a comment on [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248). |
 | [`npm audit signatures`](npm-audit-signatures/) | It does not report how many packages it skipped for want of registry keys, so a partially verified tree reads as a fully verified one. Filed as [npm/cli#10018](https://github.com/npm/cli/issues/10018). |
 | [`google/capslock`](capslock/) | Drawn at random rather than chosen. No finding in the default mode, the one examined; written up anyway. |
 | [`bazelbuild/bazel`](bazel/) | Drawn at random from the tools that gate; the record of the draw is not published. Under linux-sandbox, `--sandbox_block_path` skips a path that does not exist when an action's sandbox is set up, with no line at any verbosity tried, and an action already running reads the path once it appears; a block that was applied is lost for a running action when the host renames over the path or deletes and recreates it. Filed as documentation: [#31318](https://github.com/bazelbuild/bazel/issues/31318), with [#31316](https://github.com/bazelbuild/bazel/issues/31316) on a stale `build.mdx` paragraph and [#31317](https://github.com/bazelbuild/bazel/issues/31317) on sandbox pages that contradict each other. |
@@ -50,11 +50,11 @@ validation step, the thing a pipeline runs to decide whether an SBOM is acceptab
 Environment.ExitCode = true ? (int)ExitCode.Success : (int)ExitCode.ValidationError;
 ```
 
-The ternary's condition is the literal `true`, so `ValidationError` is unreachable and the only
-path to a non-zero exit is the `catch`, which returns `GeneralError` for an exception — a file that
-cannot be opened or parsed. An SBOM that parses and fails validation exits 0. The audit establishes
-what `MultilineSummary()` prints in that case, whether any consumer reads the summary rather than
-the exit code, and how far back the line goes.
+The ternary's condition is the literal `true`, so `ValidationError` is unreachable and the only path
+to a non-zero exit is the `catch`, which sets `GeneralError` for an exception — a file that cannot
+be opened. An SBOM that parses and fails validation exits 0. The audit establishes what
+`MultilineSummary()` prints in that case, whether any consumer reads the summary rather than the
+exit code, and how far back the line goes.
 
 **Audited, 2026-09-22: [tools/sbom-tool/](sbom-tool/).** Reproduced against the published v4.1.5
 binary — three malformed SBOMs and one file that is not JSON all print
@@ -67,31 +67,33 @@ classified Security Feature Bypass.
 
 ### 2. `netblue30/firejail`
 
-The direct heir of `cplt` and `nono`, in the most-deployed unprivileged sandbox on Linux, and the
-one of the three this host can exercise end to end.
+The direct heir of `cplt` and `nono`, in a setuid sandbox on Linux, and the one of the three this
+host can exercise end to end.
 
 Two bites, both verified in the tree and neither in the local-root CVE genre firejail is already
 known for:
 
-- **Degraded mode.** Every call to `seccomp_load` in `src/firejail/sandbox.c` discards its return
-  value — the protocol filter, both memory-deny-write-execute filters and both namespace filters —
-  and execution proceeds unconditionally. `src/firejail/seccomp.c` warns once when the kernel is
-  too old. A sandbox whose syscall filter did not install keeps running, still called a sandbox.
+- **Degraded mode.** The three calls to `seccomp_install_filters()` in `src/firejail/sandbox.c`
+  discard its return value, 1 when any queued filter — the protocol filter, both
+  memory-deny-write-execute filters and both namespace filters among them — failed to install, and
+  execution proceeds unconditionally. `src/firejail/seccomp.c` warns once when any filter fails to
+  install, with a message that blames a kernel older than 3.5. A sandbox whose syscall filter did
+  not install keeps running, still called a sandbox.
 - **Absent paths.** `src/firejail/fs.c` globs blacklist patterns with `GLOB_NOCHECK`, with the
   comment that profiles blacklist files that may not exist. A blacklist entry for a path absent at
   setup is a no-op; the question is what happens when the path appears afterwards, and whether any
   output distinguishes a rule that matched nothing from a rule that was applied.
 
-Channel: mature, with a documented process and a long advisory history.
+Channel: a reporting address in `SECURITY.md` and a CVE history going back to 2016.
 
 **Audited, 2026-09-23: [tools/firejail/](firejail/).** Both reproduced on 0.9.74, with the code
-checked against `ccdf4ea` first so the report is not about an EOL version. The blacklist finding
-came out stronger than expected: the same program implements "the path is not there at setup"
-twice and reports it only on the whitelist side, so `--debug-blacklists` lists what applied and
-is silent about what did not. The seccomp finding is reported as what it is — the reporting half
-is reproduced, including that `--seccomp.print` reads the filter files rather than the kernel's
-`Seccomp_filters`, while the failing install itself could not be induced unprivileged on kernel
-6.12 and is stated as unreproduced. Reported 2026-09-23 to `netblue30@protonmail.com`.
+checked against `ccdf4ea` first so the report is not about a version upstream no longer supports.
+The blacklist finding came out stronger than expected: the same program implements "the path is not
+there at setup" twice and reports it only on the whitelist side, so `--debug-blacklists` lists what
+applied and is silent about what did not. The seccomp finding is reported as what it is — the
+reporting half is reproduced, including that `--seccomp.print` reads the filter files rather than
+the kernel's `Seccomp_filters`, while the failing install itself could not be induced unprivileged
+on kernel 6.12 and is stated as unreproduced. Reported 2026-09-23 to `netblue30@protonmail.com`.
 
 The recurrence is written up separately in [absent-fails-open.md](absent-fails-open.md), and
 tested against targets picked by seeded random draw — [capslock/](capslock/), where it did not
@@ -167,3 +169,15 @@ matter: `tools/firejail/` names the address it went to, because that is the reco
   is back in the firejail section.
 - The Capslock row said "No finding", and the firejail section said the recurrence does not
   appear in Capslock. Only its default mode was examined, and the second draw, Bazel, did show it.
+
+## Corrections, 2026-09-30
+
+- firejail's seccomp failure was said to be reported as installed; it draws one warning first,
+  none under `--quiet`. The calls that discard the result are the three to
+  `seccomp_install_filters()`, not `seccomp_load`, which only queues a filter; the warning fires
+  on any failed install, whatever the kernel.
+- firejail was called the most-deployed unprivileged sandbox on Linux; it is a setuid sandbox, and
+  Debian's popcon counts bubblewrap on far more installations. Its channel is a reporting address
+  and a CVE history, not a documented process; 0.9.74 is unsupported upstream, not EOL.
+- sbom-tool's `GeneralError` is for a file that cannot be opened; one that cannot be parsed is a
+  validation failure and exits 0.

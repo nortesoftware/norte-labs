@@ -41,12 +41,12 @@ Supply-chain security research and audits.
   [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248),
   `npm audit signatures` as [npm/cli#10018](https://github.com/npm/cli/issues/10018), and
   `google/capslock` — drawn at random rather than chosen, no finding, written up anyway.
-- [prior-art/go-supply-chain.md](prior-art/go-supply-chain.md) — has anyone measured what a Go
-  build trusts and what it runs? Four questions over four modalities, 96 sources, 143 recorded
-  searches (2026-09-23). Go has no install scripts and has a checksum database, and both hold; what
-  is open is the step from modules to owners, what arrives through cgo in a module graph, and the
-  toolchain directive that makes the go command download and run a different toolchain by default.
-  Appendix in [prior-art/go-supply-chain-sources.md](prior-art/go-supply-chain-sources.md).
+- [prior-art/go-supply-chain.md](prior-art/go-supply-chain.md) — has anyone measured what a Go build
+  trusts and what it runs? Four questions over four modalities, 96 sources, 143 recorded searches
+  (2026-09-23). Go has no install scripts and has a checksum database, and both hold; what is open
+  is the step from modules to owners, what arrives through cgo in a module graph, and the toolchain
+  directive that makes the go command download and run a newer toolchain than the installed one by
+  default. Appendix in [prior-art/go-supply-chain-sources.md](prior-art/go-supply-chain-sources.md).
 - [ecosystems/go/](ecosystems/go/) — what one `go build` trusts and what it runs: 400 repositories
   from a frame of 11,015, 360 resolved. A median Go project declares 9 modules and trusts 40 or 41
   distinct owners, naming 7 or 8 of them; of those with a dependency, between 79.5 and 82.8 % never
@@ -67,7 +67,7 @@ Supply-chain security research and audits.
   from 165 publishing identities; over the 881 with a publisher, a median 87 % of a project's
   publishers are behind nothing it named; who is in nine trees of ten; the install-time code and who
   publishes it; the hosts; the design effect of shared frameworks. Read from lockfiles and the
-  registry, nothing installed. npm only: PyPI's registry does not record who uploaded a release, so
+  registry, nothing installed. npm only: PyPI's registry does not publish who uploaded a release, so
   the count cannot be made there; that is a limit of the measurement, not work left to do.
 - [measurements/nono-build/](measurements/nono-build/) — who published the crates nono, a
   sandbox, is built from: 548 versions of 501 crates in its `Cargo.lock`, 184 publishers against
