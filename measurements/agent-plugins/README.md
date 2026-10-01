@@ -31,7 +31,7 @@ The order is the order of the run.
 1. **ACP registry** (`agentclientprotocol/registry`, commit `b8978f1`, 2026-09-16): the coding
    agents that Zed and JetBrains IDEs install — 42 agent directories, 41 published, 8
    quarantined; 44 cells, one per distribution that runs on linux-x86_64 (23 npm, 19 binary, 2
-   uvx). The registry's own CI installs and launches every agent and publishes the outcome
+   uvx). The registry's own CI installs and launches every agent not in quarantine and publishes the outcome
    daily (`.protocol-matrix/latest.json`: initialize and `session/new` status, auth methods;
    `quarantine.json`: why an agent is frozen). That is field truth for the same cells, kept by
    someone else, and the instrument's outcomes are compared with it: their 34 probed and their
@@ -44,8 +44,8 @@ The order is the order of the run.
    1 `pipx`); none declares hooks. One cell per plugin.
 4. **Zed context-server extensions** (`api.zed.dev/extensions?provides=context-servers`,
    2026-09-16): 73 extensions. One cell per extension.
-5. **Open VSX** (`open-vsx.org`, sitemap of 2026-09-18: 17,944 extensions, one URL each; the
-   search API reports 17,941): a sample of 600, the first 600 extensions of the frame ordered
+5. **Open VSX** (`open-vsx.org`, sitemap of 2026-09-18: 17,944 extensions, one URL each; the search
+   API reported 17,941 on 2026-09-17): a sample of 600, the first 600 extensions of the frame ordered
    by `sha256(seed + "\n" + namespace.name)` with the seed `norte-labs agent-plugins openvsx
    2026-09-17`. For each, the registry record (`/api/{namespace}/{name}`: latest version,
    publisher account, verified namespace, engines, `extensionKind`, download count) and the
@@ -117,26 +117,26 @@ Per cell, by kind:
 
 Handshakes: ACP agents get `initialize` (protocol version 1, the registry probe's client
 capabilities) and `session/new`; MCP servers get `initialize`, `notifications/initialized`,
-`tools/list`. Requests the agent sends back (fs, terminal, permission) are recorded and
-refused. Outcomes are classified with the ACP registry's own rules (success, auth_required,
-method_not_found, error, timeout) so the comparison is like for like.
+`tools/list`. Requests the agent sends back (fs, terminal, permission) are recorded and refused. Outcomes
+are classified with the ACP registry's own rules (success, auth_required, method_not_found, invalid_params,
+error, timeout; two rarer classes of its own counted as error) so the comparison is like for like.
 
 Sandbox, decoys and parsing as in mcp-install; the login name inside the sandbox is `user` and
 the decoy home is bound at the real `$HOME` path, which reads `/home/user` in the published
 cells. Two decoys added: `~/.config/zed/settings.json` and `~/proj/README.md`. `bun` is in the
-toolchain because first-party Cursor hooks run on it.
+toolchain because a first-party Cursor hook, continual-learning's `stop`, runs on it.
 
 ### What is not measured
 
 - For Open VSX: activation is forced by the driver, so an extension that would wait for a
   command or a file type the workspace lacks still runs its activation code; what is measured
   is activation behaviour, and the join with `activationEvents` says which of it happens at
-  every editor start. Extensions with only a `browser` entry run in the editor's web-worker
-  host, outside the extension host's subtree; their network appears only in the whole-editor
-  trace, and their file access not at all. Themes, packs, snippets and keymaps have nothing to
-  activate and are counted as such. The editor is VSCodium, not Cursor or Windsurf: the
-  extension host is the same Code-OSS code, the product's own services are not. Nothing after
-  activation is exercised (no commands, no user input, no authentication), and the workspace has
+  every editor start. Extensions with only a `browser` entry run in the editor's web-worker host, outside the
+  extension host's subtree; their network appears only in the whole-editor trace, and their file access not at
+  all. Themes, packs, snippets and keymaps have nothing to activate and are counted as such. The editor is
+  VSCodium, not Cursor or Windsurf: the extension host comes from the same Code-OSS codebase, not at the same
+  version (Windsurf's base is VS Code 1.126, VSCodium's 1.135), and the product's own services do not. Nothing
+  after activation is exercised (no commands, no user input, no authentication), and the workspace has
   no git repository. Extensions whose activation depends on a tool the host lacks (a compiler,
   a language runtime) fail or degrade as they would on a bare machine, and the failure is
   recorded.
@@ -229,7 +229,7 @@ given; "none" is left for the figures a correction replaced and for one operatio
 | fast-agent: install 18.9 s, `initialize` in 9.7 s | findings.md:59 | `install.ms` 18,879; `firstRun.client.initializeMs` 9,682 | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | crow-cli: no `session/new` answer within 20 s; 3,729 writes under `~/.local/share`, 4,565 under `~/.cache/uv` | findings.md:61 | `sessionNew` timeout at 20,001 ms; `writes` of the two-level prefixes `~/.local/share` and `~/.cache/uv` (trace.ts records two levels) | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | mistral-vibe archive 44,314,346 bytes, sha256 as declared | findings.md:63 | `install.binary.bytes`; `sha256Match` | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
-| three of the eight reasons name the refused version; of the five about the pin, two hold, two do not, one platform-bound | findings.md:51, 65; README.md:360 | `fieldTruth.quarantined` read against each cell's outcome; crow-cli's and qoder's reasons name another version, mistral-vibe's is dated by the registry's history | `results/cells-acp.ndjson`; external: the registry's commit history | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
+| three of the eight reasons are about the refused version; of the five about the pin, two hold, two do not, one platform-bound | findings.md:51, 65; README.md:360 | `fieldTruth.quarantined` read against each cell's outcome; crow-cli's and qoder's reasons name another version, mistral-vibe's is dated by the registry's history | `results/cells-acp.ndjson`; external: the registry's commit history | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | fast-agent 0.9.30 to 0.10.1 while quarantined | findings.md:50 | fast-agent's pinned version in the registry's commits | external: `agentclientprotocol/registry`'s commit history | registry history to 2026-09-16 |
 | 12/23 npm cells run install scripts (52.2 % [33.0–70.8]) | findings.md:73; README.md:351 | npm cells with `install.npm.installScripts` non-empty | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | 19 binaries: GitHub releases 14, vendor hosts 5 | findings.md:82-83 | host of `install.binary.archive` | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
@@ -263,7 +263,7 @@ given; "none" is left for the figures a correction replaced and for one operatio
 | 49 stdio (14.8 % [11.4–19.1]); 67 declarations, 63 distinct; `npx` 32, `uvx` 19, `node` 4, twelve others | findings.md:200, 201; README.md:412 | stdio entries; distinct (plugin, name, `command`, `args`); `command` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 59 without a server (17.9 % [14.1–22.4]) | findings.md:204 | empty `plugin.mcpDeclared` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 36 with hooks (10.9 % [8.0–14.7]); 112 commands over 20 events | findings.md:204, 205; README.md:416 | `plugin.hooksDeclared` rows; distinct `event` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| 45 handshakes (67.2 % [55.3–77.2]), 43 distinct, 931 tools | findings.md:212-213; README.md:413 | `plugin.mcpRuns` attempted with `client.initializeOk`; distinct (plugin, name, command); `client.tools` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| 45 handshakes (67.2 % [55.3–77.2]), 43 distinct, 931 tools | findings.md:213-214; README.md:413 | `plugin.mcpRuns` attempted with `client.initializeOk`; distinct (plugin, name, command); `client.tools` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 13 not on the host (12 naming 10 products, and devtools-for-agents's `npx`, which found no bin); 9 no answer | findings.md:214-217; README.md:534-536 | runs whose stderr says the executable is not found | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 31 from `registry.npmjs.org`, 14 from `pypi.org` | findings.md:223-224 | runs with that host in `trace.net.hosts` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | AWS proxy: five plugins, seven declarations | findings.md:225-226; README.md:438 | runs whose command has `mcp-proxy-for-aws` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
@@ -299,7 +299,7 @@ given; "none" is left for the figures a correction replaced and for one operatio
 | `~/.npmrc` read by two servers | findings.md:380; README.md:465 | `~/.npmrc` with `contentAccessed` and `reads` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
 | maho-lsp: first commit of 2026-04-04 | README.md:463 | date of the first commit of `MahoCommerce/zed` | external: that repository's history | undated |
 | 17,944 extensions | findings.md:394; README.md:24, 47 | `<loc>` entries; `frameExtensions` | `results/openvsx-sitemap-2026-09-18.xml.gz`, `results/population-openvsx-stats.json` | sitemap and records of 2026-09-18 |
-| search API 17,941 | README.md:48 | the count Open VSX's search API reported | external: Open VSX's search API | 2026-09-18 |
+| search API 17,941 | README.md:48 | the count Open VSX's search API reported | external: Open VSX's search API | 2026-09-17 |
 | 600 sampled; 8 `linux-x64`, 592 universal; 600 with a record and a download | findings.md:397; README.md:5, 52, 53 | rows; `targetPlatform`; `declared.version`, `install.vsix` | `results/population-openvsx.ndjson`, `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18 |
 | three baseline cells | README.md:55 | `declared.baseline` | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
 | 13,365,196 downloads, median 1,690; 377 verified | findings.md:396 | sum and median of `declared.downloadCount`; `declared.verified` | `results/population-openvsx.ndjson` | sitemap and records of 2026-09-18 |
@@ -355,9 +355,9 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   counted under installs at start; junie contacts `junie.jetbrains.com` and
   `resources.jetbrains.com` and probes the LM Studio (1234) and Ollama (11434) ports.
 - The CDN `registry.json` of 2026-09-16 was said to list seven of the quarantined agents; it
-  lists all eight. Quarantine skips the probe and freezes the pin, it does not delist.
+  lists all eight. Quarantine skips the probe and the auto-updater's version bumps, it does not delist.
 - crow-cli's, qoder's and mistral-vibe's quarantine reasons were "not reproduced". They are
-  untestable at the pin: each names a version other than the pinned one. Five reasons are
+  untestable at the pin: each is about a version other than the pinned one. Five reasons are
   about the pinned version and three about a refused update.
 - Telemetry is 9 hosts in 7 agents without cline, whose `otel.cline.bot` makes it 10 in 8.
   `47.116.170.246` (minimax-code) is not among them, and it is not "a bare address with no DNS
@@ -377,8 +377,8 @@ Figures and wordings corrected in findings.md, each with the reason the data req
 - "A read is a read of the file's content" became "a read is a successful open for reading":
   `trace.ts` counts opens, and `read()` is not in the strace filter.
 - The five agents that open `~/.env` reach it by walking up from the workspace, which is a
-  child of `$HOME` in the decoy layout; "in the home directory, not the project's" described
-  the layout, not an agent choice.
+  child of `$HOME` in the decoy layout (qwen-code also opens `~/.env` directly at start, wherever the
+  workspace is); "in the home directory, not the project's" described the layout, not an agent choice.
 - "Reads … 8 times" became "tries to open … 8 times; nothing is read" for claude-acp's
   `~/.claude/.credentials.json` (8) and codex-acp's `~/.codex/auth.json` (10): both are failed
   opens (`enoent`, `contentAccessed: false`), and the files do not exist in the decoy home.
@@ -423,7 +423,7 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   caches; corridor pipes `install.sh` from `app.corridor.dev` into `sh`, version from a URL,
   and also edits the shell profile's PATH; monk fetches `-latest` and re-checks it every
   session start (the artefact behind the URL changed within hours of the run); jfrog runs `npx
-  --yes @jfrog/agent-guard` (unpinned, a 35 MB static ELF), not "the JFrog CLI", and its
+  --yes @jfrog/agent-guard` against `releases.jfrog.io` (unpinned), not "the JFrog CLI", and its
   `agents-conf.json` is written by the `sessionStart` hook. monk's "killed at 20 s" runs had
   finished their script; the detached `monk-agent serve` kept the traced tree alive. "65 MB" is
   65 MiB.
@@ -452,10 +452,10 @@ Figures and wordings corrected in findings.md, each with the reason the data req
 
 ### Zed
 
-- The source heuristic mis-resolved 9 extensions: wrong package for gem, wrong entry for polar,
-  missing `--mcp` for repomix, missing `server start` for azmcp, literal relay URLs it did not
-  carry. terraform downloads from `releases.hashicorp.com`, where the linux archive exists;
-  axiom's binary was plainly named. "Could not be identified" became "the harness did not
+- The source heuristic mis-resolved 9 extensions: wrong package for gem, wrong entry for polar, missing `--mcp`
+  for repomix, missing `server start` for azmcp, relay URLs it did not carry (literal in three of the four;
+  datadog's is built from its site setting). terraform downloads from `releases.hashicorp.com`, where the linux
+  archive exists; axiom's binary was plainly named. "Could not be identified" became "the harness did not
   identify".
 - 5 of 73 declared repositories are not the extension's source. maho-lsp's declared repository
   (`mahocommerce/maho-zed`) was said to have moved; it never existed under that name. GitHub
@@ -479,13 +479,13 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   `~/.gemini/antigravity-ide`), which are stated separately. Twelve is counted from the files
   present in each kept decoy home. Eleven of the twelve write at every editor start;
   `quickdb.quickdb` declares no `activationEvents` and is activated implicitly.
-- `Varterm.varterm-cursor`, `ZencoderAI.zencoder` and `swarmify.swarm-ext` write under another
-  tool's directory and say so in their own readme or changelog; they are counted in the ten and
-  are not undisclosed behaviour.
+- `Varterm.varterm-cursor` and `swarmify.swarm-ext` write under another tool's directory and say so in
+  their own readme or changelog, and are not undisclosed behaviour; `ZencoderAI.zencoder`'s changelog
+  names `~/.agents/skills` only as where a user may put skill folders. The three are counted in the ten.
 - It was "Nothing in its description mentions registering itself with four assistants",
-  written from `quickdb.quickdb`'s one-line description. The readme documents the behaviour,
-  and the extension does not register itself with assistants that have not already registered
-  it: the routine rewrites a stale path in an entry that is already there. The commit message
+  written from `quickdb.quickdb`'s one-line description. The readme documents the behaviour, and the extension
+  carries it out at activation: after a routine that rewrites a stale path in an entry already there, it writes
+  its own entry into the configuration of each of ten clients whose file or directory exists. The commit message
   of 482d31e carries the same error.
 - The one connection to `cdn.jsdelivr.net` and the npm execs recorded for
   `zardoy.inline-debugger`, and the `www.schemastore.org` fetches recorded for
@@ -568,3 +568,54 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   Zencoder's "39 files" and flow-to-skill's "30 files" were withdrawn: no file in the repository
   produces them; the kept decoy homes are not published, so how many extensions left files in
   another tool's directory, and what they left, is not measured in the published data.
+
+### 2026-09-30
+
+- The ACP registry's CI was said to launch every agent; it launches every agent not in quarantine
+  (`load_registry` skips the quarantined ids), here and in findings.md.
+- The search API's 17,941 is dated 2026-09-17, the day its record gives, not 2026-09-18.
+- The registry's outcome classes now include `invalid_params`; two rarer classes of its own are
+  counted as error. `bun` is there for one first-party hook, continual-learning's `stop`.
+- The extension host was called the same Code-OSS code as Cursor's and Windsurf's; it is the same
+  codebase at another version (Windsurf's base is VS Code 1.126, VSCodium's 1.135).
+- Three quarantine reasons were said to name the refused version; they are about it, and
+  mistral-vibe's names none. Quarantine stops the probe and the auto-updater, not manual pins.
+- qwen-code also opens `~/.env` directly at start, wherever the workspace is.
+- The 2026-09-25 note on jfrog kept "a 35 MB static ELF", withdrawn the same day; it is removed.
+  The hook runs `@jfrog/agent-guard` from `releases.jfrog.io`.
+- Three of the four Zed relay URLs are literals in the source, not two; datadog's is built.
+- Zencoder's changelog names `~/.agents/skills` only as where a user may put skill folders; the
+  2026-09-25 note and findings.md said it names where Zencoder installs its own.
+- The 2026-09-25 correction on `quickdb.quickdb` was wrong. Its 1.2.13 bundle writes a quickdb
+  entry at activation into the configuration of each of ten clients whose file or directory
+  exists; the trace's open for writing against each of the three present files is that write.
+- findings.md, on quickdb, also: its description begins "Lightweight database browser for VS
+  Code"; the routine rewrites a path that is not the newest installed quickdb's; the `~/.aws`
+  reads are the bundled Snowflake driver's cloud-platform detection.
+- `cline@3.0.61` reaches `@ai-sdk/anthropic` through `@ai-sdk/amazon-bedrock` and
+  `@ai-sdk/google-vertex`; `ai` and `@ai-sdk/gateway` do not depend on it. The registry's `npx`
+  runs the bin through its own npx-cache install.
+- fast-agent's reason is quoted as the registry writes it ("120s … initialize response"); its
+  timeout was 0.10.1 exiting in 15 s with "No model configured", not the install.
+- A file "read" by an agent is parsed by the agent or a program it runs (git, npm, a login shell).
+- codebuddy-code downloads two marketplaces, index and plugins, as zips; github-copilot's ACP mode
+  uses the CLI by default; opencode installs through npm's Arborist library, kilo only for a local
+  `file://` plugin; gemini in an untrusted folder loads four named keys, not all `GEMINI_`/`GOOGLE_`.
+- Cursor's documents name no `.claude-plugin`, `.grok-plugin` or `.codex-plugin` manifest; a skill's
+  script also runs a plugin's code; Cursor maps eight Claude Code hook names to its own.
+- golf's `${PLUGIN_ROOT}`, which Cursor does not expand, was resolved by the instrument.
+- rover is not among the Cursor cells; only azure writes the shared Microsoft device id.
+- monk's script re-downloads only when the published checksum changes; mem0's scripts post at
+  prompts of 20 characters or more and memory tool use with no key configured.
+- newsnow's `BASE_URL` is a literal in its source; github-activity-summarizer takes its credential
+  from `gh`, a keyring or a token file, not from Zed settings.
+- Open VSX is the gallery of Code-OSS builds such as VSCodium, not of every one: Code-OSS itself
+  has none. `*` and `onStartupFinished` run at every start whether or not a file is opened.
+- Three of the four extensions that did not call again at natural activation call at activation;
+  "a timer longer than the window" is removed. chatwizard's documents name its instructions file.
+- meanwhile sends a 16-hex-digit prefix of the hash and polls every 20 s while the window is in
+  use; kwai's `yarn global add` is conditional and it reports to two endpoints; switchboard's
+  CSRF token comes from the process table; devspacesplus reads all but two variables by `echo`;
+  manul's shell sources the user's startup files.
+- `results/report.md` said the 8 platform-specific downloads are not covered by the published
+  digest; it now says the default record's, as each has its own in its platform's record.

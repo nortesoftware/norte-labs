@@ -124,7 +124,7 @@ function reportOpenVsx(all: Cell[]): void {
   const universal = downloaded.filter((c) => c.install.vsix.targetPlatform !== 'linux-x64');
   const platform = downloaded.filter((c) => c.install.vsix.targetPlatform === 'linux-x64');
   const sha = { match: universal.filter((c) => c.install.vsix.sha256Match === true).length, mismatch: universal.filter((c) => c.install.vsix.sha256Match === false).length, none: universal.filter((c) => c.install.vsix.sha256Match === null).length };
-  L.push(`- VSIX: bytes median ${median(bytes)}, p90 ${quantile(bytes, 0.9)}; registry sha256 over the ${universal.length} universal downloads: matching ${sha.match}, mismatching ${sha.mismatch}, not published ${sha.none}; the ${platform.length} platform-specific downloads are not covered by the published digest and are not compared`);
+  L.push(`- VSIX: bytes median ${median(bytes)}, p90 ${quantile(bytes, 0.9)}; registry sha256 over the ${universal.length} universal downloads: matching ${sha.match}, mismatching ${sha.mismatch}, not published ${sha.none}; the ${platform.length} platform-specific downloads are not covered by the default record's digest (each has its own in the platform's record) and are not compared`);
   const bins = inv.filter((c) => c.install.inventory.binaries.length > 0);
   const byMagic = new Map<string, Set<string>>(); for (const c of bins) for (const b of c.install.inventory.binaries) add(byMagic, b.magic, c.subject);
   const native = inv.filter((c) => c.install.inventory.nativeNodeFiles > 0);

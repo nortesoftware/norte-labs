@@ -9,7 +9,7 @@ population with a 95 % Wilson interval in brackets.
 
 ## 1. ACP agents: the instrument against the registry's own CI
 
-The ACP registry installs and launches every agent in CI and publishes the outcome
+The ACP registry installs and launches every agent not in quarantine in CI and publishes the outcome
 (`.protocol-matrix/latest.json` of 2026-09-16: 34 agents probed, `initialize` and `session/new`
 status each — its own summary: 33 of 34 initialize, 21 answer `session/new` with auth_required;
 `quarantine.json`: 8 agents frozen, with a reason). The run covered the same 42 agents — the 41
@@ -33,22 +33,22 @@ extracts with Python's `tarfile` under the `data` filter, which refuses the abso
 `reladiff-venv/bin/python3.12 -> /usr/bin/python3.12` inside the archive, so the binary was
 never launched; GNU `tar` extracts it and it starts, and what it does once started is below.
 
-`cline@3.0.61` reaches `@ai-sdk/anthropic` through `ai` and `@ai-sdk/gateway`, which one
-ai-sdk monorepo release publishes together, and pins none of that chain, so a "pinned" registry
+`cline@3.0.61` reaches `@ai-sdk/anthropic` through `@ai-sdk/amazon-bedrock` and `@ai-sdk/google-vertex`,
+which one ai-sdk monorepo release publishes together, and pins none of that chain, so a "pinned" registry
 entry resolves through floating transitive dependencies to whatever that release has published
 at that minute. Its failed first install, `ETARGET` on `@ai-sdk/anthropic@4.0.56`, is not among
 the published cells, so its timing against that version's publication is not in the data; the
 only install of cline in the data is the published cell's. In
-the published cell npm created no `node_modules/.bin/cline` link for the package's declared bin.
-The registry's `npx` launch does not depend on the link; the published cell runs the declared
-bin path and agrees with the matrix (`initialize`, then auth_required).
+the published cell npm created no `node_modules/.bin/cline` link for the package's declared bin. The registry's
+`npx` launch runs the bin by name through the `node_modules/.bin` of its own npx-cache install, not the cell's;
+the published cell runs the declared bin path and agrees with the matrix (`initialize`, then auth_required).
 
 ### The eight quarantines
 
 `quarantine.json` is the auto-updater's freeze list: an id in it keeps its pinned version and
 is skipped by the daily probe. It does not delist — all eight are in the published index — and
 it does not stop manual bumps (fast-agent's pin moved from 0.9.30 to 0.10.1 while quarantined).
-Three of the eight reasons name the newer version the updater refused, not the version that is
+Three of the eight reasons are about the newer version the updater refused, not the version that is
 pinned and served, so at the pin they are untestable by construction.
 
 | agent | registry's reason | at the pinned version, linux |
@@ -56,7 +56,7 @@ pinned and served, so at the pin they are untestable by construction.
 | agoragentic-acp 1.3.0 | Postinstall script | confirmed: `postinstall: node scripts/postinstall.js \|\| true` (plus esbuild's standard `install.js`); the script prints a marketing banner and does nothing else — no network, no file outside `node_modules`. `initialize` succeeds and answers an `authMethods` entry without the `id` the schema requires (only each entry's `id` and `name` are recorded, both absent, so what else the entry holds is not measured); `session/new` → *method not found*: it is an MCP server with an `--acp` flag |
 | minion-code 0.1.44 | Python dependency issue | confirmed: the console script dies at import, `cannot import name 'AuthMethod' from 'acp.schema'` |
 | deepagents 0.1.7 | Missing npm dependency | not reproduced: installs, `initialize` and `session/new` succeed |
-| fast-agent 0.10.1 | Timeout after 120 s waiting for initialize | not reproduced: with the uvx install done beforehand (18.9 s), `initialize` answers in 9.7 s and `session/new` succeeds. Their timeout is the install inside the launch |
+| fast-agent 0.10.1 | Timeout after 120s waiting for initialize response | not reproduced: with the uvx install done beforehand (18.9 s), `initialize` answers in 9.7 s and `session/new` succeeds. Their timeout was 0.10.1 exiting within 15 s with "No model configured", before the entry set `FAST_AGENT_MODEL`; their check reports that exit as a timeout |
 | vtcode 0.96.14 | Missing windows builds | not applicable on linux: succeeds (its `agentInfo` says version 0.96.12, title "Zed") |
 | crow-cli 0.1.24 | ACP initialize fails in crow-cli 0.1.25 | about the refused update. At the pin: `initialize` succeeds; `session/new` does not answer within 20 s because the agent is, at that moment, installing Python 3.14 through `uv` (`releases.astral.sh`, `pypi.org`) — its first start is an install that leaves a Python toolchain in `$HOME` (3,729 writes under `~/.local/share`, 4,565 under `~/.cache/uv`) |
 | qoder 0.2.14 | ACP initialize fails in qodercli 0.2.15/0.2.16 | about the refused update. At the pin: `initialize` succeeds, `session/new` → auth_required; see the fingerprint below |
@@ -87,7 +87,7 @@ the registry format does not require one.
 
 **At first start, before any prompt.** 44 cells started, 43 completed `initialize` (minion-code
 the exception). A "read" below is a successful open for reading of a decoy file, and each file so
-named is one the agent's source parses.
+named is one that the agent, or a program it runs (git, npm, a login shell), parses.
 
 - *Telemetry, error reporting, feature flags — 10 hosts in 8 agents*: `otel.cline.bot` (cline),
   `http-intake.logs.datadoghq.com` (cortex-code; the binary also configures a Datadog *metrics*
@@ -109,15 +109,15 @@ named is one the agent's source parses.
   a `machineToken`. In the same ten seconds qoder `stat`s every top-level entry of
   `$HOME` between 2,300 and 2,800 times (`~/.aws` 2,746, `~/.ssh` 2,549, `~/.netrc` 2,396 …)
   without opening any of them except `~/.env` and `~/.gitconfig`.
-- *Downloads and installs at first start*: codebuddy-code fetches its plugin-marketplace index
-  from `download.codebuddy.cn`; crow-cli installs Python (above); github-copilot-cli checks
-  `api.github.com` for a newer release and downloads it into `~/.cache/copilot`; github-copilot
-  (the language server) installs the `@github/copilot` CLI through `npx` because ACP
-  mode needs it; opencode forks a background `npm install` of `@opencode-ai/plugin` into
-  `~/.config/opencode` (1,924 writes; kilo, its fork, has the same code path); codex-acp syncs
-  OpenAI's curated plugin marketplace from `github.com/openai/plugins` by `git ls-remote` and
-  `git fetch` before anything else; qoder contacts `download.qoder.com`; cline runs `npm`
-  against `registry.npmjs.org` at start.
+- *Downloads and installs at first start*: codebuddy-code fetches its two built-in plugin marketplaces,
+  index and plugins as zip archives, from `download.codebuddy.cn`; crow-cli installs Python (above);
+  github-copilot-cli checks `api.github.com` for a newer release and downloads it into `~/.cache/copilot`;
+  github-copilot (the language server) installs the `@github/copilot` CLI through `npx` because its ACP mode
+  runs through that CLI by default; opencode forks a background install, through npm's Arborist library, of
+  `@opencode-ai/plugin` into `~/.config/opencode` (1,924 writes; kilo, its fork, installs `@kilocode/plugin`
+  that way only for a directory with a local `file://` plugin); codex-acp syncs OpenAI's curated plugin
+  marketplace from `github.com/openai/plugins` by `git ls-remote` and `git fetch` before anything else;
+  qoder contacts `download.qoder.com`; cline runs `npm` against `registry.npmjs.org` at start.
 - *Only their own or their provider's API*: claude-acp (`api.anthropic.com`), cursor
   (`api2.cursor.sh`, a `getUserPrivacyMode` call), grok-build (`cli-chat-proxy.grok.com`),
   sigit (`sigit.si`), stakpak (`apiv2.stakpak.dev`), dirac (`openrouter.ai`, a third-party
@@ -132,10 +132,10 @@ named is one the agent's source parses.
   python-dotenv, vtcode via dotenvy, gemini and qoder via gemini-cli's `findEnvFile`, qwen-code
   via `findEnvFiles`; gemini, qoder and qwen-code also fall back to `~/.env` explicitly), and
   the file's keys — here `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` — go into the agent's
-  environment and so into every process it spawns (all keys in crow-cli, vtcode, qoder and
-  qwen-code; only `GEMINI_`/`GOOGLE_` keys in gemini, because the folder is untrusted).
-  fast-agent is the contrast: 16 probes of `~/proj/.env`, none of `~/.env`. `~/.netrc` by
-  codex-acp — libcurl inside the `git-remote-https` it spawns for the plugin sync, twice per
+  environment and so into every process it spawns (all keys in crow-cli, vtcode, qoder and qwen-code; only
+  `GEMINI_API_KEY`, `GOOGLE_API_KEY`, `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` in gemini, because
+  the folder is untrusted). fast-agent is the contrast: 16 probes of `~/proj/.env`, none of `~/.env`.
+  `~/.netrc` by codex-acp — libcurl inside the `git-remote-https` it spawns for the plugin sync, twice per
   process. `~/.npmrc` by kimchi, opencode, github-copilot and cline. *Other agents' configuration*:
   `~/.claude.json`, `~/.claude/settings.json` and `~/.cursor/mcp.json` by devin and grok-build
   (which then announce `_cognition.ai/mcp/serversChanged` and `_x.ai/mcp/servers_updated`);
@@ -181,10 +181,10 @@ measured the same way for all 42, which is what the registry does not publish.
 by SHA; 6 entries carry no ref and were fetched at the default branch), 66 of them first-party.
 Every plugin directory was located (the manifest is `.cursor-plugin/plugin.json` in 306, the
 Agent Plugins standard's root `plugin.json` in 11, a `.claude-plugin`, `.grok-plugin` or
-`.codex-plugin` manifest that Cursor accepts in 11, a bare `.mcp.json` in one, and one plugin —
+`.codex-plugin` manifest in 11, a bare `.mcp.json` in one, and one plugin —
 amd-skills, eight skills — has no manifest at all and is reached through its monorepo's
-`marketplace.json`). Installing a plugin is a `git clone`: nothing of the plugin's runs until
-an event fires a hook or the editor starts a bundled MCP server.
+`marketplace.json`). Installing a plugin is a `git clone`: nothing of the plugin's runs until an
+event fires a hook, the editor starts a bundled MCP server or the agent runs a skill's script.
 
 **What they ship.** 234 have skills, 72 rules, 53 agents, 61 commands — prose for the model.
 122 (37.0 % [31.9–42.3]) ship scripts (shell, Python, JavaScript, TypeScript), 72 (21.8 %
@@ -202,20 +202,20 @@ declare a stdio server — 67 declarations, 63 distinct: `npx` 32, `uvx` 19, `no
 commands that are products the user is expected to have installed (`pascal`, `kraken`, `dart`,
 `sonar`, `toolbox`, `1password-mcp`, `semgrep`, `encore`, `zscaler-mcp-server`, a
 `~/.paper/bin/paper`). 59 (17.9 % [14.1–22.4]) declare no server. 36 (10.9 % [8.0–14.7])
-declare hooks — 112 hook commands over 20 event names in the two spellings Cursor accepts
-(`SessionStart`/`sessionStart`, `PreToolUse`/`preToolUse` …); one of the 36 is first-party. The
-instrument collects the hooks the manifest names and every conventional hooks file in the plugin
-(`hooks/hooks.json`, a root `hooks.json`, `.cursor/hooks.json`), so where a plugin ships the same hooks for several editors — mem0 ships
+declare hooks — 112 hook commands over 20 event names in Cursor's spelling and in Claude Code's, which Cursor maps to its own for eight
+events (`SessionStart`→`sessionStart`, `PreToolUse`→`preToolUse` …; `Setup` has no mapping); one of the 36 is first-party. The
+instrument collects the hooks the manifest names and every conventional hooks file in the plugin (`hooks/hooks.json`, a root
+`hooks.json`, `.cursor/hooks.json`), so where a plugin ships the same hooks for several editors — mem0 ships
 Cursor's, Antigravity's and Claude Code's — its commands are counted once per file.
 
 **MCP servers at first start.** The 67 declared stdio servers were started the way the editor
-would, with dummy values for the variables the plugin asks the user to fill. 45 completed the
-handshake (67.2 % [55.3–77.2]; 43 distinct servers, 931 tools with the two duplicates counted
-twice). 13 could not start because the command is not on the host: 12 are the product the
-plugin wraps (10 products), and one is devtools-for-agents, itself the `chrome-devtools-mcp`
-package, unbuilt, so `npx` resolved the local checkout and found no bin. 9 started and did not
-answer: three `mcp-remote` relays (canva, mixpanel, zoominfo) opened an OAuth callback port and
-waited for a browser; meta-vr has no linux build; prisma's `npx` install of
+would, with dummy values for the variables the plugin asks the user to fill, except that golf's
+`${PLUGIN_ROOT}`, which Cursor does not expand, was resolved to the plugin directory. 45 completed the
+handshake (67.2 % [55.3–77.2]; 43 distinct servers, 931 tools with the two duplicates counted twice). 13 could
+not start because the command is not on the host: 12 are the product the plugin wraps (10 products), and one
+is devtools-for-agents, itself the `chrome-devtools-mcp` package, unbuilt, so `npx` resolved the local
+checkout and found no bin. 9 started and did not answer: three `mcp-remote` relays (canva, mixpanel, zoominfo)
+opened an OAuth callback port and waited for a browser; meta-vr has no linux build; prisma's `npx` install of
 `prisma@8.0.0-rc.15` failed inside npm; appwrite's declared `--users` flag does not exist;
 zscaler needs an `.env` the plugin does not ship;
 supermemory's plugin server answered (8 tools) and the entry that failed is the developer's own
@@ -236,8 +236,8 @@ reports to `eu.i.posthog.com` and installs Python through `releases.astral.sh`; 
 (`*.in.applicationinsights.azure.com`, seen in the cell's DNS names only, the connects being
 IPv4-mapped), probes the Azure instance-metadata address 169.254.169.254 and unpacks a .NET
 bundle with native libraries into `~/.net/azmcp`; mongodb and phantom-connect compiled native
-modules with headers from `nodejs.org`; azure and rover write a shared Microsoft device id and
-an update-notifier state. Telemetry hosts in 3 of 67 server starts (browser-use, convex,
+modules with headers from `nodejs.org`; azure writes a shared Microsoft device id. Telemetry
+hosts in 3 of 67 server starts (browser-use, convex,
 azure).
 
 **Hooks.** 95 of the 112 hook commands ran once each with a synthetic event on stdin (mem0's 29
@@ -261,8 +261,8 @@ does, and 11 of the 95 reached the network:
   then runs `corridor install --target ide-extension` on every session start (killed here at 20
   s before the download finished; the execution is from the code); monk's `SessionStart`
   downloads the 65 MiB `monk-agent-linux-latest.tar.gz` from `get.monk.io` (unpinned; the file
-  behind the URL changed within hours of the run, and the script re-checks its checksum and
-  re-downloads on every session start), starts `monk-agent serve` on localhost and posts to
+  behind the URL changed within hours of the run, and the script re-checks the published checksum on every
+  session start and re-downloads when it has changed), starts `monk-agent serve` on localhost and posts to
   `us.i.posthog.com` from the plugin's own script and from the downloaded binary; jfrog's
   `beforeSubmitPrompt` — before every prompt, no matcher — runs `npx --yes @jfrog/agent-guard`
   against `releases.jfrog.io` (unpinned; it then runs `agent-guard`, whose file type and size are
@@ -272,9 +272,9 @@ does, and 11 of the 95 reached the network:
   `pypi.org`; astronomer-data's `stop` installs 35 packages with `uv` and runs them; prisma's
   two `afterFileEdit` hooks run `npx prisma format` and `npx prisma generate` on every edit.
 - *Telemetry*: vercel's `SessionStart` posts to `telemetry.vercel.com` and writes
-  `~/.config/vercel-plugin`; mem0's `preCompact` posts to `us.i.posthog.com` (with a key
-  configured, its scripts would also post at session start, stop, every prompt and every memory
-  tool use), and mem0's hooks read the shell profiles (`~/.bashrc`, `~/.zshrc`, `~/.profile`)
+  `~/.config/vercel-plugin`; mem0's `preCompact` posts to `us.i.posthog.com` (its scripts would also post at
+  every prompt of 20 characters or more and every memory tool use, key or no key, and with a key configured at
+  session start and stop), and mem0's hooks read the shell profiles (`~/.bashrc`, `~/.zshrc`, `~/.profile`)
   on four events — not sourcing them, grepping for an `export MEM0_API_KEY=` line.
 
 The other 84 hook runs are what the marketplace's description suggests: shell, `jq`, `cat`,
@@ -360,15 +360,15 @@ the linux archive exists and the harness did not look; and axiom's archive held
 a single file) did not pick.
 
 **At first start.** 58 servers started, 28 completed the MCP handshake (48.3 % [35.9–60.8]; 448
-tools listed by 27 of them — mysql answered `initialize` and not `tools/list`). Of the 30 that
-did not: 17 stopped for want of a credential or a connection setting — the extension would have
-passed the user's Zed settings as environment or arguments, the cell passed none — and 2
-crashed on the same want (webflow, postgres); 9 were run with the wrong program or arguments by
-the source heuristic (`azmcp` needs `server start`, `cem` was run as `lsp`, repomix without
-`--mcp`, polar's package directory instead of its `bin/mcp-server.js`, gem's language server
-instead of its context server, and four relays whose URL the heuristic did not carry — two of
-them literal in the source); markitdown could not build its venv in the sandbox; planetscale's
-`pscale mcp` subcommand was removed upstream. Egress before a prompt in 8 of 58:
+tools listed by 27 of them — mysql answered `initialize` and not `tools/list`). Of the 30 that did not: 17
+stopped for want of a credential or a connection setting — the extension would have passed the user's Zed
+settings as environment or arguments (newsnow a `BASE_URL` literal from its source; github-activity-summarizer's
+credential comes from `gh`, a keyring or a token file), the cell passed none — and 2 crashed on the same want
+(webflow, postgres); 9 were run with the wrong program or arguments by the source heuristic (`azmcp` needs
+`server start`, `cem` was run as `lsp`, repomix without `--mcp`, polar's package directory instead of its
+`bin/mcp-server.js`, gem's language server instead of its context server, and four relays whose URL the
+heuristic did not carry — three of them literal in the source); markitdown could not build its venv in the
+sandbox; planetscale's `pscale mcp` subcommand was removed upstream. Egress before a prompt in 8 of 58:
 chrome-devtools-mcp to `play.googleapis.com` (Google's Clearcut telemetry; it also writes a
 telemetry state file and checks for updates) and to `registry.npmjs.org`; the two `@azure/mcp`
 extensions to Application Insights (`*.in.applicationinsights.azure.com`, in the cells' DNS
@@ -390,7 +390,7 @@ with the extension's source as the declaration of what would be installed and th
 
 ## 5. Open VSX extensions
 
-The gallery behind Cursor, Windsurf and every Code-OSS build. Its sitemap of 2026-09-18 lists
+The gallery behind Cursor, Windsurf and Code-OSS builds such as VSCodium. Its sitemap of 2026-09-18 lists
 17,944 extensions; the sample is 600 of them, drawn by `sha256(seed + "\n" + namespace.name)`,
 and it is the only arm here whose sample is not the whole population, so the rates below are
 estimates for the registry. Between them the 600 carry 13,365,196 downloads, median 1,690; 377
@@ -407,7 +407,7 @@ they ship against and 2 waiting on an extension dependency the gallery did not s
 takes a median of 968.5 ms, p90 2,726 ms.
 
 **When it runs.** 225 of 599 (37.6 % [33.8–41.5]) declare `*` or `onStartupFinished`: they run at
-every editor start, before any file is opened. Weighted by downloads that is 51.8 % of the
+every editor start, whether or not a file is opened. Weighted by downloads that is 51.8 % of the
 sample — the extensions that run unconditionally are the ones people install. A further 77
 declare no `activationEvents` beside an entry point and are activated implicitly from what they
 contribute, which is not every start. Of the rest, 116 wait on a language and 47 on a file in
@@ -444,8 +444,8 @@ name a language, a file or a command in their events and 5 declare none; 11 of t
 on what the workspace happened to contain. Where an
 extension contacted a host when forced and activated naturally, it contacted the same host again
 in 11 cases of 15; the four that did not are `ShuvamRaghuvanshi.server-status-indicator`,
-`yychuiyan.dsh-for-web`, `meanwhile-dev.meanwhile` and `imgildev.vscode-python-generator`, whose
-first call is on a timer longer than the window.
+`yychuiyan.dsh-for-web`, `meanwhile-dev.meanwhile` and
+`imgildev.vscode-python-generator`.
 
 **Writes into another agent's directory.** Fifty-three of the cells wrote somewhere outside
 their own storage, and each was taken again keeping its decoy home. The trace records writes
@@ -457,11 +457,11 @@ start, is not in the published data.
 
 For most of them it is what the extension is for and its own documentation says so:
 Varterm's readme names `~/.cursor/varterm-autoread.json` as where its on/off state lives,
-Zencoder's names the Skills it installs under `~/.agents/skills`,
+Zencoder's changelog names `~/.agents/skills` as a folder its agent loads Skills from,
 `toadyokai.flow-to-skill`'s readme the skill it exports there, swarmify's changelog
 `~/.agents/.cache`. The one whose readme says least about it is
-`Veverke.chatwizard`, whose global Copilot instructions file appears in no document of its own;
-`quickdb.quickdb` documents the feature at length.
+`Veverke.chatwizard`, whose documents mention its global Copilot instructions file only as what
+a command creates; `quickdb.quickdb` documents the feature at length.
 
 What the kept homes hold is mostly executable. `trae-jsharness.jsharness` (3,002 downloads)
 leaves `~/.trae-cn/hooks.json` and three scripts beside it — `agent-call-logger.js`,
@@ -482,7 +482,7 @@ beside Cursor's.
 `devcoreai-coding-agent.devcoreai-coding-agent` writes Cline's own
 `~/.cline/data/globalState.json` and installs a Python tool under `~/.local/share/uv/tools/`.
 
-The one-line description of `quickdb.quickdb` is "Lightweight database
+The one-line description of `quickdb.quickdb` begins "Lightweight database
 browser for VS Code", but the readme the gallery serves carries a section, *MCP — Connect AI
 Agents*, for a command `QuickDB: Auto-Configure MCP for Detected Clients`, names the ten
 assistants it will configure and lists the files it writes: `claude_desktop_config.json`,
@@ -491,42 +491,42 @@ assistants it will configure and lists the files it writes: `claude_desktop_conf
 extension also contributes `mcpServerDefinitionProviders`, the editor's own API for the same
 purpose.
 
-What the trace recorded is narrower than that command and follows from it. Its bundle is
-obfuscated behind a string table; inside is the same list of paths, walked at activation by a
-routine whose own log strings call it `[McpVersionSync]`. It stats each path, skips what does
-not exist, parses what does, and rewrites a file only where that file already holds a quickdb
-entry whose recorded server path points into an older extension directory — the predicate reads
-the entry's own arguments and returns false when there is no quickdb entry at all. It cannot add
-itself to a configuration it is not already in. In the decoy home `~/.cursor/mcp.json` and
-`claude_desktop_config.json` held an empty `mcpServers`, `~/.claude.json` no server key at all,
-and none of the three was modified: the trace counts an open for writing against each, and no
-rename against any. Kiro's, Windsurf's and Antigravity's paths were stat'd and not opened. The
-one file created was `~/.config/Code/User/mcp.json`, the built-in bridge the readme names,
-written at VS Code's path although the editor running was VSCodium.
+What the trace recorded follows from that command, run at activation without being asked. Its
+bundle is obfuscated behind a string table; inside is a list of the same ten clients' paths (with
+`~/.claude.json` for Claude Code). A routine whose own log strings call it `[McpVersionSync]`
+rewrites a file only where it already holds a quickdb entry whose server path is not the newest
+installed quickdb's; then `refreshConfiguredClients` writes a quickdb entry into the configuration
+of every client whose file or directory exists, whether or not one was there. In the decoy home
+`~/.cursor/mcp.json` and `claude_desktop_config.json` held an empty `mcpServers` and
+`~/.claude.json` no server key at all; what the three held after the run was not kept, and the
+trace counts one open for writing against each, as that write makes, and no rename against any.
+Kiro's, Windsurf's and Antigravity's paths were stat'd and not opened. The one file created was
+`~/.config/Code/User/mcp.json`, the built-in bridge the readme names, written at VS Code's path
+although the editor running was VSCodium.
 
 Its reads of `~/.aws/credentials` and `~/.aws/config` and its probe of the instance-metadata
-addresses `169.254.169.254` and `metadata.google.internal` are an AWS SDK credential chain, and
-Amazon Redshift, Amazon Athena and Amazon DynamoDB are among the 85 engines the readme lists.
-It declares no `activationEvents`; with activation left to the editor it did not activate at
-all.
+addresses `169.254.169.254` and `metadata.google.internal` are the bundled Snowflake driver's
+cloud-platform detection, which runs when the driver loads; the readme lists 85 engines, Amazon
+Redshift, Athena and DynamoDB among them. It declares no `activationEvents`; with activation left
+to the editor it did not activate at all.
 
 **What else the source shows.** `meanwhile-dev.meanwhile` creates `~/.deadtime/install_id`, a
 persistent UUID at mode 600, and sends it to `trymeanwhile.online` with a per-session UUID, a
-running count of document edits and a SHA-256 of the open workspace folder paths, polling while
-the editor is open; its readme says editor activity never leaves the machine.
-`kwai-fe.kwai-aicode` runs `yarn global add` for two packages at every editor start and reports
-`git user.name`, the current branch and the origin remote to a Kuaishou endpoint.
-`gauravmehta13.ag-multi-account-switchboard` reads the whole process table with `ps -A -ww` twice
-and runs `sqlite3` against the IDE's own state database to recover an auth status and CSRF token.
-`huydo862003.typedown-vscode` ships no binary and downloads its language server from the
-publisher's GitHub releases on first activation, marks it executable and runs it, which neither
-its readme nor any setting mentions. `oh-my-commit.oh-my-commit-vscode` copies a bundled
+running count of document edits and a 16-hex-digit prefix of a SHA-256 of the open workspace folder paths,
+polling every 20 seconds while the window is focused and in recent use; its readme says editor activity
+never leaves the machine. `kwai-fe.kwai-aicode` runs `yarn global add` for two packages at every editor start
+unless Kuaishou's internal registry confirms both are current, and reports `git user.name`, the current branch
+and the origin remote to Kuaishou endpoints. `gauravmehta13.ag-multi-account-switchboard` reads the whole
+process table with `ps -A -ww` twice to recover the language server's CSRF token, and runs `sqlite3` against
+the IDE's own state database to recover an auth status. `huydo862003.typedown-vscode` ships no binary and
+downloads its language server from the publisher's GitHub releases on first activation, marks it executable and
+runs it, which neither its readme nor any setting mentions. `oh-my-commit.oh-my-commit-vscode` copies a bundled
 provider into `~/.oh-my-commit/providers/official/` at every start and executes it from there
 through a bundled module loader, and writes its merged preferences — a structure whose schema
-includes an `apiKeys` map — to `~/.oh-my-commit/preference.json`. `TI.devspacesplus` obtains every
-environment variable by `execSync('echo $VAR')` through `/bin/bash`, and off a Gitpod workspace
+includes an `apiKeys` map — to `~/.oh-my-commit/preference.json`. `TI.devspacesplus` obtains all but two of
+the environment variables it reads by `execSync('echo $VAR')` through `/bin/bash`, and off a Gitpod workspace
 throws at module scope and never activates. `alexbeatnik.manul-engine-extension` looks for its CLI
-with `bash -l -i -c`, a login *and* interactive shell, which sources the user's own rc files.
+with `bash -l -i -c`, a login *and* interactive shell, which sources the user's own startup files.
 
 ## Limits
 
