@@ -15,3 +15,8 @@ lists the searches that were run.
   resolver decisions and how many distinct publishers stand behind the direct dependencies a
   developer declares? (2026-09-17). Sources and searches in
   [instruction-gap-sources.md](instruction-gap-sources.md).
+- [go-supply-chain.md](go-supply-chain.md) — has anyone measured what a Go build trusts and what
+  it runs? (2026-09-23). Sources and searches in
+  [go-supply-chain-sources.md](go-supply-chain-sources.md).
+- [crates.md](crates.md) — has anyone counted who publishes what one `Cargo.lock` resolves?
+  (2026-09-25). Sources and searches in [crates-sources.md](crates-sources.md).
