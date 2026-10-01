@@ -14,17 +14,17 @@ what is left once they are true.
 Not found in all four modalities, which is unusual and worth stating plainly.
 
 The module half of the question is taken. That a Go build pulls far more modules than a developer
-declares is published: Li, Wu, Fu and Zhou (ASE 2023) and the dependency-depth work of 2025 both
-establish the amplification, and the datasets that would let anyone count are public — the module
-index, `proxy.golang.org`, deps.dev and its BigQuery tables, ecosyste.ms.
+declares is published: the dependency-depth work of 2025 establishes the amplification, and the
+datasets that would let anyone count are public — the module index, `proxy.golang.org`, deps.dev and
+its BigQuery tables, ecosyste.ms.
 
 What is missing is the step from modules to **owners**. Go has no publisher account: a module is
-named by its repository path, so an owner has to be derived — `github.com/<org>`, `golang.org/x`,
-a vanity host and whoever controls its DNS. Nobody has published that derivation with a count
-behind it, and nobody has reported the fraction of owners in a build graph that never appear in
-the project's own `go.mod`. "On Good Authority: Release-Authority Measurement for Registries"
-(2026) is the nearest thing and is about registries that *have* release authorities, which is the
-attribute Go lacks.
+named by its repository path, so an owner has to be derived — `github.com/<org>`, `golang.org/x`, a
+vanity host and whoever controls its DNS. Nobody has published that derivation with a count behind
+it, and nobody has reported the fraction of owners in a build graph that never appear in the
+project's own `go.mod`. "On Good Authority: Release-Authority Measurement for Registry-Mediated
+Package Ecosystems" (2026) is the nearest thing and is about registries that *have* publisher
+accounts, which is the attribute Go lacks.
 
 Searched: MSR- and ASE-style mining venues, Semantic Scholar and DBLP citation graphs from the
 semantic-versioning and dependency-depth papers, deps.dev's published research, libraries.io and
@@ -42,17 +42,16 @@ The mechanism is not in doubt and the tooling is documented. cgo compiles and li
 `//go:generate` exists and is not run by `go build`. The Go team has restricted which flags may
 be passed precisely because they are an execution surface.
 
-What is measured is cgo's prevalence **in a project's own source**, and the classification of
-which directive kinds appear. Chen, Ding, Zhang, Li et al. (Journal of Systems and Software 231,
-2026) is the study of record. Its directive frequencies must be quoted carefully: the denominator
-is **101 manually labelled files inside the top 20 most-starred CGO repositories**, not the 920
-projects of the wider sample and not the 104 CGO-using projects among them. `LDFLAG` at 31.68 %
-is 32 of those 101 files. A secondary summary of the same paper reports these as project-level
-rates; that reading inflates the population by about nine times and is not used here.
+What is measured is cgo's prevalence **in a project's own source**, and the classification of which
+directive kinds appear. Chen, Ding, Zhang, Li et al. (Journal of Systems and Software 231, 2026) is
+the study of record. Its directive frequencies must be quoted carefully: the denominator is **101
+manually labelled files inside the top 20 most-starred CGO repositories**, not the 920 projects of
+the wider sample and not the 104 CGO-using projects among them. `LDFLAG` at 31.68 % is 32 of those
+101 files.
 
-Open: the same question over a **module graph** rather than over a project's own code — how much
-of what a build compiles arrives through cgo — and the **values** of the flags, which nobody has
-collected. Note also that Go's own telemetry has no cgo or `CGO_ENABLED` counter, so the vendor
+Open: the same question over a **module graph** rather than over a project's own code — how much of
+what a build compiles arrives through cgo — and the **values** of the flags, which nobody has
+collected. Note also that Go's own telemetry uploads no cgo or `CGO_ENABLED` counter, so the vendor
 does not measure it either.
 
 ## Q3 — GOTOOLCHAIN as a way to deliver code — **mechanism documented, measurement not taken**
@@ -75,11 +74,11 @@ The incident record is the reason this is worth measuring rather than merely not
 - Debian **#1040507**, open from 2023: "golang-1.21-go: downloads and runs binaries from the
   Internet without permission".
 
-What exists that looks like measurement, and is not: Go's telemetry publishes a
-`gopls/gotoolchain` counter — for the week of 2026-09-21, `auto` 4050, `local` 114, `other` 63,
-`path` 0. That is the **setting** among opted-in gopls users. It is not modules that name a
+What exists that looks like measurement, and is not: Go's telemetry publishes a `gopls/gotoolchain`
+counter — for the week of 2026-09-21 as published on 2026-09-30, `auto` 4734, `local` 134, `other`
+72, `path` 1. That is the **setting** among opted-in gopls users. It is not modules that name a
 toolchain, not downloads, not where they are fetched from, not how they verify. The counter
-configuration confirms `cmd/go` has no toolchain counter at all.
+configuration confirms `cmd/go` uploads no toolchain counter at all.
 
 So: how many published modules carry a `toolchain` line, which versions they name, how far ahead
 of the caller's installed toolchain they reach, and what a clone-and-build does as a result — all
@@ -94,10 +93,10 @@ VulnCheck's 2023 figures and Boost Security's 63,386 packages on deleted account
 imported by public projects; semantic-versioning practice (2023); vulnerability propagation.
 
 Open: what fraction of real fetches the checksum database actually covers, and how often
-`GOPRIVATE`, `GONOSUMDB`, `GONOSUMCHECK` or `GOFLAGS` turn it off — a question `golang/go#79070`
-makes sharper, since it shows a successful-but-empty sumdb response was accepted as validation.
-Also open: vanity import paths and who controls the domains behind them, beyond the repojacking
-work.
+`GOSUMDB=off`, `GOPRIVATE` or `GONOSUMDB` turn it off (before Go 1.17 also `go get -insecure`, which
+`GOFLAGS` could carry) — a question `golang/go#79070` makes sharper, since it shows a
+successful-but-empty sumdb response was accepted as validation. Also open: vanity import paths and
+who controls the domains behind them, beyond the repojacking work.
 
 ## What this leaves
 
@@ -106,3 +105,21 @@ out of a single traversal of one sample of real Go projects: resolve the graph, 
 from host and path, count what is never declared, count `toolchain` directives and what they ask
 for, count what arrives with cgo. Q4 is well enough covered that it is context rather than a
 target, with the sumdb-coverage sub-question as the exception.
+
+## Corrections, 2026-09-30
+
+- Li, Wu, Fu and Zhou (ASE 2023) were cited for the amplification of modules pulled over modules
+  declared. Their paper studies semantic versioning on direct `require`s and filters out the
+  modules not imported directly; the citation is removed.
+- The 2026 paper's title was cut to "…for Registries" and it was said to be about registries with
+  release authorities; its title ends "…for Registry-Mediated Package Ecosystems" and the
+  attribute Go lacks is a publisher account.
+- A secondary summary was said to give the cgo directive frequencies per project; no summary that
+  can be opened does, and the sentence is removed.
+- Go's telemetry was said to have no cgo and no `cmd/go` toolchain counter; `cmd/go` has toolchain
+  counters, and the configuration uploads none of them and no cgo counter. The text now says so.
+- The `gopls/gotoolchain` figures for the week of 2026-09-21 were those read on 2026-09-23 (4050,
+  114, 63, 0); the week has since been merged with later uploads, and the text gives it as
+  published on 2026-09-30.
+- `GONOSUMCHECK` was named among the ways to turn off the checksum database; no Go release reads
+  it. The text now names `GOSUMDB=off`, `GOPRIVATE` and `GONOSUMDB`.
