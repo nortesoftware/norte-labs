@@ -33,14 +33,14 @@ Supply-chain security research and audits.
   telemetry, `$HOME` paths, what hooks download, what a quarantine means; harness, per-cell
   results, generated report, findings, and the corrections in its README.
 - [tools/](tools/) — audits of supply-chain security tools: what the documentation promises, what
-  the code does, and what the tool reports when the control it names cannot reach what it claims
-  to cover. Inventory of 69 tools across install sandboxes, package scanners, CI gates, provenance
+  the code does, and what the tool reports when the control it names cannot reach what it claims to
+  cover. Inventory of 69 tools across install sandboxes, package scanners, CI gates, provenance
   verifiers and SBOM generators. Four audited so far, and what they produced: `microsoft/sbom-tool`
-  to MSRC as VULN-229761 (Security Feature Bypass), `netblue30/firejail` to the address in its
-  `SECURITY.md` plus a comment on
-  [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248),
-  `npm audit signatures` as [npm/cli#10018](https://github.com/npm/cli/issues/10018), and
-  `google/capslock` — drawn at random rather than chosen, no finding, written up anyway.
+  to MSRC as VULN-229761 (Security Feature Bypass, in MSRC's researcher portal),
+  `netblue30/firejail` to the address in its `SECURITY.md` plus a comment on
+  [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248), `npm audit
+  signatures` as [npm/cli#10018](https://github.com/npm/cli/issues/10018), and `google/capslock` —
+  drawn at random rather than chosen, no finding, written up anyway.
 - [prior-art/go-supply-chain.md](prior-art/go-supply-chain.md) — has anyone measured what a Go build
   trusts and what it runs? Four questions over four modalities, 96 sources, 143 recorded searches
   (2026-09-23). Go has no install scripts and has a checksum database, and both hold; what is open

@@ -1,6 +1,6 @@
 # Report to MSRC — microsoft/sbom-tool
 
-Sent 2026-09-22 22:29 UTC. MSRC **VULN-229761**, classified Security Feature Bypass.
+Sent 2026-09-22 22:29 UTC. MSRC **VULN-229761**, classified Security Feature Bypass in MSRC's researcher portal.
 
 ---
 

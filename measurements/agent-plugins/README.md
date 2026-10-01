@@ -355,9 +355,9 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   counted under installs at start; junie contacts `junie.jetbrains.com` and
   `resources.jetbrains.com` and probes the LM Studio (1234) and Ollama (11434) ports.
 - The CDN `registry.json` of 2026-09-16 was said to list seven of the quarantined agents; it
-  lists all eight. Quarantine skips the probe and the auto-updater's version bumps, it does not delist.
+  lists all eight. Quarantine skips the probe and freezes the pin, it does not delist.
 - crow-cli's, qoder's and mistral-vibe's quarantine reasons were "not reproduced". They are
-  untestable at the pin: each is about a version other than the pinned one. Five reasons are
+  untestable at the pin: each names a version other than the pinned one. Five reasons are
   about the pinned version and three about a refused update.
 - Telemetry is 9 hosts in 7 agents without cline, whose `otel.cline.bot` makes it 10 in 8.
   `47.116.170.246` (minimax-code) is not among them, and it is not "a bare address with no DNS
@@ -377,8 +377,8 @@ Figures and wordings corrected in findings.md, each with the reason the data req
 - "A read is a read of the file's content" became "a read is a successful open for reading":
   `trace.ts` counts opens, and `read()` is not in the strace filter.
 - The five agents that open `~/.env` reach it by walking up from the workspace, which is a
-  child of `$HOME` in the decoy layout (qwen-code also opens `~/.env` directly at start, wherever the
-  workspace is); "in the home directory, not the project's" described the layout, not an agent choice.
+  child of `$HOME` in the decoy layout; "in the home directory, not the project's" described
+  the layout, not an agent choice.
 - "Reads … 8 times" became "tries to open … 8 times; nothing is read" for claude-acp's
   `~/.claude/.credentials.json` (8) and codex-acp's `~/.codex/auth.json` (10): both are failed
   opens (`enoent`, `contentAccessed: false`), and the files do not exist in the decoy home.
@@ -423,7 +423,7 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   caches; corridor pipes `install.sh` from `app.corridor.dev` into `sh`, version from a URL,
   and also edits the shell profile's PATH; monk fetches `-latest` and re-checks it every
   session start (the artefact behind the URL changed within hours of the run); jfrog runs `npx
-  --yes @jfrog/agent-guard` against `releases.jfrog.io` (unpinned), not "the JFrog CLI", and its
+  --yes @jfrog/agent-guard` (unpinned, a 35 MB static ELF), not "the JFrog CLI", and its
   `agents-conf.json` is written by the `sessionStart` hook. monk's "killed at 20 s" runs had
   finished their script; the detached `monk-agent serve` kept the traced tree alive. "65 MB" is
   65 MiB.
@@ -452,10 +452,10 @@ Figures and wordings corrected in findings.md, each with the reason the data req
 
 ### Zed
 
-- The source heuristic mis-resolved 9 extensions: wrong package for gem, wrong entry for polar, missing `--mcp`
-  for repomix, missing `server start` for azmcp, relay URLs it did not carry (literal in three of the four;
-  datadog's is built from its site setting). terraform downloads from `releases.hashicorp.com`, where the linux
-  archive exists; axiom's binary was plainly named. "Could not be identified" became "the harness did not
+- The source heuristic mis-resolved 9 extensions: wrong package for gem, wrong entry for polar,
+  missing `--mcp` for repomix, missing `server start` for azmcp, literal relay URLs it did not
+  carry. terraform downloads from `releases.hashicorp.com`, where the linux archive exists;
+  axiom's binary was plainly named. "Could not be identified" became "the harness did not
   identify".
 - 5 of 73 declared repositories are not the extension's source. maho-lsp's declared repository
   (`mahocommerce/maho-zed`) was said to have moved; it never existed under that name. GitHub
@@ -479,13 +479,13 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   `~/.gemini/antigravity-ide`), which are stated separately. Twelve is counted from the files
   present in each kept decoy home. Eleven of the twelve write at every editor start;
   `quickdb.quickdb` declares no `activationEvents` and is activated implicitly.
-- `Varterm.varterm-cursor` and `swarmify.swarm-ext` write under another tool's directory and say so in
-  their own readme or changelog, and are not undisclosed behaviour; `ZencoderAI.zencoder`'s changelog
-  names `~/.agents/skills` only as where a user may put skill folders. The three are counted in the ten.
+- `Varterm.varterm-cursor`, `ZencoderAI.zencoder` and `swarmify.swarm-ext` write under another
+  tool's directory and say so in their own readme or changelog; they are counted in the ten and
+  are not undisclosed behaviour.
 - It was "Nothing in its description mentions registering itself with four assistants",
-  written from `quickdb.quickdb`'s one-line description. The readme documents the behaviour, and the extension
-  carries it out at activation: after a routine that rewrites a stale path in an entry already there, it writes
-  its own entry into the configuration of each of ten clients whose file or directory exists. The commit message
+  written from `quickdb.quickdb`'s one-line description. The readme documents the behaviour,
+  and the extension does not register itself with assistants that have not already registered
+  it: the routine rewrites a stale path in an entry that is already there. The commit message
   of 482d31e carries the same error.
 - The one connection to `cdn.jsdelivr.net` and the npm execs recorded for
   `zardoy.inline-debugger`, and the `www.schemastore.org` fetches recorded for
@@ -578,17 +578,23 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   counted as error. `bun` is there for one first-party hook, continual-learning's `stop`.
 - The extension host was called the same Code-OSS code as Cursor's and Windsurf's; it is the same
   codebase at another version (Windsurf's base is VS Code 1.126, VSCodium's 1.135).
-- Three quarantine reasons were said to name the refused version; they are about it, and
-  mistral-vibe's names none. Quarantine stops the probe and the auto-updater, not manual pins.
-- qwen-code also opens `~/.env` directly at start, wherever the workspace is.
-- The 2026-09-25 note on jfrog kept "a 35 MB static ELF", withdrawn the same day; it is removed.
-  The hook runs `@jfrog/agent-guard` from `releases.jfrog.io`.
-- Three of the four Zed relay URLs are literals in the source, not two; datadog's is built.
+- The 2026-09-25 note, findings.md and Figures said three quarantine reasons name the refused
+  version, and the note that quarantine freezes the pin. The reasons are about the refused
+  version, mistral-vibe's naming none, and quarantine stops the probe and the auto-updater's
+  bumps, not manual pins.
+- The 2026-09-25 note said the five agents reach `~/.env` by walking up from the workspace;
+  qwen-code also opens it directly at start, wherever the workspace is.
+- The 2026-09-25 note on jfrog repeats "a 35 MB static ELF", which another note of that day
+  withdrew; the hook runs `npx --yes @jfrog/agent-guard` against `releases.jfrog.io`.
+- The 2026-09-25 note called the four Zed relay URLs literal, and findings.md two of them; three
+  are literals in the source, and datadog's is built from its site setting.
 - Zencoder's changelog names `~/.agents/skills` only as where a user may put skill folders; the
   2026-09-25 note and findings.md said it names where Zencoder installs its own.
-- The 2026-09-25 correction on `quickdb.quickdb` was wrong. Its 1.2.13 bundle writes a quickdb
-  entry at activation into the configuration of each of ten clients whose file or directory
-  exists; the trace's open for writing against each of the three present files is that write.
+- The correction of 2026-09-25 on `quickdb.quickdb` is withdrawn. It said the extension does not
+  register itself with assistants that had not registered it; it does. Its 1.2.13 bundle writes a
+  quickdb entry at activation into the configuration of each of ten clients whose file or
+  directory exists, and the trace's open for writing against each of the three present files is
+  that write. findings.md says so now; the 2026-09-25 note stands above as it was published.
 - findings.md, on quickdb, also: its description begins "Lightweight database browser for VS
   Code"; the routine rewrites a path that is not the newest installed quickdb's; the `~/.aws`
   reads are the bundled Snowflake driver's cloud-platform detection.

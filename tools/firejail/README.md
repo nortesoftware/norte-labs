@@ -124,11 +124,16 @@ path to the operator, not a demonstration of the failure.
 
 ## Prior art
 
-**Finding 1: partial.** Open issue #3357 (2020) asks for a warning when a path does not exist; a
-collaborator answers that `disable-*.inc` blacklists paths that need not exist and points to
-`--debug-blacklists`. Discussion [#5263](https://github.com/netblue30/firejail/discussions/5263),
-on how `whitelist`, `blacklist` and `noblacklist` interact, does not mention the diagnostic. Not
-found: that `--debug-blacklists` omits skipped entries, and the asymmetry with the whitelist path.
+**Finding 1: partial, and asked for in 2020.** Issue
+[#3357](https://github.com/netblue30/firejail/issues/3357), "No warning or error if a file or
+directory does not exist", opened in 2020 and still open, asks for the warning whose absence is
+finding 1, and its reporter points out that a path that stops existing silently stops being
+blacklisted. A collaborator answered that the `disable-*.inc` files blacklist paths that need not
+exist, and pointed to `--debug-blacklists` to confirm that a path is blacklisted. Six years on there
+is still no warning, and the flag offered as the check is the one that omits the entries it skipped.
+Discussion [#5263](https://github.com/netblue30/firejail/discussions/5263), on how `whitelist`,
+`blacklist` and `noblacklist` interact, does not mention the diagnostic. Not found: that
+`--debug-blacklists` omits skipped entries, and the asymmetry with the whitelist path.
 
 **Finding 2: not found.** firejail's CVEs are mostly local privilege escalation and sandbox
 escape, many through mount and namespace handling — CVE-2022-31214 is the landmark; none of the
@@ -151,9 +156,10 @@ to 0.9.80 and the development version. Text as sent: [report.md](report.md). No 
 - Section 2 said neither `Seccomp` nor `Seccomp_filters` occurs anywhere in firejail's source. It
   now says so of `Seccomp_filters` only; `firemon --seccomp` and `jailcheck` read `Seccomp:` from
   `/proc/<pid>/status`. report.md, as sent, keeps the old claim.
-- *Prior art* said old issues mention, as an aside, that a blacklist of a missing path does
-  nothing. It now cites open issue #3357 (2020), which asks for a warning when a path does not
-  exist; *partial* stands, as #3357 does not say that `--debug-blacklists` omits skipped entries.
+- *Prior art* said only that old issues note in passing that a blacklist of a missing path does
+  nothing, and that no discussion mentions the diagnostic. Issue #3357, open since 2020, asks for
+  exactly that warning; the finding now leads with it. *Partial* stands: #3357 does not say that
+  `--debug-blacklists` omits skipped entries. report.md, as sent, does not cite it.
 - *Prior art* said discussion #5263 is about `noblacklist` matching and that a maintainer reframes
   it. It now says the discussion is on how `whitelist`, `blacklist` and `noblacklist` interact, as
   its opening post shows, and omits the reply, a collaborator's answer to a second poster.

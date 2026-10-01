@@ -8,8 +8,8 @@ what the tool reports when the control it names cannot reach what it claims to c
 
 | target | outcome |
 |---|---|
-| [`microsoft/sbom-tool`](sbom-tool/) | `ValidateFormat` prints that validation failed and exits 0. Sent to MSRC per its `SECURITY.md`, tracked as **VULN-229761**, classified Security Feature Bypass. |
-| [`netblue30/firejail`](firejail/) | A blacklist for a path that is not there is skipped with no line at any verbosity, and a seccomp filter that fails to install draws one warning, none under `--quiet`, and is then reported as installed. Sent 2026-09-23 to the address in `SECURITY.md`. A related ordering defect was added as a comment on [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248). |
+| [`microsoft/sbom-tool`](sbom-tool/) | `ValidateFormat` prints that validation failed and exits 0. Sent to MSRC per its `SECURITY.md`, tracked as **VULN-229761**, classified Security Feature Bypass in MSRC's researcher portal. |
+| [`netblue30/firejail`](firejail/) | A blacklist for a path that is not there is skipped with no line at any verbosity, though issue [#3357](https://github.com/netblue30/firejail/issues/3357) has asked for that warning since 2020; and a seccomp filter that fails to install draws one warning, none under `--quiet`, and is then reported as installed. Sent 2026-09-23 to the address in `SECURITY.md`. A related ordering defect was added as a comment on [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248). |
 | [`npm audit signatures`](npm-audit-signatures/) | It does not report how many packages it skipped for want of registry keys, so a partially verified tree reads as a fully verified one. Filed as [npm/cli#10018](https://github.com/npm/cli/issues/10018). |
 | [`google/capslock`](capslock/) | Drawn at random rather than chosen. No finding in the default mode, the one examined; written up anyway. |
 | [`bazelbuild/bazel`](bazel/) | Drawn at random from the tools that gate; the record of the draw is not published. Under linux-sandbox, `--sandbox_block_path` skips a path that does not exist when an action's sandbox is set up, with no line at any verbosity tried, and an action already running reads the path once it appears; a block that was applied is lost for a running action when the host renames over the path or deletes and recreates it. Filed as documentation: [#31318](https://github.com/bazelbuild/bazel/issues/31318), with [#31316](https://github.com/bazelbuild/bazel/issues/31316) on a stale `build.mdx` paragraph and [#31317](https://github.com/bazelbuild/bazel/issues/31317) on sandbox pages that contradict each other. |
@@ -57,13 +57,13 @@ be opened. An SBOM that parses and fails validation exits 0. The audit establish
 exit code, and how far back the line goes.
 
 **Audited, 2026-09-22: [tools/sbom-tool/](sbom-tool/).** Reproduced against the published v4.1.5
-binary — three malformed SBOMs and one file that is not JSON all print
-`SBOM format validation failed.` and exit 0, while a path that does not exist exits 1. The verb is
-undocumented, absent from `--help` and from the arguments page, but present and working in the
-shipped binary. The line entered as a placeholder in PR #577, survived the PR that added the
-validation it stood in for, and was made authoritative by PR #617, whose stated purpose was
-correct exit codes. Not reported before; #615 is the adjacent `Generate` case. Reported to MSRC 2026-09-22 as VULN-229761,
-classified Security Feature Bypass.
+binary — three malformed SBOMs and one file that is not JSON all print `SBOM format validation
+failed.` and exit 0, while a path that does not exist exits 1. The verb is undocumented, absent from
+`--help` and from the arguments page, but present and working in the shipped binary. The line
+entered as a placeholder in PR #577, survived the PR that added the validation it stood in for, and
+was made the standalone tool's exit status by PR #617, whose stated purpose was correct exit codes.
+Not reported before; #615 is the adjacent `Generate` case. Reported to MSRC 2026-09-22 as
+VULN-229761, classified Security Feature Bypass in MSRC's researcher portal.
 
 ### 2. `netblue30/firejail`
 
@@ -181,3 +181,6 @@ matter: `tools/firejail/` names the address it went to, because that is the reco
   and a CVE history, not a documented process; 0.9.74 is unsupported upstream, not EOL.
 - sbom-tool's `GeneralError` is for a file that cannot be opened; one that cannot be parsed is a
   validation failure and exits 0.
+- The sbom-tool entry said PR #617 made the placeholder's value authoritative; it did so for the
+  standalone tool only, the one copy it changed. "Security Feature Bypass" is MSRC's
+  classification in its researcher portal, which is not public.

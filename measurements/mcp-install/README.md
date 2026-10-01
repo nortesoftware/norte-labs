@@ -244,8 +244,8 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
   touches `allow_unsigned_extensions`, and DuckDB checks the file's RSA signature before writing
   it and on every load: one altered byte and `LOAD` rejects it. The HTTP channel protects neither
   confidentiality (which extension and version is installed) nor against a downgrade to another
-  signed version; the signature protects integrity. It was presented as a security finding
-  about an MCP server and it is not one. It has not been reported to anyone.
+  signed version; it protects integrity. It was presented as a security finding about an MCP
+  server and it is not one. It has not been reported to anyone.
 - **First-start denominators.** First-start network and `$HOME` rates carry both denominators,
   579 attempts and 347 started. 28 cells aborted on credential validation and 42 on an
   exception, so their first start was not observed.
@@ -288,7 +288,7 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
   start, and 1.5 for egress at first start. The cluster table carried the other three; the
   sentence left them out.
 - **Install scripts.** It was "almost all of it is native". In 31 of the 51 trees with an
-  install script a dependency can build or fetch a native module; in 7 the server's own
+  install script a dependency builds or fetches a native module; in 7 the server's own
   `postinstall` downloads a release asset; `protobufjs`, listed as native, runs a version check.
   The 16 cells that reached `release-assets.githubusercontent.com` were all called prebuilds; 7
   are the server's own `postinstall`.
@@ -378,14 +378,15 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 - **Malware in the registry.** It was a registry "that includes documented malware"; it is one
   "that has listed" it: the entry OX Security documented, `io.github.jUXTAPOSITION1/vape`
   (registry#1563), was set to `deleted` on 2026-09-05, six days before the run.
-- **Native modules at install.** It was, here and in findings.md, that in 31 of 51 trees a
-  dependency "builds or fetches" a native module; it is "can build or fetch": 8 of the 31 did
-  neither, as `node-gyp-build`, `sharp` 0.33+, `esbuild` and `workerd` act only without a prebuild.
+- **Native modules at install.** It was, in Figures, findings.md and the 2026-09-25 note, that in 31
+  of 51 trees a dependency "builds or fetches" a native module; it is "can build or fetch": 8 of the
+  31 did neither, as `node-gyp-build`, `sharp` 0.33+, `esbuild` and `workerd` act only without a
+  prebuild.
 - **2609.10962.** It was quoted as "fewer than half complete the handshake"; findings.md and
   Figures now give 48.8 %. The paper says "Only 48.8% complete an initialize handshake" (195 of 400
   npm/stdio draws); its only "fewer than half" is about scanner alerts.
 - **DuckDB's HTTP channel.** The retraction of 2026-09-12 said of the HTTP channel "it protects
-  integrity"; it now says the signature does: DuckDB's documentation credits its built-in public
+  integrity"; it is the signature that does: DuckDB's documentation credits its built-in public
   keys with the integrity of extensions, and its code tests the signature at install and at `LOAD`.
 - **`opencollective.com` at install.** It was "`devdocs-mcp-server`'s donation message"; it is that
   of `@nestjs/core` in its tree: `devdocs-mcp-server` 1.0.0 has no install script, and the

@@ -13,8 +13,9 @@ unambiguous about the two outcomes: `SBOM format validation passed.` against
 
 ## What the code does
 
-`src/Microsoft.Sbom.Tool/FormatValidationService.cs`, and identically
-`src/Microsoft.Sbom.DotNetTool/FormatValidationService.cs`, on `main`:
+`src/Microsoft.Sbom.Tool/FormatValidationService.cs`, on `main`;
+`src/Microsoft.Sbom.DotNetTool/FormatValidationService.cs` is the same but for the
+`Environment.Exit` call #617 added to the first:
 
 ```csharp
 using (var sbomStream = new StreamReader(config.SbomPath.Value))
@@ -86,16 +87,19 @@ is reached by fewer pipelines, which bounds the blast radius and is stated in th
 ## Reported
 
 Sent to MSRC 2026-09-22 22:29 UTC, per the repository's `SECURITY.md`, which asks that security
-issues not be filed as public GitHub issues. Tracked as **VULN-229761**, classified by MSRC as
-**Security Feature Bypass**. Text as sent: [report-msrc.md](report-msrc.md).
+issues not be filed as public GitHub issues. Tracked as **VULN-229761**, classified **Security
+Feature Bypass** in MSRC's researcher portal. Text as sent: [report-msrc.md](report-msrc.md).
 
 ## Corrections, 2026-09-30
 
 - *Prior art* said `--help` lists only `Validate`, `Generate`, `Redact` and `Aggregate`. The usage
   the v4.1.5 binary prints lists `Version` as well; `ValidateFormat` is absent from it, as stated.
 - The history table said #617 added `Environment.Exit` to "this file", and the paragraph that this
-  made the placeholder's value authoritative. Both now name the standalone tool: #617 left the .NET
-  global tool's copy alone, and in that tool `Main` sets `ExitCode.Success` once the host returns.
+  made the placeholder's value authoritative. Both now name the standalone tool, the only copy #617
+  changed; how the .NET global tool exits is not claimed.
 - The report as sent to MSRC says the same of #617, and that the outcome "is printed by
   `MultilineSummary()`"; that method returns lines, which the service's `PrintLines` prints. The
   report stays as sent.
+- The opening called the two copies of `FormatValidationService.cs` identical on `main`; the
+  standalone tool's has the `Environment.Exit` call #617 added and the global tool's does not. The
+  classification is given as MSRC's, in its researcher portal.
