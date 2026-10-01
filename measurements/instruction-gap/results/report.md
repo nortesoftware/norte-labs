@@ -1,6 +1,6 @@
 # instruction-gap — generated report
 
-Generated 2026-09-26T03:01:51.642Z from `results/population.ndjson` and `results/cells.ndjson`. Shares carry 95 % Wilson intervals; means carry a cluster-robust interval (framework clusters).
+Generated 2026-09-30T20:00:57.024Z from `results/population.ndjson` and `results/cells.ndjson`. Shares carry 95 % Wilson intervals; means carry a cluster-robust interval (framework clusters).
 
 ## Frame and sample
 
@@ -59,7 +59,7 @@ Publisher kinds, summed over projects (a publisher counts once per project):
 - npm user accounts: 147576; trusted-publishing repositories: 25615; of all of these, 33215 carry an automation name; versions whose publisher could not be read: 198.
 - share of a project's publishers that are trusted-publishing repositories: median 12.6 %, mean 14.4 %.
 - projects with at least one trusted-publishing publisher: 653/892 = 73.2 % [70.2 %–76.0 %]; versions with a provenance attestation: 103416 of 691842 read.
-- registry lookups: 691842 read, 17 versions no longer on the registry, 1 errors; 156 resolved pairs are not registry packages (git, tarball or another source).
+- registry lookups: 691842 read, 17 versions answering 404, 1 errors; 156 resolved pairs are not registry packages (git, tarball or another source).
 
 ## Decisions the manager made
 
@@ -87,7 +87,7 @@ Projects where install-time code comes from a package the developer never named:
 
 ## Hosts
 
-Only npm and yarn v1 lockfiles record a URL per package (572 projects); pnpm, Yarn Berry and bun resolve registry packages against the configured registry and record a URL only for tarball and git sources. Figures below are over the 572.
+By default only npm and yarn v1 lockfiles record a URL per package (572 projects); pnpm, Yarn Berry and bun resolve registry packages against the configured registry and record a URL only for tarball and git sources and for registry tarballs off the standard path (for bun, off registry.npmjs.org). Figures below are over the 572.
 
 | per project | p10 | p25 | median | p75 | p90 | mean |
 |---|---|---|---|---|---|---|
@@ -190,7 +190,7 @@ Publisher-set overlap (Jaccard) between pairs of projects: same framework 0.212 
 
 ## By manager
 
-| manager | projects | median direct | median resolved | median publishers | median publishers/direct | lockfile records URLs |
+| manager | projects | median direct | median resolved | median publishers | median publishers/direct | lockfile records a URL per package |
 |---|---|---|---|---|---|---|
 | npm | 492 | 19.0 | 445.0 | 132.0 | 5.8 | yes |
 | pnpm | 246 | 46.5 | 875.0 | 216.5 | 4.5 | no |

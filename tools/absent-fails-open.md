@@ -40,23 +40,23 @@ directory has hit so far:
 
 - firejail, seccomp: `seccomp_install_filters()` returns failure, three callers discard it, the
   sandbox is marked `SANDBOX_DONE`, and `--seccomp.print` prints the filter files that were
-  written rather than the filters the kernel accepted. The kernel publishes the answer in
-  `/proc/<pid>/status` as `Seccomp` and `Seccomp_filters`; neither name is in the source.
+  written rather than the filters the kernel accepted. The kernel answers in `/proc/<pid>/status`:
+  `Seccomp_filters`, in no firejail file, and `Seccomp`, read only by `firemon` and `jailcheck`.
 - microsoft/sbom-tool ([tools/sbom-tool/](sbom-tool/)): the exit code is assigned from a ternary
   whose condition is the literal `true`, so it reports the validation it set out to do and never
   the result.
 - npm `audit signatures` ([npm-audit-signatures/](npm-audit-signatures/), audited after this was
   first written): a package counts as `missing` only when the registry returned keys, and the key
-  lookup returns `null` on a TUF error or a 404, so with no keys an unsigned package is neither
-  verified nor missing. The skip is intentional and was asked for; what stands is that a tree
-  partly from a keyless registry reports no coverage figure.
-- pmg, from the earlier survey: a network allowlist present in fifteen of seventeen shipped
-  profiles and installed by nothing, with `profiles/go.yml` saying so — "They are NOT
-  kernel-enforced."
+  lookup returns `null` when TUF finds none and the registry answers 404 or 400; an unsigned
+  package is then neither verified nor missing. The skip is intentional, and its 400 case was asked
+  for; what stands is that a tree partly from a keyless registry reports no coverage figure.
+- pmg, from the earlier survey: a host allowlist present in sixteen of seventeen shipped
+  profiles and installed by nothing, with `sandbox/profiles/go.yml` saying so — "They are NOT
+  kernel-enforced".
 
 In each, the intended state is available and gets reported; the achieved state is available too,
 and is not consulted. `Seccomp_filters` is one `open()` away. The validation result is already
-computed and printed on the line above the exit code. The key count is already in scope.
+computed and printed four lines above the exit code. The key count is already in scope.
 
 ## A case nobody selected, found while looking at something else
 
@@ -113,18 +113,18 @@ examined ([capslock/](capslock/)). On every leg examined the tool does the oppos
 pattern describes. It aborts with exit 2 when any package fails to load, rather than reporting on
 a partial graph. Everything its analysis cannot follow — reflection, cgo, assembly, `unsafe`,
 `go:linkname`, `os/exec`, `plugin` — is emitted as a capability of its own rather than dropped,
-and `docs/caveats.md` gives that as the reason: "so that capabilities are not missed without any
-indication to the user". Its one unsurfaced blind spot, data races on interface and slice types,
-is documented as unsurfaced. It errs towards over-reporting.
+and `docs/caveats.md` gives that as the reason for reflection: "so that capabilities are not
+missed without any indication to the user". Its one unsurfaced blind spot, data races on
+interface and slice types, is documented as unsurfaced. It errs towards over-reporting.
 
 So this note stays what it was: an observation about five tools selected for their form, plus one
 drawn case where the form is absent from the mode examined. It is not a claim about how these
 controls are written in general, and the draw is the reason it cannot be upgraded into one on the
 evidence here.
 
-What the drawn case does add is a negative worth having. Capslock is the only tool in this note
-that states the principle explicitly as a design goal, in a document about its own limits. That
-is a cheap thing for any of the others to have done and none of them did — which is a remark
+What the drawn case does add is a point of comparison. Capslock states the principle explicitly as
+a design goal, in a document about its own limits, and so does nono, whose WSL2 page says it
+refuses proxy-only mode "rather than silently losing network enforcement". That is a remark
 about documentation practice, not about a defect, and is as far as these cases will carry it.
 
 One asymmetry to keep in view: in the mode examined, Capslock reports, and makes a weaker claim
@@ -189,3 +189,30 @@ don't know.
   five, nono, firejail, sbom-tool, npm and pmg.
 - The firejail paragraph did not say that firejail's manual documents the open path. It does,
   and the finding is the missing diagnostic.
+
+## Corrections, 2026-09-30
+
+- The seccomp entry said neither `Seccomp` nor `Seccomp_filters` is in the firejail source. It now
+  says `Seccomp_filters` is in no firejail file, at 0.9.74 or at `ccdf4ea`, and `Seccomp` is read
+  only by `firemon` and `jailcheck`; the `firejail` launcher reads neither.
+- The npm entry said the key lookup returns `null` on a TUF error or a 404; it now says it does when
+  TUF finds none and the registry answers 404 or 400. In `verify-signatures.js` a TUF miss falls
+  back to the registry's keys, other TUF errors are rethrown, and `E400` counts as `E404`.
+- The same entry said the skip was asked for; it now says its 400 case was, since
+  [npm/cli#5479](https://github.com/npm/cli/issues/5479) lists the skip on `E404` under "Current
+  Behavior" and asks for the same on `E400`, which #5480 added on 2022-09-21.
+- The pmg entry said a network allowlist is in fifteen of seventeen shipped profiles; it now says a
+  host allowlist is in sixteen. All seventeen carry `allow_outbound`, their own or inherited, and
+  in `exec.yml` it is `"*:*"`.
+- The same entry cited `profiles/go.yml`, a path pmg has never had; the file is
+  `sandbox/profiles/go.yml`. In it the quoted sentence runs on after a colon, so the full stop is
+  now outside the quotation marks.
+- The paragraph after the list said the sbom-tool validation result is printed on the line above
+  the exit code; it now says four lines above. In `FormatValidationService.cs` at v4.1.5 it is
+  printed at line 47, and the line above the assignment at 51 is the telemetry call at 50.
+- The Capslock paragraph gave "so that capabilities are not missed without any indication to the
+  user" as the reason `docs/caveats.md` gives for the whole list. It now gives it as the reason for
+  reflection, the one section it is in; for `os/exec` and `plugin` the file gives another reason.
+- The note said Capslock alone states the principle as a design goal in a document about its own
+  limits, and no other tool did. It now says nono does too and claims nothing of the rest; nono's
+  WSL2 page says it refuses proxy-only mode "rather than silently losing network enforcement".

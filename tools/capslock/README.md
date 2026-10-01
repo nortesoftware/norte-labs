@@ -41,12 +41,12 @@ branch, which logs it and exits 2. There is no path that analyses a partially lo
 prints capabilities from it.
 
 **What the control cannot see, and what it says about it.** This is where the tool inverts the
-pattern rather than exhibiting it. Everything a Go call-graph analysis cannot follow is surfaced
-*as a capability of its own* rather than omitted: `CAPABILITY_REFLECT`, `CAPABILITY_CGO`,
-`CAPABILITY_UNSAFE_POINTER`, and `CAPABILITY_ARBITRARY_EXECUTION` for assembly and for functions
-reached through `//go:linkname`. `os/exec` and `plugin` are likewise reported as capabilities
-because the analysis cannot know what the loaded program will do. `docs/caveats.md` states the
-principle in the tool's own words, about reflection:
+pattern rather than exhibiting it. Everything a Go call-graph analysis cannot follow, except data
+races (below), is surfaced *as a capability of its own* rather than omitted: `CAPABILITY_REFLECT`,
+`CAPABILITY_CGO`, `CAPABILITY_UNSAFE_POINTER`, and `CAPABILITY_ARBITRARY_EXECUTION` for assembly
+and for functions reached through `//go:linkname`. `os/exec` and `plugin` are likewise reported as
+capabilities because the analysis cannot know what the loaded program will do. `docs/caveats.md`
+states the principle in the tool's own words, about reflection:
 
 > "Otherwise, the tool treats the use of reflect as another capability and informs the user of
 > it, so that capabilities are not missed without any indication to the user."
@@ -61,7 +61,7 @@ uses, and the flag to change that is named.
 **Absent — a blind spot the tool does not surface.** There is exactly one, and it is disclosed:
 
 > "Data races on variables of interface and slice type can produce arbitrary behavior … The tool
-> does **not** inform users of writes to interfaces and slices that may cause a data race."
+> does not inform users of writes to interfaces and slices that may cause a data race."
 
 Documented rather than hidden. It is also the one place where the tool's design principle and its
 behaviour diverge, and it says so itself.
@@ -75,10 +75,10 @@ towards over-reporting, which is the opposite direction from the one these audit
 No published finding that Capslock reports fewer capabilities than it can see without saying so.
 The nearest work is [GoLeash](https://arxiv.org/pdf/2505.11016), which argues for runtime policy
 enforcement for Go on the ground that static capability analysis cannot observe what a program
-actually does — an argument about the method's limits, made from the limits the tool documents,
-not a report that the tool misstates them. Third-party integrations also gate on it
-([capcheck](https://github.com/git-pkgs/capcheck), Capslock analysis on deps.dev); whether they
-preserve its exit-code semantics is a question about them, not about Capslock.
+actually does — an argument about the method's limits, backed by its own tests, in which Capslock
+"occasionally misses even coarse-grained capabilities", not a report that the tool misstates them.
+The third-party [capcheck](https://github.com/git-pkgs/capcheck) gates on it and Google's deps.dev
+shows its results; whether capcheck preserves Capslock's exit codes is a question about capcheck.
 
 ## What was not done
 
@@ -113,3 +113,17 @@ longer claimed.
 
 `google-capslock-team@googlegroups.com`, per `SECURITY.md`, acknowledging within three working
 days on a 90-day disclosure timeline. Nothing was reported: there is nothing to report.
+
+## Corrections, 2026-09-30
+
+- *What the control cannot see* said everything a Go call-graph analysis cannot follow is surfaced
+  as a capability. `docs/caveats.md` says the tool "does not inform users" of writes that may cause
+  a data race, and the sentence now excepts data races, which *Absent* sets out.
+- The quotation under *Absent* set "not" in bold; `docs/caveats.md` has no emphasis there, and the
+  quotation now has none.
+- *Prior art* said GoLeash argues from the limits the tool documents. The paragraph now says the
+  argument is backed by GoLeash's own tests, in which Capslock "occasionally misses even
+  coarse-grained capabilities that are clearly exercised during runtime".
+- *Prior art* counted deps.dev with capcheck as third-party integrations that gate on Capslock.
+  deps.dev is Google's, as Capslock is; its July 2024 post says it lists capabilities per version.
+  Of the two, only capcheck gates, and the paragraph now says that deps.dev shows its results.

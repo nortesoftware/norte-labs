@@ -9,15 +9,15 @@ to one lockfile.
 
 **The lockfile.** nono's `Cargo.lock` at commit `121bf37`
 (`https://github.com/nolabs-ai/nono/blob/121bf3726855136b8ee5191b28e0bc540733ba1d/Cargo.lock`),
-on its main branch on 2026-09-21, 17 commits after the `v0.78.0` tag; its own crates are still
-versioned 0.78.0 there. [results/Cargo.lock](results/Cargo.lock) is that file, git blob
+on its main branch on 2026-09-21, 17 commits after the `v0.78.0` tag; its published crates are
+still versioned 0.78.0 there. [results/Cargo.lock](results/Cargo.lock) is that file, git blob
 `e0e7d499ceadcc8a2d3f5715b2090528442f2e02`. It lists 548 registry versions of 501 crates. Like
 instruction-gap, this counts everything the lockfile resolves, dev-dependencies and other
 platforms' dependencies included.
 
 ## Publishers
 
-For each of the 548 versions, crates.io records who published it: an account
+crates.io records who published 545 of the 548 versions: an account
 (`published_by`) or, under trusted publishing, a CI run in a GitHub repository
 (`trustpub_data`). instruction-gap counts a trusted-publishing repository as the publisher, and so
 does this.
@@ -36,10 +36,10 @@ median and inside its middle half.
 
 ## Owners
 
-A different question: who may publish a crate now, from crates.io's owners endpoint, on
+A different question: who owns a crate now, from crates.io's owners endpoint, on
 2026-09-24. **278 owners**, 227 of them user accounts and 51 GitHub teams, where a team is any
-number of people. 220 of the 501 crates, 44 %, have exactly one owner. npm has no figure for the
-same question: instruction-gap's 401 counts the maintainers each version recorded when it was
+number of people. 220 of the 501 crates, 44 %, have exactly one owner. instruction-gap has no npm
+figure for the same question: its 401 counts the maintainers each version recorded when it was
 published. 16 of the 158
 publishing accounts are not among the 278 owners at all, and 75 versions were published by an
 account that is no longer an owner of that crate.
@@ -69,3 +69,18 @@ than a typical Rust tool's was not measured.
 - *Owners* set nono's owners against instruction-gap's 401 as the same question. The 401 counts
   the maintainers each version recorded when it was published, not who may publish now, and the
   comparison is gone.
+
+## Corrections, 2026-09-30
+
+- *The lockfile* said nono's own crates are versioned 0.78.0 at `121bf37`. Only the three it
+  publishes are, `nono`, `nono-cli` and `nono-proxy`; by their Cargo.toml, `nono-ffi` and
+  `nono-test-support` are 0.1.0 with `publish = false`. It now says its published crates.
+- *Publishers* said crates.io records who published each of the 548 versions. The table's third row
+  counts three whose crates.io record has `published_by` and `trustpub_data` null and no audit
+  action. It now says 545 of the 548.
+- *Owners*, like this measurement's entries in README.md and measurements/README.md, said who may
+  publish a crate now; all now say who owns one. crates.io asks owner rights, teams included, only
+  of accounts, not of trusted publishing, and bars accounts from `trustpub_only` crates (`chacha20`).
+- *Owners* said npm has no figure for the same question. npm's `npm owner` page says `ls` lists "all
+  the users who have access to modify a package and push new versions". It now says instruction-gap
+  has none: its 401 counts maintainers as each version recorded them.

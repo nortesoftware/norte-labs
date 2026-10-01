@@ -1,6 +1,6 @@
 # MCP: install and first start — results
 
-Cells: 600 (npm 420, PyPI 180). Generated 2026-09-26T04:07Z. Rates with 95 % Wilson intervals.
+Cells: 600 (npm 420, PyPI 180). Generated 2026-09-30T20:01Z. Rates with 95 % Wilson intervals.
 
 ## Install
 
@@ -89,7 +89,7 @@ Package registries: registry.npmjs.org 420 · pypi.org 180
 
 - cells that open content under `$HOME` outside the project, the toolchain and the package-manager cache: 421/600 = 70.2 % [66.4 %–73.7 %]
 - cells that read or write a decoy file (credentials, agent configs, shell): 421/600 = 70.2 % [66.4 %–73.7 %]
-  - note: the package manager reads `~/.npmrc` and `~/.gitconfig` by itself (norte-guard baseline); at install that read cannot be attributed to the package.
+  - note: npm reads `~/.npmrc` and `~/.gitconfig` by itself (norte-guard baseline); at install that read cannot be attributed to the package.
 
 | prefix | content opened (cells) | written (cells) | probed (cells) | examples |
 |---|---|---|---|---|

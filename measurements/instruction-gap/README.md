@@ -52,20 +52,20 @@ Per project:
    `link:` or `portal:` (see the limit below). Peer dependencies are counted apart. Development
    dependencies are included: a developer's `npm install` installs them.
 2. **Resolved**: the distinct (name, version) pairs the lockfile pins, read by one parser per
-   format — package-lock.json v1/v2/v3, yarn.lock v1 and Berry, pnpm-lock.yaml v5/v6/v9,
-   bun.lock. Aliases (`alias@npm:real@range`) resolve to the real package. A package present in
-   two versions counts twice; the same version nested twice counts once. Where the lockfile
-   records a URL per package (npm, yarn v1), its host is recorded; pnpm, Berry and bun resolve
-   registry packages against the configured registry and record a URL only for tarball and git
-   sources.
+   format — package-lock.json v1/v2/v3, yarn.lock v1 and Berry, pnpm-lock.yaml v5/v6/v9, bun.lock.
+   Aliases (`alias@npm:real@range`) resolve to the real package. A package present in two versions
+   counts twice; the same version nested twice counts once. Where the lockfile records a URL per
+   package (npm, yarn v1), its host is recorded; pnpm, Berry and bun resolve registry packages
+   against the configured registry and by default record a URL only for tarball and git sources
+   and for registry tarballs off the standard path (for bun, off `registry.npmjs.org`).
 3. **Who published it**: for every resolved registry package, the version's manifest is read
    from `registry.npmjs.org/<name>/<version>` — one small request per version, cached
    (`results/registry.ndjson.gz`): the publishing account (`_npmUser`), the maintainer list,
-   the install scripts (`preinstall`, `install`, `postinstall`; a `binding.gyp` counts, since
-   npm builds it), the tarball host, and whether a provenance attestation exists. A version
-   published through trusted publishing carries "GitHub Actions" as its user; its publisher is
-   then the repository the provenance attestation names (`gha:<owner>/<repo>`), or, when the
-   version has no attestation, the repository the manifest names, marked as unattested.
+   the install scripts (`preinstall`, `install`, `postinstall`; a `binding.gyp` counts, since npm
+   builds it), the tarball host, and whether a provenance attestation exists. A version published
+   through trusted publishing carries its CI provider as its user, such as "GitHub Actions"; its
+   publisher is then the repository the provenance attestation names (`gha:<owner>/<repo>`), or,
+   when the version has no attestation, the repository the manifest names, marked as unattested.
 4. **Cells** (`results/cells.ndjson`): per project, the counts defined in `src/compute.ts`
    (the ratios are taken in `src/report.ts`): direct, resolved, names the developer never named, versions the manager
    chose (every resolved pair except those a direct dependency pins exactly), distinct
@@ -82,14 +82,14 @@ the results; the headline counts identities, not people.
 ### What is not measured
 
 - Whether the install-time code runs. Since npm 12 (2026-07-08) npm blocks dependency install
-  scripts unless the root manifest allows them; pnpm 10 (2025-01), Bun and Yarn Berry block
-  them by default too, Bun with a built-in allowlist. The count here is of code declared to run
-  at install in the resolved tree; it runs as such under yarn v1 and npm before 12, and under
-  the others only where allowed.
+  scripts unless the root manifest allows them; pnpm 10 (2025-01), Bun and Yarn Berry 4.14
+  (2026-04) block them by default too, Bun with a built-in allowlist. The count here is of code
+  declared to run at install in the resolved tree; it runs as such under yarn v1, Yarn Berry
+  before 4.14 and npm before 12, and under the others only where allowed.
 - Platform-conditional optional dependencies (`fsevents` on macOS) are counted as resolved, and
   no figure is given without them: the cells do not list the packages each project resolves.
-  The count of projects whose install-time code is entirely optional is not reported, because
-  yarn v1, Berry and bun lockfiles do not mark it.
+  The count of projects whose install-time code is entirely optional is not reported: yarn v1,
+  Berry and bun lockfiles mark a dependency optional only under its parent; that mark is not read.
 - The lockfile's `resolved` host is not always what an install contacts: npm rewrites
   `registry.npmjs.org` to the configured registry, and mirrors rewrite tarball URLs to
   themselves.
@@ -102,15 +102,15 @@ the results; the headline counts identities, not people.
   yarn.lock, bun.lock; 34 of the 892 cells carry the note. Which one the developer's install actually
   reads depends on the command; the choice is recorded per project in
   `results/population.ndjson`.
-- Of the 88,376 versions looked up, 16 answer 404 (17 counted once per project, as the
-  generated report sums them; versions no longer on the registry, e.g. yanked prereleases); 27
+- Of the 88,376 versions looked up, 16 answer 404 (17 counted once per project, as the generated
+  report sums them; six since removed, ten never published under the recorded name and version); 27
   read versions carry no `_npmUser` at all and count as unknown publisher. 156 resolved pairs
   across all projects are not registry packages (113 git, 41 tarball, and 2 of neither kind in
   one npm lockfile) and were not looked up. One registry pair, in `pithings/zigpty`, has no record and counts as a lookup
   error.
-- Of the 17,498 versions published through trusted publishing, 456 have no attestation (a
-  publish with provenance disabled, e.g. `@babel/*`, `storybook`, `@vercel/*`, `@swc/*`). For 419
-  of them the identity is the repository the manifest's `repository` field names, marked as
+- Of the 17,498 versions published through trusted publishing, 456 have no attestation (e.g.
+  `@babel/*`, `storybook`, `@swc/*` published through Yarn, `@vercel/*` from a private repository).
+  For 419 of them the identity is the repository the manifest's `repository` field names, marked as
   unattested; the other 37 have neither and count as unknown. The 64 versions with no publisher are 198 counted once per
   project that resolves them, as the generated report sums them.
 - The automation rule, `AUTOMATION` in `src/compute.ts` (`bot$`, `^bot-`, `-bot-`, `robot`,
@@ -121,16 +121,16 @@ the results; the headline counts identities, not people.
   caught, so the "not automation" figures are an upper bound on people.
 - A workspace package that a sibling declares with a plain version range is left out of the
   direct count only where the lockfile names it as linked: npm v2 and v3 lockfiles, and bun's.
-  yarn v1 lockfiles do not list workspace packages, pnpm's record the link only in the
-  importer's `version`, which is not read, and Yarn Berry's workspace entries are not read as
-  links. In those lockfiles such a sibling counts as a direct dependency. How many projects this
-  affects is not measured.
+  yarn v1 lockfiles do not list it under the sibling's declaration, only where a registry
+  package's range resolves to it; pnpm's record the link only in the importer's `version`, which
+  is not read, and Yarn Berry's workspace entries are not read as links. In those lockfiles such
+  a sibling counts as a direct dependency. How many projects this affects is not measured.
 - An npm v1 or pnpm v6 lockfile gets production figures only if it holds at least one
   development-only package; each of the 22 npm v1 and 6 pnpm v6 lockfiles here does. An npm v2
   or v3 lockfile gets them only if it resolves at least one package; 9 npm v3 lockfiles here
   resolve nothing, so the production figures cover 483 of the 492 npm lockfiles.
-- PyPI. Its registry does not say who uploaded a release, only who holds a role on the
-  project; the instrument transfers to "who may publish", not to "who published". Not run.
+- PyPI. Its registry does not name the account that uploaded a release, only who holds a role on
+  the project; the instrument transfers to "who may publish", not to "who published". Not run.
 
 ## Running it
 
@@ -162,57 +162,57 @@ carry 95 % Wilson intervals.
 | figure as published | where (file:line) | field or computation | source file | moment (as of when) |
 |---|---|---|---|---|
 | 1,200 repositories drawn | findings.md:3, 98; README.md:4 | rows | `results/population.ndjson` | default-branch heads of 2026-09-17 |
-| frame of 38,791 | findings.md:4-5; README.md:4, 20 | rows | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
+| frame of 38,791 | findings.md:4-5; README.md:4, 25 | rows | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
 | 892 lockfiles read | findings.md:3, 46, 139; README.md:4 | rows | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 88,376 package versions looked up | findings.md:93; README.md:5, 100 | rows | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
-| 15,466 JavaScript | README.md:21 | rows with `language` JavaScript | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
-| 23,317 TypeScript | README.md:21 | rows with `language` TypeScript | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
-| 8 unlabelled | README.md:21, 93 | rows with `language` null | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
-| 59 star bands, none at the 1,000-result cap; 26 JavaScript and 33 TypeScript | README.md:22, 346 | distinct `band`, by the language before the colon; the largest band holds 999 rows | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
-| the first 1,200 in the order of `sha256(seed + "\n" + fullName)` | README.md:23-24 | frame rows sorted by that hash; the first 1,200 `fullName`s, in order, are the population's | `results/frame-2026-09-17.ndjson.gz`, `results/population.ndjson` | search of 2026-09-17 |
-| 1,018 have a root package.json; 84.8 % [82.7–86.8] | findings.md:98; README.md:27 | `hasPackageJson` true, of 1,200 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
-| 898 commit a lockfile; 88.2 % [86.1–90.1] | findings.md:98-99; README.md:27 | `lockfile` not null, of 1,018 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
-| 892 could be read | README.md:27 | `status` ok | `results/population.ndjson` | default-branch heads of 2026-09-17 |
-| six commit only `bun.lockb`; 0.7 % | findings.md:101; README.md:27 | `status` binary-lockfile; `lockfile` bun.lockb, of 898 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
+| 88,376 package versions looked up | findings.md:93; README.md:5, 105 | rows | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
+| 15,466 JavaScript | README.md:26 | rows with `language` JavaScript | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
+| 23,317 TypeScript | README.md:26 | rows with `language` TypeScript | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
+| 8 unlabelled | README.md:26, 98 | rows with `language` null | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
+| 59 star bands, none at the 1,000-result cap; 26 JavaScript and 33 TypeScript | README.md:27, 351 | distinct `band`, by the language before the colon; the largest band holds 999 rows | `results/frame-2026-09-17.ndjson.gz` | search of 2026-09-17 |
+| the first 1,200 in the order of `sha256(seed + "\n" + fullName)` | README.md:28-29 | frame rows sorted by that hash; the first 1,200 `fullName`s, in order, are the population's | `results/frame-2026-09-17.ndjson.gz`, `results/population.ndjson` | search of 2026-09-17 |
+| 1,018 have a root package.json; 84.8 % [82.7–86.8] | findings.md:98; README.md:32 | `hasPackageJson` true, of 1,200 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
+| 898 commit a lockfile; 88.2 % [86.1–90.1] | findings.md:98-99; README.md:32 | `lockfile` not null, of 1,018 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
+| 892 could be read | README.md:32 | `status` ok | `results/population.ndjson` | default-branch heads of 2026-09-17 |
+| six commit only `bun.lockb`; 0.7 % | findings.md:101; README.md:32 | `status` binary-lockfile; `lockfile` bun.lockb, of 898 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
 | package-lock.json 54.8 % [51.5–58.0] | findings.md:99 | `lockfile` package-lock.json, of 898 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
 | pnpm-lock.yaml 27.4 % [24.6–30.4] | findings.md:99-100 | `lockfile` pnpm-lock.yaml, of 898 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
 | yarn.lock 11.6 % [9.7–13.8] | findings.md:100 | `lockfile` yarn.lock, of 898 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
 | 80 v1, 24 Berry | findings.md:100 | `manager` yarn and yarn-berry | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | bun.lock 5.6 % | findings.md:100 | `lockfile` bun.lock, of 898 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
-| 42 of the 898 commit more than one; 4.7 % | findings.md:101; README.md:95 | `lockfiles` longer than one, of 898 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
-| 34 of the 892 cells carry the note | README.md:97 | `notes` with an entry beginning "several lockfiles" | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 243 of the 892 read declare a `packageManager` field (173 pnpm, 36 yarn, 16 bun, 16 npm, one `nub`, one `^npm`) | findings.md:101-102; README.md:334 | `packageManager` not null among the 892 with `status` ok, by name before `@` | `results/population.ndjson` | default-branch heads of 2026-09-17 |
-| 247 of the 1,200 declare it; the four managers named sum to 241 | README.md:335 | `packageManager` not null among all 1,200 (174 pnpm, 37 yarn, 17 bun, 17 npm, one `nub`, one `^npm`); 173 + 36 + 16 + 16 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
-| 26 direct dependencies [13–56] | findings.md:12, 40; README.md:291 | median [p25–p75] of `declared.direct` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 604 package versions [293–1,074] | findings.md:13, 40; README.md:291 | median [p25–p75] of `resolved.versions` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 42 of the 898 commit more than one; 4.7 % | findings.md:101; README.md:100 | `lockfiles` longer than one, of 898 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
+| 34 of the 892 cells carry the note | README.md:102 | `notes` with an entry beginning "several lockfiles" | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 243 of the 892 read declare a `packageManager` field (173 pnpm, 36 yarn, 16 bun, 16 npm, one `nub`, one `^npm`) | findings.md:101-102; README.md:339 | `packageManager` not null among the 892 with `status` ok, by name before `@` | `results/population.ndjson` | default-branch heads of 2026-09-17 |
+| 247 of the 1,200 declare it; the four managers named sum to 241 | README.md:340 | `packageManager` not null among all 1,200 (174 pnpm, 37 yarn, 17 bun, 17 npm, one `nub`, one `^npm`); 173 + 36 + 16 + 16 | `results/population.ndjson` | default-branch heads of 2026-09-17 |
+| 26 direct dependencies [13–56] | findings.md:12, 40; README.md:296 | median [p25–p75] of `declared.direct` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 604 package versions [293–1,074] | findings.md:13, 40; README.md:296 | median [p25–p75] of `resolved.versions` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | 543 distinct names | findings.md:13 | median of `resolved.names` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 19.1 per declared dependency [13.0–27.8] | findings.md:13-14; README.md:294 | median [p25–p75] of `resolved.versions` / `declared.direct` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 165 publishing identities [94–259] | findings.md:14-15; README.md:291 | median [p25–p75] of `publishers.total` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 19.1 per declared dependency [13.0–27.8] | findings.md:13-14; README.md:299 | median [p25–p75] of `resolved.versions` / `declared.direct` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 165 publishing identities [94–259] | findings.md:14-15; README.md:296 | median [p25–p75] of `publishers.total` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 5.3 per direct dependency [3.5–7.7] | findings.md:15 | median [p25–p75] of `publishers.total` / `declared.direct` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 401 maintainer accounts [239–628] | findings.md:17; README.md:284, 291 | median [p25–p75] of `maintainers.total` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; maintainer lists as each version recorded them when published |
+| 401 maintainer accounts [239–628] | findings.md:17; README.md:289, 296 | median [p25–p75] of `maintainers.total` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; maintainer lists as each version recorded them when published |
 | 12.9 per direct dependency | findings.md:17 | median of `maintainers.total` / `declared.direct` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; maintainer lists as each version recorded them when published |
-| 87 % [p10 76 %, p90 94 %], over the 881 projects with at least one publisher | findings.md:19-20; README.md:309-310 | median, p10, p90 of `publishers.notChosen` / `publishers.total`, over the 881 projects with `publishers.total` > 0, as printed in `results/report.md` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 11 lockfiles that resolve nothing; over all 892, p10 75.0 % and automation 18.3 % | README.md:311-312 | projects with `resolved.versions` 0 (all 11 have `publishers.total` 0); the same p10 and automation median over 892 with those 11 as 0 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 87 % [p10 76 %, p90 94 %], over the 881 projects with at least one publisher | findings.md:19-20; README.md:314-315 | median, p10, p90 of `publishers.notChosen` / `publishers.total`, over the 881 projects with `publishers.total` > 0, as printed in `results/report.md` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 11 lockfiles that resolve nothing; over all 892, p10 75.0 % and automation 18.3 % | README.md:316-317 | projects with `resolved.versions` 0 (all 11 have `publishers.total` 0); the same p10 and automation median over 892 with those 11 as 0 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | a median of 18 publishers behind the packages named | findings.md:20 | median of `publishers.behindDirect`, over all 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | a median of 143 behind none | findings.md:21 | median of `publishers.notChosen`, over all 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 18 and 143 sum to 161 | README.md:306-307 | 18 + 143, against the median of `publishers.total`, 165 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 99.9 % in the median project | findings.md:22; README.md:324 | median over the 892 of `decisions.versionsByManager` / `resolved.versions` (0 for the 11 that resolve nothing; 99.9 % over the 881 as well) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 99.0 % over everything resolved | README.md:325 | sum of `decisions.versionsByManager` over sum of `resolved.versions` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 52.6 % [49.3–55.8] pin at least one | findings.md:22; README.md:293 | `declared.exact` > 0, of 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 18 and 143 sum to 161 | README.md:311-312 | 18 + 143, against the median of `publishers.total`, 165 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 99.9 % in the median project | findings.md:22; README.md:329 | median over the 892 of `decisions.versionsByManager` / `resolved.versions` (0 for the 11 that resolve nothing; 99.9 % over the 881 as well) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 99.0 % over everything resolved | README.md:330 | sum of `decisions.versionsByManager` over sum of `resolved.versions` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 52.6 % [49.3–55.8] pin at least one | findings.md:22; README.md:298 | `declared.exact` > 0, of 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | 3.1 % [2.2–4.5] pin all | findings.md:23 | `declared.specsTotal` > 0 and `declared.exact` = `declared.specsTotal`, of 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 44.5 packages in more than one version | findings.md:24; README.md:327 | median of `resolved.duplicatedNames` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 18.6 % automation, over the 881 | findings.md:29-30; README.md:310 | median of `publishers.automation` / `publishers.total`, over the 881 projects with `publishers.total` > 0, as printed in `results/report.md` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 44.5 packages in more than one version | findings.md:24; README.md:332 | median of `resolved.duplicatedNames` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 18.6 % automation, over the 881 | findings.md:29-30; README.md:315 | median of `publishers.automation` / `publishers.total`, over the 881 projects with `publishers.total` > 0, as printed in `results/report.md` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 130 publishers without automation | findings.md:30-31 | median of `publishers.total` − `publishers.automation`, over all 892, as printed in `results/report.md` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 4.3 per direct dependency [2.7–6.4] | findings.md:31; README.md:295 | median [p25–p75] of (`publishers.total` − `publishers.automation`) / `declared.direct`, over all 892, as printed in `results/report.md` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 1,762 of the 7,569 identities are trusted-publishing repositories, 23.3 % | findings.md:31-32; README.md:330 | identities in `publishers.ids` beginning `gha:`, of the 7,569; the same 1,762 are the identities whose registry records have `publisherKind` trusted-publishing | `results/cells.ndjson`, `results/registry.ndjson.gz` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 25,615 of 173,191 project-publisher pairs, 14.8 % | README.md:328-329 | sum over projects of `publishers.trustedPublishing` / sum of `publishers.users` + `publishers.trustedPublishing` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 4.3 per direct dependency [2.7–6.4] | findings.md:31; README.md:300 | median [p25–p75] of (`publishers.total` − `publishers.automation`) / `declared.direct`, over all 892, as printed in `results/report.md` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 1,762 of the 7,569 identities are trusted-publishing repositories, 23.3 % | findings.md:31-32; README.md:335 | identities in `publishers.ids` beginning `gha:`, of the 7,569; the same 1,762 are the identities whose registry records have `publisherKind` trusted-publishing | `results/cells.ndjson`, `results/registry.ndjson.gz` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 25,615 of 173,191 project-publisher pairs, 14.8 % | README.md:333-334 | sum over projects of `publishers.trustedPublishing` / sum of `publishers.users` + `publishers.trustedPublishing` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 73.2 % [70.2–76.0] | findings.md:32 | `publishers.trustedPublishing` > 0, of 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 489 lockfiles (483 npm, 6 pnpm v6) | findings.md:36; README.md:292, 303 | `prod` not null; by `manager` and `lockfileVersion` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| each of the 22 npm v1 and 6 pnpm v6 lockfiles holds a development-only package; 9 npm v3 lockfiles that resolve nothing get no production figures, so 483 of the 492 npm lockfiles have them | README.md:124-126 | cells with `manager` npm and `lockfileVersion` 1 (22) and with `manager` pnpm and `lockfileVersion` 6.0 (6), every one with `resolved.devOnlyVersions` > 0 and `prod` not null; `manager` npm and `prod` null (9, all `lockfileVersion` 3 and `resolved.versions` 0) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 489 lockfiles (483 npm, 6 pnpm v6) | findings.md:36; README.md:297, 308 | `prod` not null; by `manager` and `lockfileVersion` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| each of the 22 npm v1 and 6 pnpm v6 lockfiles holds a development-only package; 9 npm v3 lockfiles that resolve nothing get no production figures, so 483 of the 492 npm lockfiles have them | README.md:129-131 | cells with `manager` npm and `lockfileVersion` 1 (22) and with `manager` pnpm and `lockfileVersion` 6.0 (6), every one with `resolved.devOnlyVersions` > 0 and `prod` not null; `manager` npm and `prod` null (9, all `lockfileVersion` 3 and `resolved.versions` 0) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | a median of 5 packages declared in `dependencies` | findings.md:37 | median of `declared.byField.dependencies`, same 489 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | 53 versions | findings.md:37 | median of `prod.versions` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 20 publishers (2.6 per direct dependency) | findings.md:37; README.md:292-293 | medians of `prod.publishers` and of `prod.publishers` / `declared.byField.dependencies` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 7,569 distinct publishing identities | findings.md:32, 46; README.md:114, 330 | distinct values in `publishers.ids` over the 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 20 publishers (2.6 per direct dependency) | findings.md:37; README.md:297-298 | medians of `prod.publishers` and of `prod.publishers` / `declared.byField.dependencies` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 7,569 distinct publishing identities | findings.md:32, 46; README.md:119, 335 | distinct values in `publishers.ids` over the 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 43.0 % [41.9–44.1] in one project only | findings.md:46 | identities in exactly one project's `publishers.ids`, of 7,569 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 79 (1.0 % of identities) in half the projects or more | findings.md:47 | identities in ≥ 446 projects' `publishers.ids` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | a third of a median project's publishers (33.3 %) | findings.md:48 | median over projects of the share of `publishers.ids` among those 79 (33.3 % over the 881 or the 892) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
@@ -239,8 +239,8 @@ carry 95 % Wilson intervals.
 | `lovell/detect-libc` 40.8 % | findings.md:55 | projects whose `publishers.ids` hold `gha:lovell/detect-libc`, of 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 87.6 % [85.2–89.6] with install-time code | findings.md:63 | `install.versions` > 0, of 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | a median of 3 such packages from 3 publishers, 0 direct | findings.md:64-65 | medians of `install.names`, `install.publishers`, `install.direct` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 85.3 % [82.8–87.5] from a package never named | findings.md:65; README.md:315 | `install.versions` > `install.direct`, of 892: some install-time version belongs to a name the developer did not declare (`install.direct` counts versions) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 83.0 % [80.4–85.3] before; 761 of 892 now; 21 projects left out by the earlier rule | README.md:314-318 | `install.names` > `install.direct`, of 892 (740, the earlier rule); `install.versions` > `install.direct`, of 892 (761); 761 − 740 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 85.3 % [82.8–87.5] from a package never named | findings.md:65; README.md:320 | `install.versions` > `install.direct`, of 892: some install-time version belongs to a name the developer did not declare (`install.direct` counts versions) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 83.0 % [80.4–85.3] before; 761 of 892 now; 21 projects left out by the earlier rule | README.md:319-323 | `install.names` > `install.direct`, of 892 (740, the earlier rule); `install.versions` > `install.direct`, of 892 (761); 761 − 740 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 409 of the 781 | findings.md:66 | `install.direct` = 0 among the 781 with `install.versions` > 0 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 305 distinct packages carry it | findings.md:67 | distinct `name` among records with `status` ok and `hasInstallScript` | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
 | from 280 identities | findings.md:67-68 | distinct non-null `publisher` among records with `status` ok and `hasInstallScript` (two such records have none) | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
@@ -253,34 +253,34 @@ carry 95 % Wilson intervals.
 | `registry.npmmirror.com` 4.2 % (24 projects) | findings.md:85 | as above | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | `codeload.github.com` 1.0 % | findings.md:88 | as above | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | one project each on six hosts | findings.md:88 | hosts in exactly one project's `resolved.hosts` among the 572 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| `pkg.pr.new` in one bun and `npm.jsr.io` in one pnpm lockfile, outside the 572 | findings.md:90; README.md:331 | `resolved.hosts` over the 892, with `manager` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| `pkg.pr.new` in one bun and `npm.jsr.io` in one pnpm lockfile, outside the 572 | findings.md:90; README.md:336 | `resolved.hosts` over the 892, with `manager` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | 7.6 % [6.1–9.6] with a git or tarball dependency | findings.md:91 | `resolved.byKind.git` + `resolved.byKind.tarball` > 0, of 892 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
-| 156 resolved pairs not from the registry, 154 of them git or tarball | findings.md:92; README.md:102-103, 322-323 | sum of `lookup.nonRegistry`; sums of `resolved.byKind` git 113, tarball 41, other 2 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
+| 156 resolved pairs not from the registry, 154 of them git or tarball | findings.md:92; README.md:107-108, 327-328 | sum of `lookup.nonRegistry`; sums of `resolved.byKind` git 113, tarball 41, other 2 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | every version looked up has its tarball on registry.npmjs.org | findings.md:92 | `tarballHost` of the 88,360 records with `status` ok | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
-| 16 no longer on the registry; 17 per project | findings.md:93-94; README.md:100 | `status` missing; the report's 17 is the sum of `lookup.missing` | `results/registry.ndjson.gz`, `results/cells.ndjson` | registry records of the 2026-09-17 run |
-| one registry pair in `pithings/zigpty` has no record | README.md:104, 347 | `lookup.error` > 0: one cell, one pair | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 27 carry no `_npmUser` | README.md:101 | `publisherKind` unknown | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
-| 17,498 through trusted publishing | README.md:106 | `publisherKind` trusted-publishing, `status` ok | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
-| 456 with no attestation, 419 of them named by the manifest | README.md:106-108 | same, `provenance.present` false (456); of those, `repositorySource` manifest and `publisher` set (419) | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
-| 37 with neither | README.md:109 | same, `publisher` null | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
-| 64 versions with no publisher, 198 per project | README.md:108-109 | `status` ok and `publisher` null; sum of `publishers.unknownVersions` | `results/registry.ndjson.gz`, `results/cells.ndjson` | registry records of the 2026-09-17 run |
-| 1,938 of 7,569 match the automation rule: 1,762 repositories, 176 accounts; 16 repositories only through unattested versions | README.md:114, 342-343 | identities in `publishers.ids` matching `AUTOMATION` in `src/compute.ts`; each cell's `publishers.automation` equals the count of its ids that match; repositories with no record carrying `provenance.present` | `results/cells.ndjson`, `results/registry.ndjson.gz` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| pnpm: median 46.5 direct, 875 versions, 216.5 publishers | findings.md:103; README.md:337 | medians of `declared.direct`, `resolved.versions`, `publishers.total`, `manager` pnpm (246) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 16 answer 404; 17 per project | findings.md:93-94; README.md:105 | `status` missing; the report's 17 is the sum of `lookup.missing` | `results/registry.ndjson.gz`, `results/cells.ndjson` | registry records of the 2026-09-17 run |
+| one registry pair in `pithings/zigpty` has no record | README.md:109, 352 | `lookup.error` > 0: one cell, one pair | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 27 carry no `_npmUser` | README.md:106 | `publisherKind` unknown | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
+| 17,498 through trusted publishing | README.md:111 | `publisherKind` trusted-publishing, `status` ok | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
+| 456 with no attestation, 419 of them named by the manifest | README.md:111-113 | same, `provenance.present` false (456); of those, `repositorySource` manifest and `publisher` set (419) | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
+| 37 with neither | README.md:114 | same, `publisher` null | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
+| 64 versions with no publisher, 198 per project | README.md:113-114 | `status` ok and `publisher` null; sum of `publishers.unknownVersions` | `results/registry.ndjson.gz`, `results/cells.ndjson` | registry records of the 2026-09-17 run |
+| 1,938 of 7,569 match the automation rule: 1,762 repositories, 176 accounts; 16 repositories only through unattested versions | README.md:119, 347-348 | identities in `publishers.ids` matching `AUTOMATION` in `src/compute.ts`; each cell's `publishers.automation` equals the count of its ids that match; repositories with no record carrying `provenance.present` | `results/cells.ndjson`, `results/registry.ndjson.gz` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| pnpm: median 46.5 direct, 875 versions, 216.5 publishers | findings.md:103; README.md:342 | medians of `declared.direct`, `resolved.versions`, `publishers.total`, `manager` pnpm (246) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | npm: 19, 445, 132 | findings.md:103-104 | same, `manager` npm (492) | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| publishers per direct: 5.8 npm, 5.7 yarn v1, 4.5 pnpm, 3.8 bun, 5.3 Berry | findings.md:104-105; README.md:296 | median of `publishers.total` / `declared.direct` by `manager` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 219 monorepos: 201 by the lockfile, 18 yarn v1 | findings.md:105-106; README.md:319-321 | `workspaces` > 1 (always 1 for yarn v1), plus yarn v1 cells whose `workspaceManifests` is not empty | `results/cells.ndjson`, `results/population.ndjson` | lockfiles at the 2026-09-17 heads |
+| publishers per direct: 5.8 npm, 5.7 yarn v1, 4.5 pnpm, 3.8 bun, 5.3 Berry | findings.md:104-105; README.md:301 | median of `publishers.total` / `declared.direct` by `manager` | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 219 monorepos: 201 by the lockfile, 18 yarn v1 | findings.md:105-106; README.md:324-326 | `workspaces` > 1 (always 1 for yarn v1), plus yarn v1 cells whose `workspaceManifests` is not empty | `results/cells.ndjson`, `results/population.ndjson` | lockfiles at the 2026-09-17 heads |
 | Jaccard 0.212 same framework | findings.md:112 | mean Jaccard of `publishers.ids` over the 50,053 pairs with the same `framework` other than `none`; the 9,180 pairs within `none` count with the other group | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 0.168 different or no framework | findings.md:112 | same, the other 347,333 pairs | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | 21 clusters, mean size 42.5 | findings.md:113 | distinct `framework`; 892 / 21 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads |
 | ICC 0.081 | findings.md:114 | one-way ANOVA ICC of `publishers.total` / `declared.direct`, `framework` as cluster, mean cluster size in place of n0 | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
 | design effect 11.4 | findings.md:114-115 | variance of the mean from cluster sums over the iid variance, same ratio | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| mean ratio 7.0, iid [6.5–7.6], cluster-robust [5.2–8.8] | findings.md:115-116; README.md:297 | mean ± 1.96 × iid and cluster-robust standard errors, same ratio | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| ICC 0.29 and design effect 36.5, distinct publishers; 0.26 and 33.5, resolved versions | findings.md:116-117; README.md:338 | same ICC and design effect, of `publishers.total` and `resolved.versions` | `results/cells.ndjson`; printed in `results/report.md` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| 41.1, the design effect of log10 publishers | README.md:339 | same design effect, of log10 `publishers.total` | `results/cells.ndjson`; printed in `results/report.md` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
-| `src/package.json`: one direct dependency, one resolved version, one publisher | README.md:147 | `dependencies` of `src/package.json`; `packages` of `src/package-lock.json`; `publisher` of yaml 2.8.1 | `src/package-lock.json`, `results/registry.ndjson.gz` | the instrument as published |
-| 30 projects, 133 names | README.md:289 | projects whose `declared.direct` fell from the first file to the current one, and the fall summed | `results/cells.ndjson` as first published (commit 8d9bbb2), `results/cells.ndjson` | before and after the fix |
-| before the fix: 461; 2.5; 52.8 % [49.5–56.1]; [12.9–27.7]; [2.6–6.4]; 5.7; [6.5–7.5] | README.md:292, 293, 294, 295, 296, 297 | the computations of the rows above for 489, 2.6, 52.6 %, 19.1, 4.3, the npm ratio and the mean ratio, on the first file | `results/cells.ndjson` as first published (commit 8d9bbb2) | before the fix |
-| four GitLab trusted-publishing records | README.md:300 | `publisher` beginning `gha:https://gitlab.com/` | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
+| mean ratio 7.0, iid [6.5–7.6], cluster-robust [5.2–8.8] | findings.md:115-116; README.md:302 | mean ± 1.96 × iid and cluster-robust standard errors, same ratio | `results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| ICC 0.29 and design effect 36.5, distinct publishers; 0.26 and 33.5, resolved versions | findings.md:116-117; README.md:343 | same ICC and design effect, of `publishers.total` and `resolved.versions` | `results/cells.ndjson`; printed in `results/report.md` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| 41.1, the design effect of log10 publishers | README.md:344 | same design effect, of log10 `publishers.total` | `results/cells.ndjson`; printed in `results/report.md` | lockfiles at the 2026-09-17 heads; registry records of the 2026-09-17 run |
+| `src/package.json`: one direct dependency, one resolved version, one publisher | README.md:152 | `dependencies` of `src/package.json`; `packages` of `src/package-lock.json`; `publisher` of yaml 2.8.1 | `src/package-lock.json`, `results/registry.ndjson.gz` | the instrument as published |
+| 30 projects, 133 names | README.md:294 | projects whose `declared.direct` fell from the first file to the current one, and the fall summed | `results/cells.ndjson` as first published (commit 8d9bbb2), `results/cells.ndjson` | before and after the fix |
+| before the fix: 461; 2.5; 52.8 % [49.5–56.1]; [12.9–27.7]; [2.6–6.4]; 5.7; [6.5–7.5] | README.md:297, 298, 299, 300, 301, 302 | the computations of the rows above for 489, 2.6, 52.6 %, 19.1, 4.3, the npm ratio and the mean ratio, on the first file | `results/cells.ndjson` as first published (commit 8d9bbb2) | before the fix |
+| four GitLab trusted-publishing records | README.md:305 | `publisher` beginning `gha:https://gitlab.com/` | `results/registry.ndjson.gz` | registry records of the 2026-09-17 run |
 
 ## Corrections
 
@@ -373,3 +373,56 @@ carry 95 % Wilson intervals.
   `onlyBuiltDependencies` or `allowBuilds`, 6 bun `trustedDependencies`; the other 851) was
   withdrawn: no file in the repository produces it. How many projects carry an allowlist of
   their own is not measured.
+
+### 2026-09-30
+
+- pnpm, Berry and bun lockfiles were said, here and in the sentence `src/report.ts` prints, to
+  record a URL only for tarball and git sources; by default they also record registry tarballs off
+  the standard path, bun any off `registry.npmjs.org`. Both now say so. No figure changes.
+- The by-manager table of `results/report.md` gave "no" for pnpm, Berry and bun under "lockfile
+  records URLs", though each records some; `src/report.ts` now heads the column "lockfile records
+  a URL per package", and findings.md, like the report, says "By default only npm and yarn v1".
+- The Figures table cited this file's lines 8 and later five lines too low, after a paragraph was
+  added above them on 2026-09-29; it now cites them as numbered.
+- A version published through trusted publishing was said to carry "GitHub Actions" as its user;
+  the text now says its CI provider, such as "GitHub Actions", since npm's trusted publishing also
+  supports GitLab CI/CD and CircleCI. No count changes.
+- Yarn Berry was said, here and in findings.md, to block dependency install scripts by default;
+  both now say it does from 4.14, as `enableScripts` defaults to false from Yarn 4.14.0
+  (2026-04-16), and this file names Berry before 4.14 among the managers that run them.
+- yarn v1, Berry and bun lockfiles were said not to mark optional dependencies, the reason no
+  count is given of projects whose install-time code is all optional. They mark one only under its
+  parent; the text now says so, and that `src/lockfile.ts` does not read the mark.
+- The 404 versions were given, here, in findings.md and in `src/report.ts`, as no longer on the
+  registry, e.g. yanked prereleases; all three now say they answer 404. Six were removed and ten
+  never published under the name and version the lockfile records; none is a withdrawn prerelease.
+- The 456 trusted-publishing versions with no attestation were said to have provenance disabled,
+  e.g. `@babel/*`, `storybook`, `@vercel/*`, `@swc/*`. The text now says Babel, Storybook and SWC
+  published through Yarn, which attests only when asked, and Vercel from a private repository.
+- yarn v1 lockfiles were said not to list workspace packages. They list one, without a `resolved`
+  URL, where a registry package's range resolves to it, as in `Kanaries/Rath`, though not under a
+  sibling's declaration; the text now says so.
+- PyPI's registry was said, here and in findings.md, not to say who uploaded a release; both now
+  say it does not name the account that did. Its Integrity API names the trusted publisher of an
+  attested file, for urllib3 2.5.0 the repository `urllib3/urllib3`.
+- findings.md gave a trusted-publishing identity as the GitHub repository the provenance names; it
+  now says the repository named by the provenance or else by the manifest. Four records name a
+  GitLab repository, and 419 versions with no attestation take the manifest's.
+- He, Vasilescu and Kästner's 10,000 GitHub repositories were said to be resolved in 2025, the
+  year the paper was published; findings.md now says September 2022 to September 2023, the points
+  at which the paper resolves them with npm's `--before`.
+- The 2020 Octoverse medians were given as 10 direct and 683 dependencies for JavaScript
+  repositories with lockfiles; findings.md now gives the 10 for all JavaScript repositories, as
+  Octoverse does, and only the 683 for those with lockfiles.
+- Bun's built-in allowlist of 367 names was said to include `fsevents`; findings.md now says it
+  does not. The list, `src/install/default-trusted-dependencies.txt` in Bun's repository, has not
+  held it in any version since December 2023.
+- `registry.npmmirror.com` was called the Alibaba mirror; findings.md now calls it the China
+  mirror sponsored by Alibaba Cloud. cnpmcore calls npmmirror.com the China npm mirror it hosts
+  and names Alibaba Cloud as its sponsor, not its operator.
+- findings.md said a lockfile that records the mirror makes every later install fetch from it.
+  That holds before npm 12, and it now says every later install by npm before 12; npm 12 defaults
+  `allow-remote` to `none` and refuses a tarball from outside the configured registry.
+- findings.md said npm rewrites `registry.npmjs.org` to the configured registry and leaves other
+  hosts as recorded; it now says npm does so by default. `replace-registry-host` defaults to
+  `npmjs`; `always` rewrites every host, a host name that host, and `never` none.

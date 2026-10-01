@@ -13,11 +13,11 @@ Audited against npm 10.9.8, and run again on 12.1.0. Filed as a public issue,
 ## What it does
 
 `lib/utils/verify-signatures.js` resolves each registry's keys before verifying. The lookup gives
-up quietly in two places: `TUF_FIND_TARGET_ERROR` from the Sigstore TUF lookup returns `null`, and
-`E404` or `E400` from the registry's own `/-/npm/v1/keys` returns `null` as well. A package is
-counted as `missing` a signature only inside `else if (keys.length)`, so with no keys for its
-registry a package is neither verified nor missing. `auditedWithKeysCount` counts only the
-packages that were checked against keys, and the summary is built from it.
+up quietly in two steps: `TUF_FIND_TARGET_ERROR` from the Sigstore TUF lookup returns `null`, and
+the lookup falls back to the registry's own `/-/npm/v1/keys`, where `E404` or `E400` returns
+`null` as well. A package is counted as `missing` a signature only inside `else if (keys.length)`,
+so with no keys for its registry a package is neither verified nor missing. `auditedWithKeysCount`
+counts only the packages that were checked against keys, and the summary is built from it.
 
 npm handles the total case correctly. If *nothing* in the tree could be audited:
 
@@ -69,18 +69,18 @@ the first place.
   discusses the coverage figure, and `auditedWithKeysCount` appears in none.
   [npm/rfcs#550](https://github.com/npm/rfcs/pull/550), opened 2022-03-10 and accepted
   2026-05-29, anticipates it: a mirror or proxy that omits signatures, and "The best we can do
-  for now in this case is warn users that some packages don't have signatures."
+  for now in this case is warn users that some packages don't have signatres [sic]."
 - **Is the key lookup returning `null` on `E404`/`E400` reported?** Yes, and it is the intended
-  behaviour rather than a defect.
-  [npm/cli#5479](https://github.com/npm/cli/issues/5479) (opened 2022-09-07, closed 2022-09-21)
-  is a third party asking for exactly this: their Nexus registry answered `E400` where npm only
-  expected `E404`, and the request was to treat both as "this registry does not publish keys" so
-  that the audit skips those dependencies instead of failing. It states the behaviour plainly —
-  "npm audit signatures skips audit on dependencies when registry does not return signing keys".
+  behaviour rather than a defect. [npm/cli#5479](https://github.com/npm/cli/issues/5479) (opened
+  2022-09-07, closed 2022-09-21) is a third party asking for exactly this: their Nexus registry
+  answered `E400` where npm only expected `E404`, and the request was to treat both as a sign
+  "that the third-party registry does not return signing keys" so that the audit skips those
+  dependencies instead of failing. It states the behaviour plainly — "npm audit signatures skips
+  audit on dependencies when registry does not return signing keys".
 - **Documented as intentional anywhere else?** Not in the documentation. The `npm-audit` page's
   *Audit Signatures* section describes what a registry must provide for signatures to be
   verifiable and says nothing about what happens when a registry provides nothing, nor that
-  coverage may be partial. The intent is recorded only in that issue.
+  coverage may be partial. That issue, code comments and npm/cli#4827's review record the intent.
 - **Has anyone measured the fraction of the ecosystem in this state?** Not found, and the
   population is awkward: npmjs itself serves keys, so the quantity that matters is the share of
   real-world installs resolving through registries that do not, which is not enumerable from the
@@ -110,3 +110,17 @@ mistaken for a fully verified one. Filed 2026-09-23 as
   root; on 12.1.0 it reads the same for a registry whose packages were verified.
 - *Prior art* said no discussion of the gap was found. npm/rfcs#550, opened 2022-03-10,
   anticipates it.
+
+## Corrections, 2026-09-30
+
+- *What it does* said the key lookup gives up quietly in two places, on `TUF_FIND_TARGET_ERROR` and
+  on `E404` or `E400`. They are two steps, and the paragraph now says so: the code falls back from
+  TUF to `/-/npm/v1/keys`, and a registry is left with no keys when that answers `E404` or `E400`.
+- The quotation from npm/rfcs#550 read "don't have signatures". Every version of the RFC reads
+  "don't have signatres", and the quotation now keeps that spelling, marked [sic].
+- The #5479 entry quoted "this registry does not publish keys", which is in neither the issue nor
+  its fix, #5480. It now quotes the issue, which asks npm to take `E400`, as well as `E404`, "to
+  indicate that the third-party registry does not return signing keys".
+- *Prior art* said the intent is recorded only in #5479. The entry now adds two code comments and
+  the review of npm/cli#4827, the pull request that added the command; there its author chose to
+  "just not count these cases in the 'audited x packages' count", and a maintainer agreed.

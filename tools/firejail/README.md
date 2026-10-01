@@ -2,8 +2,8 @@
 
 Two findings in the same tool, both about the distance between what firejail was told to do and
 what it tells the operator it did. Reproduced against firejail 0.9.74 as packaged by Debian 13;
-both code paths are identical in 0.9.74 and at `ccdf4ea` (2026-09-20), so the version the
-maintainers support carries them unchanged.
+both code paths behave as in 0.9.74 in both versions the maintainers support, release 0.9.80 and
+the development version, whose code and line numbers at `ccdf4ea` (2026-09-20) are quoted below.
 
 `repro.sh` runs everything below and cleans up after itself.
 
@@ -109,8 +109,8 @@ this shell     : Seccomp: 0   Seccomp_filters: 0
 ```
 
 Those two fields are the ground truth, they agree with the file list when the install succeeded,
-and `Seccomp_filters` is the count that would drop if one did not. Neither string occurs anywhere
-in firejail's source.
+and `Seccomp_filters` is the count that would drop if one did not. It occurs nowhere in firejail's
+source, and of its programs only `firemon --seccomp` and `jailcheck` read `Seccomp`, the mode.
 
 **What is read and what is run.** The reporting half above is reproduced: every operator-visible
 surface — the warning, `--quiet`, the exit status, `--seccomp.print` — reports what firejail
@@ -124,18 +124,42 @@ path to the operator, not a demonstration of the failure.
 
 ## Prior art
 
-**Finding 1: partial.** That a blacklist of a missing path does nothing is noted in passing in
-old issues. Discussion [#5263](https://github.com/netblue30/firejail/discussions/5263), which the
-title suggests would cover it, is about `noblacklist` matching semantics and a maintainer
-reframes it as a configuration misunderstanding; it does not mention the diagnostic. Not found:
-that `--debug-blacklists` omits skipped entries, and the asymmetry with the whitelist path.
+**Finding 1: partial.** Open issue #3357 (2020) asks for a warning when a path does not exist; a
+collaborator answers that `disable-*.inc` blacklists paths that need not exist and points to
+`--debug-blacklists`. Discussion [#5263](https://github.com/netblue30/firejail/discussions/5263),
+on how `whitelist`, `blacklist` and `noblacklist` interact, does not mention the diagnostic. Not
+found: that `--debug-blacklists` omits skipped entries, and the asymmetry with the whitelist path.
 
-**Finding 2: not found.** firejail's CVE history is substantial and is about local privilege
-escalation through mount and namespace handling — CVE-2022-31214 is the landmark. Searches for
-the install-failure path surface `fseccomp` warnings about syscalls unavailable on the platform,
-which are a different message from a different stage.
+**Finding 2: not found.** firejail's CVEs are mostly local privilege escalation and sandbox
+escape, many through mount and namespace handling — CVE-2022-31214 is the landmark; none of the
+three on seccomp is a filter that failed to install. The install-failure warning appears in user
+logs in ten issues, discussed only in #448 (a kernel without `CONFIG_SECCOMP_FILTER`).
 
 ## Reported
 
-Sent 2026-09-23 to `netblue30@protonmail.com`, the address in `SECURITY.md`, which also states
-that only 0.9.80 is supported. Text as sent: [report.md](report.md). No reply yet.
+Sent 2026-09-23 to `netblue30@protonmail.com`, the address in `SECURITY.md`, which limits support
+to 0.9.80 and the development version. Text as sent: [report.md](report.md). No reply yet.
+
+## Corrections, 2026-09-30
+
+- The opening called the code paths identical in 0.9.74 and at `ccdf4ea`; it now says they behave
+  as in 0.9.74 and that the code below is `ccdf4ea`'s. In 0.9.74 `disable_file()` returns `void`,
+  and the lines are `fs.c:137`, `231`, `268`, `util.c:331`. report.md, as sent, says "unchanged".
+- The opening spoke of one supported version, and *Reported* said `SECURITY.md` states that only
+  0.9.80 is supported. Both now name 0.9.80 and the development version; `SECURITY.md` limits
+  support to "the latest released version (and the current development version)".
+- Section 2 said neither `Seccomp` nor `Seccomp_filters` occurs anywhere in firejail's source. It
+  now says so of `Seccomp_filters` only; `firemon --seccomp` and `jailcheck` read `Seccomp:` from
+  `/proc/<pid>/status`. report.md, as sent, keeps the old claim.
+- *Prior art* said old issues mention, as an aside, that a blacklist of a missing path does
+  nothing. It now cites open issue #3357 (2020), which asks for a warning when a path does not
+  exist; *partial* stands, as #3357 does not say that `--debug-blacklists` omits skipped entries.
+- *Prior art* said discussion #5263 is about `noblacklist` matching and that a maintainer reframes
+  it. It now says the discussion is on how `whitelist`, `blacklist` and `noblacklist` interact, as
+  its opening post shows, and omits the reply, a collaborator's answer to a second poster.
+- *Prior art* said firejail's CVEs are about privilege escalation through mount and namespace
+  handling. It now says mostly privilege escalation and sandbox escape (8 and 3 of NVD's 18), and
+  that none of the three on seccomp (CVE-2016-10123, 2017-5206, 2019-12589) is a failed install.
+- *Prior art* cited only `fseccomp` warnings about unavailable syscalls, a different message. It
+  now says the install-failure warning appears in user logs in ten issues, discussed only in #448,
+  where the cause was a kernel without `CONFIG_SECCOMP_FILTER`, not the version the warning names.

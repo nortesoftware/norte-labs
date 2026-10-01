@@ -24,9 +24,9 @@ projects pin at least one direct dependency to an exact version, 3.1 % [2.2–4.
 them, and even an exact pin decides nothing below it. A median project holds 44.5 packages in
 more than one version at once.
 
-Identity is an npm account or, for versions published through trusted publishing, the GitHub
-repository the provenance names; it is not a person. By a name heuristic (`*bot`, `*-ci`,
-`release-bot`, `types`, trusted-publishing repositories) 18.6 % of a median project's
+Identity is an npm account or, for versions published through trusted publishing, the repository
+named by the provenance or else by the manifest; it is not a person. By a name heuristic (`*bot`,
+`*-ci`, `release-bot`, `types`, trusted-publishing repositories) 18.6 % of a median project's
 publishers are automation, over the same 881 projects. Without them, over all 892, the median is
 **130 publishers, 4.3 per direct dependency** [2.7–6.4]. Trusted-publishing repositories are 1,762
 of the 7,569 identities, 23.3 %, and at least one appears in 73.2 % [70.2–76.0] of projects.
@@ -36,10 +36,10 @@ Medians by number of direct dependencies and by framework are not reported.
 Production only, in the 489 lockfiles that mark development dependencies (483 npm, 6 pnpm v6): a
 median of 5 packages declared in `dependencies` resolves to 53 versions from 20 publishers (2.6
 per direct dependency). He, Vasilescu and Kästner's 10,000 GitHub repositories, resolved with
-npm's own resolver in 2025, gave 11 direct and 150 transitive in production and 23 and 848 with
-development dependencies; this frame's 26 and 604 sit in the same range with a heavier library
-share. GitHub's 2020 Octoverse gave medians of 10 direct and 683 for JavaScript repositories
-with lockfiles.
+npm's own resolver as of September 2022 to September 2023 (published 2025), gave 11 direct and 150
+transitive in production and 23 and 848 with development dependencies; this frame's 26 and 604 sit
+in the same range with a heavier library share. GitHub's 2020 Octoverse gave a median of 10 direct
+dependencies for JavaScript repositories and 683 for those with lockfiles.
 
 ## 2. Who is in every tree
 
@@ -72,25 +72,25 @@ through install-time code is not measured, and neither is any figure without `fs
 Whether that code runs depends on the manager and its version. npm 12 (2026-07-08) blocks
 dependency install scripts and implicit `node-gyp` builds unless the root manifest's
 `allowScripts` lists them; pnpm 10 (January 2025) blocks them behind `onlyBuiltDependencies`;
-Bun runs only a built-in allowlist of 367 names, which includes `esbuild` and `fsevents`; Yarn
-Berry's `enableScripts` defaults to false; yarn v1 and npm before 12 run everything. How many
-of the 892 projects carry an allowlist of their own (`allowScripts`, pnpm's
-`onlyBuiltDependencies` or `allowBuilds`, bun's `trustedDependencies`) is not measured.
+Bun runs only a built-in allowlist of 367 names, which includes `esbuild` but not `fsevents`;
+Yarn Berry's `enableScripts` defaults to false since 4.14 (April 2026); yarn v1 and npm before
+12 run everything. How many of the 892 projects carry an allowlist of their own (`allowScripts`,
+pnpm's `onlyBuiltDependencies` or `allowBuilds`, bun's `trustedDependencies`) is not measured.
 
 ## 4. Where it comes from
 
-Only npm and yarn v1 lockfiles record a URL per package (572 projects). A median project
+By default only npm and yarn v1 lockfiles record a URL per package (572 projects). A median project
 resolves from one host. 11.7 % [9.3–14.6] of the 572 record at least one host other than
 `registry.npmjs.org` and its yarn alias `registry.yarnpkg.com` (13.5 %): `github.com` 5.8 % (git
-dependencies), `registry.npmmirror.com` 4.2 % (24 projects — the Alibaba mirror, written into a
-committed lockfile by whoever installed with it configured; npm rewrites only
-`registry.npmjs.org` to the configured registry, so a lockfile that records the mirror makes
-every later install fetch from it), `codeload.github.com` 1.0 %, and one project each on
+dependencies), `registry.npmmirror.com` 4.2 % (24 projects — the China mirror sponsored by Alibaba
+Cloud, written into a committed lockfile by whoever installed with it configured; npm rewrites only
+`registry.npmjs.org` to the configured registry, so a lockfile that records the mirror makes every
+later install by npm before 12 fetch from it), `codeload.github.com` 1.0 %, and one project each on
 `npm.pkg.github.com`, `cdn.sheetjs.com`, `gitlab.gnome.org`, a corporate Artifactory,
 `npm.flatt.tech` and `gitpkg.vercel.app`. Outside the 572, one bun lockfile records `pkg.pr.new`
 and one pnpm lockfile `npm.jsr.io`. Over all 892 projects, 7.6 % [6.1–9.6] resolve at least one
 git or tarball dependency (154 resolved pairs in all). Every registry version looked up has its
-tarball on `registry.npmjs.org`; 16 of the 88,376 versions are no longer on the registry (17
+tarball on `registry.npmjs.org`; 16 of the 88,376 versions answer 404 from the registry (17
 counted once per project that resolves them, as the generated report sums them).
 
 ## 5. Lockfiles and managers
@@ -128,9 +128,9 @@ trusted-publishing repository, not a person: one person can hold several account
 account is a person's token; the automation heuristic is a name pattern and is published with
 the results. Maintainer lists are as each version recorded them when it was published, not as
 they stand now. Install-time code is counted as declared, not as run. The `resolved` host is
-what the lockfile records: npm rewrites `registry.npmjs.org` to the configured registry at fetch
-time and leaves other hosts as recorded, and mirrors rewrite tarball URLs to themselves. PyPI
-was not run: its registry does not say who uploaded a release.
+what the lockfile records: npm by default rewrites `registry.npmjs.org` to the configured
+registry at fetch time and leaves other hosts as recorded, and mirrors rewrite tarball URLs to
+themselves. PyPI was not run: its registry does not name the account that uploaded a release.
 
 None of this is new to the tools that print it for one project at a time — `list-maintainers`
 (2018), `ls-publishers` (2021), `dependency-maintainers` (2024), `depsift` (2026),

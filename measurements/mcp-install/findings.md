@@ -17,15 +17,15 @@ calls a file the package does not ship, 1 timeout and 1 failure with no message.
 
 **Code at install, npm: 12.6 % of trees [9.7–16.2] run some `preinstall`/`install`/`postinstall`;
 the server itself declares one in 3.7 % [2.3–6.0].** In 31 of the 51 trees a dependency's script
-builds or fetches a native module: `better-sqlite3` (15 trees), `sharp` (5), `tree-sitter-*`,
-`ssh2`, `keytar`, `onnxruntime-node`. In 7 more the server's own `postinstall` downloads a release
-asset from GitHub. `protobufjs` (11) only runs a version check. 7.4 % of installs leave a `.node` binary behind; in 5.2 % `node-gyp`,
+can build or fetch a native module: `better-sqlite3` (15 trees), `sharp` (5), `tree-sitter-*`,
+`ssh2`, `keytar`, `onnxruntime-node` and others. In 7 more the server's own `postinstall` downloads
+a release asset from GitHub. `protobufjs` (11) only runs a version check. 7.4 % of installs leave a `.node` binary behind; in 5.2 % `node-gyp`,
 `prebuild-install` or a compiler runs. Hence the network beyond the registries: `github.com` +
 `release-assets.githubusercontent.com` (16 cells: 9 dependency prebuilds, 7 the server's own
-`postinstall`), `nodejs.org` (5, headers for
-node-gyp), `api.nuget.org` (3, `onnxruntime-node` fetching runtimes), `opencollective.com` (1,
-`devdocs-mcp-server`'s donation message). Every host an install contacted is a package registry,
-a code forge or a source of binaries and headers, except `opencollective.com`.
+`postinstall`), `nodejs.org` (5, headers for node-gyp), `api.nuget.org` (3, `onnxruntime-node`
+fetching runtimes), `opencollective.com` (1, the donation message of `@nestjs/core` in
+`devdocs-mcp-server`'s tree). Every host an install contacted is a package registry, a code
+forge or a source of binaries and headers, except `opencollective.com`.
 
 **Code at install, PyPI: none in the 175 that installed.** 0/175 builds from sdist, no compiler
 executed, although 90.9 % of the venvs contain compiled extensions — all of them arrive as
@@ -38,8 +38,8 @@ unreliable; the evidence is the absence of `gcc`/`cc1` in `execve`.)
 not the package, and it is the baseline norte-guard already measured. Beyond that, in 600
 installs:
 
-- `saturnzap@1.3.2`: a read of `~/.netrc` — a git dependency in the tree makes `git` (libcurl)
-  read `.netrc`. Attributable to the package, benign.
+- `saturnzap@1.3.2`: a read of `~/.netrc` by `uv`, not by the package: uv looks there for credentials
+  when the index answers 404, here for `ldk-node`, a dependency not on PyPI (the install fails); benign.
 - `warp-agent-mcp@0.19.6`: its `postinstall` **writes `~/.config/Claude/claude_desktop_config.json`**
   — it registers itself in Claude Desktop at install, without anyone asking.
 - `@munhq/cloud-tools@0.2.0`: its `postinstall` drops a binary into `~/.cache/cloud-tools/bin/`.
@@ -76,9 +76,9 @@ that decorator from the low-level `Server`, which takes `on_list_tools=` in its 
 instead. So at least 62 of 175 (35.4 %) are broken by 2.0, from at least 41 of 142 publishers;
 the other 48 PyPI attempts without a handshake were not examined for a 2.0 cause. The registry's
 `status` field shows them as `active`, which is its default value at publish time and not a
-claim that they work (the registry says explicitly that it does not verify that). The precedent
-is python-sdk#3309 (2026-08-14), an affected author describing the mechanism without
-quantifying it (2609.10962 measured "fewer than half complete the handshake" on npm/stdio; here
+claim that they work (the registry says consumers "should assume minimal-to-no moderation").
+The precedent is python-sdk#3309 (2026-08-14), an affected author describing the mechanism without
+quantifying it (2609.10962 measured that 48.8 % complete the handshake on npm/stdio; here
 the largest cause on PyPI is identified).
 
 What the 175 declare in their PyPI metadata (`Requires-Dist` of the installed version;
@@ -112,10 +112,10 @@ measurement.
 nothing. Those that do:
 
 - **21 PyPI cells contact `pypi.org` at start**: it is `fastmcp`'s version check (jlowin;
-  `check_for_updates="stable"` by default, `GET pypi.org/pypi/fastmcp/json`, writes
-  `~/.local/share/fastmcp/version_cache.json`; opt-out `FASTMCP_CHECK_FOR_UPDATES=off`). A library
-  that makes a network request at the start of any server that uses it — 12 % of the installed
-  PyPI servers [8.0–17.6]; cluster-robust [4.8–19.2] — without the server deciding it.
+  `check_for_updates="stable"` by default, `GET pypi.org/pypi/fastmcp/json`, caches the answer for
+  12 hours in `~/.local/share/fastmcp/version_cache.json`; opt-out `FASTMCP_CHECK_FOR_UPDATES=off`).
+  A library that by default makes a network request at the start of a server that uses it — 12 %
+  of the installed PyPI servers [8.0–17.6]; cluster-robust [4.8–19.2] — without the server deciding it.
 - 3 npm servers run their own update check against `registry.npmjs.org` (`brave-mcp`,
   `@async23/chrome-devtools-mcp`, `@aetherwealth/mcp`), two of them reading `~/.npmrc` for it.
 - **Telemetry, 4 cells (0.7 % [0.3–1.8])**: `@merill/lokka` → `us.i.posthog.com`
@@ -124,11 +124,11 @@ nothing. Those that do:
   `mobile.events.data.microsoft.com` (+ `~/.photographi/telemetry.json`); `mcp-google-business`
   → `usage.gistrec.cloud` (+ `~/.config/mcp-google-business/instance-id`). None of the four
   registry entries mentions it.
-- **Remote configuration at start**: `email-guard-mcp` downloads rules from
-  `raw.githubusercontent.com` and `agent-firewall-seven.vercel.app`; `llm-advisor-mcp` from
-  `raw.githubusercontent.com`, `openrouter.ai`, `arena.ai` and `cdn.opencompass.org.cn`;
-  `@gridinsoft/mcp-inspector` from `inspector.gridinsoft.com`. What the server does depends on
-  what those hosts serve that day.
+- **Remote configuration at start**: `email-guard-mcp`
+  downloads rules from `raw.githubusercontent.com` and
+  `agent-firewall-seven.vercel.app`; `@gridinsoft/mcp-inspector`
+  from `inspector.gridinsoft.com`. What the server does depends
+  on what those hosts serve that day.
 - `placeroot` (PyPI) downloads DuckDB's `httpfs` extension over plain HTTP
   (`extensions.duckdb.org:80`) at start. It is the default repository compiled into DuckDB, whose
   code checks the file's signature before writing it and on every load; an altered file was not
@@ -159,22 +159,22 @@ No cell read `~/.ssh`, `~/.git-credentials`, `~/.config/gh`, `~/.docker`, `~/.py
 
 ## The three classes that were not measured before
 
-1. **Self-registration in the agent.** 3/600 (0.5 % [0.2–1.5]) write into an AI client's
-   configuration without being asked: one in `postinstall` (`warp-agent-mcp` → Claude Desktop),
-   two at start (`state-memory-mcp` → Cursor, Gemini and Claude Desktop at once; `neo-mcp` →
-   Claude Code skills). A fourth, `claude-code-conversation-search-mcp`, keeps its own database
-   in `~/.claude`. A `postinstall` that edits `claude_desktop_config.json` is exactly the
-   primitive of Deadbugz and SANDWORM_MODE (prior-art §3), here in packages that are not
-   malicious.
+1. **Self-registration in the agent.** 3/600 (0.5 % [0.2–1.5]) write into an AI client's configuration
+   without being asked: one in `postinstall` (`warp-agent-mcp` → Claude Desktop), two at start
+   (`state-memory-mcp` → Gemini and Claude Desktop at once, plus `~/.cursorrules`, which Cursor
+   documented only as a legacy file in a project's root; `neo-mcp` → `~/.claude/skills/neo.md`, where
+   Claude Code loads only `<name>/SKILL.md`). A fourth, `claude-code-conversation-search-mcp`, keeps
+   its own database in `~/.claude`. Writing an MCP server into `claude_desktop_config.json` unasked is
+   a primitive of SANDWORM_MODE (prior-art §3), here in packages that are not malicious.
 2. **Network that does not go to the service the server wraps.** 21 `fastmcp` version checks
    against PyPI, 3 servers' own update checks against npm, 4 telemetry streams to
-   PostHog/Google/Microsoft/own, 3 remote configuration downloads, 1 signed-extension download
-   over HTTP: 30/579 = 5.2 % [3.7–7.3] of the attempts, 30/347 = 8.6 % [6.1–12.1] of the servers
+   PostHog/Google/Microsoft/own, 2 remote configuration downloads, 1 signed-extension download
+   over HTTP: 29/579 = 5.0 % [3.5–7.1] of the attempts, 29/347 = 8.4 % [5.9–11.7] of the servers
    that completed the handshake.
 3. **Silent breakage by the SDK.** 52/175 PyPI cells stop on the rename's error (19 from one
    publisher; 32 of 142 publishers affected), and 10 more on another change of 2.0: at least 62
-   of 175 do not start since 2026-07-28. The `status` field does not reflect it
-   because it is not designed to.
+   of 175 do not start since 2026-07-28. The `status` field does not reflect it: the registry's
+   policy removes non-functioning servers, but tells consumers to assume minimal-to-no moderation.
 
 ## Corrections
 

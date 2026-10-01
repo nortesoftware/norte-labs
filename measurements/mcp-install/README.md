@@ -77,17 +77,17 @@ that traced paths read like a developer's; in the published data that path appea
 `~/.config/gh/hosts.yml`, `~/.gitconfig`, `~/.git-credentials`, `~/.docker/config.json`,
 `~/.kube/config`, `~/.netrc`, `~/.pypirc`, `~/.env`, `~/.claude*`, `~/.cursor/mcp.json`,
 `~/.codex`, `~/.gemini`, `~/Documents`, `~/.bash_history`. None of it is real; the values are
-inert strings that match no secret-scanner pattern. Bound back inside: the host's Node
+inert strings in no provider's token format. Bound back inside: the host's Node
 (read-only), the npm and uv caches (persistent across cells, capped at 3 GB), and kernel and
-Python headers under `/usr/include` from norte-guard's unprivileged toolchain, for sdists with C
+Python headers under `/usr/include` from an unprivileged toolchain, for sdists with C
 extensions to compile. The architecture-specific `x86_64-linux-gnu/python3.13/pyconfig.h` was
 not among them, and the 2 builds from sdist in the sample that ran a compiler stopped on it.
 **The network is not isolated**: egress is one of the things measured. PID/IPC/UTS are.
 Environment built from scratch.
 
 This departs from norte-guard, which traced installs unconfined in the real `$HOME`: there it
-was 31 chosen packages; here it is hundreds of arbitrary packages from an unreviewed registry
-that includes documented malware.
+was 25 popular or hand-picked packages; here it is hundreds of arbitrary packages from an
+unreviewed registry that has listed documented malware.
 
 ### What is not measured
 
@@ -158,7 +158,7 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 | 12.6 % [9.7–16.2] of npm trees run an install script | findings.md:18 | npm cells with `install.ok` and a non-empty `install.npm.installScripts`, over 404 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | the server itself declares one: 3.7 % [2.3–6.0] | findings.md:19 | an `installScripts[].pkg` equal to the cell's `identifier`, over 404 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | better-sqlite3 15 trees, protobufjs 11, sharp 5 | findings.md:20, 22 | npm trees whose `installScripts[].pkg` include the package | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| 31 of the 51 trees: a dependency's script builds or fetches a native module | findings.md:19-22 | npm trees with an `installScripts[].pkg` other than the cell's `identifier` among `better-sqlite3`, `sharp`, `tree-sitter-*`, `ssh2`, `cpu-features`, `keytar`, `onnxruntime-node`, `bufferutil`, `utf-8-validate`, `argon2`, `decibri`, `esbuild`, `workerd`; which packages build or fetch a native module is a reading of each package's script, not a rule of `src/report.ts` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| 31 of the 51 trees: a dependency's script can build or fetch a native module | findings.md:19-22 | npm trees with an `installScripts[].pkg` other than the cell's `identifier` among `better-sqlite3`, `sharp`, `tree-sitter-*`, `ssh2`, `cpu-features`, `keytar`, `onnxruntime-node`, `bufferutil`, `utf-8-validate`, `argon2`, `decibri`, `esbuild`, `workerd`; which packages can build or fetch a native module is a reading of each package's script, not a rule of `src/report.ts` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 7 more: the server's own `postinstall` downloads a release asset; of the 16 cells at `release-assets.githubusercontent.com`, 9 dependency prebuilds and 7 the server's own `postinstall` | findings.md:21-22, 24-25 | of the other 20 trees, those whose only install script is the server's own (`installScripts[].pkg` = `identifier`) and whose `install.trace.net.hosts` include `release-assets.githubusercontent.com` (7); the other 9 cells with that host carry a dependency script from the list above | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 7.4 % leave a `.node` binary | findings.md:22 | `install.npm.nativeNodeFiles` > 0, over 404 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 5.2 %: node-gyp, prebuild-install or a compiler runs | findings.md:22-23 | a key of `install.trace.execBasenames` matching `node-gyp\|prebuild-install\|make\|gcc\|g\+\+\|cc1\|cmake`, over 404 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
@@ -179,7 +179,7 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 | between a fifth and a third | findings.md:70 | 21.4 % and 22.5 % (the two rows above) to 29.7 %, the rate of the rename's error | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | six weeks after 2.0.0, released 2026-07-28 | findings.md:57, 69, 176 | run date less the release date of `mcp` 2.0.0 on PyPI; the release date is not carried by any published file | none in `results/` | external |
 | 42 / 17 (4 + 13) / 21 / 28 / 21 / 21 / 15 / 7 / 5 / 2 | findings.md:58-67 | first matching rule of `noHandshakeReason` (`src/report.ts`) on the client's and the run's `stderrTail` and the first stdout line, over the 231 with a client record; the 17 are the causes "the binary was not found" (4, `strace: Cannot stat`) and "the binary could not be executed" (13, `Exec format error`), which the function tests before any rule on the message; "exits with code 1" is "exited with code 1" (21); "other exit codes" is exit codes 127 (2), 2 (2) and 3 (1); "fails to connect to a service" is a rule of its own (2); 2 of the 15 "module not found" ran `python -m` with the identifier as module name (`firstRun.argNotes` "module guessed from identifier": `token-economy-intel`, `precision-desktop`) | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| python-sdk#3309 (2026-08-14); 2609.10962 "fewer than half" | findings.md:80, 81 | cited, not measured | none in `results/` | external |
+| python-sdk#3309 (2026-08-14); 2609.10962: 48.8 % complete the handshake | findings.md:80, 81 | cited, not measured | none in `results/` | external |
 | row `>=1.x`, no ceiling: 71 / 51 / 0 / 20 | findings.md:89 | `mcp_spec` with a 1.x floor and no upper bound; outcome of the same `identifier`@`version` in the cells: broken (rule above), start (`initializeOk`), other | `results/pypi-mcp-requirements.json` + `results/cells.ndjson` | PyPI metadata read 2026-09-12; run |
 | 10 stop on `'Server' object has no attribute 'list_tools'`, all in the first row; 9 under "exception at start", 1 under the credential rule | findings.md:72-75, 99-100; README.md:273-276 | PyPI attempted cells whose `firstRun.client.stderrTail` carries that message; their `mcp_spec` row; their cause under `noHandshakeReason` | `results/cells.ndjson` + `results/pypi-mcp-requirements.json` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | at least 62 of 175 (35.4 %) broken by 2.0, from at least 41 of 142 publishers; 48 not examined | findings.md:76-77, 175-176; README.md:276-278 | the 52 and the 10 above; their publisher keys (as above); PyPI attempted cells without `initializeOk` (110) less those 62 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
@@ -196,7 +196,7 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 | 117/344 (34.0 %) annotate one tool; 106 all | findings.md:106 | servers with a tool carrying one of the four hint keys; servers where all do | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 2,849/6,485 (43.9 %); `readOnlyHint: true` 2,120, `destructiveHint: true` 203, `false` 1,013 | findings.md:106-108 | tools carrying a hint key; hint values. `tools[]` keeps 200 per server, so the two servers above that (245 and 803 tools) count from `annotationSummary` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 47/579 (8.1 % [6.2–10.6]) | findings.md:111 | non-empty `firstRun.trace.net.hosts` (DNS on port 53 is not a host) | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| 21 PyPI cells contact `pypi.org`; 12 % [8.0–17.6]; cluster-robust [4.8–19.2] | findings.md:114, 117-118 | host `pypi.org` in `firstRun.trace.net.hosts`, over the 175 PyPI attempted; publisher key as above; all 21 write `~/.local/share/fastmcp/version_cache.json` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| 21 PyPI cells contact `pypi.org`; 12 % [8.0–17.6]; cluster-robust [4.8–19.2]; the answer cached for 12 hours | findings.md:114-118 | host `pypi.org` in `firstRun.trace.net.hosts`, over the 175 PyPI attempted; publisher key as above; all 21 write `~/.local/share/fastmcp/version_cache.json`; the 12 hours are `CACHE_TTL_SECONDS` in fastmcp's `utilities/version_check.py` at v3.4.7 and v4.0.3, cited, not measured | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 3 npm servers query `registry.npmjs.org`; two read `~/.npmrc` | findings.md:119-120 | host `registry.npmjs.org` at first start; prefix `~/.npmrc` with `contentAccessed` at first start | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | telemetry, 4 cells (0.7 % [0.3–1.8]) | findings.md:121, 187 | a host among `us.i.posthog.com`, `play.googleapis.com`, `mobile.events.data.microsoft.com`, `usage.gistrec.cloud` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | `placeroot` over plain HTTP, `extensions.duckdb.org:80` | findings.md:132-133 | host `extensions.duckdb.org` with port 80 in the cell's `firstRun.trace.net.hosts` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
@@ -206,8 +206,8 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 | 18 (3.1 % [2.0–4.9]) touch a decoy | findings.md:144 | a decoy prefix with `contentAccessed` in `firstRun.trace.home` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | decoys: `~/.env` 9, `~/.npmrc` 2, `~/.claude` 2, 1 each for the rest | findings.md:148-155 | cells per decoy path; `~/.cursorrules` is not a decoy path and appears through the same cell | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | no read of `~/.ssh`, `~/.git-credentials`, `~/.config/gh`, `~/.docker`, `~/.pypirc`, `~/.bash_history` | findings.md:157-158 | those prefixes with `contentAccessed` at first start: 0 (no access of any kind either) | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| 3/600 (0.5 % [0.2–1.5]) write an AI client's configuration: 1 at install, 2 at start; a fourth writes its own database under `~/.claude` | findings.md:162-166 | cells that wrote under `~/.config/Claude`, `~/.claude`, `~/.cursor*`, `~/.gemini` or `~/.codex`, at install or first start (4 of 600), less `claude-code-conversation-search-mcp`, whose writes there are `~/.claude/conversation-search.db` and its journal | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| 21 + 3 version and update checks, 4 telemetry, 3 remote configuration, 1 HTTP download: 30/579 = 5.2 % [3.7–7.3]; 30/347 = 8.6 % [6.1–12.1] | findings.md:169-173 | union of the cells with `pypi.org`, `registry.npmjs.org`, a telemetry host, one of the three remote-configuration servers named above, or `extensions.duckdb.org:80`; two cells are in two groups; all 30 completed the handshake | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| 3/600 (0.5 % [0.2–1.5]) write an AI client's configuration: 1 at install, 2 at start; a fourth writes its own database under `~/.claude` | findings.md:162-167 | cells that wrote under `~/.config/Claude`, `~/.claude`, `~/.cursor*`, `~/.gemini` or `~/.codex`, at install or first start (4 of 600), less `claude-code-conversation-search-mcp`, whose writes there are `~/.claude/conversation-search.db` and its journal | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| 21 + 3 version and update checks, 4 telemetry, 2 remote configuration, 1 HTTP download: 29/579 = 5.0 % [3.5–7.1]; 29/347 = 8.4 % [5.9–11.7] | findings.md:169-173 | union of the cells with `pypi.org`, `registry.npmjs.org`, a telemetry host, one of the two remote-configuration servers named above, or `extensions.duckdb.org:80`; two cells are in two groups; all 29 completed the handshake | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | design effect 5.3 (the rename), 2.25 (handshake), 2.2 (`pypi.org` at start), 1.5 (egress at first start), about 1 for the rest | findings.md:188-190 | the DEFF column of the cluster table in `results/report.md`, publisher key as above: 5.30, 2.25, 2.22, 1.49; install script 1.06, telemetry 1.01, decoy 1.02, `~/.env` 1.02 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | about 80 h for the full run | findings.md:191 | (last end − first start) / 600 × (11,484 − 600) = 82 h | `results/cells.ndjson` + `results/population.ndjson.gz` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 28 whose message names a variable, a key, a token or a required value (25 exited, 4 stop on something else), 42 on an exception, 17 never executed | findings.md:61, 192-194; README.md:101-103, 250-251 | causes "requires a variable/credential" (the rule `environment variable|env var|api[_ ]key|token|missing required|is required|not set` on the stderr), "exception at start", and "the binary was not found" plus "the binary could not be executed"; of the 28, `firstRun.client.exitedEarly` in 25. The 4 are `token-compressor-mcp` (`AttributeError`, `token` in its path), `shutterbox` (`SyntaxError: Invalid or unexpected token`), `skilldb` (a help text) and `tokeven` (`The 'mcp' package is required`). In 11, the variable named is in the entry's `environmentVariables` | `results/cells.ndjson` + `results/sample.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
@@ -215,7 +215,7 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 | 11 PyPI entries with `runtimeArguments`, none started; 7 add the `[mcp]` extra; `tokeven` adds `mcp>=2.0,<3.0`; none of the 52 | findings.md:203-205; README.md:109-114 | PyPI cells whose entry in `results/sample.ndjson` has a non-empty `runtimeArguments`; `initializeOk` of each; the values naming `<id>[mcp` or `mcp>=` | `results/cells.ndjson` + `results/sample.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | IPv6 connections to `::1` in 2 cells, unnamed | findings.md:206-207 | host `0:0:0:0:0:0:0:1` in `firstRun.trace.net.hosts`: 2 cells, 9 `connect()` calls | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | Canopii: 260 servers with install scripts | README.md:15 | cited from prior-art/mcp.md, not measured | none in `results/` | external |
-| norte-guard: 31 chosen packages | README.md:89 | cited from norte-guard, not measured | none in `results/` | external |
+| norte-guard: 25 popular or hand-picked packages | README.md:89 | cited from norte-guard, not measured | none in `results/` | external |
 
 ## Corrections
 
@@ -244,8 +244,8 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
   touches `allow_unsigned_extensions`, and DuckDB checks the file's RSA signature before writing
   it and on every load: one altered byte and `LOAD` rejects it. The HTTP channel protects neither
   confidentiality (which extension and version is installed) nor against a downgrade to another
-  signed version; it protects integrity. It was presented as a security finding about an MCP
-  server and it is not one. It has not been reported to anyone.
+  signed version; the signature protects integrity. It was presented as a security finding
+  about an MCP server and it is not one. It has not been reported to anyone.
 - **First-start denominators.** First-start network and `$HOME` rates carry both denominators,
   579 attempts and 347 started. 28 cells aborted on credential validation and 42 on an
   exception, so their first start was not observed.
@@ -288,7 +288,7 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
   start, and 1.5 for egress at first start. The cluster table carried the other three; the
   sentence left them out.
 - **Install scripts.** It was "almost all of it is native". In 31 of the 51 trees with an
-  install script a dependency builds or fetches a native module; in 7 the server's own
+  install script a dependency can build or fetch a native module; in 7 the server's own
   `postinstall` downloads a release asset; `protobufjs`, listed as native, runs a version check.
   The 16 cells that reached `release-assets.githubusercontent.com` were all called prebuilds; 7
   are the server's own `postinstall`.
@@ -363,3 +363,54 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
   and saw `LOAD` reject it was withdrawn: no file in the repository carries that run. That
   DuckDB checks the file's signature before writing it and on every load is read from DuckDB's
   code, not measured here.
+
+### 2026-09-30
+
+- **Decoy values.** It was "inert strings that match no secret-scanner pattern"; it is "in no
+  provider's token format": the `.git-credentials` decoy, a URL with a password, matches the
+  URL-credential detectors of detect-secrets (`BasicAuthDetector`) and trufflehog (`uri`).
+- **The toolchain's headers.** It was headers "from norte-guard's unprivileged toolchain"; it is
+  "from an unprivileged toolchain": norte-guard documents gcc, g++ and make 14.2.0 and no headers,
+  and `src/run.ts` takes the Python headers from this measurement's own toolchain directory.
+- **norte-guard's sample.** It was "31 chosen packages", under Sandbox and in Figures; it is "25
+  popular or hand-picked": norte-guard's 30 fixtures cover 25 registry packages, 20 drawn from a
+  popularity-ordered npm search and 5 chosen (`esbuild`, `better-sqlite3`, `sharp` and two more).
+- **Malware in the registry.** It was a registry "that includes documented malware"; it is one
+  "that has listed" it: the entry OX Security documented, `io.github.jUXTAPOSITION1/vape`
+  (registry#1563), was set to `deleted` on 2026-09-05, six days before the run.
+- **Native modules at install.** It was, here and in findings.md, that in 31 of 51 trees a
+  dependency "builds or fetches" a native module; it is "can build or fetch": 8 of the 31 did
+  neither, as `node-gyp-build`, `sharp` 0.33+, `esbuild` and `workerd` act only without a prebuild.
+- **2609.10962.** It was quoted as "fewer than half complete the handshake"; findings.md and
+  Figures now give 48.8 %. The paper says "Only 48.8% complete an initialize handshake" (195 of 400
+  npm/stdio draws); its only "fewer than half" is about scanner alerts.
+- **DuckDB's HTTP channel.** The retraction of 2026-09-12 said of the HTTP channel "it protects
+  integrity"; it now says the signature does: DuckDB's documentation credits its built-in public
+  keys with the integrity of extensions, and its code tests the signature at install and at `LOAD`.
+- **`opencollective.com` at install.** It was "`devdocs-mcp-server`'s donation message"; it is that
+  of `@nestjs/core` in its tree: `devdocs-mcp-server` 1.0.0 has no install script, and the
+  `postinstall` of `@nestjs/core` 10.4.22 (`opencollective || exit 0`) asks for NestJS's collective.
+- **saturnzap's `~/.netrc`.** It was a git dependency making `git` read it, "attributable to the
+  package"; it is uv's read: `saturnzap` 1.3.2 has no git dependency, the cell ran only `sh` and
+  `uv`, and uv 0.12.13 reads `~/.netrc` when an index answers 404, as PyPI does for `ldk-node`.
+- **The registry and working servers.** findings.md said the registry states explicitly that it
+  does not test whether they work; no registry document says so. It now quotes the moderation
+  policy: consumers "should assume minimal-to-no moderation".
+- **The `status` field.** It was "does not reflect it because it is not designed to". The moderation
+  policy lists "Non-functioning servers" among those the registry removes (`status` `deleted`); it
+  now says so, and that the policy tells consumers to assume minimal-to-no moderation.
+- **fastmcp's version check.** It was "a network request at the start of any server that uses
+  it"; it now says "by default" and "a server" and names the 12-hour cache: fastmcp makes it only
+  when the banner shows (`show_banner=False` hides it), and one cache file serves all its servers.
+- **`llm-advisor-mcp`.** It was counted as remote configuration at start (3, now 2) and as network
+  not to the wrapped service (30/579 and 30/347, now 29/579 and 29/347); its README says it merges
+  the model data and leaderboards it fetches, which its tools report: the service it wraps.
+- **Where the self-registrations land.** It was `state-memory-mcp` → "Cursor, Gemini and Claude
+  Desktop" and `neo-mcp` → "Claude Code skills"; findings.md now names the files: Cursor documented
+  `.cursorrules` only as a legacy file in a project root; Claude Code loads only `<name>/SKILL.md`.
+- **Deadbugz and SANDWORM_MODE.** It was "a `postinstall` that edits `claude_desktop_config.json`
+  is exactly the primitive of" both; it is writing an MCP server there unasked, SANDWORM_MODE's
+  alone: McpInject does so on import (Socket); Deadbugz uses pull requests (Pillar Security).
+- **A note in results/report.md.** It was "the package manager reads `~/.npmrc` and `~/.gitconfig`
+  by itself", over all 600 cells; `src/report.ts` now prints "npm reads": norte-guard's baseline
+  finds no other manager reading `~/.gitconfig`, and `uv` read neither file for the 180 PyPI cells.

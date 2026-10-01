@@ -71,7 +71,7 @@ Supply-chain security research and audits.
   the count cannot be made there; that is a limit of the measurement, not work left to do.
 - [measurements/nono-build/](measurements/nono-build/) — who published the crates nono, a
   sandbox, is built from: 548 versions of 501 crates in its `Cargo.lock`, 184 publishers against
-  a median npm project's 165, and 227 accounts and 51 teams that may publish. One project, not a
+  a median npm project's 165, and 227 accounts and 51 teams that own them. One project, not a
   sample.
 - [norte-labs dataset v1](https://doi.org/10.5281/zenodo.23047444) — the files behind
   measurements/instruction-gap and ecosystems/go as published at `56f2443`: each project's lockfile,

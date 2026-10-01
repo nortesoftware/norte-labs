@@ -62,12 +62,12 @@ rather than the full specification.
 |---|---|---|---|
 | `1d832e0` | [#577](https://github.com/microsoft/sbom-tool/pull/577) | 2024-05-20 | added the verb, "with placeholder for future validation" — the line enters in this state |
 | `b005f3f` | [#580](https://github.com/microsoft/sbom-tool/pull/580) | 2024-05-21 | added the real validation; the line is untouched context in the diff |
-| `91b1b41` | [#617](https://github.com/microsoft/sbom-tool/pull/617) | 2024-07-17 | "Make the process exit with the correct exit code" — added `Environment.Exit(Environment.ExitCode);` to this file |
+| `91b1b41` | [#617](https://github.com/microsoft/sbom-tool/pull/617) | 2024-07-17 | "Make the process exit with the correct exit code" — added `Environment.Exit(Environment.ExitCode);` to the `Microsoft.Sbom.Tool` copy only |
 
-The placeholder survived the change that added the validation it was standing in for, and then
-the change whose stated purpose was correct exit codes made its value authoritative rather than
-correcting it. The line dates from 2024-05-20 and is in v4.1.5 of 2025-12-15, the current release, where it was
-reproduced; which intermediate releases carry it was not checked.
+The placeholder survived the change that added the validation it was standing in for, and then the
+change whose stated purpose was correct exit codes made its value the standalone binary's status
+rather than correcting it. The line dates from 2024-05-20 and is in v4.1.5 of 2025-12-15, the
+current release, where it was reproduced; which intermediate releases carry it was not checked.
 
 ## Prior art
 
@@ -78,13 +78,24 @@ and [#205](https://github.com/microsoft/sbom-tool/issues/205) concern the manife
 action, not this one. Nothing in the repository documents the exit code of `ValidateFormat` as
 intentional, and the commit that introduced the line calls it a placeholder.
 
-`ValidateFormat` is absent from `--help`, which lists only `Validate`, `Generate`, `Redact` and
-`Aggregate`, and from `docs/sbom-tool-arguments.md`. It is nonetheless present and functional in
-the shipped binary: `sbom-tool ValidateFormat -sp <path>` runs. An undocumented verb is reached
-by fewer pipelines, which bounds the blast radius and is stated in the report.
+`ValidateFormat` is absent from `--help`, which lists only `Validate`, `Generate`, `Redact`,
+`Aggregate` and `Version`, and from `docs/sbom-tool-arguments.md`. It is nonetheless present and
+functional in the shipped binary: `sbom-tool ValidateFormat -sp <path>` runs. An undocumented verb
+is reached by fewer pipelines, which bounds the blast radius and is stated in the report.
 
 ## Reported
 
 Sent to MSRC 2026-09-22 22:29 UTC, per the repository's `SECURITY.md`, which asks that security
 issues not be filed as public GitHub issues. Tracked as **VULN-229761**, classified by MSRC as
 **Security Feature Bypass**. Text as sent: [report-msrc.md](report-msrc.md).
+
+## Corrections, 2026-09-30
+
+- *Prior art* said `--help` lists only `Validate`, `Generate`, `Redact` and `Aggregate`. The usage
+  the v4.1.5 binary prints lists `Version` as well; `ValidateFormat` is absent from it, as stated.
+- The history table said #617 added `Environment.Exit` to "this file", and the paragraph that this
+  made the placeholder's value authoritative. Both now name the standalone tool: #617 left the .NET
+  global tool's copy alone, and in that tool `Main` sets `ExitCode.Success` once the host returns.
+- The report as sent to MSRC says the same of #617, and that the outcome "is printed by
+  `MultilineSummary()`"; that method returns lines, which the service's `PrintLines` prints. The
+  report stays as sent.

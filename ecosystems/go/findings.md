@@ -10,10 +10,10 @@ figures are the ones to quote and the means are not 360 independent draws — se
 
 ## 1. The trust surface, against npm
 
-Go removed the two mechanisms npm is criticised for. `go get` and `go build` run no
-package-authored install script. Every module fetched through the default proxy is checked
-against a transparency log at `sum.golang.org`. Both hold, and this measurement did not find a
-way around either.
+Go differs from npm in two mechanisms. `go get` and `go build` run no package-authored install
+script. Every module fetched other than a toolchain is compared with its hash in the project's
+`go.sum`, and by default a hash missing there is retrieved from a transparency log at
+`sum.golang.org`. Both hold, and this measurement did not find a way around either.
 
 The surface they were meant to reduce is not smaller.
 
@@ -101,8 +101,8 @@ This section first said that 45.6 % of projects carry a module whose manifest ca
 command fetch and run a different compiler. That was wrong; the correction is in
 [README.md](README.md#corrections).
 
-The mechanism is documented and the delivery is sound — the toolchain arrives as an ordinary
-module, `golang.org/toolchain@v0.0.1-go<version>.<goos>-<goarch>`, through the proxy, covered by
+The mechanism is documented and the delivery is sound — the toolchain arrives as a module,
+`golang.org/toolchain@v0.0.1-go<version>.<goos>-<goarch>`, through the proxy, covered by
 the checksum database. In the main module a `go` line newer than the installed Go has the same
 effect as a `toolchain` line; that was not tabulated here. A dependency reaches the mechanism by
 that road, not by its `toolchain` line: when `go get` adds a module whose `go` line is newer than
@@ -167,7 +167,7 @@ Of the 20:
   means. In **13 of those 18 the only cgo is the standard library's**; which of its packages
   carry it was not recorded. Two projects compile no cgo at all.
 - **5 pull cgo from a dependency**. In four of them the dependencies are domain-specific:
-  embedded databases (`lmdb-go`, `pebble`, `go-sqlite3`), hardware tokens (`karalabe/hid`),
+  embedded databases (`lmdb-go`, `pebble`, `go-sqlite3`), USB HID devices (`karalabe/hid`),
   cryptocurrency (`go-ethereum`, `breez-sdk-spark-go`), language runtimes (`wasmtime-go`, `v8go`),
   compression (`DataDog/zstd`). In the fifth it is `ebitengine/purego`, a library for calling C
   functions from Go, which belongs to no domain.

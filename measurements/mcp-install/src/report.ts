@@ -215,7 +215,7 @@ function homeSection(L: string[], cells: Cell[], get: (c: Cell) => any, isInstal
   for (const c of cells) for (const h of get(c).home as any[]) if (h.contentAccessed && !TOOLCHAIN_PREFIX(h.prefix) && !PROJECT_PREFIX(h.prefix) && !PM_CACHE_PREFIX(h.prefix)) anyOutside.add(c.id);
   L.push(`- cells that open content under \`$HOME\` outside the project, the toolchain and the package-manager cache: ${rate(anyOutside.size, n)}`,
     `- cells that read or write a decoy file (credentials, agent configs, shell): ${rate(anyDecoy.size, n)}`);
-  if (isInstall) L.push(`  - note: the package manager reads \`~/.npmrc\` and \`~/.gitconfig\` by itself (norte-guard baseline); at install that read cannot be attributed to the package.`);
+  if (isInstall) L.push(`  - note: npm reads \`~/.npmrc\` and \`~/.gitconfig\` by itself (norte-guard baseline); at install that read cannot be attributed to the package.`);
   const rows = Object.entries(byPrefix).filter(([, v]) => v.content.size > 0 || v.write.size > 0).sort((a, b) => (b[1].content.size + b[1].write.size) - (a[1].content.size + a[1].write.size));
   L.push('', '| prefix | content opened (cells) | written (cells) | probed (cells) | examples |', '|---|---|---|---|---|');
   for (const [p, v] of rows.slice(0, 60)) L.push(`| \`${p}\` | ${v.content.size} | ${v.write.size} | ${v.probe.size} | ${[...v.samples].slice(0, 3).map((s) => `\`${s}\``).join(' ')} |`);

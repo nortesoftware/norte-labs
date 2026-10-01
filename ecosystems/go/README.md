@@ -78,11 +78,11 @@ names did I have to trust". Neither is the truth, which is the point of publishi
 - **`golang.org/x/*`** resolves to `go.googlesource.com`, Google's own Git host, not to GitHub.
   Under Rule A it is a host-level owner with no account element, which is what the meta tag says.
 - **`gopkg.in`** serves a `go-import` tag pointing at itself, so both rules give `gopkg.in` even
-  though the code is mirrored from GitHub accounts. Both counts therefore under-split it, and it
+  though the code comes from GitHub accounts. Both counts therefore under-split it, and it
   is called out rather than special-cased.
 - **`sigs.k8s.io` against `k8s.io`** are two different GitHub organisations under Rule A
   (`kubernetes-sigs`, `kubernetes`) and two different hosts under Rule B. They do not merge under
-  either rule, which is correct — they are governed separately.
+  either rule, though one Kubernetes GitHub administration team holds owner rights over both.
 - **Monorepos** publishing many modules from one repository collapse to one owner under both
   rules. That is intended: one account controls them.
 - **Forks** are owned by whoever owns the fork. A module path pointing at a fork is a dependency
@@ -130,10 +130,10 @@ Temporary files under `/var/tmp/nl-go/`, deleted when the run is done.
 - Every graph was resolved by `go1.27.1`, recorded in each cell as `goVersion`, under
   `GOTOOLCHAIN=local`, so no sampled repository caused a toolchain download. `GOWORK=off` reads
   what the main module's own `go.mod` pulls, not a workspace the repository carries.
-- Five of the 400 could not be resolved, for reasons belonging to the projects. Four pin
-  Kubernetes staging repositories to `v0.0.0` through `replace` directives that do not resolve
-  standalone. One (`nikivdev/go`) publishes a `replace` pointing at `/Users/nikiv/…`, a path on the
-  author's own machine. Thirty-five have no `go.mod`.
+- Five of the 400 could not be resolved, for reasons belonging to the projects. Four require
+  `k8s.io/kubernetes`, which requires its staging repositories at `v0.0.0` and resolves them by
+  `replace` directives, ignored when it is a dependency. One (`nikivdev/go`) publishes a `replace`
+  pointing at `/Users/nikiv/…`, a path on the author's own machine. Thirty-five have no `go.mod`.
 - The cgo subsample is 20 projects; `src/cgo.py` draws up to 40 unless given `--n`, and stops
   before a project once the module cache passes `NL_CAP_GB`, 3.0 GB unless set. Neither the
   settings of the run nor what ended it at 20 is recorded. Its figures are magnitudes over 20 and
@@ -332,3 +332,27 @@ this repository, and the Chen et al. figures are that paper's; no file in `resul
 - The `cli/cli` pilot's 465 modules, 202 owners and 80 % never named were withdrawn: no file in the
   repository produces them; `cli/cli` is in the frame and not in the sample, and its graph is
   unmeasured.
+
+### 2026-09-30
+
+- This README said the code behind `gopkg.in` is mirrored from GitHub accounts. gopkg.in keeps no
+  copy: its page says it "does not hold the package code", which the go tool obtains from the
+  GitHub repository. The README now says the code comes from GitHub accounts.
+- This README called it correct that `sigs.k8s.io` and `k8s.io` do not merge, being governed apart.
+  It now says one team holds owner rights over both: the Kubernetes GitHub management page gives
+  `@kubernetes/owners` owner rights over all active Kubernetes orgs, `kubernetes-sigs` among them.
+- The Limits said four unresolved projects pin Kubernetes staging repositories to `v0.0.0` by
+  `replace`. They now say the pin and the `replace` are in `k8s.io/kubernetes`, which the four
+  require; the module reference says a `replace` applies only in the main module's `go.mod`.
+- findings.md §1 said Go removed the two mechanisms npm is faulted for. Go had no install scripts
+  to remove: the Go blog calls never running fetched code "an explicit security design goal of the
+  Go toolchain". It now says Go differs from npm in two mechanisms.
+- findings.md §1 said the log at `sum.golang.org` covers every module fetched through the default
+  proxy. It now says a hash missing from `go.sum` is by default retrieved from it; in the module
+  reference `GOPRIVATE` and `GONOSUMDB` turn that off for matching modules, `GOSUMDB=off` for all.
+- findings.md §3 said the toolchain arrives as an ordinary module. The toolchain reference calls
+  toolchains "special modules": their checksums are not written to `go.sum`, and a toolchain
+  download fails if `GOSUMDB=off`. "Ordinary" is dropped.
+- findings.md §5 listed `karalabe/hid` under hardware tokens. Its README describes "a cross
+  platform library for accessing and communicating with USB Human Interface Devices (HID)", with
+  hardware crypto wallets one example beside input devices. It is now listed under USB HID devices.

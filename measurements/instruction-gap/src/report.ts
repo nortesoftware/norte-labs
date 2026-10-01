@@ -112,7 +112,7 @@ function main() {
   const withGha = cells.filter(c => c.publishers.trustedPublishing > 0).length;
   L.push(`- projects with at least one trusted-publishing publisher: ${share(withGha, cells.length)}; versions with a provenance attestation: ${cells.reduce((a, c) => a + c.provenance.versionsWithAttestation, 0)} of ${cells.reduce((a, c) => a + c.lookup.ok, 0)} read.`);
   const lookupOk = cells.reduce((a, c) => a + c.lookup.ok, 0), lookupMissing = cells.reduce((a, c) => a + c.lookup.missing, 0), lookupErr = cells.reduce((a, c) => a + c.lookup.error, 0), nonReg = cells.reduce((a, c) => a + c.lookup.nonRegistry, 0);
-  L.push(`- registry lookups: ${lookupOk} read, ${lookupMissing} versions no longer on the registry, ${lookupErr} errors; ${nonReg} resolved pairs are not registry packages (git, tarball or another source).`);
+  L.push(`- registry lookups: ${lookupOk} read, ${lookupMissing} versions answering 404, ${lookupErr} errors; ${nonReg} resolved pairs are not registry packages (git, tarball or another source).`);
 
   H('## Decisions the manager made');
   const dec = cells.map(c => c.decisions.versionsByManager), never = cells.map(c => c.decisions.namesNeverNamed);
@@ -143,7 +143,7 @@ function main() {
   const hostsPerProject = urlCells.map(c => Object.keys(c.resolved.hosts).filter(h => h !== 'none' && h !== 'registry').length);
   const hostAll = new Map<string, number>();
   for (const c of urlCells) for (const h of Object.keys(c.resolved.hosts)) if (h !== 'none' && h !== 'registry') hostAll.set(h, (hostAll.get(h) || 0) + 1);
-  L.push(`Only npm and yarn v1 lockfiles record a URL per package (${urlCells.length} projects); pnpm, Yarn Berry and bun resolve registry packages against the configured registry and record a URL only for tarball and git sources. Figures below are over the ${urlCells.length}.`, '');
+  L.push(`By default only npm and yarn v1 lockfiles record a URL per package (${urlCells.length} projects); pnpm, Yarn Berry and bun resolve registry packages against the configured registry and record a URL only for tarball and git sources and for registry tarballs off the standard path (for bun, off registry.npmjs.org). Figures below are over the ${urlCells.length}.`, '');
   L.push('| per project | p10 | p25 | median | p75 | p90 | mean |', '|---|---|---|---|---|---|---|');
   L.push(row('distinct hosts in resolved URLs', hostsPerProject));
   L.push('', '| host in resolved URLs | projects |', '|---|---|');
@@ -188,7 +188,7 @@ function main() {
   L.push('', `Publisher-set overlap (Jaccard) between pairs of projects: same framework ${wn ? (win / wn).toFixed(3) : '–'} (${wn} pairs), different or no framework ${bn ? (btw / bn).toFixed(3) : '–'} (${bn} pairs).`);
 
   H('## By manager');
-  L.push('| manager | projects | median direct | median resolved | median publishers | median publishers/direct | lockfile records URLs |', '|---|---|---|---|---|---|---|');
+  L.push('| manager | projects | median direct | median resolved | median publishers | median publishers/direct | lockfile records a URL per package |', '|---|---|---|---|---|---|---|');
   for (const [m, cs] of [...byManager.entries()].sort((a, b) => b[1].length - a[1].length)) {
     L.push(`| ${m} | ${cs.length} | ${f1(q(cs.map(c => c.declared.direct), 0.5))} | ${f1(q(cs.map(c => c.resolved.versions), 0.5))} | ${f1(q(cs.map(c => c.publishers.total), 0.5))} | ${f1(q(cs.map(c => c.publishers.total / Math.max(1, c.declared.direct)), 0.5))} | ${m === 'npm' || m === 'yarn' ? 'yes' : 'no'} |`);
   }
