@@ -15,10 +15,10 @@ size figures are what the site or its API showed that day
 | registry | operator | submission model | review before listing | after listing / takedown | hosts or runs code | entries |
 |---|---|---|---|---|---|---|
 | [Official MCP Registry](https://registry.modelcontextprotocol.io) | MCP project (community; backed by Anthropic, GitHub, PulseMCP, Microsoft) | self-publishing with `mcp-publisher` | proof of namespace ownership (GitHub OAuth/OIDC, DNS, HTTP) and of package ownership; no content review — "assume minimal-to-no moderation" | manual takedown by issue; `status=deleted` with metadata retained; appeal by issue; 1 documented case (#1563) | no; metadata only | 30,830 |
-| [GitHub MCP Registry](https://github.com/mcp) | GitHub | curated partners; no self-submission (manual approval via partnerships@github.com) | editorial curation; ingestion from the official registry was promised, not observed | not documented | no | 252 |
+| [GitHub MCP Registry](https://github.com/mcp) | GitHub | curated (partners and community); no self-submission route documented by GitHub (a Zowe guide reports manual approval via partnerships@github.com) | editorial curation; ingestion from the official registry was promised, not observed | not documented | no | 252 |
 | [Docker MCP Catalog](https://hub.docker.com/mcp) | Docker | PR to `docker/mcp-registry` | CI + "every pull request requires a review from the Docker team"; "Docker-built" images signed, with SBOM and provenance; community-built ones get container isolation only | takedown by issue; no rejection figures (3,432 PRs merged / 310 closed unmerged) | builds images | 328 |
-| [Smithery](https://smithery.ai) | Smithery (Henry Mao) | URL (gateway-proxied) or MCPB bundle | metadata-extraction scan, bypassable with `server-card.json`; post-publication "verification checklist"; no human security review described | not documented; `security` field null in every sample | yes, hosts ("over 3,000" hosted per GitGuardian) | 13,978 (191 "verified") |
-| [Glama](https://glama.ai/mcp/servers) | Glama (Frank Fiegel) | auto-indexing from GitHub + claim through OAuth | build in a Firecracker microVM with syscall and network observation against the declared capability set; "Malicious" findings → internal review → maintainer contact or de-listing; rules unpublished | de-listing; no figures ("over one million such scans") | builds and runs | 85,656 |
+| [Smithery](https://smithery.ai) | Smithery (Henry Mao) | URL (gateway-proxied) or MCPB bundle | metadata-extraction scan, bypassable with `server-card.json`; post-publication "verification checklist"; no human security review described | not documented; `security` field null in every sample | yes, hosts ("over 3,000" hosted in June 2025, per GitGuardian) | 13,978 (191 "verified") |
+| [Glama](https://glama.ai/mcp/servers) | Glama (Frank Fiegel) | auto-indexing from GitHub and re-publication of the official registry; GitHub OAuth maintainer verification before listing, per its methodology; most listings not "Claimed" | build in a Firecracker microVM with syscall and network observation against the declared capability set; "Malicious" findings → internal review → maintainer contact or de-listing; rules unpublished | de-listing; no figures ("over one million such scans") | builds and runs | 85,656 |
 | [PulseMCP](https://www.pulsemcp.com/servers) | PulseMCP (Antanavicius, Coughlin, Patel; its founder maintains the official registry) | submissions paused; scraping + integration with the official registry | "manual curation" over automated scraping; enrichment with unspecified "security analyses" | not documented | no | 21,940 (6,258 "official providers") |
 | [mcp.so](https://mcp.so) | chatmcp | GitHub issue (free) or USD 39 "Publish immediately without review" | none on the paid path; purchasable "Verified" badge | not documented | no | n/a (~19,400 by facets) |
 | [mcpservers.org](https://mcpservers.org) | not identified | — | not documented | — | no | 12,284 |
@@ -33,33 +33,37 @@ size figures are what the site or its API showed that day
 | [Azure API Center MCP registry](https://learn.microsoft.com/en-us/azure/api-center/register-discover-mcp-server) | Microsoft (per organization) | manual registration / sync from APIM or Git | no third-party code review described | — | no | private |
 | [Stacklok ToolHive catalog](https://github.com/stacklok/toolhive-catalog) | Stacklok | PR with `server.json` | written Required/Expected/Recommended rubric (open source only, SHA-pinned dependencies, no unpatched critical/high CVEs, provenance, SLSA, SBOM); an LLM reviewer agent authorized to approve and merge low/medium-risk PRs | — | no | 111 |
 | [Gemini CLI extensions](https://geminicli.com/extensions/) | Google | GitHub topic | none: "Google does not vet" | — | no | 1,782 |
-| [ModelScope MCP 广场](https://www.modelscope.cn/mcp) | Alibaba | — | no verification field in the API; review (审核) policy not opened | — | yes, 4,599 hosted | 12,436 |
+| [ModelScope MCP 广场](https://www.modelscope.cn/mcp) | Alibaba | — | no verification field in the list API (per-server records carry `is_verified`, for hosted mode); review (审核) policy not opened | — | yes, 4,599 hosted | 12,436 |
 | Tencent Cloud MCP | Tencent | closed: third parties cannot submit | operator curation | — | local and hosted modes | n/a |
 | [MACH Alliance registry](https://machalliance.org/mach-alliance-mcp-registry) | MACH Alliance | Typeform | generic language (schema validation, automated checks, community reporting) | — | no | n/a |
-| JFrog Universal MCP Registry | JFrog | enterprise | "blocks malicious or non-compliant servers" (press release, no policy) | — | — | n/a |
-| [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | Frank Fiegel | PR | format only; fast track for PRs from automated agents; synced to Glama | — | no | 3,849 |
-| Third-party review layers (not registries): [BlueRock mcp-trust](https://www.mcp-trust.com/), [Backslash Security Hub](https://www.backslash.security/blog/mcp-server-security-hub), [AgentSeal](https://agentseal.org), [PulseFeed drift](https://pulsefeed.dev/mcp/drift), Canopii index, polygraph | various | — | post-hoc scoring of public servers; AgentSeal 8,013 analysed; PulseFeed nightly diff (owner changes, install scripts added, unpublished packages) | — | — | — |
+| JFrog Universal MCP Registry | JFrog | enterprise | "block the download and execution of malicious or non-compliant MCP servers" (press release, no policy) | — | — | n/a |
+| [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | Frank Fiegel | PR | format rules plus a Glama listing on which the server starts and answers introspection; fast track for PRs from automated agents; synced to Glama | — | no | 3,849 |
+| Third-party review layers (not registries): [BlueRock mcp-trust](https://www.mcp-trust.com/), [Backslash Security Hub](https://www.backslash.security/blog/mcp-server-security-hub), [AgentSeal](https://agentseal.org), [PulseFeed drift](https://pulsefeed.dev/mcp/drift), Canopii index, polygraph | various | — | post-hoc scoring of public servers; AgentSeal 8,013 analysed (late March 2026); PulseFeed nightly diff (owner changes, install scripts added, unpublished packages) | — | — | — |
 
-Chinese and Korean marketplaces with second-hand figures only: Baidu MCP World (~57–61k
-claimed), iFLYTEK, MCP Star, AIbase, Bailian, Kakao PlayMCP (~200). No primary policy opened.
+Chinese marketplaces with second-hand figures only: Baidu MCP World (~57–61k claimed), iFLYTEK, MCP
+Star, AIbase, Bailian; Kakao PlayMCP: ~200 external servers per Kakao's press release of 2026-05-01.
+No primary policy opened.
 
 ## What has been measured and what has not
 
 Measured (sources in the sweep's appendix):
 
-- Sizes and overlap across markets: Guo et al. (2509.25292: 6 markets, 17,630 raw → 8,060
-  valid, 32.3 % listed in more than one); MCPZoo (2607.11086: 10 markets, 156,842 raw → 56,053
-  distinct); Hou et al. (2503.23278: 26 collections, no dedup).
+- Sizes and overlap across markets: Guo et al. (2509.25292: 6 markets, 17,630 raw → 8,401 valid,
+  8,060 of them servers, 32.3 % listed in more than one); MCPZoo (2607.11086: 10 markets, 156,842
+  raw → 64,611 unique); Hou et al. (2503.23278: 26 collections, no dedup).
 - That listing does not imply function: 2609.10962 (seeded random sample, <50 % handshake on
-  npm/stdio); issue #1487 (a tenth of advertised remote endpoints do not speak MCP); MCP Queen
-  (17.2 % of remote servers dead; 55.8 % of the reachable ones without auth).
-- That namespace verification is never repeated: #1488, #1500 (~35 re-registrable domains),
-  AIR Security (155).
-- One empirical test of listing review: OX Security, a benign PoC accepted by 9 of 11 registries
-  "without review" — registries not named, method in a gated eBook.
+  npm/stdio); issue #1487 (a tenth of advertised remote endpoints do not speak MCP); MCP Queen (17.2
+  % of remote servers dead; 55.8 % open without auth).
+- That domain-namespace verification is never repeated: #1488, #1500 (~35 re-registrable domains);
+  that nobody re-checks who controls a listed endpoint: AIR Security (155 entries whose endpoint
+  domains had expired).
+- One empirical test of listing review: OX Security, a trial balloon accepted by 9 of 11 registries
+  ("without review", in the Cloud Security Alliance's account) — registries not named, method in a
+  gated eBook.
 - Existing policy comparisons: Descope (4 registries), TrueFoundry (5), Zowe (10), UpGuard (4,
-  moderation labels), alianga (8 Chinese platforms). Vendor or practitioner tables; they
-  characterize rather than quote, omit takedowns and omit the curated catalogs.
+  moderation labels), alianga (8 Chinese platforms, by size and deployment). Vendor or practitioner
+  tables; they characterize rather than quote, barely mention takedowns and, apart from GitHub's,
+  omit the curated catalogs.
 
 Not measured (open field):
 
@@ -75,5 +79,24 @@ Not measured (open field):
 - Paid listings or purchasable badges (mcp.so): no measure of quality, liveness or abuse.
 - Size figures not comparable across registries or studies: no standard counting method, no
   validated cross-registry dedup.
-- No academic paper examines Docker, GitHub, Microsoft, Anthropic or Stacklok; the literature
-  covers community aggregators and, since 2026, the official registry.
+- No academic paper examines the Docker, GitHub, Microsoft or Stacklok catalogs or Anthropic's
+  Connectors Directory; the literature covers community aggregators, Anthropic's reference list of
+  servers (Hou et al., Hasan et al.) and, since 2026, the official registry.
+
+## Corrections, 2026-09-30
+
+- GitHub's registry was said to take no self-submission, approved through partnerships@github.com;
+  GitHub documents a curated list from partners and the community and no submission route, and
+  the partnerships address comes from a Zowe guide.
+- Smithery's "over 3,000" hosted is GitGuardian's figure of June 2025; Glama verifies maintainers
+  through GitHub OAuth before listing and re-publishes the official registry; ModelScope's
+  per-server records carry `is_verified`; JFrog's release says "block the download and execution
+  of malicious or non-compliant MCP servers"; awesome-mcp-servers requires a Glama listing that
+  starts and answers introspection; AgentSeal's 8,013 is of late March 2026; Kakao's ~200 are
+  external servers, in its own press release.
+- Guo et al.: 17,630 raw entries gave 8,401 valid, 8,060 of them servers; MCPZoo 2607.11086 gives
+  64,611 unique, the 56,053 being the earlier MCPZoo paper's; MCP Queen's 55.8 % is of all graded
+  remotes. #1488 is about domain namespaces only, and AIR Security's 155 are listings whose
+  endpoint domains expired; OX Security's 9 of 11 was a trial balloon, "without review" being the
+  Cloud Security Alliance's account; the practitioner tables cover GitHub's catalog and mention
+  takedowns; the academic literature covers Anthropic's reference list of servers.
