@@ -229,7 +229,7 @@ in [mcp-sources.md](mcp-sources.md#known-incidents)). Summary:
 
 | type | count | examples |
 |---|---|---|
-| CVE-bearing vulnerabilities in servers, clients and SDKs | ~40 disclosures + 25 advisories on the official SDKs and Inspector | filesystem CVE-2025-53109/110 (Cymulate); Inspector CVE-2025-49596 9.4 (Oligo); mcp-remote CVE-2025-6514 9.6 (JFrog); mcp-server-git CVE-2025-68143/4/5 (Cyata); Context7 CVE-2026-75130; Azure MCP Server CVE-2026-26118; nginx-ui CVE-2026-33032 9.8, **listed as actively exploited**, as is LiteLLM's MCP endpoint CVE-2026-59822 (CISA KEV, 2026-09-02); FastMCP CVE-2026-32871 10.0; OX Security's STDIO-configuration RCE family (9–12 CVEs, 14+ products); IBM ContextForge CVE-2026-78573 9.8 (2026-09-10) |
+| CVE-bearing vulnerabilities in servers, clients and SDKs | ~40 disclosures + 24 advisories on the official SDKs and Inspector (GitHub Advisory Database, published 2025-06-13 to 2026-07-30; the PHP SDK's CVE-2026-53965, of 2026-08-19, falls outside) | filesystem CVE-2025-53109/110 (Cymulate); Inspector CVE-2025-49596 9.4 (Oligo); mcp-remote CVE-2025-6514 9.6 (JFrog); mcp-server-git CVE-2025-68143/4/5 (Cyata); Context7 CVE-2026-75130; Azure MCP Server CVE-2026-26118; nginx-ui CVE-2026-33032 9.8, **listed as actively exploited**, as is LiteLLM's MCP endpoint CVE-2026-59822 (CISA KEV, 2026-09-02); FastMCP CVE-2026-32871 10.0; OX Security's STDIO-configuration RCE family (9–12 CVEs, 14+ products); IBM ContextForge CVE-2026-78573 9.8 (2026-09-10) |
 | malicious packages / supply chain | ~20 families or waves | auth0-mcp-server (OSSF 2025-08-14); postmark-mcp (Koi, Sep 2025, BCC of every mail, ~1,500 downloads/week); @lanyer640/mcp-runcommand-server (Checkmarx) and three PyPI siblings (JFrog, Oct 2025); SANDWORM_MODE fake-MCP-server installer in 19+ packages (Socket, Feb 2026); trojanized Oura clone on MCP Market (Straiker); Shai-Hulud 2.0, Mini Shai-Hulud, ChainDrop with MCP packages as collateral (Postman, Zapier, @antv, Red Hat, ServiceTitan); the Jul 2026 GHSA batches (65 pip; 70 npm, 31 of them withdrawn on 2026-08-04; with name-squats of Anthropic's reference servers); FakeGit (800+ repos posing as skills or MCP servers; 600+ listings in registries and catalogs including LobeHub/Glama/mcp.so/MCP Market); Deadbugz (23 PRs in 74 minutes to other projects, 17 of them adding a remote server to their MCP configs) |
 | production data leaks | 1 confirmed | Asana, Jun 2025, ~1,000 customers (primary not located; relays of a customer email). Smithery: a path traversal exposed a Fly.io token over 3,000+ hosted servers (GitGuardian, no evidence of exploitation) |
 | abuse in the wild | 5 | nginx-ui exploitation; scanning of MCP endpoints and credential paths (SANS ISC, n=1 host); FakeGit; a tool-poisoning attack pattern in Copilot Studio (Microsoft IR; techniques "observed in 2026", no specific incident or organization described); agentjacking through Sentry validated on real organizations (Tenet) |
@@ -382,3 +382,10 @@ advisories.
   answered; Deadbugz is an incident write-up; AgentSeal reports its own classifier's precision;
   Phylum's reports were quarterly and Socket's an annual npm retrospective; Aikido published worm
   write-ups that list MCP packages.
+
+## Corrections, 2026-10-01
+
+- The 2026-09-30 note gave the official SDKs and Inspector 25 advisories. The 25 counted Vercel's
+  mcp-handler, which is not an official SDK; they are 24 by the database's publication dates,
+  2025-06-13 to 2026-07-30, and the PHP SDK's CVE-2026-53965, published 2026-08-19, falls outside
+  that range.
