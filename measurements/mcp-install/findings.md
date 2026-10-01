@@ -77,9 +77,13 @@ instead. So at least 62 of 175 (35.4 %) are broken by 2.0, from at least 41 of 1
 the other 48 PyPI attempts without a handshake were not examined for a 2.0 cause. The registry's
 `status` field shows them as `active`, which is its default value at publish time and not a
 claim that they work (the registry says consumers "should assume minimal-to-no moderation").
-The precedent is python-sdk#3309 (2026-08-14), an affected author describing the mechanism without
-quantifying it (2609.10962 measured that 48.8 % complete the handshake on npm/stdio; here
-the largest cause on PyPI is identified).
+The precedent is python-sdk#3309 (opened 2026-08-14, closed as not planned on 2026-10-01), an
+affected author describing the mechanism without quantifying it (2609.10962 measured that 48.8 %
+complete the handshake on npm/stdio; here the largest cause on PyPI is identified). Closing it on
+2026-10-01, the SDK team (maxisbey) wrote that 1.x is feature-frozen, stopping at the 2025-11-25
+specification with only critical bug fixes and security fixes; that the guidance for package authors
+is to move to 2.x and depend on `mcp>=2,<3`; and that no dual-version page will be added. Each of
+the 52 stays broken until its publisher acts, and there is no transition page to send it to.
 
 What the 175 declare in their PyPI metadata (`Requires-Dist` of the installed version;
 [results/pypi-mcp-requirements.json](results/pypi-mcp-requirements.json)):
