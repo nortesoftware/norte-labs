@@ -625,3 +625,13 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   manul's shell sources the user's startup files.
 - `results/report.md` said the 8 platform-specific downloads are not covered by the published
   digest; it now says the default record's, as each has its own in its platform's record.
+
+### 2026-10-01
+
+- *Zed* above says `mahocommerce/maho-zed` never existed under that name. What the public record
+  shows is that it does not exist: no redirect, and the name already in the extension's first
+  commit. A repository created and deleted under that name would leave the same record.
+- findings.md called the `repository` field unchecked. The CLI that CI runs on each changed
+  extension, pinned at 9ee3c503, refuses a manifest without the field; its value is unchecked,
+  and findings.md now says so. The report sent as #7640 says nothing in the repository looks at
+  the field and that the maho-zed name never existed; it stays as sent.

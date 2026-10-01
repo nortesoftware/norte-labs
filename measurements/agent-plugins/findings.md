@@ -344,7 +344,7 @@ one declares the placeholder `https://github.com/YOUR_GH/…` (ask-starknet-mcp,
 downloads), one names a repository that does not exist under that name (maho-lsp declares
 `mahocommerce/maho-zed`; the extension lives in `MahoCommerce/zed`, and its first commit already
 declared the other name). Five of the 73 declare a repository that is not their source; the
-field is author-declared and unchecked. None of the 73 declares a checksum for what it
+field's value is author-declared and unchecked. None of the 73 declares a checksum for what it
 downloads; the extension API has no field for one.
 
 **At install.** The 50 npm packages all come from `registry.npmjs.org` (49 installed; `prisma`
