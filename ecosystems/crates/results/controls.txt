@@ -1,0 +1,10 @@
+CONTROL serde 1.0.229 -> dtolnay: pass (('dtolnay', 'user'))
+CONTROL aws-config 1.12.0 -> automation: pass (('aws-sdk-rust-ci', 'user'))
+CONTROL chacha20 0.10.2 -> null in dump, gha:RustCrypto/stream-ciphers: pass (({'status': 'ok', 'login': None}, ('gha:RustCrypto/stream-ciphers', 'trustpub')))
+CONTROL num-cmp 0.1.0 -> unknown: pass ((None, 'unknown'))
+CONTROL serde owners include dtolnay and github:serde-rs:publish: pass (['dtolnay', 'github:serde-rs:publish'])
+CONTROL no registry dependency -> 0 publishers and 0 owners (2 projects): pass (2)
+CONTROL declared from Cargo.lock = single-package manifest: 207 of 242 agree
+CONTROL dump = API on 50 seeded versions: pass (50)
+CHECK publisher logins mapping to more than one user id: 0 of 2752 []
+cells 660; distinct resolved versions 25539; API lookups cached 2285

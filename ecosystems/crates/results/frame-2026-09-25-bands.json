@@ -1,0 +1,94 @@
+{
+ "frameDate": "2026-09-25",
+ "pushedFrom": "2025-09-25",
+ "minStars": 100,
+ "language": "Rust",
+ "bands": [
+  {
+   "lo": 100,
+   "hi": 112,
+   "total": 678,
+   "fetched": 678
+  },
+  {
+   "lo": 113,
+   "hi": 124,
+   "total": 502,
+   "fetched": 502
+  },
+  {
+   "lo": 125,
+   "hi": 149,
+   "total": 887,
+   "fetched": 887
+  },
+  {
+   "lo": 150,
+   "hi": 174,
+   "total": 689,
+   "fetched": 689
+  },
+  {
+   "lo": 175,
+   "hi": 199,
+   "total": 526,
+   "fetched": 526
+  },
+  {
+   "lo": 200,
+   "hi": 249,
+   "total": 845,
+   "fetched": 845
+  },
+  {
+   "lo": 250,
+   "hi": 299,
+   "total": 595,
+   "fetched": 595
+  },
+  {
+   "lo": 300,
+   "hi": 399,
+   "total": 830,
+   "fetched": 830
+  },
+  {
+   "lo": 400,
+   "hi": 499,
+   "total": 545,
+   "fetched": 545
+  },
+  {
+   "lo": 500,
+   "hi": 749,
+   "total": 849,
+   "fetched": 849
+  },
+  {
+   "lo": 750,
+   "hi": 999,
+   "total": 453,
+   "fetched": 453
+  },
+  {
+   "lo": 1000,
+   "hi": 1999,
+   "total": 863,
+   "fetched": 863
+  },
+  {
+   "lo": 2000,
+   "hi": 2999,
+   "total": 327,
+   "fetched": 327
+  },
+  {
+   "lo": 3000,
+   "hi": null,
+   "total": 783,
+   "fetched": 783
+  }
+ ],
+ "repositories": 9372,
+ "short": []
+}

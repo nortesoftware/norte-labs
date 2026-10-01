@@ -55,6 +55,16 @@ Supply-chain security research and audits.
   360 name a toolchain in their own `go.mod`, which under the default makes the go command
   download and run it wherever the installed Go is older. Owner derivation published with its
   code and reported two ways; corrections in its [README](ecosystems/go/README.md#corrections).
+- [prior-art/crates.md](prior-art/crates.md) — has anyone counted who publishes what one
+  `Cargo.lock` resolves? Four modalities, 140 sources, 210 recorded searches (2026-09-25).
+  Publishers per project over a sample: not found. Owners behind one project's graph: partial; a
+  tool computes them, and every published figure is one project. Appendix in
+  [prior-art/crates-sources.md](prior-art/crates-sources.md).
+- [ecosystems/crates/](ecosystems/crates/) — instruction-gap's count over Rust: 1,000
+  repositories from a frame of 9,372, 660 with a root `Cargo.lock`. A median project declares 30
+  crates and resolves versions from 113.5 publishers, naming 21; it never named 79.0 %, about Go's
+  share and below npm's 87 %. 548 of the 660 resolve at least one version published through
+  trusted publishing. Read from lockfiles and crates.io's database dump; nothing built.
 - [measurements/mcp-install/](measurements/mcp-install/) — what 600 MCP server packages (npm,
   PyPI) do at install and at first start: install scripts, network, telemetry, `$HOME` paths.
   Harness, per-cell results, generated report, findings, and the corrections in its README.
@@ -90,4 +100,4 @@ Supply-chain security research and audits.
   never enter a headline denominator.
 - Corrections and retractions stay written in the document they correct.
 
-Planned areas, not started: npm and crates, on the shape of the Go work above.
+Planned areas, not started: npm, on the shape of the Go work above.

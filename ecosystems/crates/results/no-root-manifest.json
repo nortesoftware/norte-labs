@@ -1,0 +1,1157 @@
+[
+ {
+  "cargoLocks": [],
+  "fullName": "jplatte/turbo.fish",
+  "rootCargoToml": false,
+  "sha": "0042e9eee911739e181d12fdcf4f9c52c45007f7",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "engine/Cargo.lock"
+  ],
+  "fullName": "nasty-project/nasty",
+  "rootCargoToml": false,
+  "sha": "57bde8172113983aebb415f28eebaa6625f6b9f8",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "chyinan/Kokoro-Engine",
+  "rootCargoToml": false,
+  "sha": "30b995c6ce8ce8f7f1841cb65e2f1176d655aaff",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-native/Cargo.lock",
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "H4D3ZS/vscodium-rust",
+  "rootCargoToml": false,
+  "sha": "cd016554c67b9076d0171aacfe21931846b70190",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "rust/Cargo.lock"
+  ],
+  "fullName": "nixops4/nixops4",
+  "rootCargoToml": false,
+  "sha": "d9eaf94bdcba965a09a4e2a53501113c234bea12",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "Concordium/concordium-rust-smart-contracts",
+  "rootCargoToml": false,
+  "sha": "4c819abc09f8b73ad2455383b14192ad47ee649e",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "ch_01/sha1_cracker/Cargo.lock",
+   "ch_01/snippets/enums/Cargo.lock",
+   "ch_02/snippets/thread_error/Cargo.lock",
+   "ch_02/snippets/threadpool/Cargo.lock",
+   "ch_02/tricoder/Cargo.lock",
+   "ch_03/snippets/combinators/Cargo.lock",
+   "ch_03/snippets/concurrent_stream/Cargo.lock",
+   "ch_03/snippets/tokio_main/Cargo.lock",
+   "ch_03/tricoder/Cargo.lock",
+   "ch_04/snippets/dispatch/Cargo.lock",
+   "ch_04/snippets/logging/Cargo.lock",
+   "ch_04/tricoder/Cargo.lock",
+   "ch_05/crawler/Cargo.lock",
+   "ch_05/snippets/atomic/Cargo.lock",
+   "ch_06/fuzzing/Cargo.lock",
+   "ch_06/fuzzing/fuzz/Cargo.lock",
+   "ch_07/bin_lib/Cargo.lock",
+   "ch_07/exploits/cve_2019_11229/Cargo.lock",
+   "ch_07/exploits/cve_2019_89242/Cargo.lock",
+   "ch_07/exploits/cve_2021_3156/exploit/Cargo.lock",
+   "ch_07/exploits/cve_2021_3156/loader/Cargo.lock",
+   "ch_07/exploits/cve_2021_3156/payload/Cargo.lock",
+   "ch_07/libc_exit/Cargo.lock",
+   "ch_08/executor/Cargo.lock",
+   "ch_08/hello_world/Cargo.lock",
+   "ch_08/reverse_tcp/Cargo.lock",
+   "ch_08/shell/Cargo.lock",
+   "ch_09/dnsquat/Cargo.lock",
+   "ch_09/emails/Cargo.lock",
+   "ch_09/phishing/Cargo.lock",
+   "ch_09/phishing/webapp/Cargo.lock",
+   "ch_10/Cargo.lock",
+   "ch_11/Cargo.lock",
+   "ch_12/rat/Cargo.lock",
+   "ch_12/shellcode/executor/Cargo.lock",
+   "ch_12/shellcode/hello_world/Cargo.lock",
+   "ch_13/rat/Cargo.lock",
+   "extra/backdoors/bad_macro/backdoored_lib/Cargo.lock",
+   "extra/backdoors/buildrs/app/Cargo.lock",
+   "extra/backdoors/init/app/Cargo.lock",
+   "extra/backdoors/num_cpu/Cargo.lock"
+  ],
+  "fullName": "skerkour/black-hat-rust",
+  "rootCargoToml": false,
+  "sha": "24c86c53248e46a0d9cdfe1ebb4f2bb3f9b6d7b1",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "operator/Cargo.lock"
+  ],
+  "fullName": "datahaven-xyz/datahaven",
+  "rootCargoToml": false,
+  "sha": "edcb13dbbcd3c29489eaa2480a6f60ee4cb1f3ec",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "letsgetrusty/bootcamp",
+  "rootCargoToml": false,
+  "sha": "5eef63564f24e360baf066dfffe2d396da670550",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "facebook/sapling",
+  "rootCargoToml": false,
+  "sha": "a08da8ac8ddc3ef9f88c1beae17237945fd3a068",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "nrc/r4cppp",
+  "rootCargoToml": false,
+  "sha": "6d69f112449d097e17c6b32a05323047f8fd522a",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "bruc3van/agent-skills-guard",
+  "rootCargoToml": false,
+  "sha": "2b8000b0d002391e357e6215206b1ac7623e8dca",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "ahkohd/tauri-macos-menubar-app-example",
+  "rootCargoToml": false,
+  "sha": "318ac19da977ad65f916fd31ea9ed02f91c48d17",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "Wervice/zentrox",
+  "rootCargoToml": false,
+  "sha": "9f6b8adbc5f33b28ea4934b6473377185ecea179",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "DrizzleTime/Skiff",
+  "rootCargoToml": false,
+  "sha": "c1c686bb5b91d94d705c639ba2e21ca520207533",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "cloudd/Cargo.lock"
+  ],
+  "fullName": "agentverse-os/AgentVerse-OS",
+  "rootCargoToml": false,
+  "sha": "8a96c0b353cc97302045ffbbf3d897d1088ca222",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "jely2002/youtube-dl-gui",
+  "rootCargoToml": false,
+  "sha": "c402ee39c0eabab68934c48f8b787ff37a1577b0",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "edison7009/EchoBird",
+  "rootCargoToml": false,
+  "sha": "0e2250bb1ab6a1e792e4c0dce482682df75c150a",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "backend/Cargo.lock"
+  ],
+  "fullName": "Raicuparta/rai-pal",
+  "rootCargoToml": false,
+  "sha": "a5e8104287061bef461ba162819b1be6c42b4613",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "RIKEN-RCCS/MilvusVisor",
+  "rootCargoToml": false,
+  "sha": "51f6837f946ba963cc50c158e3c682d4881c27f3",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "core/anything-server/Cargo.lock"
+  ],
+  "fullName": "tryanything-ai/anything",
+  "rootCargoToml": false,
+  "sha": "c59e5230e12da2bbf6e8741a18c0189a84c44ed8",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "rust-embedded/discovery",
+  "rootCargoToml": false,
+  "sha": "4ecc57b97299ef81b5b806279dcb6f8e6e77f1b4",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "cjpais/Handy",
+  "rootCargoToml": false,
+  "sha": "8f9cf53cd1410cda26beea39ff802ac306e39585",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "examples/crane/Cargo.lock",
+   "rust/transformer/Cargo.lock"
+  ],
+  "fullName": "nikstur/bombon",
+  "rootCargoToml": false,
+  "sha": "3e3374ca1cfd9c708ad53fd37184db88864e6376",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "fseeb/Cargo.lock"
+  ],
+  "fullName": "XtrLumen/FS-Enhancer-Extreme",
+  "rootCargoToml": false,
+  "sha": "3c21dbdba5c0c5d0a7ef6653d1d6ffe6bc7d0027",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "cloudflare/lazyhtml",
+  "rootCargoToml": false,
+  "sha": "05b4b877400796ca3fbba3b9ec84005688200db3",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "Noxde/Bloodborne-save-editor",
+  "rootCargoToml": false,
+  "sha": "7b8c3c5a4a55e9c1ac8510f10a36afcf7ceb10d5",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "ruohki/lunchpad",
+  "rootCargoToml": false,
+  "sha": "c91f18c61ee12a41ae1cc8c94382c1378528c7c2",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "codex-rs/Cargo.lock"
+  ],
+  "fullName": "stellarlinkco/codex",
+  "rootCargoToml": false,
+  "sha": "6bb1e4fdcf2fa7495a54a3121040049b0cec8d9d",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "ia0/data-encoding",
+  "rootCargoToml": false,
+  "sha": "65862b9234e2851c4f828f73f9541788ad105146",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "muutot/Clipboard",
+  "rootCargoToml": false,
+  "sha": "1883a7169844749356495a55cea17822b6c0ce68",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "demo/tray-menu-close/tauri/Cargo.lock",
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "Naituw/AskHuman",
+  "rootCargoToml": false,
+  "sha": "0d28f9942e2e3a0cecfb4a61d99bce19dcd5be4f",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "2DGD-F0TH/2DGD_F0TH",
+  "rootCargoToml": false,
+  "sha": "b7c0d6bd6787dd555c565d29bbdae39be623c95a",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "gui/Cargo.lock"
+  ],
+  "fullName": "chainbase-labs/manuscript-core",
+  "rootCargoToml": false,
+  "sha": "a1dc0941f3e2f25c35f6944da91b749b210a1186",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "rust/Cargo.lock",
+   "rust/integration-tests/Cargo.lock"
+  ],
+  "fullName": "intel/ittapi",
+  "rootCargoToml": false,
+  "sha": "bd72cfb15e34a5fc4c0a8d10f5bb5305d60e1eec",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "hrzlgnm/mdns-browser",
+  "rootCargoToml": false,
+  "sha": "22d7caa7e2819a596b0ddb8043c795d5de7f734e",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "backend/Cargo.lock",
+   "common/Cargo.lock",
+   "frontend/Cargo.lock",
+   "soxyreg/Cargo.lock",
+   "standalone/Cargo.lock"
+  ],
+  "fullName": "airbus-seclab/soxy",
+  "rootCargoToml": false,
+  "sha": "931a252aebe4301c531d398a9aee93bd8b13799e",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "api/Cargo.lock"
+  ],
+  "fullName": "Defelo/nixpkgs-review-gha",
+  "rootCargoToml": false,
+  "sha": "05be2410ba6775b612fe733127703ec71b3b3425",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "bootstrap-rs/Cargo.lock"
+  ],
+  "fullName": "polarsquad/krops",
+  "rootCargoToml": false,
+  "sha": "4ee2c3f06be0aa6e3975da7c3ef80d15b65588f5",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "rshy/Cargo.lock"
+  ],
+  "fullName": "yu13140/EHoRY",
+  "rootCargoToml": false,
+  "sha": "999eeda22f647bc30b40cd3fc9f256260b15f37d",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "bins/Cargo.lock",
+   "plugins/Cargo.lock"
+  ],
+  "fullName": "Uni-Gal/Ayaka",
+  "rootCargoToml": false,
+  "sha": "e72839100c016535b86c548744a3b71f1971a0ad",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "Rust/core/Cargo.lock"
+  ],
+  "fullName": "tigercraft4/goose",
+  "rootCargoToml": false,
+  "sha": "33cea3fd88412486b91fc693970329fb484a4600",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "BigStrongSun/ccswitchmulti",
+  "rootCargoToml": false,
+  "sha": "651bb0f3a90f75f8c24275682e45da6004f689b2",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "rust/contrib/data_engine/Cargo.lock",
+   "rust/otap-dataflow/Cargo.lock"
+  ],
+  "fullName": "open-telemetry/otel-arrow",
+  "rootCargoToml": false,
+  "sha": "5db83589a4e031e5d1eab177f80d30f01cfb3a9a",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "decentralized-identity/bbs-signature",
+  "rootCargoToml": false,
+  "sha": "a6a445dd3c2a382fb8affa08a4bc077bd27bf753",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "checker/Cargo.lock"
+  ],
+  "fullName": "MobileFirstLLC/social-media-hacker-list",
+  "rootCargoToml": false,
+  "sha": "0527dd92562d16b4d92bff72bfc94bef171cdd4c",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "a2ui/Cargo.lock",
+   "acp/Cargo.lock",
+   "ade/Cargo.lock",
+   "approval-gate/Cargo.lock",
+   "bridge/Cargo.lock",
+   "browser/Cargo.lock",
+   "browser/vendor/rustpython-sre_engine/Cargo.lock",
+   "canvas/Cargo.lock",
+   "code-runner/Cargo.lock",
+   "codex/Cargo.lock",
+   "compose-ui/Cargo.lock",
+   "computer/Cargo.lock",
+   "context-manager/Cargo.lock",
+   "crates/config-client/Cargo.lock",
+   "crates/console-ui/Cargo.lock",
+   "crates/judge-contract/Cargo.lock",
+   "crates/node-core/Cargo.lock",
+   "crates/provider-integration-testkit/Cargo.lock",
+   "crates/python-core/Cargo.lock",
+   "crates/worker-paths/Cargo.lock",
+   "cron/Cargo.lock",
+   "database/Cargo.lock",
+   "devin/Cargo.lock",
+   "document/Cargo.lock",
+   "email/Cargo.lock",
+   "eval/Cargo.lock",
+   "fp/Cargo.lock",
+   "github/Cargo.lock",
+   "grok/Cargo.lock",
+   "harness/Cargo.lock",
+   "http/Cargo.lock",
+   "ide/Cargo.lock",
+   "iii-directory/Cargo.lock",
+   "image-resize/Cargo.lock",
+   "judge-semif/Cargo.lock",
+   "judge-typesafe/Cargo.lock",
+   "judge/Cargo.lock",
+   "kanban/Cargo.lock",
+   "llm-router/Cargo.lock",
+   "lsp/Cargo.lock",
+   "mcp/Cargo.lock",
+   "memory-consolidate/Cargo.lock",
+   "memory/Cargo.lock",
+   "pdf/Cargo.lock",
+   "provider-anthropic/Cargo.lock",
+   "provider-claude-code/Cargo.lock",
+   "provider-command-code/Cargo.lock",
+   "provider-deepseek/Cargo.lock",
+   "provider-elevenlabs/Cargo.lock",
+   "provider-github-copilot/Cargo.lock",
+   "provider-kimi/Cargo.lock",
+   "provider-llamacpp/Cargo.lock",
+   "provider-openai-codex/Cargo.lock",
+   "provider-openai/Cargo.lock",
+   "provider-opencode-go/Cargo.lock",
+   "provider-openrouter/Cargo.lock",
+   "provider-sarvam/Cargo.lock",
+   "provider-xai/Cargo.lock",
+   "provider-zai/Cargo.lock",
+   "pubsub/Cargo.lock",
+   "queue/Cargo.lock",
+   "rbac-proxy/Cargo.lock",
+   "sandbox-code-runner/Cargo.lock",
+   "security-scan/Cargo.lock",
+   "session-manager/Cargo.lock",
+   "slack/Cargo.lock",
+   "state/Cargo.lock",
+   "storage/Cargo.lock",
+   "stories/Cargo.lock",
+   "tailscale/Cargo.lock",
+   "telegram-bot/Cargo.lock",
+   "voice/Cargo.lock",
+   "web/Cargo.lock",
+   "workers-dev/Cargo.lock",
+   "workflow/Cargo.lock",
+   "worktree/Cargo.lock"
+  ],
+  "fullName": "iii-hq/workers",
+  "rootCargoToml": false,
+  "sha": "43ac33f8d43c7a4f18beb1024395be150b46ab18",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "RustApp/Cargo.lock"
+  ],
+  "fullName": "teamclouday/AndroidMic",
+  "rootCargoToml": false,
+  "sha": "a3e2d2ffff5361d0742a1f5439e5d995ee23e999",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "rs/Cargo.lock"
+  ],
+  "fullName": "snolab/CapsLockX",
+  "rootCargoToml": false,
+  "sha": "d34832f7d946d90b88996f8df31effa08a465afa",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "Tomotsugu-dev/Hindsight",
+  "rootCargoToml": false,
+  "sha": "d0200cf9aa101d39c139c49286307abbcdce5d23",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "gaplo917/GapStyle",
+  "rootCargoToml": false,
+  "sha": "600ac4e41d70e4066fe07b24225a874c55647c98",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "mantle/Cargo.lock"
+  ],
+  "fullName": "blake-mealey/mantle",
+  "rootCargoToml": false,
+  "sha": "6103e6bc2ae3593bfe1b26e7ffd95ccbd68c3431",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "iammodev/YAKC",
+  "rootCargoToml": false,
+  "sha": "51f7b89908576bc46292b4c3f68951b15617b168",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "Rust/core/Cargo.lock"
+  ],
+  "fullName": "b-nnett/goose",
+  "rootCargoToml": false,
+  "sha": "ba9ae0280c9b5b9a1545baab8e944cb3b7563c62",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "PlayForm/Round",
+  "rootCargoToml": false,
+  "sha": "ebc16dcf96a96afde269a22fe4f0f3f99ae879b5",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "bindings/ruby/Cargo.lock",
+   "core/Cargo.lock",
+   "dev/Cargo.lock"
+  ],
+  "fullName": "apache/opendal",
+  "rootCargoToml": false,
+  "sha": "53610f898eb07e38803614ea6aa7cb20bcd0ddd3",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "rust/cli/Cargo.lock",
+   "rust/ffi/Cargo.lock",
+   "rust/gen/Cargo.lock",
+   "rust/lib/Cargo.lock",
+   "rust/rules/Cargo.lock",
+   "rust/tract-bench/Cargo.lock",
+   "rust/tract-runtime/Cargo.lock"
+  ],
+  "fullName": "google/magika",
+  "rootCargoToml": false,
+  "sha": "ad29c5bf7c45d76d56fc9ecf1483ea0b04d2d8e2",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "server/Cargo.lock"
+  ],
+  "fullName": "scottlamb/moonfire-nvr",
+  "rootCargoToml": false,
+  "sha": "43d8a7e43a01a413ad8cd1b6b0acbebae0a3f8d9",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "ble-ssh-client/Cargo.lock",
+   "rust/Cargo.lock"
+  ],
+  "fullName": "PiSugar/sugar-wifi-conf",
+  "rootCargoToml": false,
+  "sha": "956d493be87b928688bd08a87f5851fb8ef0fcba",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "locus_native_plugin/Cargo.lock",
+   "scripts/tests/unity-property/yaml-driver/Cargo.lock",
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "r1n7aro/Locus",
+  "rootCargoToml": false,
+  "sha": "6074316c8cd9366e4cb92383a1661d5e7e20974e",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "k8s/Cargo.lock",
+   "rust/Cargo.lock"
+  ],
+  "fullName": "PersiaML/PERSIA",
+  "rootCargoToml": false,
+  "sha": "ff754b803b2ef1f5dc3f983628960a80986a734a",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "plugins/com.amansprojects.starterpack.sdPlugin/Cargo.lock",
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "nekename/OpenDeck",
+  "rootCargoToml": false,
+  "sha": "7cc07942ef4a0d4d04d3011fac3f82626a211cfb",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "scripts/Cargo.lock"
+  ],
+  "fullName": "amll-dev/amll-ttml-db",
+  "rootCargoToml": false,
+  "sha": "018ce738e2451cb13d6eb4fc9a393f5cc474838e",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "OnlistTeam/ai-manager",
+  "rootCargoToml": false,
+  "sha": "96ccd3800dcae0b05c8c21122a3365f99bf860e2",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "codex-rs/Cargo.lock",
+   "tools/argument-comment-lint/Cargo.lock"
+  ],
+  "fullName": "deonmenezes/mantishack",
+  "rootCargoToml": false,
+  "sha": "c3a2e68e57909a2fa88b2d630d2b1fc132f7aac7",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "dropship/Cargo.lock"
+  ],
+  "fullName": "stowmyy/dropship",
+  "rootCargoToml": false,
+  "sha": "b192904170d2c1ef1a5a79d3790be7f25bfa7558",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "packages/compiler-rs/Cargo.lock"
+  ],
+  "fullName": "vuejs/vue-jsx-vapor",
+  "rootCargoToml": false,
+  "sha": "565c2612695dbc82b822c97cb2081c05379ca70f",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "backend/Cargo.lock"
+  ],
+  "fullName": "SinTan1729/chhoto-url",
+  "rootCargoToml": false,
+  "sha": "e8c9b6c56cce412402504cb660ae2e4c7992feaa",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "command/Cargo.lock"
+  ],
+  "fullName": "lichess-org/lila-docker",
+  "rootCargoToml": false,
+  "sha": "79ddf7a63338c9a6c4bee17a09163705719fc9bb",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "build/Cargo.lock"
+  ],
+  "fullName": "braver/FileIcons",
+  "rootCargoToml": false,
+  "sha": "c9dba182e50462e8d732cd39ea9105e560d9372f",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "desktop/tauri/Cargo.lock",
+   "rust/Cargo.lock"
+  ],
+  "fullName": "ip2a/mcpstore",
+  "rootCargoToml": false,
+  "sha": "41c7de68ada25798cd09180e60ddbd55fb704720",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "oxidecomputer/oxide-and-friends",
+  "rootCargoToml": false,
+  "sha": "b2328557f530325bdc66d0e32b460ac661a6d207",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src/rust/Cargo.lock"
+  ],
+  "fullName": "yutannihilation/string2path",
+  "rootCargoToml": false,
+  "sha": "cc0cb1f5ed31b323e11be41e6f98e89e898258be",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "ad-si/Coding-Flashcards",
+  "rootCargoToml": false,
+  "sha": "b652c2a281c199538e275e7e00535a68e27ed515",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock",
+   "src-tauri/peer-l0/Cargo.lock",
+   "tests/portal-chooser/fake-portal/Cargo.lock"
+  ],
+  "fullName": "axpdev-lab/aeroftp",
+  "rootCargoToml": false,
+  "sha": "325a4d6d594505c59f8edbab244efbd8ed77d85b",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "PBhadoo/QDM",
+  "rootCargoToml": false,
+  "sha": "9ea7d9e6eb846837307cbdfcc0b566eae9714e66",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "therustybits/zero-to-async",
+  "rootCargoToml": false,
+  "sha": "082d31e7e2e429dd8dcc1bfb2d6fd7ac320eb05f",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "ZMGID/kivio",
+  "rootCargoToml": false,
+  "sha": "54b43bc43bcf93cfb1dd76758a129e611c3d70f8",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "scraper/Cargo.lock",
+   "server/Cargo.lock"
+  ],
+  "fullName": "NotNite/eightyeightthirtyone",
+  "rootCargoToml": false,
+  "sha": "3fc68f2df242c330aa353d136d7761bdbeccf3dd",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "apache/teaclave-sgx-sdk",
+  "rootCargoToml": false,
+  "sha": "f51f56da67fccd919b5dafee9c35d6881a8e15d8",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "camera_hub/Cargo.lock",
+   "config_tool/Cargo.lock",
+   "deploy/src-tauri/Cargo.lock",
+   "reset/Cargo.lock",
+   "server/Cargo.lock",
+   "toggle/Cargo.lock",
+   "update/Cargo.lock"
+  ],
+  "fullName": "secluso/core",
+  "rootCargoToml": false,
+  "sha": "9e412b5baf691fb1284a159be6ad2fcb1bbfad8f",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "EcoPasteHub/EcoPaste",
+  "rootCargoToml": false,
+  "sha": "5139d30b0f4c1309356a9b308c05092f1038bc9b",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock",
+   "src-tauri/fuzz/Cargo.lock"
+  ],
+  "fullName": "kristofferR/IPTVChecker",
+  "rootCargoToml": false,
+  "sha": "1b68e241574e5256582c95f68ae2dd56dd9e8d3c",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "mrjackwills/obliqoro",
+  "rootCargoToml": false,
+  "sha": "0965657c62b748ca8e606fc9b152cb493a206972",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock",
+   "vendor/tao/Cargo.lock"
+  ],
+  "fullName": "jerrywu001/cc-sessions-viewer",
+  "rootCargoToml": false,
+  "sha": "c81f59223af22893d2d5da5c77d3b2c3af0a20a3",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "rust/Cargo.lock"
+  ],
+  "fullName": "sudoprivacy/sudocode",
+  "rootCargoToml": false,
+  "sha": "314e5574fe1b994063ef1242d8d4fde8fcf84172",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "moyangzhan/mango-finder",
+  "rootCargoToml": false,
+  "sha": "a516ebac5809f5bdd8e57953ab2ba497c8156dc5",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "WilliamVenner/gmpublisher",
+  "rootCargoToml": false,
+  "sha": "0f0e4e49598547d262f35e37cade7932d226161e",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "nix/network-status/Cargo.lock"
+  ],
+  "fullName": "nix-community/nixos-images",
+  "rootCargoToml": false,
+  "sha": "079349fa2e5bbb103eb0226cb27915cf1c0d6f05",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "dckxx/x-hub",
+  "rootCargoToml": false,
+  "sha": "0eaec017070f26a567f4049ddc0d2da44469f469",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "Taoidle/plan-cascade",
+  "rootCargoToml": false,
+  "sha": "5223f821b6ec1bfa826842382530f656d4621ba0",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "crates/api-desc/Cargo.lock",
+   "crates/api-macro/Cargo.lock",
+   "crates/api/Cargo.lock",
+   "crates/board/Cargo.lock",
+   "crates/board/crates/syscall-test/Cargo.lock",
+   "crates/cli-tools/Cargo.lock",
+   "crates/cli/Cargo.lock",
+   "crates/common/Cargo.lock",
+   "crates/error/Cargo.lock",
+   "crates/interpreter/Cargo.lock",
+   "crates/logger/Cargo.lock",
+   "crates/one-of/Cargo.lock",
+   "crates/prelude/Cargo.lock",
+   "crates/protocol-tokio/Cargo.lock",
+   "crates/protocol-usb/Cargo.lock",
+   "crates/protocol/Cargo.lock",
+   "crates/protocol/crates/schema/Cargo.lock",
+   "crates/runner-host/Cargo.lock",
+   "crates/runner-host/crates/web-client/Cargo.lock",
+   "crates/runner-host/crates/web-common/Cargo.lock",
+   "crates/runner-host/crates/web-server/Cargo.lock",
+   "crates/runner-nordic/Cargo.lock",
+   "crates/runner-nordic/crates/ble-adv/Cargo.lock",
+   "crates/runner-nordic/crates/bootloader/Cargo.lock",
+   "crates/runner-nordic/crates/header/Cargo.lock",
+   "crates/runner-opentitan/Cargo.lock",
+   "crates/runner-opentitan/crates/earlgrey/Cargo.lock",
+   "crates/runner-opentitan/crates/earlgrey/crates/generate/Cargo.lock",
+   "crates/runner-opentitan/crates/register/Cargo.lock",
+   "crates/scheduler/Cargo.lock",
+   "crates/slice-cell/Cargo.lock",
+   "crates/slice-cell/fuzz/Cargo.lock",
+   "crates/store/Cargo.lock",
+   "crates/store/fuzz/Cargo.lock",
+   "crates/stub/Cargo.lock",
+   "crates/sync/Cargo.lock",
+   "crates/webui/Cargo.lock",
+   "crates/wire-derive/Cargo.lock",
+   "crates/wire/Cargo.lock",
+   "crates/wire/fuzz/Cargo.lock",
+   "crates/xtask/Cargo.lock",
+   "examples/rust/blink/Cargo.lock",
+   "examples/rust/blink_periodic/Cargo.lock",
+   "examples/rust/button/Cargo.lock",
+   "examples/rust/button_abort/Cargo.lock",
+   "examples/rust/cbc_test/Cargo.lock",
+   "examples/rust/ccm/Cargo.lock",
+   "examples/rust/ctap/Cargo.lock",
+   "examples/rust/ec_test/Cargo.lock",
+   "examples/rust/ec_test/crates/ecdh_vectors/Cargo.lock",
+   "examples/rust/ec_test/crates/ecdsa_vectors/Cargo.lock",
+   "examples/rust/ec_test/crates/opentitan/Cargo.lock",
+   "examples/rust/ecdh_test/Cargo.lock",
+   "examples/rust/ecdsa_test/Cargo.lock",
+   "examples/rust/echo/Cargo.lock",
+   "examples/rust/ed25519_test/Cargo.lock",
+   "examples/rust/exercises/client/Cargo.lock",
+   "examples/rust/exercises/interface/Cargo.lock",
+   "examples/rust/exercises/part-1-sol/Cargo.lock",
+   "examples/rust/exercises/part-1/Cargo.lock",
+   "examples/rust/exercises/part-2-sol/Cargo.lock",
+   "examples/rust/exercises/part-2/Cargo.lock",
+   "examples/rust/exercises/part-3-sol/Cargo.lock",
+   "examples/rust/exercises/part-3/Cargo.lock",
+   "examples/rust/exercises/part-4-sol/Cargo.lock",
+   "examples/rust/exercises/part-4/Cargo.lock",
+   "examples/rust/exercises/part-5-sol/Cargo.lock",
+   "examples/rust/exercises/part-5/Cargo.lock",
+   "examples/rust/exercises/part-6-sol/Cargo.lock",
+   "examples/rust/exercises/part-6/Cargo.lock",
+   "examples/rust/exercises/part-7-sol/Cargo.lock",
+   "examples/rust/exercises/part-7/Cargo.lock",
+   "examples/rust/fingerprint/Cargo.lock",
+   "examples/rust/fingerprint/common/Cargo.lock",
+   "examples/rust/fingerprint/host/Cargo.lock",
+   "examples/rust/gcm_test/Cargo.lock",
+   "examples/rust/gpio_ctrl/Cargo.lock",
+   "examples/rust/gpio_test/Cargo.lock",
+   "examples/rust/hash_test/Cargo.lock",
+   "examples/rust/hello/Cargo.lock",
+   "examples/rust/hsm/Cargo.lock",
+   "examples/rust/hsm/common/Cargo.lock",
+   "examples/rust/hsm/host/Cargo.lock",
+   "examples/rust/led/Cargo.lock",
+   "examples/rust/link_test/Cargo.lock",
+   "examples/rust/memory_game/Cargo.lock",
+   "examples/rust/nordic_ble_adv/Cargo.lock",
+   "examples/rust/nordic_ble_adv/host/Cargo.lock",
+   "examples/rust/oom/Cargo.lock",
+   "examples/rust/panic/Cargo.lock",
+   "examples/rust/perf/Cargo.lock",
+   "examples/rust/protocol/Cargo.lock",
+   "examples/rust/protocol/host/Cargo.lock",
+   "examples/rust/rand/Cargo.lock",
+   "examples/rust/reboot/Cargo.lock",
+   "examples/rust/rng_test/Cargo.lock",
+   "examples/rust/store/Cargo.lock",
+   "examples/rust/store_test/Cargo.lock",
+   "examples/rust/sync_test/Cargo.lock",
+   "examples/rust/syscall_test/Cargo.lock",
+   "examples/rust/timer/Cargo.lock",
+   "examples/rust/timer_test/Cargo.lock",
+   "examples/rust/uart_usb/Cargo.lock",
+   "examples/rust/update/Cargo.lock",
+   "examples/rust/update/host/Cargo.lock",
+   "examples/rust/version/Cargo.lock"
+  ],
+  "fullName": "google/wasefire",
+  "rootCargoToml": false,
+  "sha": "91b29bacb248f90ce74b88116509adcc5e0aa30b",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "flatgeobuf/flatgeobuf",
+  "rootCargoToml": false,
+  "sha": "92bfe8e5f2c6eb68a605653bdc8738d9a8ebd412",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "Rust By Example/Cargo.lock"
+  ],
+  "fullName": "cheatsheet1999/CloudCollection",
+  "rootCargoToml": false,
+  "sha": "c939d9583bf3a916db11257b8fc23b1a1e7edbea",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "gameimage/gameimage",
+  "rootCargoToml": false,
+  "sha": "90e2a6c0a926d2ae3119f1b947a022c943f39662",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "tauri/Cargo.lock"
+  ],
+  "fullName": "coulsontl/ai-toolbox",
+  "rootCargoToml": false,
+  "sha": "23763bd5346608b3dee602ebc52d53b0148f9183",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "diri/Cargo.lock"
+  ],
+  "fullName": "cristicretu/diri",
+  "rootCargoToml": false,
+  "sha": "21342274559e688fe508937bb7a9489e6ee69fad",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "lidailin0730/CipherNebula",
+  "rootCargoToml": false,
+  "sha": "5def14fc1c1c98bcad53c6e497ae112c6dff672d",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "QuipNetwork/quip-node-manager",
+  "rootCargoToml": false,
+  "sha": "3fd4ab9422b8ec5efabb0ec9ad2340874c2917c3",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "client/Cargo.lock"
+  ],
+  "fullName": "canonical/myna",
+  "rootCargoToml": false,
+  "sha": "97f7694fcf5d8175243b2cdcddc5da5a7d507b73",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "Rust/Cargo.lock"
+  ],
+  "fullName": "Auburn/FastNoiseLite",
+  "rootCargoToml": false,
+  "sha": "785f37a9ad76e283586a379675085f2063ae03f7",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "src-tauri/Cargo.lock"
+  ],
+  "fullName": "jsnli/Samira",
+  "rootCargoToml": false,
+  "sha": "a7ea364efbc6e2676abc8a8ec12042929b66790a",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "spec/Cargo.lock",
+   "uvclang/Cargo.lock",
+   "vm/Cargo.lock"
+  ],
+  "fullName": "maximecb/uvm",
+  "rootCargoToml": false,
+  "sha": "030afd1fd6cc93a13b6465fd10abab4426da7bf0",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [
+   "rust/Cargo.lock"
+  ],
+  "fullName": "Shopify/rubydex",
+  "rootCargoToml": false,
+  "sha": "6b1c88368a71a5cb0fa4508a883e9a836aeb4ee5",
+  "truncated": false
+ },
+ {
+  "cargoLocks": [],
+  "fullName": "mine-Proxy/TCMinerSystem",
+  "rootCargoToml": false,
+  "sha": "a0ce6fb77b733f36ee7266271ad5a7c0defc8217",
+  "truncated": false
+ }
+]

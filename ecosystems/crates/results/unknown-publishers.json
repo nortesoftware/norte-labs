@@ -1,0 +1,2805 @@
+{
+ "readAt": "2026-10-01T19:07:37Z",
+ "versions": [
+  {
+   "crate": "Inflector",
+   "version": "0.11.4",
+   "createdAt": "2019-01-20T20:55:29.171696Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "accelerate-src",
+   "version": "0.3.2",
+   "createdAt": "2018-10-08T20:12:21.702809Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "accept-language",
+   "version": "2.0.0",
+   "createdAt": "2019-01-11T05:53:22.933840Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "aho-corasick",
+   "version": "0.5.3",
+   "createdAt": "2016-09-11T18:33:13.940230Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "alac",
+   "version": "0.5.0",
+   "createdAt": "2018-02-18T18:31:18.190705Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ansi_term",
+   "version": "0.11.0",
+   "createdAt": "2018-03-02T02:20:21.804933Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "antidote",
+   "version": "1.0.0",
+   "createdAt": "2016-05-21T19:42:12.837697Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "app_dirs",
+   "version": "1.2.1",
+   "createdAt": "2018-03-29T23:31:48.316616Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "argparse",
+   "version": "0.2.2",
+   "createdAt": "2018-08-31T07:02:28.215040Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "array-init",
+   "version": "0.0.4",
+   "createdAt": "2018-07-23T19:59:27.876237Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "array_tool",
+   "version": "1.0.3",
+   "createdAt": "2018-03-13T20:24:46.767235Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ascii",
+   "version": "0.8.7",
+   "createdAt": "2018-04-05T07:13:50.257447Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ascii_tree",
+   "version": "0.1.1",
+   "createdAt": "2018-06-05T19:32:11.051160Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ascii_utils",
+   "version": "0.9.3",
+   "createdAt": "2017-01-31T11:02:59.368219Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "assert_approx_eq",
+   "version": "1.1.0",
+   "createdAt": "2018-12-19T22:58:07.088910Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "base32",
+   "version": "0.4.0",
+   "createdAt": "2018-10-23T18:06:32.254353Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "base64",
+   "version": "0.10.1",
+   "createdAt": "2019-01-25T03:12:28.910446Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "base64",
+   "version": "0.9.3",
+   "createdAt": "2018-09-14T14:32:51.474571Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "bencher",
+   "version": "0.1.5",
+   "createdAt": "2018-01-06T23:31:48.738255Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "bit",
+   "version": "0.1.1",
+   "createdAt": "2017-04-12T10:31:36.240428Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "bitflags",
+   "version": "0.7.0",
+   "createdAt": "2016-05-15T00:03:44.183249Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "bitops",
+   "version": "0.1.0",
+   "createdAt": "2018-06-27T16:25:00.859746Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "blake2-rfc",
+   "version": "0.2.18",
+   "createdAt": "2017-11-24T23:29:27.352677Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "block",
+   "version": "0.1.6",
+   "createdAt": "2016-05-08T18:37:19.417724Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "boolinator",
+   "version": "2.4.0",
+   "createdAt": "2016-08-31T02:33:12.746553Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "box_drawing",
+   "version": "0.1.2",
+   "createdAt": "2018-04-08T00:11:41.413819Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "boxfnonce",
+   "version": "0.1.1",
+   "createdAt": "2019-02-02T11:08:54.189214Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "bresenham",
+   "version": "0.1.1",
+   "createdAt": "2016-08-14T11:07:55.917603Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "broadcast",
+   "version": "0.1.0",
+   "createdAt": "2015-12-15T04:06:26.541839Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "bufstream",
+   "version": "0.1.4",
+   "createdAt": "2018-09-27T20:32:56.187024Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "build-helper",
+   "version": "0.1.1",
+   "createdAt": "2017-05-12T04:38:27.486182Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "byte-tools",
+   "version": "0.3.1",
+   "createdAt": "2019-01-28T14:52:53.093902Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "byte_string",
+   "version": "1.0.0",
+   "createdAt": "2016-09-26T00:50:24.486801Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "byteorder",
+   "version": "0.5.3",
+   "createdAt": "2016-06-01T13:16:09.993407Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "c_linked_list",
+   "version": "1.1.1",
+   "createdAt": "2018-06-21T08:46:23.254251Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "cache_line_size",
+   "version": "1.0.0",
+   "createdAt": "2018-10-14T16:54:38.008127Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "case",
+   "version": "1.0.0",
+   "createdAt": "2018-11-21T00:18:11.127883Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "cassowary",
+   "version": "0.3.0",
+   "createdAt": "2017-09-13T20:04:34.589162Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "cblas-sys",
+   "version": "0.1.4",
+   "createdAt": "2017-11-18T05:37:09.893154Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "cdg",
+   "version": "0.1.0",
+   "createdAt": "2016-09-14T11:23:42.693948Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "cesu8",
+   "version": "1.1.0",
+   "createdAt": "2016-05-15T12:20:41.086989Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "chacha",
+   "version": "0.3.0",
+   "createdAt": "2019-01-27T14:15:28.460711Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "chrono",
+   "version": "0.2.25",
+   "createdAt": "2016-08-03T18:46:22.687783Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "chunked_transfer",
+   "version": "0.3.1",
+   "createdAt": "2015-05-05T00:33:43.736965Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "clipboard",
+   "version": "0.5.0",
+   "createdAt": "2018-09-22T21:58:38.810943Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "clippy",
+   "version": "0.0.302",
+   "createdAt": "2018-10-05T19:39:15.372568Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "cloudabi",
+   "version": "0.0.3",
+   "createdAt": "2018-01-10T19:45:23.861379Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "common-path",
+   "version": "1.0.0",
+   "createdAt": "2018-11-15T17:24:59.600108Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "commoncrypto-sys",
+   "version": "0.2.0",
+   "createdAt": "2017-01-24T07:40:11.452135Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "commoncrypto",
+   "version": "0.2.0",
+   "createdAt": "2017-01-24T07:40:25.833219Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "compare",
+   "version": "0.0.6",
+   "createdAt": "2015-04-07T18:42:32.777373Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "compare",
+   "version": "0.1.0",
+   "createdAt": "2016-08-11T10:50:11.759198Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "concat-string",
+   "version": "1.0.1",
+   "createdAt": "2018-07-01T09:25:36.652367Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "content_inspector",
+   "version": "0.2.4",
+   "createdAt": "2018-11-04T16:27:15.394881Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "conv",
+   "version": "0.3.3",
+   "createdAt": "2016-03-30T07:03:54.758483Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "core-foundation-sys",
+   "version": "0.6.2",
+   "createdAt": "2018-09-28T17:46:19.778984Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "core-graphics",
+   "version": "0.17.3",
+   "createdAt": "2018-11-05T18:37:30.893851Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "cpu-monitor",
+   "version": "0.1.1",
+   "createdAt": "2018-09-02T08:30:33.960320Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "crc16",
+   "version": "0.4.0",
+   "createdAt": "2018-05-28T09:15:47.613118Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "crc24",
+   "version": "0.1.6",
+   "createdAt": "2015-04-03T21:00:33.606578Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "crc8",
+   "version": "0.1.1",
+   "createdAt": "2016-04-21T14:12:45.111345Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "crc",
+   "version": "1.8.1",
+   "createdAt": "2018-04-24T08:42:17.436120Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "crypto-mac",
+   "version": "0.7.0",
+   "createdAt": "2018-10-01T17:09:23.012105Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "css-color-parser",
+   "version": "0.1.2",
+   "createdAt": "2017-06-10T15:16:34.077271Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "cupid",
+   "version": "0.6.1",
+   "createdAt": "2018-10-07T22:57:53.581704Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "custom_derive",
+   "version": "0.1.7",
+   "createdAt": "2016-11-21T05:04:37.771915Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "data-url",
+   "version": "0.1.0",
+   "createdAt": "2018-02-02T09:20:35.995542Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "dconf_rs",
+   "version": "0.3.0",
+   "createdAt": "2018-10-20T12:07:31.048672Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "deb-version",
+   "version": "0.1.1",
+   "createdAt": "2019-02-09T12:05:48.001484Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "derefable",
+   "version": "0.1.0",
+   "createdAt": "2019-01-23T14:45:22.548142Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "detect-desktop-environment",
+   "version": "0.2.0",
+   "createdAt": "2017-12-02T20:05:40.941393Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "difference",
+   "version": "2.0.0",
+   "createdAt": "2018-01-23T17:31:55.462599Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "difflib",
+   "version": "0.4.0",
+   "createdAt": "2018-07-22T12:47:54.378558Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "discard",
+   "version": "1.0.4",
+   "createdAt": "2018-09-17T14:52:43.098542Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "dot",
+   "version": "0.1.4",
+   "createdAt": "2018-04-27T18:24:34.474627Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "downcast",
+   "version": "0.10.0",
+   "createdAt": "2019-02-13T11:10:10.910164Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "dw-sys",
+   "version": "0.1.0",
+   "createdAt": "2019-01-28T05:09:03.911933Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "dxgi",
+   "version": "0.1.7",
+   "createdAt": "2018-04-27T05:29:43.717358Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "eager",
+   "version": "0.1.0",
+   "createdAt": "2018-07-07T21:31:15.671940Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "edid",
+   "version": "0.3.0",
+   "createdAt": "2019-01-19T12:41:36.962176Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "egl",
+   "version": "0.2.7",
+   "createdAt": "2016-12-06T02:34:54.404250Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "elf",
+   "version": "0.0.10",
+   "createdAt": "2016-09-23T04:30:40.821140Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "encoding-index-japanese",
+   "version": "1.20141219.5",
+   "createdAt": "2015-04-14T04:39:32.676251Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "encoding-index-korean",
+   "version": "1.20141219.5",
+   "createdAt": "2015-04-14T04:40:02.474061Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "encoding-index-simpchinese",
+   "version": "1.20141219.5",
+   "createdAt": "2015-04-14T04:40:45.061971Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "encoding-index-singlebyte",
+   "version": "1.20141219.5",
+   "createdAt": "2015-04-14T04:41:38.079771Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "encoding-index-tradchinese",
+   "version": "1.20141219.5",
+   "createdAt": "2015-04-14T04:41:19.787307Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "encoding",
+   "version": "0.2.33",
+   "createdAt": "2016-08-28T16:54:28.588718Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "encoding_index_tests",
+   "version": "0.1.4",
+   "createdAt": "2015-04-03T08:07:29.576100Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "endian-type",
+   "version": "0.1.2",
+   "createdAt": "2015-07-28T02:02:26.244854Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "entities",
+   "version": "1.0.1",
+   "createdAt": "2018-02-09T09:41:44.159731Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "enum-primitive-derive",
+   "version": "0.1.2",
+   "createdAt": "2017-08-31T21:15:18.527773Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "enum_primitive",
+   "version": "0.1.1",
+   "createdAt": "2017-01-09T01:07:32.180507Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "envfile",
+   "version": "0.2.1",
+   "createdAt": "2019-02-15T23:55:21.965034Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "error-chain",
+   "version": "0.10.0",
+   "createdAt": "2017-02-25T18:48:26.022309Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "error-chain",
+   "version": "0.11.0",
+   "createdAt": "2017-09-05T17:49:23.097335Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "euclid_macros",
+   "version": "0.1.0",
+   "createdAt": "2019-01-12T15:42:04.370758Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "exec",
+   "version": "0.3.1",
+   "createdAt": "2017-09-22T11:24:38.962911Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "exitcode",
+   "version": "1.1.2",
+   "createdAt": "2017-06-18T18:21:36.405587Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "expat-sys",
+   "version": "2.1.6",
+   "createdAt": "2018-09-20T13:40:31.973940Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fake-simd",
+   "version": "0.1.2",
+   "createdAt": "2016-12-25T02:41:39.196656Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fallible-streaming-iterator",
+   "version": "0.1.9",
+   "createdAt": "2018-05-02T20:02:49.746627Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fast-math",
+   "version": "0.1.1",
+   "createdAt": "2019-01-13T13:19:59.646837Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fast_chemail",
+   "version": "0.9.6",
+   "createdAt": "2019-02-15T12:02:40.474144Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fastcgi",
+   "version": "1.0.0",
+   "createdAt": "2018-04-22T03:14:54.665541Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "feature-probe",
+   "version": "0.1.1",
+   "createdAt": "2018-06-07T03:38:37.677492Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "file_diff",
+   "version": "1.0.0",
+   "createdAt": "2016-04-10T02:04:36.780310Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "float-ord",
+   "version": "0.2.0",
+   "createdAt": "2018-01-30T19:28:32.513995Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fmt2io",
+   "version": "0.1.0",
+   "createdAt": "2018-11-06T12:58:35.115709Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fnv",
+   "version": "1.0.6",
+   "createdAt": "2017-11-09T23:15:54.192466Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "foreign-types-shared",
+   "version": "0.1.1",
+   "createdAt": "2017-11-28T23:16:45.760735Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "foreign-types",
+   "version": "0.3.2",
+   "createdAt": "2017-11-28T23:17:39.115409Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "freetype",
+   "version": "0.4.1",
+   "createdAt": "2018-09-19T18:34:55.380026Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "from-pest",
+   "version": "0.3.1",
+   "createdAt": "2018-10-31T08:08:32.138748Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fs2",
+   "version": "0.4.3",
+   "createdAt": "2018-01-06T20:18:30.565584Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fsevent-sys",
+   "version": "2.0.1",
+   "createdAt": "2018-06-11T16:07:12.642544Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fsevent",
+   "version": "0.4.0",
+   "createdAt": "2018-06-11T16:10:01.173944Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ftp",
+   "version": "3.0.1",
+   "createdAt": "2018-04-15T17:51:16.707401Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fuchsia-cprng",
+   "version": "0.1.1",
+   "createdAt": "2019-02-05T19:31:52.132087Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fuchsia-zircon-sys",
+   "version": "0.3.3",
+   "createdAt": "2018-01-05T19:30:15.441663Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fuchsia-zircon",
+   "version": "0.3.3",
+   "createdAt": "2018-01-05T19:30:58.447867Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "futf",
+   "version": "0.1.4",
+   "createdAt": "2018-06-05T23:39:36.817066Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "futures-cpupool",
+   "version": "0.1.8",
+   "createdAt": "2018-01-02T06:28:14.258723Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fuzzy_match",
+   "version": "0.2.1",
+   "createdAt": "2018-08-25T09:00:41.019109Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "fxhash",
+   "version": "0.2.1",
+   "createdAt": "2017-07-29T19:02:18.664479Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "galvanic-assert",
+   "version": "0.8.7",
+   "createdAt": "2018-01-21T18:45:55.480473Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "gcc",
+   "version": "0.3.55",
+   "createdAt": "2018-10-08T22:06:05.796359Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "get_if_addrs-sys",
+   "version": "0.1.1",
+   "createdAt": "2018-06-21T12:36:35.814510Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "get_if_addrs",
+   "version": "0.5.3",
+   "createdAt": "2018-06-21T12:37:17.229115Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "gif",
+   "version": "0.9.2",
+   "createdAt": "2017-06-11T17:07:47.180041Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "gitignore",
+   "version": "1.0.6",
+   "createdAt": "2017-02-13T08:41:22.560598Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "glob",
+   "version": "0.2.11",
+   "createdAt": "2016-03-06T18:46:02.698562Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "gperftools",
+   "version": "0.2.0",
+   "createdAt": "2019-02-20T14:06:52.822601Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "groupable",
+   "version": "0.2.0",
+   "createdAt": "2015-04-03T18:06:42.018768Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "hamming",
+   "version": "0.1.3",
+   "createdAt": "2015-06-01T01:56:02.455705Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "hashers",
+   "version": "1.0.1",
+   "createdAt": "2018-10-10T23:02:34.164138Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "haversine",
+   "version": "0.2.1",
+   "createdAt": "2015-09-06T23:34:20.888644Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "heck",
+   "version": "0.3.1",
+   "createdAt": "2018-12-19T22:48:29.677603Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "hex",
+   "version": "0.3.2",
+   "createdAt": "2018-04-19T22:05:56.012671Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "hex_fmt",
+   "version": "0.3.0",
+   "createdAt": "2018-12-27T12:41:46.455922Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "histogram",
+   "version": "0.6.9",
+   "createdAt": "2018-05-02T18:17:36.609659Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "htmlescape",
+   "version": "0.3.1",
+   "createdAt": "2017-04-02T11:19:02.919352Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "humanize-rs",
+   "version": "0.1.5",
+   "createdAt": "2018-11-09T03:21:36.131383Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "hyper-old-types",
+   "version": "0.11.0",
+   "createdAt": "2018-08-15T21:57:46.185938Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "i2c-linux",
+   "version": "0.1.2",
+   "createdAt": "2018-11-18T19:39:09.144252Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "i2c",
+   "version": "0.1.0",
+   "createdAt": "2018-03-25T04:51:33.306453Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "id-arena",
+   "version": "2.2.1",
+   "createdAt": "2019-02-16T00:52:19.034325Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "id-set",
+   "version": "0.2.2",
+   "createdAt": "2017-10-03T05:14:56.046955Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "idna",
+   "version": "0.1.5",
+   "createdAt": "2018-07-06T12:39:51.583851Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ieee754",
+   "version": "0.2.6",
+   "createdAt": "2019-01-13T03:54:06.608135Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ifaces",
+   "version": "0.1.0",
+   "createdAt": "2017-03-17T18:29:09.596837Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "image",
+   "version": "0.12.4",
+   "createdAt": "2017-04-21T16:38:56.408939Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "inflate",
+   "version": "0.1.1",
+   "createdAt": "2016-04-29T16:09:14.235023Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "inflate",
+   "version": "0.4.5",
+   "createdAt": "2019-02-13T19:27:47.940278Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "inflections",
+   "version": "1.1.1",
+   "createdAt": "2017-09-14T17:51:25.170557Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "inotify-sys",
+   "version": "0.1.3",
+   "createdAt": "2018-07-26T09:09:23.026981Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "inotify",
+   "version": "0.7.0",
+   "createdAt": "2019-02-09T11:10:46.762816Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "internship",
+   "version": "0.6.0",
+   "createdAt": "2018-04-05T18:46:34.167250Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "interval-heap",
+   "version": "0.0.5",
+   "createdAt": "2016-01-05T16:19:50.504818Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ioctl-rs",
+   "version": "0.1.6",
+   "createdAt": "2017-11-20T03:15:41.727345Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "is-match",
+   "version": "0.1.0",
+   "createdAt": "2017-05-03T19:06:47.867234Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "isatty",
+   "version": "0.1.9",
+   "createdAt": "2018-09-07T16:09:28.937762Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "itertools-num",
+   "version": "0.1.3",
+   "createdAt": "2018-11-24T22:09:56.878836Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "itertools",
+   "version": "0.7.11",
+   "createdAt": "2018-11-24T08:53:37.849969Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "itoa",
+   "version": "0.3.4",
+   "createdAt": "2017-09-16T21:30:58.093298Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "jni-sys",
+   "version": "0.3.0",
+   "createdAt": "2017-07-21T03:03:42.609998Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "jsonrpc-core",
+   "version": "10.1.0",
+   "createdAt": "2019-02-13T08:30:29.133987Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "kernel32-sys",
+   "version": "0.2.2",
+   "createdAt": "2016-04-16T05:05:30.825379Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "keystream",
+   "version": "1.0.0",
+   "createdAt": "2016-03-06T02:52:47.212854Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "khronos",
+   "version": "0.1.2",
+   "createdAt": "2016-12-06T02:34:19.543989Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "language-tags",
+   "version": "0.2.2",
+   "createdAt": "2016-02-12T18:32:58.768002Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "lazy_static",
+   "version": "0.1.16",
+   "createdAt": "2016-04-11T21:31:49.831094Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "lazy_static",
+   "version": "0.2.11",
+   "createdAt": "2017-11-20T09:59:41.453585Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "lazycell",
+   "version": "1.2.1",
+   "createdAt": "2018-12-04T00:20:40.663399Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "leak",
+   "version": "0.1.2",
+   "createdAt": "2016-04-11T23:32:13.669760Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "leaky-cow",
+   "version": "0.1.1",
+   "createdAt": "2016-02-02T20:35:11.021502Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "libc-stdhandle",
+   "version": "0.1.0",
+   "createdAt": "2017-11-04T05:06:00.705676Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "libc",
+   "version": "0.1.12",
+   "createdAt": "2015-10-28T21:22:48.024978Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "libc",
+   "version": "0.2.47",
+   "createdAt": "2019-01-14T20:33:01.729887Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "libudev-sys",
+   "version": "0.1.4",
+   "createdAt": "2018-01-07T20:25:23.110146Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "libxdo-sys",
+   "version": "0.11.0",
+   "createdAt": "2017-01-30T15:10:42.133753Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "libxdo",
+   "version": "0.6.0",
+   "createdAt": "2017-02-03T09:47:49.604040Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "libz-sys",
+   "version": "1.0.25",
+   "createdAt": "2018-10-24T08:46:19.235575Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "line-wrap",
+   "version": "0.1.1",
+   "createdAt": "2018-10-27T19:08:44.686759Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "linear-map",
+   "version": "1.2.0",
+   "createdAt": "2017-07-26T18:17:51.428195Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "linux_proc",
+   "version": "0.1.1",
+   "createdAt": "2018-12-17T13:41:55.940576Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "log-mdc",
+   "version": "0.1.0",
+   "createdAt": "2016-10-04T03:41:00.944965Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "log",
+   "version": "0.3.9",
+   "createdAt": "2017-12-24T21:50:36.778771Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "logind-dbus",
+   "version": "0.1.1",
+   "createdAt": "2019-02-15T23:27:06.673711Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "lz_fnv",
+   "version": "0.1.2",
+   "createdAt": "2018-03-20T00:04:07.362169Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "lzw",
+   "version": "0.10.0",
+   "createdAt": "2016-02-28T18:58:07.077733Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "m3u",
+   "version": "1.0.0",
+   "createdAt": "2017-01-06T02:36:24.368863Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "mac",
+   "version": "0.1.1",
+   "createdAt": "2017-02-17T00:36:37.212039Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "malloc_buf",
+   "version": "0.0.6",
+   "createdAt": "2015-11-06T16:33:16.183418Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "man",
+   "version": "0.1.1",
+   "createdAt": "2018-11-07T09:29:15.230498Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "man",
+   "version": "0.3.0",
+   "createdAt": "2019-01-22T17:57:26.641957Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "marksman_escape",
+   "version": "0.1.2",
+   "createdAt": "2015-08-26T12:43:48.658989Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "matches",
+   "version": "0.1.8",
+   "createdAt": "2018-08-22T17:24:34.680174Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "md-5",
+   "version": "0.8.0",
+   "createdAt": "2018-10-02T10:38:53.843014Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "md5",
+   "version": "0.6.1",
+   "createdAt": "2018-12-14T19:36:48.755753Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "memchr",
+   "version": "0.1.11",
+   "createdAt": "2016-04-02T22:40:12.853649Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "memchr",
+   "version": "1.0.2",
+   "createdAt": "2017-10-21T11:48:11.339241Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "memmap",
+   "version": "0.7.0",
+   "createdAt": "2018-09-20T05:11:46.005513Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "memmem",
+   "version": "0.1.1",
+   "createdAt": "2016-05-01T10:15:48.015488Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "memory_units",
+   "version": "0.4.0",
+   "createdAt": "2018-02-23T15:03:59.847613Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "metadeps",
+   "version": "1.1.2",
+   "createdAt": "2017-05-30T06:20:19.246889Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "mime",
+   "version": "0.2.6",
+   "createdAt": "2017-05-29T17:50:20.601829Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "miow",
+   "version": "0.2.1",
+   "createdAt": "2017-03-10T05:32:24.142580Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "modifier",
+   "version": "0.1.0",
+   "createdAt": "2015-04-03T04:04:03.326561Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "mount",
+   "version": "0.4.0",
+   "createdAt": "2017-11-07T14:34:16.717060Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "mp4parse",
+   "version": "0.10.1",
+   "createdAt": "2018-03-23T04:53:20.273721Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "murmur3",
+   "version": "0.4.1",
+   "createdAt": "2018-03-17T17:05:22.799002Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "murmurhash32",
+   "version": "0.2.0",
+   "createdAt": "2018-12-17T10:10:22.671990Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "mustache",
+   "version": "0.9.0",
+   "createdAt": "2018-02-12T22:51:08.018312Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "mutagen",
+   "version": "0.1.2",
+   "createdAt": "2018-10-10T20:08:46.382301Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "natord",
+   "version": "1.0.9",
+   "createdAt": "2015-08-24T11:30:41.156579Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "net2",
+   "version": "0.2.33",
+   "createdAt": "2018-06-27T18:24:58.607381Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "newtype_derive",
+   "version": "0.1.6",
+   "createdAt": "2016-07-20T14:04:09.827412Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "nickel",
+   "version": "0.11.0",
+   "createdAt": "2019-01-15T22:47:10.208701Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "nix",
+   "version": "0.8.1",
+   "createdAt": "2017-04-17T02:59:29.473550Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "nom",
+   "version": "3.2.1",
+   "createdAt": "2017-10-27T10:00:26.170792Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "normalize-line-endings",
+   "version": "0.3.0",
+   "createdAt": "2018-12-16T15:17:15.641063Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "num-cmp",
+   "version": "0.1.0",
+   "createdAt": "2017-03-02T12:27:31.839910Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "num-traits",
+   "version": "0.1.43",
+   "createdAt": "2018-02-07T01:24:07.825089Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "numtoa",
+   "version": "0.1.0",
+   "createdAt": "2018-08-20T01:53:13.798563Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "objc-foundation",
+   "version": "0.1.1",
+   "createdAt": "2016-06-19T20:47:04.951799Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "objc_id",
+   "version": "0.1.1",
+   "createdAt": "2018-07-22T18:50:39.296097Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ole32-sys",
+   "version": "0.2.0",
+   "createdAt": "2015-10-17T08:49:58.915776Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "oncemutex",
+   "version": "0.1.1",
+   "createdAt": "2016-01-12T22:10:55.821412Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "openssl-probe",
+   "version": "0.1.2",
+   "createdAt": "2017-12-13T05:28:41.783251Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "optional",
+   "version": "0.5.0",
+   "createdAt": "2018-11-25T18:08:32.709560Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "order-stat",
+   "version": "0.1.3",
+   "createdAt": "2016-04-23T08:05:53.921377Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "os-release",
+   "version": "0.1.0",
+   "createdAt": "2018-11-02T17:13:49.744323Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "osascript",
+   "version": "0.3.0",
+   "createdAt": "2017-05-24T11:48:22.951242Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "owned-alloc",
+   "version": "0.2.0",
+   "createdAt": "2018-10-30T21:38:56.088626Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "panic-halt",
+   "version": "0.2.0",
+   "createdAt": "2018-09-09T21:40:39.341248Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "path-clean",
+   "version": "0.1.0",
+   "createdAt": "2018-11-06T01:13:18.641954Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "pathsep",
+   "version": "0.1.1",
+   "createdAt": "2018-11-19T22:08:00.217221Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "pdqselect",
+   "version": "0.1.0",
+   "createdAt": "2017-10-20T20:58:47.966678Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "peeking_take_while",
+   "version": "0.1.2",
+   "createdAt": "2017-05-17T18:38:02.585629Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "percent-encoding",
+   "version": "1.0.1",
+   "createdAt": "2017-11-11T09:44:36.558814Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "peresil",
+   "version": "0.3.0",
+   "createdAt": "2016-01-15T02:10:47.035266Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "pest-ast",
+   "version": "0.3.3",
+   "createdAt": "2018-10-31T22:09:38.941596Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "pest_derive",
+   "version": "2.1.0",
+   "createdAt": "2018-12-21T18:55:46.678385Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "phf",
+   "version": "0.7.24",
+   "createdAt": "2019-01-05T00:51:51.525262Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "phf_codegen",
+   "version": "0.7.24",
+   "createdAt": "2019-01-05T00:47:58.926544Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "phf_generator",
+   "version": "0.7.24",
+   "createdAt": "2019-01-05T00:47:41.636758Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "phf_shared",
+   "version": "0.7.24",
+   "createdAt": "2019-01-05T00:47:12.373286Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "plain",
+   "version": "0.2.3",
+   "createdAt": "2017-11-24T15:28:33.966750Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "plugin",
+   "version": "0.2.6",
+   "createdAt": "2015-04-22T03:49:25.270231Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "png",
+   "version": "0.6.2",
+   "createdAt": "2017-01-09T18:27:53.638592Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "pocket-resources",
+   "version": "0.3.2",
+   "createdAt": "2016-01-02T08:30:46.597677Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "podio",
+   "version": "0.1.6",
+   "createdAt": "2018-01-06T15:37:35.796642Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "pom",
+   "version": "1.1.0",
+   "createdAt": "2017-10-22T05:13:46.584071Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "prctl",
+   "version": "1.0.0",
+   "createdAt": "2015-10-13T01:30:49.743457Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "precomputed-hash",
+   "version": "0.1.1",
+   "createdAt": "2017-09-29T20:25:54.097804Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "quote",
+   "version": "0.3.15",
+   "createdAt": "2017-03-06T02:49:29.602398Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "radiotap",
+   "version": "1.3.0",
+   "createdAt": "2018-09-21T07:57:24.185465Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand",
+   "version": "0.3.23",
+   "createdAt": "2019-01-26T10:22:04.993065Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand",
+   "version": "0.4.6",
+   "createdAt": "2019-01-26T10:21:14.395663Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand",
+   "version": "0.5.6",
+   "createdAt": "2019-01-26T10:20:14.558184Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand",
+   "version": "0.6.5",
+   "createdAt": "2019-01-28T09:56:57.788327Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand_chacha",
+   "version": "0.1.1",
+   "createdAt": "2019-01-04T11:25:35.405932Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand_core",
+   "version": "0.3.1",
+   "createdAt": "2019-01-25T10:13:38.412651Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand_hc",
+   "version": "0.1.0",
+   "createdAt": "2018-10-30T09:53:01.939542Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand_isaac",
+   "version": "0.1.1",
+   "createdAt": "2018-11-26T10:54:29.694155Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rand_xorshift",
+   "version": "0.1.1",
+   "createdAt": "2019-01-04T11:32:02.352116Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rdrand",
+   "version": "0.4.0",
+   "createdAt": "2018-12-18T15:12:24.244361Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "read_color",
+   "version": "1.0.0",
+   "createdAt": "2017-10-19T09:00:13.004233Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "regex-syntax",
+   "version": "0.3.9",
+   "createdAt": "2016-10-27T22:01:35.902049Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "regex-syntax",
+   "version": "0.4.2",
+   "createdAt": "2017-12-30T20:38:54.105Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "regex",
+   "version": "0.1.80",
+   "createdAt": "2016-10-27T22:02:58.170473Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "resize-slice",
+   "version": "0.1.3",
+   "createdAt": "2018-05-13T01:38:58.283215Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "result",
+   "version": "1.0.0",
+   "createdAt": "2017-11-19T22:39:01.301903Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rev_slice",
+   "version": "0.1.5",
+   "createdAt": "2018-10-23T06:35:09.796500Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ritz",
+   "version": "0.1.0",
+   "createdAt": "2019-02-19T06:17:01.277264Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ritz_impl",
+   "version": "0.1.0",
+   "createdAt": "2019-02-19T06:16:47.865118Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rm",
+   "version": "0.3.2",
+   "createdAt": "2017-12-15T09:53:06.837778Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "roff",
+   "version": "0.1.0",
+   "createdAt": "2018-05-28T12:53:14.476526Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rust-crypto",
+   "version": "0.2.36",
+   "createdAt": "2016-05-20T05:40:27.059177Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rust-ini",
+   "version": "0.10.3",
+   "createdAt": "2018-02-23T06:42:01.726951Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rust-ini",
+   "version": "0.13.0",
+   "createdAt": "2018-10-04T08:56:21.349456Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rust-lzo",
+   "version": "0.6.2",
+   "createdAt": "2017-04-20T22:15:22.994169Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rustc-std-workspace-alloc",
+   "version": "1.0.0",
+   "createdAt": "2019-02-06T15:50:42.402765Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rustc-std-workspace-core",
+   "version": "1.0.0",
+   "createdAt": "2018-11-21T18:01:01.842213Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rustc_version",
+   "version": "0.1.7",
+   "createdAt": "2016-02-18T14:00:31.533202Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "rustc_version",
+   "version": "0.2.3",
+   "createdAt": "2018-08-03T15:49:36.309244Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "scoped_threadpool",
+   "version": "0.1.9",
+   "createdAt": "2018-02-20T21:53:55.075569Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "semver-parser",
+   "version": "0.7.0",
+   "createdAt": "2017-02-02T17:50:53.563598Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "semver",
+   "version": "0.1.20",
+   "createdAt": "2015-07-20T04:54:32.199964Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "semver",
+   "version": "0.6.0",
+   "createdAt": "2017-02-02T18:13:13.763125Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "semver",
+   "version": "0.9.0",
+   "createdAt": "2017-10-19T14:16:24.605465Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "sequence_trie",
+   "version": "0.3.6",
+   "createdAt": "2018-10-30T03:16:54.115703Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serde",
+   "version": "0.8.23",
+   "createdAt": "2017-01-20T23:26:25.425694Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serde",
+   "version": "0.9.15",
+   "createdAt": "2017-04-23T23:35:23.492836Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serde_ignored",
+   "version": "0.0.4",
+   "createdAt": "2017-05-21T06:56:56.405271Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serde_json",
+   "version": "0.9.10",
+   "createdAt": "2017-04-09T15:11:42.038050Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serde_yaml",
+   "version": "0.7.5",
+   "createdAt": "2018-06-11T01:37:02.761687Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serial-core",
+   "version": "0.4.0",
+   "createdAt": "2017-07-02T01:21:06.521742Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serial-unix",
+   "version": "0.4.0",
+   "createdAt": "2017-07-02T01:21:37.769136Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serial-windows",
+   "version": "0.4.0",
+   "createdAt": "2017-07-02T01:25:39.868824Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "serial",
+   "version": "0.4.0",
+   "createdAt": "2017-07-02T01:26:07.970417Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "servo-fontconfig",
+   "version": "0.4.0",
+   "createdAt": "2017-06-15T20:19:27.707253Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "servo-freetype-sys",
+   "version": "4.0.5",
+   "createdAt": "2018-12-12T15:45:42.522977Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "servo_arc",
+   "version": "0.1.1",
+   "createdAt": "2018-02-22T01:50:51.344763Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "sexp",
+   "version": "1.1.4",
+   "createdAt": "2016-10-13T01:10:21.909222Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "shannon",
+   "version": "0.2.0",
+   "createdAt": "2017-02-22T14:47:12.421208Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "shared_library",
+   "version": "0.1.9",
+   "createdAt": "2018-07-10T10:03:22.371521Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "shell32-sys",
+   "version": "0.1.2",
+   "createdAt": "2017-12-18T09:09:49.352467Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "shlex",
+   "version": "0.1.1",
+   "createdAt": "2015-06-23T01:20:41.333933Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "sig",
+   "version": "1.0.0",
+   "createdAt": "2016-09-13T20:34:10.641532Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "simplecss",
+   "version": "0.1.0",
+   "createdAt": "2017-01-14T18:14:03.493091Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "siphasher",
+   "version": "0.2.3",
+   "createdAt": "2018-07-30T20:13:09.116140Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "size_format",
+   "version": "1.0.2",
+   "createdAt": "2018-10-07T17:12:43.506786Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "slab",
+   "version": "0.4.2",
+   "createdAt": "2019-01-11T23:27:37.169511Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "slow_primes",
+   "version": "0.1.14",
+   "createdAt": "2015-05-16T13:02:39.189453Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "snailquote",
+   "version": "0.2.0",
+   "createdAt": "2019-01-03T01:44:32.112471Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "snax",
+   "version": "0.2.0",
+   "createdAt": "2019-02-19T06:15:43.580015Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "split-iter",
+   "version": "0.1.0",
+   "createdAt": "2016-08-28T21:28:59.768585Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "staticfile",
+   "version": "0.5.0",
+   "createdAt": "2017-12-10T03:28:39.048851Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "std-semaphore",
+   "version": "0.1.0",
+   "createdAt": "2016-07-15T20:26:15.016231Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "std_prelude",
+   "version": "0.2.12",
+   "createdAt": "2018-02-08T18:59:10.254202Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "str_stack",
+   "version": "0.1.0",
+   "createdAt": "2015-11-14T21:27:54.007198Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "string_cache_shared",
+   "version": "0.3.0",
+   "createdAt": "2016-11-02T13:45:14.525672Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "stringprep",
+   "version": "0.1.2",
+   "createdAt": "2017-08-01T05:00:59.327400Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "stringreader",
+   "version": "0.1.1",
+   "createdAt": "2017-09-14T18:55:24.098713Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "strsim",
+   "version": "0.8.0",
+   "createdAt": "2018-08-19T22:29:01.273529Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "subtle",
+   "version": "1.0.0",
+   "createdAt": "2018-09-25T23:53:56.862817Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "sxd-xpath",
+   "version": "0.4.2",
+   "createdAt": "2018-10-31T01:55:52.085366Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "symlink",
+   "version": "0.1.0",
+   "createdAt": "2017-01-27T06:32:44.213617Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "syn",
+   "version": "0.11.11",
+   "createdAt": "2017-04-20T17:13:09.115066Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "synom",
+   "version": "0.11.3",
+   "createdAt": "2017-03-01T23:55:10.132740Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "sysconf",
+   "version": "0.3.4",
+   "createdAt": "2018-08-29T20:27:14.930424Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "syslog",
+   "version": "4.0.1",
+   "createdAt": "2018-08-27T09:46:50.635654Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "take_mut",
+   "version": "0.2.2",
+   "createdAt": "2018-03-20T05:12:48.872959Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "target_build_utils",
+   "version": "0.3.1",
+   "createdAt": "2017-05-02T13:32:28.420065Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "tectonic_xdv",
+   "version": "0.1.8",
+   "createdAt": "2018-06-17T21:14:13.102280Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "tee",
+   "version": "0.1.0",
+   "createdAt": "2015-12-15T04:09:54.400966Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "tempdir",
+   "version": "0.3.7",
+   "createdAt": "2018-03-21T07:46:03.078845Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "tendril",
+   "version": "0.4.1",
+   "createdAt": "2018-12-07T13:28:22.715384Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "term",
+   "version": "0.4.6",
+   "createdAt": "2017-06-23T17:47:03.820174Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "termios",
+   "version": "0.2.2",
+   "createdAt": "2016-01-27T04:29:34.254678Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "testdrop",
+   "version": "0.1.2",
+   "createdAt": "2017-05-18T11:29:14.404591Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "textwrap",
+   "version": "0.11.0",
+   "createdAt": "2018-12-09T22:22:57.536513Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "thin-slice",
+   "version": "0.1.1",
+   "createdAt": "2018-07-17T02:23:28.023179Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "thread-id",
+   "version": "2.0.0",
+   "createdAt": "2016-04-09T09:59:49.561246Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "thread_local",
+   "version": "0.2.7",
+   "createdAt": "2016-09-17T00:51:29.229080Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "time",
+   "version": "0.1.42",
+   "createdAt": "2019-01-08T20:33:46.550386Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "timer",
+   "version": "0.1.6",
+   "createdAt": "2016-03-11T11:54:56.744672Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "timer",
+   "version": "0.2.0",
+   "createdAt": "2017-09-11T16:51:38.537899Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "tint",
+   "version": "1.0.1",
+   "createdAt": "2017-10-15T15:03:10.614360Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "toml",
+   "version": "0.2.1",
+   "createdAt": "2016-09-08T21:49:24.037469Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "traitobject",
+   "version": "0.1.0",
+   "createdAt": "2017-01-30T11:50:51.202760Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "try-lock",
+   "version": "0.2.2",
+   "createdAt": "2018-06-15T01:43:20.472972Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "try_from",
+   "version": "0.3.2",
+   "createdAt": "2018-11-28T21:28:25.033919Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ttl_cache",
+   "version": "0.5.1",
+   "createdAt": "2018-10-31T20:01:04.312777Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "twoway",
+   "version": "0.1.8",
+   "createdAt": "2018-03-19T21:22:34.084089Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "typeable",
+   "version": "0.1.2",
+   "createdAt": "2015-06-04T09:46:39.376683Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "typemap",
+   "version": "0.3.3",
+   "createdAt": "2015-06-12T23:38:39.547618Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "udev",
+   "version": "0.2.0",
+   "createdAt": "2017-12-03T19:49:29.311469Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "uname",
+   "version": "0.1.1",
+   "createdAt": "2016-10-11T18:23:38.774567Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unchecked-index",
+   "version": "0.2.2",
+   "createdAt": "2017-11-18T15:07:23.046290Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unescape",
+   "version": "0.1.0",
+   "createdAt": "2016-03-05T02:14:00.813945Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unicase",
+   "version": "1.4.2",
+   "createdAt": "2017-06-03T22:34:36.921650Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unicode-bidi",
+   "version": "0.3.4",
+   "createdAt": "2017-07-06T23:45:23.182722Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unicode-width",
+   "version": "0.1.5",
+   "createdAt": "2018-05-19T19:29:48.819306Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unicode-xid",
+   "version": "0.0.4",
+   "createdAt": "2016-12-24T00:04:16.026120Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unicode-xid",
+   "version": "0.1.0",
+   "createdAt": "2017-05-08T17:43:23.257438Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unicode_categories",
+   "version": "0.1.1",
+   "createdAt": "2016-10-22T17:57:09.493733Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unidecode",
+   "version": "0.3.0",
+   "createdAt": "2016-12-26T02:15:11.105231Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "uninitialized",
+   "version": "0.0.2",
+   "createdAt": "2016-07-09T19:43:57.572943Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unix_socket2",
+   "version": "0.5.4",
+   "createdAt": "2019-01-18T11:19:40.132999Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unix_socket",
+   "version": "0.5.0",
+   "createdAt": "2015-11-17T06:13:57.408422Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unreachable",
+   "version": "1.0.0",
+   "createdAt": "2017-05-09T20:54:44.587632Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "unsafe-any",
+   "version": "0.4.2",
+   "createdAt": "2017-05-25T22:07:17.910924Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "url",
+   "version": "1.7.2",
+   "createdAt": "2018-11-06T18:52:26.528175Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "utf-8",
+   "version": "0.7.5",
+   "createdAt": "2019-01-07T11:28:50.459975Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "utf8-ranges",
+   "version": "0.1.3",
+   "createdAt": "2015-10-17T05:51:10.576605Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "uuid",
+   "version": "0.6.5",
+   "createdAt": "2018-05-24T13:59:29.672258Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "varinteger",
+   "version": "1.0.6",
+   "createdAt": "2018-07-10T15:22:38.616663Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "vec_map",
+   "version": "0.8.1",
+   "createdAt": "2018-05-11T14:41:26.660758Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "version_check",
+   "version": "0.1.5",
+   "createdAt": "2018-09-23T19:42:52.755278Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "vlq",
+   "version": "0.5.1",
+   "createdAt": "2018-01-19T19:00:22.629266Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "void",
+   "version": "1.0.2",
+   "createdAt": "2016-04-18T07:21:21.674123Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "vswhom",
+   "version": "0.1.0",
+   "createdAt": "2019-01-17T20:30:57.136494Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "wait-timeout",
+   "version": "0.2.0",
+   "createdAt": "2018-11-23T13:55:33.627263Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "wasm-bindgen-console-logger",
+   "version": "0.1.1",
+   "createdAt": "2019-01-24T06:33:11.178416Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "winapi-build",
+   "version": "0.1.1",
+   "createdAt": "2015-07-31T19:31:28.551800Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "winapi-i686-pc-windows-gnu",
+   "version": "0.4.0",
+   "createdAt": "2018-01-18T00:55:38.910834Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "winapi-x86_64-pc-windows-gnu",
+   "version": "0.4.0",
+   "createdAt": "2018-01-18T00:55:12.008307Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "winapi",
+   "version": "0.2.8",
+   "createdAt": "2016-07-12T02:45:28.933499Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "winapi",
+   "version": "0.3.6",
+   "createdAt": "2018-09-21T10:44:31.494407Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "ws2_32-sys",
+   "version": "0.2.1",
+   "createdAt": "2015-11-11T21:08:47.275323Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "xattr",
+   "version": "0.2.2",
+   "createdAt": "2018-07-06T04:22:33.660362Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "xcb",
+   "version": "0.8.2",
+   "createdAt": "2018-02-25T12:58:41.306265Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "xdg",
+   "version": "2.2.0",
+   "createdAt": "2018-11-22T08:29:27.297201Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "xoshiro",
+   "version": "0.0.5",
+   "createdAt": "2019-01-14T09:27:02.312222Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "yaml-rust",
+   "version": "0.3.5",
+   "createdAt": "2016-11-25T09:16:28.054201Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "yansi",
+   "version": "0.5.0",
+   "createdAt": "2018-11-30T16:46:27.584198Z",
+   "publishedBy": null,
+   "trustpub": false
+  },
+  {
+   "crate": "zero",
+   "version": "0.1.2",
+   "createdAt": "2016-01-17T01:32:50.509135Z",
+   "publishedBy": null,
+   "trustpub": false
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+single-package roots 242; root dependencies in Cargo.lock = manifest: 239 of 242
+  differs aovestdipaperino/tokensave lock-only [] manifest-only ['libsql']
+  differs lbeckman314/mdbook-latex lock-only [] manifest-only ['pulldown-cmark-to-cmark']
+  differs happy-loki/codexhub lock-only [] manifest-only ['wxdragon']
