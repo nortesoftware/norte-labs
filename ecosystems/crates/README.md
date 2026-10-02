@@ -7,6 +7,11 @@ no publishers. This is the npm count again, over Rust: for each project, the cra
 `Cargo.lock` resolves from crates.io, who published each one, and how many of those publishers are
 behind no crate the project declared.
 
+The Cargo.lock and Cargo.toml files behind these cells, and what the count read from crates.io, are
+in [norte-labs dataset v2](https://doi.org/10.5281/zenodo.23090947), with the provenance of each
+file and a codebook; for the 33 projects whose repository has no license GitHub detects, the dataset
+holds a pointer to each file, not the file.
+
 Prior art: [../../prior-art/crates.md](../../prior-art/crates.md). Nobody was found counting
 publishers per project over a sample. The owners behind one project's graph have been printed
 before, one project at a time, with `cargo supply-chain`.

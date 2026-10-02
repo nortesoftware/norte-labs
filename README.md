@@ -85,12 +85,15 @@ Supply-chain security research and audits.
   sandbox, is built from: 548 versions of 501 crates in its `Cargo.lock`, 184 publishers against
   a median npm project's 165, and 227 accounts and 51 teams that own them. One project, not a
   sample.
-- [norte-labs dataset v1](https://doi.org/10.5281/zenodo.23047444) — the files behind
-  measurements/instruction-gap and ecosystems/go as published at `56f2443`: each project's lockfile,
-  or go.mod and go.sum, at its commit; the Go module graphs and the module proxy files that resolve
-  them offline; the provenance of each file with its Software Heritage identifier; and a codebook.
-  Files from repositories with no license GitHub detects are there as pointers. On Zenodo, CC BY
-  4.0 for what is compiled; the copied files keep their own licenses.
+- [norte-labs dataset v2](https://doi.org/10.5281/zenodo.23090947) — the files behind
+  measurements/instruction-gap, ecosystems/crates and ecosystems/go as published at `27395f5`: each
+  project's lockfile, Cargo.lock, or go.mod and go.sum, at its commit; what the crates count read
+  from crates.io, frozen; the Go module graphs and the module proxy files that resolve them offline;
+  the provenance of each file with its Software Heritage identifier; and a codebook. Files from
+  repositories with no license GitHub detects are there as pointers. Version 1
+  ([10.5281/zenodo.23047444](https://doi.org/10.5281/zenodo.23047444)) holds the npm and Go files as
+  published at `56f2443`, which version 2 keeps unchanged. On Zenodo, CC BY 4.0 for what is
+  compiled; the copied files keep their own licenses.
 
 ## Conventions
 
