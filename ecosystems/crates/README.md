@@ -122,8 +122,8 @@ versions, which never include the project's own code, so their share is one numb
 effect, the cluster-robust variance of the mean over the independent one, is 35.9; leaving out any
 one of the five largest clusters puts it between 26.6 and 43.3. With 17 clusters it is not stable
 enough to quote as a number. The medians and the per-cluster figures are the ones to cite, and the
-means are not 660 independent draws. The three measurements use different estimators and clusters,
-so their design effects are not compared.
+means are not 660 independent draws. The three measurements cluster on different frameworks, and
+npm's estimator differs from the one Go and crates share, so their design effects are not compared.
 
 | cluster | n | declared | publishers | never named |
 |---|---|---|---|---|
@@ -147,8 +147,9 @@ so their design effects are not compared.
 
 ## Figures
 
-Each figure, where it comes from. `results/` holds every input named here except the root manifests,
-which are at their commits.
+Each figure, where it comes from. `results/` holds every file named here. The root manifests are at
+their commits; the crates.io dump (sha256 below) and the API responses are not kept, and what was
+read from them is in `cells.ndjson`, `no-root-manifest.json` and `unknown-publishers.json`.
 
 | figure | field or computation | source | as of |
 |---|---|---|---|
@@ -163,12 +164,12 @@ which are at their commits.
 | 113.5 publishers | `publishers.total`: distinct `versions.published_by` logins, else the `gha:` or `gitlab:` trusted-publishing source | `cells.ndjson`; crates.io database dump (sha256 `bb4454ea72c2677bbdff6701d0cf69358051a5e825c74c05286bea75f1b3c00f`) and per-version API | dump of 2026-09-25 02:00 UTC; API read 2026-09-25 |
 | 7.5 trusted-publishing repositories | `publishers.trustedPublishing` | same | same |
 | 21 named; 79.0 % never named, over 658 | `publishers.behindDeclared`; `(total − behindDeclared) / total` over the cells with `resolved` > 0, which are the cells with a publisher | same | same |
-| 400 of 25,539 versions with no publisher, in 559 projects | `lookup.unknownPublisher`; distinct pairs with neither a login nor a trusted-publishing source | `cells.ndjson` | same |
+| 400 of 25,539 versions with no publisher, in 559 projects | the entries of `unknown-publishers.json`, distinct pairs with neither a login nor a trusted-publishing source; the distinct versions counted in `controls.txt`; cells with `lookup.unknownPublisher` > 0 | `unknown-publishers.json`, `controls.txt`, `cells.ndjson` | same |
 | all published between 2015-04-03 and 2019-02-20 | `createdAt` of each of the 400 | `unknown-publishers.json`, crates.io API | read 2026-10-01 |
 | recording from 2019-02-22 | merge date of rust-lang/crates.io#1621 | GitHub | read 2026-10-01 |
 | at most 118.5 | median of `publishers.total + lookup.unknownPublisher` | `cells.ndjson` | same |
 | 151 user owners, 33 teams | `owners.users`, `owners.teams`: owners of each resolved crate in the dump | `cells.ndjson`, `crate_owners` in the dump | dump of 2026-09-25 |
-| 102 without automation | `publishers.total − publishers.automation` | `cells.ndjson`, instruction-gap's name pattern | same |
+| 102 without automation | `publishers.total − publishers.automation`, which counts the pattern's matches and every trusted-publishing source; all of those but one `gitlab:` source match the pattern, and the pattern alone gives the same medians | `cells.ndjson`, instruction-gap's name pattern | same |
 | `rust-lang-owner` in 637 projects; 101 without it | cells whose `publishers.ids` hold it; the median above, less that account where present | `cells.ndjson` | same |
 | 548 of 660, 83.0 % [80.0–85.7] | cells with `publishers.trustedPublishing` > 0, Wilson 95 % | `cells.ndjson` | same |
 | npm: 892, 26, 604, 165, 18; 87 % over 881 | `declared.direct`, `resolved.versions`, `publishers.total`, `publishers.behindDirect`; median of `notChosen / total` over the cells with `lookup.registryVersions` > 0, 86.7 %, to the whole percent as instruction-gap publishes it | instruction-gap `results/cells.ndjson` | 2026-09-17 |
@@ -191,7 +192,7 @@ Medians and quartiles are interpolated between order statistics, as instruction-
   `results/declared-check.txt` compares the root package alone with its own `Cargo.toml`, for the
   roots that are a single package.
 - `results/no-root-manifest.json`: the 105 with no root `Cargo.toml`, listed again at their commits,
-  with every `Cargo.lock` in their trees.
+  with every `Cargo.lock` in their trees; `results/no-root-manifest.txt`, its counts.
 - `results/unknown-publishers.json`: the 400 versions with no recorded publisher, each with the
   `created_at` the API gave on 2026-10-01.
 - `src/`: `frame.py`, `sample.py`, `index_dump.py`, `compute.py`, `report.py`, `refetch.py`,
@@ -205,3 +206,8 @@ Medians and quartiles are interpolated between order statistics, as instruction-
   One of them has it in `deploy/src-tauri/`; 30 have it at the top of the repository.
 - The comparison with npm and Go gave the three shares without what each is over, or why Go's is a
   range and the others are not. It now gives both.
+
+### 2026-10-02
+
+- The design effect section said the three measurements use different estimators. Go and crates use
+  the same one; npm's differs, and the clusters differ in all three.
