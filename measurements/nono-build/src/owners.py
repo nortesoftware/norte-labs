@@ -13,7 +13,7 @@ cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
 def owners(name):
     if name in cache: return cache[name]
     url = f'https://crates.io/api/v1/crates/{name}/owners'
-    req = urllib.request.Request(url, headers={'User-Agent': 'norte-labs audit (chris@nortesoftware.dev)'})
+    req = urllib.request.Request(url, headers={'User-Agent': 'norte-labs measurement (chris@nortesoftware.dev)'})
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
             d = json.load(r)

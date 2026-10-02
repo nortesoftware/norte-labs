@@ -84,3 +84,9 @@ than a typical Rust tool's was not measured.
 - *Owners* said npm has no figure for the same question. npm's `npm owner` page says `ls` lists "all
   the users who have access to modify a package and push new versions". It now says instruction-gap
   has none: its 401 counts maintainers as each version recorded them.
+
+## Corrections, 2026-10-02
+
+- `src/owners.py` sent the User-Agent `norte-labs audit (chris@nortesoftware.dev)`; every other
+  script here sends `norte-labs measurement (chris@nortesoftware.dev)`, and now it does too. The
+  owners in `results/owners.json` were fetched on 2026-09-24 with the old string.
