@@ -63,7 +63,7 @@ Supply-chain security research and audits.
 - [ecosystems/crates/](ecosystems/crates/) — instruction-gap's count over Rust: 1,000 repositories
   from a frame of 9,372, 660 with a root `Cargo.lock`. A median project declares 30 crates and
   resolves versions from 113.5 publishers, naming 21. The median share of publishers it never named
-  is 79.0 %, over the 658 that resolve a crate from crates.io, against npm's 86.7 % and Go's 79.5 to
+  is 79.0 %, over the 658 that resolve a crate from crates.io, against npm's 87 % and Go's 79.5 to
   82.8 %, each over its projects with a dependency. 548 of the 660 resolve at least one version
   published through trusted publishing. Read from lockfiles and crates.io's database dump; nothing
   built.

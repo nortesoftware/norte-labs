@@ -98,7 +98,7 @@ publishing.
 | resolved, median | 604 versions | 81 modules | 319 versions |
 | parties, median | 165 publishers | 40 to 41 owners | **113.5 publishers** |
 | named, median | 18 | 7 to 8 | **21** |
-| never named, median share | 86.7 % | 79.5 to 82.8 % | **79.0 %** |
+| never named, median share | 87 % | 79.5 to 82.8 % | **79.0 %** |
 
 npm and crates count the same thing, the account that published each resolved version. Go has no
 publisher; its column counts the owner of the repository each module comes from
@@ -110,7 +110,7 @@ Each share is over the projects with at least one dependency: 881 of npm's 892, 
 registry version; 658 of the 660 here, which resolve a crate from crates.io; and 341 of Go's 360,
 which have a module besides their own. A median Rust project declares 30 crates and resolves
 versions from 113.5 publishers, of whom it names 21; the median share it never named is 79.0 %,
-against 86.7 % for npm and between 79.5 and 82.8 % for Go. Go's is a range because its count leaves
+against 87 % for npm and between 79.5 and 82.8 % for Go. Go's is a range because its count leaves
 out the project's own owner, and its cells do not record whether that owner also owns a dependency,
 so the owner may have to stay in or come out. npm and crates count only the publishers of registry
 versions, which never include the project's own code, so their share is one number.
@@ -171,7 +171,7 @@ which are at their commits.
 | 102 without automation | `publishers.total − publishers.automation` | `cells.ndjson`, instruction-gap's name pattern | same |
 | `rust-lang-owner` in 637 projects; 101 without it | cells whose `publishers.ids` hold it; the median above, less that account where present | `cells.ndjson` | same |
 | 548 of 660, 83.0 % [80.0–85.7] | cells with `publishers.trustedPublishing` > 0, Wilson 95 % | `cells.ndjson` | same |
-| npm: 892, 26, 604, 165, 18; 86.7 % over 881 | `declared.direct`, `resolved.versions`, `publishers.total`, `publishers.behindDirect`; `notChosen / total` over the cells with `lookup.registryVersions` > 0 | instruction-gap `results/cells.ndjson` | 2026-09-17 |
+| npm: 892, 26, 604, 165, 18; 87 % over 881 | `declared.direct`, `resolved.versions`, `publishers.total`, `publishers.behindDirect`; median of `notChosen / total` over the cells with `lookup.registryVersions` > 0, 86.7 %, to the whole percent as instruction-gap publishes it | instruction-gap `results/cells.ndjson` | 2026-09-17 |
 | Go: 360, 9, 81, 40 to 41, 7 to 8; 79.5 to 82.8 % over 341 | without the project itself; the share over the cells with `modules` > 1, its range from not knowing whether the project's owner also owns a dependency | ecosystems/go `results/cells.ndjson` and README | 2026-09-23 |
 | 17 clusters; Jaccard 0.271 and 0.228 | first declared framework marker; mean overlap of publisher sets over all pairs, within and across clusters | `cells.ndjson` | same |
 | ICC 0.445; design effect 35.9, 26.6 to 43.3 | one-way ANOVA ICC(1); cluster-robust over independent variance of the mean, and the same with each of the five largest clusters left out | `cells.ndjson`, `src/report.py` | same |
