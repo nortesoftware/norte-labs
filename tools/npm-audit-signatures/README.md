@@ -1,10 +1,12 @@
 # npm `audit signatures` — a partially verified tree reports like a fully verified one
 
-`npm audit signatures` verifies registry signatures and attestations for the installed tree. When
-a registry does not publish signing keys, the packages installed from it are skipped. The skip is
-intentional. What the command does not do is say how many packages it skipped, so a tree where
-some dependencies came from a keyless registry produces the same output shape and the same exit
-code as one where every dependency was checked.
+`npm audit signatures` verifies registry signatures and attestations for the installed tree. A
+package whose registry, the one the configuration names when the audit runs, publishes no signing
+keys is skipped when that registry's document for it carries neither signatures nor attestations;
+when it carries signatures, the command stops with `EMISSINGSIGNATUREKEY`. The skip is intentional.
+What the command does not do is say how many packages it skipped, so a tree where some
+dependencies come from such a registry produces the same output shape and the same exit code as one
+where every dependency was checked.
 
 Audited against npm 10.9.8, and run again on 12.1.0. Filed as a public issue,
 [npm/cli#10018](https://github.com/npm/cli/issues/10018), and deliberately not as a vulnerability
@@ -13,13 +15,18 @@ Audited against npm 10.9.8, and run again on 12.1.0. Filed as a public issue,
 ## What it does
 
 `lib/utils/verify-signatures.js` resolves each registry's keys before verifying. The lookup gives
-up quietly in two steps: `TUF_FIND_TARGET_ERROR` from the Sigstore TUF lookup returns `null`, and
-the lookup falls back to the registry's own `/-/npm/v1/keys`, where `E404` or `E400` returns
-`null` as well. A package is counted as `missing` a signature only inside `else if (keys.length)`,
-so with no keys for its registry a package is neither verified nor missing. `auditedWithKeysCount`
-counts only the packages that were checked against keys, and the summary is built from it.
+up in two steps, quietly on 10.9.8; from 11.2.0 the first logs a warning (below).
+`TUF_FIND_TARGET_ERROR` from the Sigstore TUF lookup returns `null`, and the lookup falls back to
+the registry's own `/-/npm/v1/keys`, where `E404` or `E400` returns `null` as well. A package is
+counted as `missing` a signature only inside `else if (keys.length)`, so with no keys for its
+registry a package whose document carries neither signatures nor attestations is neither verified
+nor missing. One whose document carries signatures makes pacote throw `EMISSINGSIGNATUREKEY`, and
+the command stops with exit 1; a mirror that copies npmjs's signatures, as npmmirror does for some
+versions, does that ([../../measurements/keyless-registries/](../../measurements/keyless-registries/)).
+`auditedWithKeysCount` counts only the packages that were checked against keys, and the summary is
+built from it.
 
-npm handles the total case correctly. If *nothing* in the tree could be audited:
+On 10.9.8 npm handles the total case correctly. If *nothing* in the tree could be audited:
 
 ```js
 if (!this.auditedWithKeysCount) {
@@ -27,6 +34,16 @@ if (!this.auditedWithKeysCount) {
                   'a supported registry')
 }
 ```
+
+From 11.11.0 ([npm/cli#9026](https://github.com/npm/cli/pull/9026)) the condition is
+`!this.auditedWithKeysCount && !this.verifiedAttestationCount`, and a keyless Sigstore attestation,
+which carries its own certificate, is verified without registry keys. In `repro-attestation.sh` a
+local registry that publishes no keys serves semver 7.8.5 with no signatures and, as its only
+attestation, the SLSA provenance from npmjs's, and a package with neither signatures nor
+attestations. 12.1.0 printed `audited 0 package` and `1 package has a verified attestation` and
+exited 0, with the second package counted nowhere; 10.9.8 stopped with `EMISSINGSIGNATUREKEY`.
+Without the attestation both gave "found no dependencies to audit" and exit 1. Other trees were not
+measured.
 
 ## Reproduced
 
@@ -57,11 +74,18 @@ head` the status is `head`'s and both rows read as 0.
 
 ## Scope
 
-`registry.npmjs.org` serves keys, so a tree resolved entirely from npmjs is fully covered and the
-gap does not arise. It arises where part of the tree comes from a registry that does not publish
-keys — a third-party registry, an internal mirror or proxy, an artifact server — which is the
-configuration in which a pipeline is most likely to be running `audit signatures` as a gate in
-the first place.
+`registry.npmjs.org` serves keys, so a tree the configuration sends entirely to it is fully covered
+and the gap does not arise. A registry without keys as the only one configured makes the audit fail,
+with "found no dependencies to audit" where its documents carry neither signatures nor attestations
+and `EMISSINGSIGNATUREKEY` where they carry signatures, except, from 11.11.0, in the attestation
+case above. Otherwise the gap needs one configuration with both kinds of registry, a scope sent to
+one and the rest to the other, and documents with neither signatures nor attestations on the side
+without keys. With npmmirror as the default and a scope on npmjs, 12.1.0 refused the install with
+its default settings (`EALLOWREMOTE`); installed with `--replace-registry-host=never` or
+`--allow-remote=all`, or by 10.9.8, the tree passed on 12.1.0 with npmmirror's package counted
+nowhere, as it does with the scope on npmmirror and the default on npmjs. How often such a
+configuration occurs was not measured; in the lockfiles of 572 GitHub projects none shows it
+([../../measurements/keyless-registries/](../../measurements/keyless-registries/)).
 
 ## Prior art
 
@@ -85,16 +109,19 @@ the first place.
   population is awkward: npmjs itself serves keys, so the quantity that matters is the share of
   real-world installs resolving through registries that do not, which is not enumerable from the
   public registry. It would have to be measured over configurations rather than over packages.
+  Measured since over the lockfiles of a sample of GitHub projects:
+  [../../measurements/keyless-registries/](../../measurements/keyless-registries/).
 
 ## Verdict
 
 **Do not spend a bounty submission on this, and do not file it as a vulnerability.**
 
-The skip is by design and was requested; the all-keyless case already errors; and what remains is
+The skip is by design and was requested; the all-keyless case errors on 10.9.8; and what remains is
 that the mixed case reports no coverage figure. Submitted as a vulnerability it would very likely
-close as by-design, and GitHub's programme as restructured on 2026-07-27 limits a reporter
-without standing there to four initial submissions — a bad trade for a report whose own prior art
-shows the core behaviour was asked for.
+close as by-design, and under [GitHub's programme as restructured on
+2026-07-27](https://github.blog/security/next-chapter-restructuring-githubs-bug-bounty-program/) a
+reporter below HackerOne's signal threshold has up to four initial submissions — a bad trade for a
+report whose own prior art shows the core behaviour was asked for.
 
 `npm/cli`'s `SECURITY.md` routes bounty-eligible reports through HackerOne and everything else to
 `opensource-security@github.com`; the second does not consume a bounty submission. Neither is the
@@ -124,3 +151,29 @@ mistaken for a fully verified one. Filed 2026-09-23 as
 - *Prior art* said the intent is recorded only in #5479. The entry now adds two code comments and
   the review of npm/cli#4827, the pull request that added the command; there its author chose to
   "just not count these cases in the 'audited x packages' count", and a maintainer agreed.
+
+## Corrections, 2026-10-08
+
+- The first paragraph and *What it does* said that the packages from a registry that publishes no
+  keys are skipped. That holds when the registry's document for the package carries neither
+  signatures nor attestations. When it carries signatures, as npmmirror's documents do for some
+  versions, the command stops with `EMISSINGSIGNATUREKEY` and exits 1. The registry that counts is
+  the one the configuration names when the audit runs, not the one the package was installed from.
+- *What it does* said the key lookup gives up quietly. It does on 10.9.8; from 11.2.0 its first
+  step logs a warning.
+- *What it does* said npm handles the total case correctly, and *Verdict* that the all-keyless case
+  already errors. Both hold on 10.9.8. From 11.11.0 a keyless attestation is verified without
+  registry keys, and in the tree of `repro-attestation.sh` that passed a registry without keys, with
+  its other package counted nowhere; other trees were not measured.
+- *Scope* spoke of a tree resolved entirely from npmjs, where what counts is the registry the
+  configuration names. It also said the gap arises with a third-party registry, an internal mirror
+  or proxy, or an artifact server, and that this is where a pipeline most likely gates on the
+  command. A registry without keys as the only one configured makes the audit fail, outside the
+  attestation case; the gap needs a scope sent to one kind of registry and the rest to the other,
+  with documents that carry neither signatures nor attestations on the side without keys. How often
+  that occurs was not measured; the paragraph now says what was run on both versions and that none
+  of 572 lockfiles shows it.
+- *Verdict* gave the four-submission limit with no source. It is GitHub's announcement of
+  2026-07-22, for reports from 2026-07-27, and the sentence now cites it and says more precisely
+  whom the limit is for.
+- *Prior art* now points to the measurement made since.
