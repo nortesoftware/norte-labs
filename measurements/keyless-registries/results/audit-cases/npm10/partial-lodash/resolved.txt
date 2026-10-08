@@ -1,0 +1,2 @@
+"resolved": "https://registry.npmjs.org/@sigstore/core/-/core-3.0.0.tgz"
+"resolved": "https://registry.npmmirror.com/lodash/-/lodash-4.17.21.tgz"

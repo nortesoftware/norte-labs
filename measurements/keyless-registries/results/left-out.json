@@ -1,0 +1,396 @@
+{
+ "Alice39s/cloudflare-custom-pages-nextjs": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "d4937188ff931f29225eb9348d30d8d8056c2388"
+ },
+ "Ameyanagi/morphos": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "b324ec16875dd927f7bc5e1900fbedadd891c608"
+ },
+ "Animated-Java/animated-java": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "3fa0ec192d7569285fb6fc29365c1c05a1cb1dbf"
+ },
+ "Aslam97/react-fancy-switch": {
+  "hosts": {},
+  "lockfile": "pnpm-lock.yaml",
+  "lockfileVersion": "6.0",
+  "manager": "pnpm",
+  "sha": "8b15d7907efd67409ca44655043ee962829a8dfb"
+ },
+ "Cloudflare-Studio/ask-bonk": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "5d4fe8f4a557afb1b73ec8c0ffcf60359a28865f"
+ },
+ "DEVtheOPS/opencode-plugin-otel": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "a051cdac72d2c4eac1f7fc49dab6d309d5f4c500"
+ },
+ "DamianB-BitFlipper/proton-drive-sync": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "9e93d2b65afc77c9c19ab0ec59f3ef4ebf29be0b"
+ },
+ "Dhravya/webpull": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "92cac6d569f4bc528fdecd6f6268caed5b7ca415"
+ },
+ "Gerstep/HumanCompiler": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "88b5ca0eaa0174cf95e8a232a88085e1ce54dd1c"
+ },
+ "LibPDF-js/core": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "bd3b3a6cf44268c39c8bb436897455cda7402c00"
+ },
+ "R44VC0RP/superlocal": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "2",
+  "manager": "bun",
+  "sha": "d3725bcb963f28544a10cd2a463f1d1017c6a6b7"
+ },
+ "RhysSullivan/fastergh": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "0f1bb5d2390c184eed7b12d844939bda9a56debf"
+ },
+ "Spikerko/spicy-lyrics": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "d804ca34c39e255495ddeaee61dc1a9eb6f81197"
+ },
+ "TinyActive/nginx-love": {
+  "hosts": {},
+  "lockfile": "pnpm-lock.yaml",
+  "lockfileVersion": "6.0",
+  "manager": "pnpm",
+  "sha": "f796a5fe382b7abcce9676c8e54ff5a446e4950f"
+ },
+ "UPDOT/payload-auth-plugin": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "3fd277251479bfaa5aa2140634d02d53b0b4f04c"
+ },
+ "WINOFFRG/limeplay": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "eef715868500c30b589c7fcddea6ca667c10c838"
+ },
+ "XiaomiMiMo/MiMo-Code": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "4cb859dd7c962b13eee5f34146350f520a380217"
+ },
+ "acai-sh/cli": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "6ec9df89dda3c6f2812323313f399691b3f6bcd6"
+ },
+ "ajanraj/OpenChat": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "bbd46a943ac650d6750a377e6789f1829c818888"
+ },
+ "anomalyco/opentui": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "c01292fd0837bafd07ce458c74416b2b375a41ab"
+ },
+ "audreyt/ethercalc": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "c1a3733a1adae0657bd6536886bc101e5698a636"
+ },
+ "autohandai/code-cli": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "def3cfbb2083f78891d0359987a84cc64d550783"
+ },
+ "canvg/canvg": {
+  "hosts": {},
+  "lockfile": "pnpm-lock.yaml",
+  "lockfileVersion": "6.0",
+  "manager": "pnpm",
+  "sha": "d63883331e97879b3d0695f3ed982f6c42aeadba"
+ },
+ "davidmyersdev/vite-plugin-externalize-deps": {
+  "hosts": {},
+  "lockfile": "pnpm-lock.yaml",
+  "lockfileVersion": "6.0",
+  "manager": "pnpm",
+  "sha": "d21f1f7719b8de9a7cd35cce96f59e36bee7a3b2"
+ },
+ "dlarroder/dalelarroder": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "49c88b89fdd954fce210d9d54edf1f76ecd26a00"
+ },
+ "erikbrinkman/d3-dag": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "67d5447722eff38482a5bc5b5eed5f4229d2f80b"
+ },
+ "firecow/gitlab-ci-local": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "110c1d85e0ee561c999072d066dd3cb45c2f0c80"
+ },
+ "fluid-design-io/payload-better-auth-starter": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "3fef3a139b12d67093a0c99c25f0819ddb6eab35"
+ },
+ "franciscop/translate": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "23ac901244242e2faf395140a02beff8e9c3ec33"
+ },
+ "holaboss-ai/holaOS": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "4684714ee133794cdbb86630e42b7d93447fb2e2"
+ },
+ "huangguang1999/ccstatusline-zh": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "a209eabcea341ebe45dbd7a2e5f7bb214f30aa94"
+ },
+ "humation-labs/humation": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "8bccc4f06d2b0e145312ba84f923fcf100513bc4"
+ },
+ "ikkz/anki-eco": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "fb5a5b9a29e71f645a820f36fb4fb15448b2713f"
+ },
+ "itsnitinr/vscode-portfolio": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "1fca0403a0b234cc3da82020b3364e09daf3381e"
+ },
+ "kritikio/prisma-generator-fake-data": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "c0db4da802cded80d7a658a828533d4e8d04c49d"
+ },
+ "mcpdotdirect/evm-mcp-server": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "128ac3d4b1ea96084d55a9578306d017006e709d"
+ },
+ "michaelpporter/breadcrumbs": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "90f48e4615ad3b3556273099fa4ed9f620a3f338"
+ },
+ "namecallfilter/tiktokmodcloud": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "210194a63a7c42608085c791facbdaf6b99ec8f2"
+ },
+ "neutree-ai/openapi-to-skills": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "37696dfa4fc926c5cb527f89a4ba4a5ab3e0d247"
+ },
+ "oneshot-agent/oneshot-gtm": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "f8711dc445f4cafe85c450d6d5b1be62c254a332"
+ },
+ "oomol-lab/open-flow": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "2",
+  "manager": "bun",
+  "sha": "5c33694c74cab0a88435823803d3eb37e7be0f74"
+ },
+ "oxidecomputer/mitos": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "f92845b2efc4883f5b4c80e7d6def81375a599a4"
+ },
+ "pithings/zigpty": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "60a6002851bbe489ca48c3b1964be34d36e04173"
+ },
+ "prefnex/sshbool": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "9099c25c08f422f406d8d6e6389ed4f52c961933"
+ },
+ "ramarivera/coding-buddy": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "4b7a81ca19c28e1e0062dacdb924b49886c652fe"
+ },
+ "reactnativecn/react-native-update": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "12db7bb003c9da5a7c6d2445c95c6af8e9550156"
+ },
+ "remorses/zele": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "6f29be84cdfd680a46999343053cf7806cddacd3"
+ },
+ "ririv/QuickOutline": {
+  "hosts": {
+   "registry.npmmirror.com": 867
+  },
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "4149c0afc4f320f2337d6192fb069525e27639b8"
+ },
+ "saasyland/saasyland.com": {
+  "hosts": {},
+  "lockfile": "pnpm-lock.yaml",
+  "lockfileVersion": "6.0",
+  "manager": "pnpm",
+  "sha": "502fcf478cb1be84fa07a0a717e399ac688d606c"
+ },
+ "shaftoe/awesome-pi-coding-agent": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "e704e97dff1900c1537d0df9b3644f218c718f6b"
+ },
+ "sweetalert2/ngx-sweetalert2": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "a08813517f3f9bb2dbe7679b910e0d499d32989a"
+ },
+ "synthetic-sciences/openscience": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "9d49609622028e26fd56c99bca47297115925292"
+ },
+ "v0l/snort": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "7e1b6e66202f7498861027514be62f68c7a3f87a"
+ },
+ "vercel-community/deno": {
+  "hosts": {},
+  "lockfile": "pnpm-lock.yaml",
+  "lockfileVersion": "6.0",
+  "manager": "pnpm",
+  "sha": "60ebabf6e05ea81c229e5a077ae2ee650bfe41cd"
+ },
+ "viperadnan-git/debridui": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "bfaa7d3edd3b27cec55dcac5cf020e9414d51839"
+ },
+ "wxt-dev/wxt": {
+  "hosts": {},
+  "lockfile": "bun.lock",
+  "lockfileVersion": "1",
+  "manager": "bun",
+  "sha": "a747b9c7ecd635c633ade13314552abfdb345bba"
+ }
+}

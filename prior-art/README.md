@@ -20,3 +20,7 @@ lists the searches that were run.
   [go-supply-chain-sources.md](go-supply-chain-sources.md).
 - [crates.md](crates.md) — has anyone counted who publishes what one `Cargo.lock` resolves?
   (2026-09-25). Sources and searches in [crates-sources.md](crates-sources.md).
+- [keyless-registries.md](keyless-registries.md) — has anyone counted the projects that resolve
+  npm packages through a registry with no signing keys, or probed which registries serve them?
+  (2026-09-25). Sources and searches in
+  [keyless-registries-sources.md](keyless-registries-sources.md).

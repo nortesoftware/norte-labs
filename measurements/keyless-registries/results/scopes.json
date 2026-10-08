@@ -1,0 +1,445 @@
+{
+ "CopyTranslator/CopyTranslator": {
+  "hosts": {
+   "registry.npmmirror.com": {
+    "scoped": 268,
+    "unscoped": 1288
+   },
+   "registry.yarnpkg.com": {
+    "scoped": 0,
+    "unscoped": 7
+   }
+  },
+  "lockfile": "yarn.lock",
+  "scopesOnTwoHosts": {},
+  "sha": "5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef"
+ },
+ "JNTMTMTM/eIsland": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 4,
+    "unscoped": 3
+   },
+   "registry.npmmirror.com": {
+    "scoped": 143,
+    "unscoped": 242
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "3b866695a68cbab0b5d64b12f659d37ade185e09"
+ },
+ "Kanaries/Rath": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 12,
+    "unscoped": 9
+   },
+   "registry.npmmirror.com": {
+    "scoped": 38,
+    "unscoped": 91
+   },
+   "registry.yarnpkg.com": {
+    "scoped": 320,
+    "unscoped": 594
+   }
+  },
+  "lockfile": "yarn.lock",
+  "scopesOnTwoHosts": {
+   "@antv": {
+    "registry.npmjs.org": 12,
+    "registry.npmmirror.com": 11
+   },
+   "@babel": {
+    "registry.npmmirror.com": 12,
+    "registry.yarnpkg.com": 116
+   },
+   "@jest": {
+    "registry.npmmirror.com": 1,
+    "registry.yarnpkg.com": 14
+   },
+   "@jridgewell": {
+    "registry.npmmirror.com": 1,
+    "registry.yarnpkg.com": 7
+   },
+   "@kanaries": {
+    "registry.npmmirror.com": 1,
+    "registry.yarnpkg.com": 6
+   },
+   "@rollup": {
+    "registry.npmmirror.com": 3,
+    "registry.yarnpkg.com": 4
+   },
+   "@tailwindcss": {
+    "registry.npmmirror.com": 1,
+    "registry.yarnpkg.com": 15
+   },
+   "@types": {
+    "registry.npmmirror.com": 4,
+    "registry.yarnpkg.com": 40
+   }
+  },
+  "sha": "dc54fd90fd77cd1819a088a2a1823f98b3384994"
+ },
+ "NG-ZORRO/ng-zorro-antd": {
+  "hosts": {
+   "registry.npmmirror.com": {
+    "scoped": 570,
+    "unscoped": 1079
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "f93a6ba06610ebb574e604c555773f2e81074326"
+ },
+ "Postcatlab/postcat": {
+  "hosts": {
+   "registry.npmmirror.com": {
+    "scoped": 389,
+    "unscoped": 1493
+   }
+  },
+  "lockfile": "yarn.lock",
+  "scopesOnTwoHosts": {},
+  "sha": "901283d1600baecf7a9df50d20816b7f1d53b149"
+ },
+ "Taocrypt/wget-md3": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 0,
+    "unscoped": 133
+   },
+   "registry.npmmirror.com": {
+    "scoped": 3,
+    "unscoped": 82
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "b703b9232dce7ae1ff2ccc23b5f3559c3412fc8d"
+ },
+ "YD4223/aihub": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 26,
+    "unscoped": 33
+   },
+   "registry.npmmirror.com": {
+    "scoped": 149,
+    "unscoped": 498
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "fec704cd8dd52f11bf911c96bd483ab757a3c9a8"
+ },
+ "ZeroRing233/Degrees-of-Lewdity-RobinMod": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 0,
+    "unscoped": 1
+   },
+   "registry.npmmirror.com": {
+    "scoped": 32,
+    "unscoped": 84
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "8f9664be060fdce4bf032649e43498d59f77ee57"
+ },
+ "alphardex/kokomi.js": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 1,
+    "unscoped": 2
+   },
+   "registry.npmmirror.com": {
+    "scoped": 54,
+    "unscoped": 82
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@types": {
+    "registry.npmjs.org": 1,
+    "registry.npmmirror.com": 11
+   }
+  },
+  "sha": "d5302238711aa01929064925ea8e7d910c0dbeed"
+ },
+ "beaudar/beaudar": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 20,
+    "unscoped": 190
+   },
+   "registry.npmmirror.com": {
+    "scoped": 2,
+    "unscoped": 37
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@types": {
+    "registry.npmjs.org": 2,
+    "registry.npmmirror.com": 2
+   }
+  },
+  "sha": "a14e96d422d56e54d534abab19ff19225d591a72"
+ },
+ "binbankm/Sub-One": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 181,
+    "unscoped": 267
+   },
+   "registry.npmmirror.com": {
+    "scoped": 6,
+    "unscoped": 42
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@jridgewell": {
+    "registry.npmjs.org": 4,
+    "registry.npmmirror.com": 2
+   }
+  },
+  "sha": "593ce675396714d473becc26bdb3e46efa9f35bf"
+ },
+ "cocos/cocos-docs": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 40,
+    "unscoped": 8
+   },
+   "registry.npmmirror.com": {
+    "scoped": 67,
+    "unscoped": 216
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@types": {
+    "registry.npmjs.org": 1,
+    "registry.npmmirror.com": 12
+   }
+  },
+  "sha": "353a2cb654e07f20459ca4040f3f3c65c195cfd6"
+ },
+ "emo-xiaoyu/harness-mix": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 4,
+    "unscoped": 0
+   },
+   "registry.npmmirror.com": {
+    "scoped": 442,
+    "unscoped": 222
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@harness-mix": {
+    "registry.npmjs.org": 4,
+    "registry.npmmirror.com": 2
+   }
+  },
+  "sha": "aa5fbd28bf11734664d2916080e8f14b0ed54569"
+ },
+ "henjicc/Storyboard-Copilot": {
+  "hosts": {
+   "registry.npmmirror.com": {
+    "scoped": 124,
+    "unscoped": 209
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "a02ae16a3c52e10c4505b0336898972cb30c5d38"
+ },
+ "im4codes/imcodes": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 87,
+    "unscoped": 102
+   },
+   "registry.npmmirror.com": {
+    "scoped": 148,
+    "unscoped": 247
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@babel": {
+    "registry.npmjs.org": 1,
+    "registry.npmmirror.com": 4
+   },
+   "@github": {
+    "registry.npmjs.org": 9,
+    "registry.npmmirror.com": 1
+   },
+   "@types": {
+    "registry.npmjs.org": 4,
+    "registry.npmmirror.com": 4
+   }
+  },
+  "sha": "023f7c358570769cde01a10ef8e134a9b05e75a7"
+ },
+ "justjavac/wechat-miniapp-radar": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 9,
+    "unscoped": 1
+   },
+   "registry.npmmirror.com": {
+    "scoped": 73,
+    "unscoped": 126
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "02a010ecea0320b7aa975bb62a5dde271ae630c9"
+ },
+ "jwangkun/Prompt-Tools": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 2,
+    "unscoped": 0
+   },
+   "registry.npmmirror.com": {
+    "scoped": 64,
+    "unscoped": 12
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@tauri-apps": {
+    "registry.npmjs.org": 2,
+    "registry.npmmirror.com": 16
+   }
+  },
+  "sha": "7f691789184bf3a6026b26bc3da66a46c24b03b3"
+ },
+ "lorryjovens-hub/claude-code-rust": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 33,
+    "unscoped": 31
+   },
+   "registry.npmmirror.com": {
+    "scoped": 166,
+    "unscoped": 356
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@tauri-apps": {
+    "registry.npmjs.org": 13,
+    "registry.npmmirror.com": 9
+   },
+   "@types": {
+    "registry.npmjs.org": 4,
+    "registry.npmmirror.com": 51
+   }
+  },
+  "sha": "3a65531dd25d61823521b15137a2651f60203562"
+ },
+ "nanlingyin/soullink-emotion-sdk": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 66,
+    "unscoped": 28
+   },
+   "registry.npmmirror.com": {
+    "scoped": 106,
+    "unscoped": 91
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@esbuild": {
+    "registry.npmjs.org": 26,
+    "registry.npmmirror.com": 26
+   },
+   "@types": {
+    "registry.npmjs.org": 2,
+    "registry.npmmirror.com": 4
+   }
+  },
+  "sha": "f8a075d92735ae4c2e8fb85937c969e0c180d9a0"
+ },
+ "qq01-hub/openmusic": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 0,
+    "unscoped": 2
+   },
+   "registry.npmmirror.com": {
+    "scoped": 35,
+    "unscoped": 220
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "2b04fa1da6041018e479e557647bfa3cf6464e58"
+ },
+ "star7th/link-ai": {
+  "hosts": {
+   "registry.npmmirror.com": {
+    "scoped": 210,
+    "unscoped": 468
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "c6deac3efb3259893079193e418d6e53050de2e7"
+ },
+ "sz-p/vscode-dependencyGraph": {
+  "hosts": {
+   "registry.npmmirror.com": {
+    "scoped": 169,
+    "unscoped": 520
+   },
+   "registry.yarnpkg.com": {
+    "scoped": 0,
+    "unscoped": 19
+   }
+  },
+  "lockfile": "yarn.lock",
+  "scopesOnTwoHosts": {},
+  "sha": "252093467d506c10b203f457762c26efd2467289"
+ },
+ "tashfeenahmed/freellmapi": {
+  "hosts": {
+   "registry.npmjs.org": {
+    "scoped": 271,
+    "unscoped": 558
+   },
+   "registry.npmmirror.com": {
+    "scoped": 6,
+    "unscoped": 29
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {
+   "@vitest": {
+    "registry.npmjs.org": 7,
+    "registry.npmmirror.com": 1
+   }
+  },
+  "sha": "47c3a451e88242a97d274777a29a4dbf289e3e17"
+ },
+ "umbrella22/electron-vue-template": {
+  "hosts": {
+   "registry.npmmirror.com": {
+    "scoped": 215,
+    "unscoped": 485
+   }
+  },
+  "lockfile": "package-lock.json",
+  "scopesOnTwoHosts": {},
+  "sha": "c5494b2383ce4a968f3a6778200220f1a88d0e0f"
+ }
+}

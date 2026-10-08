@@ -1,0 +1,107 @@
+{
+ "cdn.sheetjs.com": {
+  "bases": [],
+  "lockfile": "package-lock.json",
+  "project": "Drakonis96/nodus",
+  "registryTarballs": 0,
+  "sha": "fff76450dd6578e0fb39f0a13ed9bd6c34dffd5e",
+  "urls": 2
+ },
+ "codeload.github.com": {
+  "bases": [],
+  "lockfile": "package-lock.json",
+  "project": "GtxFury/FlyClash",
+  "registryTarballs": 0,
+  "sha": "8409477ec91e9f741df16c3b04249cd43ecd0a4d",
+  "urls": 2
+ },
+ "github.com": {
+  "bases": [],
+  "lockfile": "package-lock.json",
+  "project": "AutoMaker-Org/automaker",
+  "registryTarballs": 0,
+  "sha": "5888d2e6f3618e06762803687ea7b181c10edcbd",
+  "urls": 234
+ },
+ "gitlab.gnome.org": {
+  "bases": [],
+  "lockfile": "package-lock.json",
+  "project": "GNOME/sushi",
+  "registryTarballs": 0,
+  "sha": "a0518a843e57bae6041cb1a4de0771259db37642",
+  "urls": 4
+ },
+ "gitpkg.vercel.app": {
+  "bases": [],
+  "lockfile": "package-lock.json",
+  "project": "kartikm7/llocal",
+  "registryTarballs": 0,
+  "sha": "5195328606fae5c5e8f7b508a7ab9201e00a99ff",
+  "urls": 2
+ },
+ "na.artifactory.swg-devops.com": {
+  "bases": [
+   [
+    "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/wcp-wdp-npm-virtual",
+    78
+   ]
+  ],
+  "lockfile": "package-lock.json",
+  "project": "IBM/MAX-Object-Detector-Web-App",
+  "registryTarballs": 78,
+  "sha": "976cadb37b916ba2ea9fed98cbf2db1b2290b37c",
+  "urls": 78
+ },
+ "npm.flatt.tech": {
+  "bases": [
+   [
+    "https://npm.flatt.tech",
+    30
+   ]
+  ],
+  "lockfile": "yarn.lock",
+  "project": "receptron/graphai",
+  "registryTarballs": 30,
+  "sha": "b2497ab827a89f67bd19062bed49a70dd4ca8f18",
+  "urls": 30
+ },
+ "npm.pkg.github.com": {
+  "bases": [
+   [
+    "https://npm.pkg.github.com",
+    6
+   ]
+  ],
+  "lockfile": "yarn.lock",
+  "project": "trustwallet/trust-web3-provider",
+  "registryTarballs": 6,
+  "sha": "82c97806f1b6a8b74f51ea16eae94dded4e88ef0",
+  "urls": 6
+ },
+ "registry.npmmirror.com": {
+  "bases": [
+   [
+    "https://registry.npmmirror.com",
+    1977
+   ]
+  ],
+  "lockfile": "yarn.lock",
+  "project": "CopyTranslator/CopyTranslator",
+  "registryTarballs": 1977,
+  "sha": "5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef",
+  "urls": 1977
+ },
+ "registry.yarnpkg.com": {
+  "bases": [
+   [
+    "https://registry.yarnpkg.com",
+    30
+   ]
+  ],
+  "lockfile": "yarn.lock",
+  "project": "AINativeLab/top-500-best-gpts",
+  "registryTarballs": 30,
+  "sha": "756771215d5cc68e21378a112425e501a7583197",
+  "urls": 30
+ }
+}

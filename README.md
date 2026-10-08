@@ -85,6 +85,17 @@ Supply-chain security research and audits.
   sandbox, is built from: 548 versions of 501 crates in its `Cargo.lock`, 184 publishers against
   a median npm project's 165, and 227 accounts and 51 teams that own them. One project, not a
   sample.
+- [prior-art/keyless-registries.md](prior-art/keyless-registries.md) — has anyone counted the
+  projects that resolve npm packages through a registry with no signing keys? 48 source entries
+  (2026-09-25). Not found; which registries serve keys is on record one product at a time, mostly in
+  bug reports. Appendix in
+  [prior-art/keyless-registries-sources.md](prior-art/keyless-registries-sources.md).
+- [measurements/keyless-registries/](measurements/keyless-registries/) — which registries
+  instruction-gap's 572 npm and yarn v1 lockfiles resolve through, and whether each serves the keys
+  `npm audit signatures` checks against. 24 of them, 4.2 % [2.8–6.2], resolve packages through
+  `registry.npmmirror.com`, which serves none. Its documents carry npmjs's signatures for some
+  versions and not for others; an audit stops with an error on the first and leaves the second
+  uncounted, and none of the 24 shows a configuration in which it would pass with them unchecked.
 - [norte-labs dataset v2](https://doi.org/10.5281/zenodo.23090947) — the files behind
   measurements/instruction-gap, ecosystems/crates and ecosystems/go as published at `27395f5`: each
   project's lockfile, Cargo.lock, or go.mod and go.sum, at its commit; what the crates count read

@@ -1,0 +1,2 @@
+npm error found no dependencies to audit that were installed from a supported registry
+npm error A complete log of this run can be found in: <out>/mirror-lodash/cache/_logs/2026-10-08T01_47_17_576Z-debug-0.log

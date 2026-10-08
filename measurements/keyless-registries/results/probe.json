@@ -1,0 +1,201 @@
+{
+ "controls": {
+  "npmjs keys": [
+   "serves keys",
+   200,
+   2
+  ],
+  "npmjs keysx status": 404,
+  "npmjs lodash signatures": {
+   "versionDoc": 200,
+   "versionDocSignatures": true,
+   "fullDoc": 200,
+   "fullDocSignatures": true,
+   "fullDocAttestations": false
+  }
+ },
+ "hosts": {
+  "registry.yarnpkg.com": {
+   "base": "https://registry.yarnpkg.com",
+   "keys": "serves keys",
+   "keysStatus": 200,
+   "keyCount": 2,
+   "versionDoc": 200,
+   "versionDocSignatures": true,
+   "fullDoc": 200,
+   "fullDocSignatures": true,
+   "fullDocAttestations": false
+  },
+  "registry.npmmirror.com": {
+   "base": "https://registry.npmmirror.com",
+   "keys": "no keys, no signatures",
+   "keysStatus": 404,
+   "keyCount": 0,
+   "versionDoc": 200,
+   "versionDocSignatures": false,
+   "fullDoc": 200,
+   "fullDocSignatures": false,
+   "fullDocAttestations": false
+  },
+  "npm.flatt.tech": {
+   "base": "https://npm.flatt.tech",
+   "keys": "serves keys",
+   "keysStatus": 200,
+   "keyCount": 2,
+   "versionDoc": 200,
+   "versionDocSignatures": true,
+   "fullDoc": 200,
+   "fullDocSignatures": true,
+   "fullDocAttestations": false
+  },
+  "npm.pkg.github.com": {
+   "base": "https://npm.pkg.github.com",
+   "keys": "auth required",
+   "keysStatus": 404,
+   "keyCount": 0,
+   "versionDoc": 403,
+   "versionDocSignatures": null,
+   "fullDoc": 404,
+   "fullDocSignatures": null,
+   "fullDocAttestations": null
+  },
+  "na.artifactory.swg-devops.com": {
+   "base": "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/wcp-wdp-npm-virtual",
+   "keys": "auth required",
+   "keysStatus": 401,
+   "keyCount": 0,
+   "versionDoc": 401,
+   "versionDocSignatures": null,
+   "fullDoc": 401,
+   "fullDocSignatures": null,
+   "fullDocAttestations": null
+  }
+ },
+ "population": 572,
+ "projects": {
+  "serves keys": {
+   "n": 556,
+   "pct": [
+    97.2,
+    95.5,
+    98.3
+   ]
+  },
+  "no URL recorded": {
+   "n": 72,
+   "pct": [
+    12.6,
+    10.1,
+    15.6
+   ]
+  },
+  "git": {
+   "n": 40,
+   "pct": [
+    7.0,
+    5.2,
+    9.4
+   ]
+  },
+  "no keys, no signatures": {
+   "n": 24,
+   "pct": [
+    4.2,
+    2.8,
+    6.2
+   ]
+  },
+  "auth required": {
+   "n": 2,
+   "pct": [
+    0.3,
+    0.1,
+    1.3
+   ]
+  },
+  "tarball": {
+   "n": 2,
+   "pct": [
+    0.3,
+    0.1,
+    1.3
+   ]
+  }
+ },
+ "versions": {
+  "total": 358194,
+  "serves keys": 325163,
+  "no URL recorded": 19364,
+  "git": 96,
+  "no keys, no signatures": 13489,
+  "auth required": 80,
+  "tarball": 2
+ },
+ "byHost": {
+  "registry.npmjs.org": {
+   "projects": 496,
+   "versions": 258371,
+   "class": "serves keys"
+  },
+  "registry.yarnpkg.com": {
+   "projects": 77,
+   "versions": 66762,
+   "class": "serves keys"
+  },
+  "registry": {
+   "projects": 71,
+   "versions": 19362,
+   "class": "no URL recorded"
+  },
+  "github.com": {
+   "projects": 33,
+   "versions": 41,
+   "class": "git"
+  },
+  "registry.npmmirror.com": {
+   "projects": 24,
+   "versions": 13489,
+   "class": "no keys, no signatures"
+  },
+  "codeload.github.com": {
+   "projects": 6,
+   "versions": 53,
+   "class": "git"
+  },
+  "gitlab.gnome.org": {
+   "projects": 1,
+   "versions": 2,
+   "class": "git"
+  },
+  "npm.flatt.tech": {
+   "projects": 1,
+   "versions": 30,
+   "class": "serves keys"
+  },
+  "npm.pkg.github.com": {
+   "projects": 1,
+   "versions": 6,
+   "class": "auth required"
+  },
+  "cdn.sheetjs.com": {
+   "projects": 1,
+   "versions": 1,
+   "class": "tarball"
+  },
+  "na.artifactory.swg-devops.com": {
+   "projects": 1,
+   "versions": 74,
+   "class": "auth required"
+  },
+  "none": {
+   "projects": 1,
+   "versions": 2,
+   "class": "no URL recorded"
+  },
+  "gitpkg.vercel.app": {
+   "projects": 1,
+   "versions": 1,
+   "class": "tarball"
+  }
+ }
+}

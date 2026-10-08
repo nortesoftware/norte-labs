@@ -1,0 +1,5 @@
+npm warn Fetching verification keys using TUF failed.  Fetching directly from https://registry.npmmirror.com/.
+audited 1 package in 0s
+
+1 package has a verified registry signature
+

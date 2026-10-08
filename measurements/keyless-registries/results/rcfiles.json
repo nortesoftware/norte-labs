@@ -1,0 +1,279 @@
+{
+ "CopyTranslator/CopyTranslator": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   },
+   ".yarnrc": {
+    "registryLines": [],
+    "status": 404
+   },
+   ".yarnrc.yml": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "yarn",
+  "sha": "5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef"
+ },
+ "JNTMTMTM/eIsland": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "3b866695a68cbab0b5d64b12f659d37ade185e09"
+ },
+ "Kanaries/Rath": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   },
+   ".yarnrc": {
+    "registryLines": [],
+    "status": 404
+   },
+   ".yarnrc.yml": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "yarn",
+  "sha": "dc54fd90fd77cd1819a088a2a1823f98b3384994"
+ },
+ "NG-ZORRO/ng-zorro-antd": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 200
+   }
+  },
+  "manager": "npm",
+  "sha": "f93a6ba06610ebb574e604c555773f2e81074326"
+ },
+ "Postcatlab/postcat": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [
+     "registry=https://registry.npmmirror.com"
+    ],
+    "status": 200
+   },
+   ".yarnrc": {
+    "registryLines": [],
+    "status": 404
+   },
+   ".yarnrc.yml": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "yarn",
+  "sha": "901283d1600baecf7a9df50d20816b7f1d53b149"
+ },
+ "Taocrypt/wget-md3": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "b703b9232dce7ae1ff2ccc23b5f3559c3412fc8d"
+ },
+ "YD4223/aihub": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "fec704cd8dd52f11bf911c96bd483ab757a3c9a8"
+ },
+ "ZeroRing233/Degrees-of-Lewdity-RobinMod": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "8f9664be060fdce4bf032649e43498d59f77ee57"
+ },
+ "alphardex/kokomi.js": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "d5302238711aa01929064925ea8e7d910c0dbeed"
+ },
+ "beaudar/beaudar": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "a14e96d422d56e54d534abab19ff19225d591a72"
+ },
+ "binbankm/Sub-One": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "593ce675396714d473becc26bdb3e46efa9f35bf"
+ },
+ "cocos/cocos-docs": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "353a2cb654e07f20459ca4040f3f3c65c195cfd6"
+ },
+ "emo-xiaoyu/harness-mix": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "aa5fbd28bf11734664d2916080e8f14b0ed54569"
+ },
+ "henjicc/Storyboard-Copilot": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "a02ae16a3c52e10c4505b0336898972cb30c5d38"
+ },
+ "im4codes/imcodes": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "023f7c358570769cde01a10ef8e134a9b05e75a7"
+ },
+ "justjavac/wechat-miniapp-radar": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "02a010ecea0320b7aa975bb62a5dde271ae630c9"
+ },
+ "jwangkun/Prompt-Tools": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "7f691789184bf3a6026b26bc3da66a46c24b03b3"
+ },
+ "lorryjovens-hub/claude-code-rust": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "3a65531dd25d61823521b15137a2651f60203562"
+ },
+ "nanlingyin/soullink-emotion-sdk": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "f8a075d92735ae4c2e8fb85937c969e0c180d9a0"
+ },
+ "qq01-hub/openmusic": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "2b04fa1da6041018e479e557647bfa3cf6464e58"
+ },
+ "star7th/link-ai": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "c6deac3efb3259893079193e418d6e53050de2e7"
+ },
+ "sz-p/vscode-dependencyGraph": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [
+     "sass_binary_site=https://registry.npmmirror.com/mirrors/node-sass/",
+     "registry=https://registry.npmmirror.com"
+    ],
+    "status": 200
+   },
+   ".yarnrc": {
+    "registryLines": [],
+    "status": 404
+   },
+   ".yarnrc.yml": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "yarn",
+  "sha": "252093467d506c10b203f457762c26efd2467289"
+ },
+ "tashfeenahmed/freellmapi": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "47c3a451e88242a97d274777a29a4dbf289e3e17"
+ },
+ "umbrella22/electron-vue-template": {
+  "files": {
+   ".npmrc": {
+    "registryLines": [],
+    "status": 404
+   }
+  },
+  "manager": "npm",
+  "sha": "c5494b2383ce4a968f3a6778200220f1a88d0e0f"
+ }
+}

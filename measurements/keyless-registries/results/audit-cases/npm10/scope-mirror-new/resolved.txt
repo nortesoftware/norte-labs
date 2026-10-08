@@ -1,0 +1,2 @@
+"resolved": "https://registry.npmmirror.com/@types/lodash/-/lodash-4.17.25.tgz"
+"resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"

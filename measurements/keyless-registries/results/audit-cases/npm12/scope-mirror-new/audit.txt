@@ -1,0 +1,4 @@
+npm warn Fetching verification keys using TUF failed.  Fetching directly from https://registry.npmmirror.com/.
+npm error code EMISSINGSIGNATUREKEY
+npm error @types/lodash@4.17.25 has a registry signature with keyid: SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U but no corresponding public key can be found
+npm error A complete log of this run can be found in: <out>/scope-mirror-new/cache/_logs/2026-10-08T01_48_02_207Z-debug-0.log

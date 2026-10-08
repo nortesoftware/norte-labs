@@ -21,3 +21,7 @@
   `Cargo.lock`, 548 versions of 501 crates, counted the way instruction-gap counts npm. 184
   publishers, against a median npm project's 165; 227 accounts and 51 teams that own them. One
   project, not a sample.
+- [keyless-registries/](keyless-registries/) — which registries instruction-gap's 572 npm and yarn
+  v1 lockfiles resolve through, and whether each serves the signing keys `npm audit signatures`
+  checks against: 24 resolve packages through `registry.npmmirror.com`, which serves none; what an
+  audit does with it under each configuration. Read from lockfiles and the registries.

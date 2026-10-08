@@ -1,0 +1,3 @@
+npm warn Fetching verification keys using TUF failed.  Fetching directly from https://registry.npmmirror.com/.
+npm error found no dependencies to audit that were installed from a supported registry
+npm error A complete log of this run can be found in: <out>/partial-semver/cache/_logs/2026-10-08T01_47_55_668Z-debug-0.log

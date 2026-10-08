@@ -1,0 +1,103 @@
+{
+ "@types/lodash@4.14.120": {
+  "published": "2019-01-18T00:38:21.541Z",
+  "registry.npmjs.org": {
+   "fullDoc": [
+    "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+   ],
+   "fullDocAttestations": false,
+   "versionDoc": [
+    "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+   ]
+  },
+  "registry.npmmirror.com": {
+   "fullDoc": [],
+   "fullDocAttestations": false,
+   "versionDoc": []
+  }
+ },
+ "@types/lodash@4.17.25": {
+  "published": "2026-08-01T03:45:21.615Z",
+  "registry.npmjs.org": {
+   "fullDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ],
+   "fullDocAttestations": false,
+   "versionDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ]
+  },
+  "registry.npmmirror.com": {
+   "fullDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ],
+   "fullDocAttestations": false,
+   "versionDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ]
+  }
+ },
+ "lodash@4.17.21": {
+  "published": "2021-02-20T15:42:16.891Z",
+  "registry.npmjs.org": {
+   "fullDoc": [
+    "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+   ],
+   "fullDocAttestations": false,
+   "versionDoc": [
+    "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+   ]
+  },
+  "registry.npmmirror.com": {
+   "fullDoc": [],
+   "fullDocAttestations": false,
+   "versionDoc": []
+  }
+ },
+ "semver@7.8.5": {
+  "published": "2026-06-19T18:32:48.972Z",
+  "registry.npmjs.org": {
+   "fullDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ],
+   "fullDocAttestations": true,
+   "versionDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ]
+  },
+  "registry.npmmirror.com": {
+   "fullDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ],
+   "fullDocAttestations": true,
+   "versionDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ]
+  }
+ },
+ "sigstore@5.0.0": {
+  "published": "2026-06-01T21:02:52.319Z",
+  "registry.npmjs.org": {
+   "fullDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ],
+   "fullDocAttestations": true,
+   "versionDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ]
+  },
+  "registry.npmmirror.com": {
+   "fullDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ],
+   "fullDocAttestations": true,
+   "versionDoc": [
+    "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+   ]
+  }
+ }
+}
