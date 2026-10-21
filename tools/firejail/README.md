@@ -145,6 +145,28 @@ logs in ten issues, discussed only in #448 (a kernel without `CONFIG_SECCOMP_FIL
 Sent 2026-09-23 to `netblue30@protonmail.com`, the address in `SECURITY.md`, which limits support
 to 0.9.80 and the development version. Text as sent: [report.md](report.md). No reply yet.
 
+## Figures
+
+Each figure, where it comes from. The runs are the audit's, and their output is kept only where
+[report.md](report.md) quotes it; those figures carry the day it was sent, 2026-09-23. A figure no
+dated record names carries the day it was published.
+
+| figure | field or computation | source | as of |
+|---|---|---|---|
+| `Disable …/present.txt` under `--debug-blacklists`, and nothing for `absent.txt` under it or under `--debug` | the lines of firejail's output naming each file, with a profile that blacklists both | firejail 0.9.74 as packaged by Debian 13, kernel 6.12 | 2026-09-23 |
+| 1 line for `present.txt` under `--debug` | the same | same | not recorded; published 2026-09-24 |
+| `Permission denied` for `present.txt`; `absent.txt` created and read back | `cat`, and `sh` writing the file then reading it, inside the sandbox | same | 2026-09-23 |
+| `Removed path: whitelist …` and the three lines after it | the output under `--debug-whitelists`, with a profile that whitelists `absent.txt` | same | 2026-09-23 |
+| five files; `Seccomp: 2` and `Seccomp_filters: 5` in the sandbox, 0 and 0 in the shell | the `FILE:` entries of `--seccomp.print`; the two fields of `/proc/<pid>/status`, for the sandboxed process and for the calling shell | same, a `--seccomp` sandbox | 2026-09-23 |
+| the last `seccomp.drop` wins | repeated `seccomp.drop` directives in a profile | same | 2026-09-23 |
+| 4128; about 2,000 entries | the limit that refused a long syscall list on the command line, and the one that refused it in a profile | same | not recorded; published 2026-09-24 |
+| `ccdf4ea` of 2026-09-20, the development version; 0.9.80, the latest release | the default branch's head; the latest release | netblue30/firejail | read 2026-09-30 |
+| `Seccomp_filters` in no source file; `Seccomp` read by `firemon --seccomp` and `jailcheck` | occurrences in the source tree | firejail at 0.9.74, `ccdf4ea` and 0.9.80 | read 2026-09-29 or 30 |
+| Linux 3.18 | the version from which the kernel detaches a bind mount whose path is replaced from another mount namespace | as cited in [../bazel/](../bazel/) | read 2026-09-24 |
+| #3357 opened in 2020 and open | the issue's creation date and state | GitHub | read 2026-09-30 |
+| 18 CVEs, 8 of them privilege escalation and 3 sandbox escape; three on seccomp | NVD's records for firejail, by kind | NVD; Debian's security tracker lists the same 18 | read 2026-09-30 |
+| ten issues; one discussing the warning, #448 | issues whose user logs carry the install-failure warning, and those that discuss it | netblue30/firejail's issues | read 2026-09-30 |
+
 ## Corrections, 2026-09-30
 
 - The opening called the code paths identical in 0.9.74 and at `ccdf4ea`; it now says they behave

@@ -130,6 +130,25 @@ of packages it skipped for want of registry keys, so that a partially verified t
 mistaken for a fully verified one. Filed 2026-09-23 as
 [npm/cli#10018](https://github.com/npm/cli/issues/10018); text as filed: [issue.md](issue.md).
 
+## Figures
+
+Each figure, where it comes from. The table's runs on npm 10.9.8 are the audit's, and their output
+is kept only where [issue.md](issue.md) quotes it; those figures carry the day it was filed,
+2026-09-23. A figure no dated record names carries the day it was published.
+
+| figure | field or computation | source | as of |
+|---|---|---|---|
+| exit 1 and "found no dependencies to audit" for the keyless tree; exit 0, `audited 1 package in 0s` and `1 package has a verified registry signature` for the mixed tree | `npm audit signatures` over the two trees `repro.sh` builds, its exit status read from the command itself | npm 10.9.8; a local registry that answers 404 on `/-/npm/v1/keys`; `registry.npmjs.org`, which answers 200 | 2026-09-23 |
+| 0 in both rows through a pipe | `$?` after `npm audit signatures \| head` | same | not recorded; published 2026-09-24 |
+| on 12.1.0 the same summaries and exit codes, and one `npm warn Fetching verification keys using TUF failed` line for the keyless registry; the same line for a local registry that serves a key, whose package verifies | the same two trees, and a third with `lodash` and that registry's package | npm 12.1.0 | 2026-09-25, 18:01–18:03 UTC |
+| 12.1.0: `audited 0 package`, `1 package has a verified attestation`, exit 0; 10.9.8: `EMISSINGSIGNATUREKEY`; without the attestation, "found no dependencies to audit" and exit 1 on both | `npm audit signatures` over the tree `repro-attestation.sh` builds | npm 10.9.8 and 12.1.0; npmjs's attestations for semver 7.8.5 | 2026-10-08 |
+| `EMISSINGSIGNATUREKEY` and exit 1 where the keyless registry's document carries signatures; the registry the configuration names is the one that counts; `EALLOWREMOTE` with npmmirror as the default and a scope on npmjs, and the tree passing once installed otherwise | as set out in [../../measurements/keyless-registries/](../../measurements/keyless-registries/) | its `audit-cases/` and `npm-config/` | 2026-10-08, 01:47 and 01:48 UTC |
+| 572 lockfiles, none with that configuration | as set out there | its `scopes.json` and `rcfiles.json`; instruction-gap's `cells.ndjson` | lockfiles at the 2026-09-17 heads; read 2026-10-07 |
+| 11.2.0; 11.11.0 | the first release with #8080's warning; the first with #9026's condition | npm/cli's source and release notes | read 2026-09-25; read 2026-10-08 |
+| npm/rfcs#550 opened 2022-03-10, accepted 2026-05-29 | the pull request's creation and merge dates | GitHub | read 2026-09-25 |
+| npm/cli#5479 opened 2022-09-07, closed 2022-09-21 | the issue's dates | GitHub | not recorded; published 2026-09-24 |
+| up to four initial submissions; reports from 2026-07-27; announced 2026-07-22 | GitHub's post on its bug bounty programme | github.blog | read 2026-10-08 |
+
 ## Corrections, 2026-09-25
 
 - The output was described as giving no sign of the skipped packages. That holds on 10.9.8,

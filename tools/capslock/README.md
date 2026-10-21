@@ -114,6 +114,20 @@ longer claimed.
 `google-capslock-team@googlegroups.com`, per `SECURITY.md`, acknowledging within three working
 days on a 90-day disclosure timeline. Nothing was reported: there is nothing to report.
 
+## Figures
+
+Each figure, where it comes from. Capslock was not run: each is read in its source. A figure no
+dated record names carries the day it was published.
+
+| figure | field or computation | source | as of |
+|---|---|---|---|
+| exit 2 when a package fails to load, after `Some packages had errors. Aborting analysis.` | `run()`, `printErrors` and `main()` in `cmd/capslock/capslock.go` | google/capslock at `a295785` (2026-09-22) | not recorded; published 2026-09-24 |
+| `-output=compare`: 2 for an error, 1 for a difference, 0 otherwise | the command's package comment, in the same file | same | read 2026-09-24 |
+| one blind spot not surfaced, data races | `docs/caveats.md`, and the rest of the documentation for any other | same | read 2026-09-30 |
+| three working days; 90 days | the acknowledgement and disclosure periods in `SECURITY.md` | google/capslock | not recorded; published 2026-09-24 |
+| July 2024 | the date of deps.dev's post on Capslock | blog.deps.dev | read 2026-09-30 |
+| 2026-09-24, 05:01:13 UTC; push event 22028704157 | the push that carried the seed and the result | GitHub's events for this repository | read 2026-09-24 |
+
 ## Corrections, 2026-09-30
 
 - *What the control cannot see* said everything a Go call-graph analysis cannot follow is surfaced

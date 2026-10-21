@@ -90,6 +90,26 @@ Sent to MSRC 2026-09-22 22:29 UTC, per the repository's `SECURITY.md`, which ask
 issues not be filed as public GitHub issues. Tracked as **VULN-229761**, classified **Security
 Feature Bypass** in MSRC's researcher portal. Text as sent: [report-msrc.md](report-msrc.md).
 
+## Figures
+
+Each figure, where it comes from. The runs are the audit's, and their output is kept only where
+[report-msrc.md](report-msrc.md) quotes it; those figures carry the day it was sent, 2026-09-22.
+A figure no dated record names carries the day it was published.
+
+| figure | field or computation | source | as of |
+|---|---|---|---|
+| exit 0 for the four malformed inputs and 1 for the missing path; what the input without `spdxVersion` printed | `ValidateFormat -sp <input>`: its output, and its exit status read from the command itself, as `repro.sh` reads it | `sbom-tool-linux-x64` and `linux-x64-manifest.spdx.json` from release v4.1.5 | 2026-09-22 |
+| `SBOM format validation passed.` and exit 0 for the release manifest; what the other three malformed inputs and the missing path printed | the same | same | not recorded; published 2026-09-24 |
+| `dataLicense` `MIT` and `SPDXID` `NotAnSpdxId` reported as passed | the same, on two more mutations of the manifest | same | not recorded; published 2026-09-24 |
+| 0 everywhere through a pipe | `$?` after `sbom-tool … \| head` | same | 2026-09-22 |
+| v4.1.5, the current release | the latest release | microsoft/sbom-tool's releases | 2026-09-22 |
+| 2025-12-15 | v4.1.5's publication date | same | not recorded; published 2026-09-24 |
+| 2024-05-20, 2024-05-21, 2024-07-17 | the day #577, #580 and #617 were each merged | microsoft/sbom-tool | 2026-09-22 |
+| `Success` whatever the result, `GeneralError` only in the `catch` | the assignments to `Environment.ExitCode` in `src/Microsoft.Sbom.Tool/FormatValidationService.cs` | microsoft/sbom-tool `main` | 2026-09-22 |
+| one difference between the two copies, the `Environment.Exit` #617 added to the standalone tool's | the two `FormatValidationService.cs` compared; the files #617 changed | same | read 2026-09-29 or 30 |
+| five actions in the usage | the usage the binary prints for `--help` | the v4.1.5 binary | read 2026-09-29 or 30 |
+| VULN-229761, Security Feature Bypass | the case's number and classification | MSRC's researcher portal | not recorded; published 2026-09-24 |
+
 ## Corrections, 2026-09-30
 
 - *Prior art* said `--help` lists only `Validate`, `Generate`, `Redact` and `Aggregate`. The usage
