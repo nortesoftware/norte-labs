@@ -96,7 +96,7 @@ configuration occurs was not measured; in the lockfiles of 572 GitHub projects n
   for now in this case is warn users that some packages don't have signatres [sic]."
 - **Is the key lookup returning `null` on `E404`/`E400` reported?** Yes, and it is the intended
   behaviour rather than a defect. [npm/cli#5479](https://github.com/npm/cli/issues/5479) (opened
-  2022-09-07, closed 2022-09-21) is a third party asking for exactly this: their Nexus registry
+  2022-09-07, closed 2022-09-21) is a third party asking for its `E400` case: their Nexus registry
   answered `E400` where npm only expected `E404`, and the request was to treat both as a sign
   "that the third-party registry does not return signing keys" so that the audit skips those
   dependencies instead of failing. It states the behaviour plainly — "npm audit signatures skips
@@ -116,12 +116,12 @@ configuration occurs was not measured; in the lockfiles of 572 GitHub projects n
 
 **Do not spend a bounty submission on this, and do not file it as a vulnerability.**
 
-The skip is by design and was requested; the all-keyless case errors on 10.9.8; and what remains is
-that the mixed case reports no coverage figure. Submitted as a vulnerability it would very likely
-close as by-design, and under [GitHub's programme as restructured on
+The skip is by design, and its 400 case was requested; the all-keyless case errors on 10.9.8; and
+what remains is that the mixed case reports no coverage figure. Submitted as a vulnerability it
+would very likely close as by-design, and under [GitHub's programme as restructured on
 2026-07-27](https://github.blog/security/next-chapter-restructuring-githubs-bug-bounty-program/) a
 reporter below HackerOne's signal threshold has up to four initial submissions — a bad trade for a
-report whose own prior art shows the core behaviour was asked for.
+report whose own prior art shows the core behaviour is intended.
 
 `npm/cli`'s `SECURITY.md` routes bounty-eligible reports through HackerOne and everything else to
 `opensource-security@github.com`; the second does not consume a bounty submission. Neither is the
@@ -196,3 +196,12 @@ is kept only where [issue.md](issue.md) quotes it; those figures carry the day i
   2026-07-22, for reports from 2026-07-27, and the sentence now cites it and says more precisely
   whom the limit is for.
 - *Prior art* now points to the measurement made since.
+
+## Corrections, 2026-10-21
+
+- *Verdict* said the skip was requested and that the report's own prior art shows the core
+  behaviour was asked for. It now says the skip's 400 case was requested and that the prior art
+  shows the behaviour is intended: [npm/cli#5479](https://github.com/npm/cli/issues/5479) lists
+  the skip on `E404` under "Current Behavior" and asks for the same on `E400`.
+- *Prior art* said npm/cli#5479 asks for exactly the lookup's `null` on `E404` and `E400`. It now
+  says the issue asks for its `E400` case, as *Verdict* does.

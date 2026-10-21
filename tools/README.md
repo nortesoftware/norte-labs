@@ -86,14 +86,16 @@ known for:
 
 Channel: a reporting address in `SECURITY.md` and a CVE history going back to 2016.
 
-**Audited, 2026-09-23: [tools/firejail/](firejail/).** Both reproduced on 0.9.74, with the code
-checked against `ccdf4ea` first so the report is not about a version upstream no longer supports.
-The blacklist finding came out stronger than expected: the same program implements "the path is not
-there at setup" twice and reports it only on the whitelist side, so `--debug-blacklists` lists what
-applied and is silent about what did not. The seccomp finding is reported as what it is — the
-reporting half is reproduced, including that `--seccomp.print` reads the filter files rather than
-the kernel's `Seccomp_filters`, while the failing install itself could not be induced unprivileged
-on kernel 6.12 and is stated as unreproduced. Reported 2026-09-23 to `netblue30@protonmail.com`.
+**Audited, 2026-09-23: [tools/firejail/](firejail/).** The blacklist finding reproduced on 0.9.74
+and the seccomp finding in part, with the code checked against `ccdf4ea` first so the report is not
+about a version upstream no longer supports. The blacklist finding came out stronger than expected:
+the same program implements "the path is not there at setup" twice and reports it only on the
+whitelist side, so `--debug-blacklists` lists what applied and is silent about what did not. The
+seccomp finding is reported as what it is — of the reporting half, what `--seccomp.print` prints and
+the kernel's count are reproduced, `--seccomp.print` reading the filter files rather than the
+kernel's `Seccomp_filters`, and the rest is read from the code, while the failing install itself
+could not be induced unprivileged on kernel 6.12 and is stated as unreproduced. Reported 2026-09-23
+to `netblue30@protonmail.com`.
 
 The recurrence is written up separately in [absent-fails-open.md](absent-fails-open.md), and
 tested against targets picked by seeded random draw — [capslock/](capslock/), where it did not
@@ -116,11 +118,11 @@ an invalid signature from a valid one; the audit is whether it distinguishes *ch
 survive intact, and no submission was spent.** Reproduced against npm 10.9.8: a tree resolved
 entirely from a keyless registry errors and exits 1, which is correct; a mixed tree prints `audited
 1 package` and `1 package has a verified registry signature` and exits 0 with the keyless dependency
-counted nowhere. But the skip itself is intentional and was requested — npm/cli#5479 asked for
-`E400` to be treated like `E404` precisely so those dependencies would be skipped rather than fail.
-What is left is that the mixed case reports no coverage figure, which is a reporting gap and not a
-vulnerability. Filed as a public issue instead, npm/cli#10018, since its own prior art shows the
-behaviour was asked for.
+counted nowhere. But the skip itself is intentional, and its 400 case was requested — npm/cli#5479
+asked for `E400` to be treated like `E404` precisely so those dependencies would be skipped rather
+than fail. What is left is that the mixed case reports no coverage figure, which is a reporting gap
+and not a vulnerability. Filed as a public issue instead, npm/cli#10018, since its own prior art
+shows the behaviour is intended.
 
 ## Runners-up, and why not now
 
@@ -195,3 +197,13 @@ matter: `tools/firejail/` names the address it went to, because that is the reco
 
 - The sbom-tool entry said the audit establishes what `MultilineSummary()` prints; the method
   returns the lines, which the service's `PrintLines` prints.
+
+## Corrections, 2026-10-21
+
+- The npm entry said the skip was requested and that its own prior art shows the behaviour was
+  asked for. It now says the skip's 400 case was requested and that the prior art shows the
+  behaviour is intended; npm/cli#5479 lists the skip on `E404` under "Current Behavior" and asks
+  for the same on `E400`.
+- The firejail entry said both findings were reproduced, and the seccomp finding's reporting half
+  with them. The blacklist finding was; of the reporting half, what `--seccomp.print` prints and the
+  kernel's count are, and the rest is read from the code. The entry now says so.

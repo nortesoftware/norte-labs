@@ -82,11 +82,10 @@ shows its results; whether capcheck preserves Capslock's exit codes is a questio
 
 ## What was not done
 
-Capslock was not run. There is no Go toolchain on this host, and this was established before
-anything was claimed rather than after. The degraded-mode conclusion rests on reading a short and
-unambiguous path — one `if` whose body returns an error that `main` turns into `os.Exit(2)` — and
-the rest rests on documentation that states the design principle and on the capability list that
-implements it. Running it would add confirmation, not change the reading.
+Capslock was not run. The degraded-mode conclusion rests on reading a short and unambiguous path —
+one `if` whose body returns an error that `main` turns into `os.Exit(2)` — and the rest rests on
+documentation that states the design principle and on the capability list that implements it.
+Running it would add confirmation, not change the reading.
 
 ## Scope, corrected 2026-09-24
 
@@ -141,3 +140,8 @@ dated record names carries the day it was published.
 - *Prior art* counted deps.dev with capcheck as third-party integrations that gate on Capslock.
   deps.dev is Google's, as Capslock is; its July 2024 post says it lists capabilities per version.
   Of the two, only capcheck gates, and the paragraph now says that deps.dev shows its results.
+
+## Corrections, 2026-10-21
+
+- *What was not done* said there was no Go toolchain on this host, and that this was established
+  before anything was claimed. No record supports it. The sentence is removed.

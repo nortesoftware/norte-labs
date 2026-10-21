@@ -5,7 +5,12 @@ what it tells the operator it did. Reproduced against firejail 0.9.74 as package
 both code paths behave as in 0.9.74 in both versions the maintainers support, release 0.9.80 and
 the development version, whose code and line numbers at `ccdf4ea` (2026-09-20) are quoted below.
 
-`repro.sh` runs everything below and cleans up after itself.
+`repro.sh` runs the cases below and cleans up after itself. For the blacklist it counts the lines
+that name each file under `--debug-blacklists`, and under `--debug` only `absent.txt`'s; the
+`Disable` line it counts is printed at `fs.c:155`, and under `--debug` the same line for
+`present.txt` at `fs.c:152`. The three attempts to make an install fail are not in it, and what
+section 2 says follows a failed install — the warning, `--quiet`, the exit status — is read from
+the code.
 
 ## 1. A blacklist for a path that does not exist is skipped, and nothing says so
 
@@ -82,7 +87,7 @@ if (rv == -1) {
 
 It warns once however many filters failed, attributes every failure to the kernel version
 whatever the errno was, and returns 1. All three callers in `src/firejail/sandbox.c` — at 547,
-581 and 633 on `main`, 544, 580 and 632 in 0.9.74 — discard that return and go straight to:
+581 and 633 on `master`, 544, 580 and 632 in 0.9.74 — discard that return and go straight to:
 
 ```c
 seccomp_install_filters();
@@ -112,7 +117,8 @@ Those two fields are the ground truth, they agree with the file list when the in
 and `Seccomp_filters` is the count that would drop if one did not. It occurs nowhere in firejail's
 source, and of its programs only `firemon --seccomp` and `jailcheck` read `Seccomp`, the mode.
 
-**What is read and what is run.** The reporting half above is reproduced: every operator-visible
+**What is read and what is run.** Of the reporting half above, what `--seccomp.print` prints and
+the kernel's count are reproduced, and the rest is read from the code: every operator-visible
 surface — the warning, `--quiet`, the exit status, `--seccomp.print` — reports what firejail
 intended rather than what the kernel accepted, and the kernel's answer is available and unused.
 The failing install itself was not induced. On this host, kernel 6.12, `prctl(PR_SET_SECCOMP)`
@@ -191,3 +197,14 @@ dated record names carries the day it was published.
 - *Prior art* cited only `fseccomp` warnings about unavailable syscalls, a different message. It
   now says the install-failure warning appears in user logs in ten issues, discussed only in #448,
   where the cause was a kernel without `CONFIG_SECCOMP_FILTER`, not the version the warning names.
+
+## Corrections, 2026-10-21
+
+- The opening said `repro.sh` runs everything below. It counts the blacklist's lines where the
+  table gives the `Disable` line, and under `--debug` counts only `absent.txt`'s; the three
+  attempts to make an install fail are not in it; and what follows a failed install is read from
+  the code. The opening now says so.
+- *What is read and what is run* said the reporting half is reproduced. Of it, what
+  `--seccomp.print` prints and the kernel's count are; what the warning, `--quiet` and the exit
+  status do after a failed install is read from the code, and the paragraph now says so.
+- Section 2 placed the line numbers of the three callers on `main`; firejail's branch is `master`.
