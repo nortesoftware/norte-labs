@@ -2,6 +2,11 @@
 
 Supply-chain security research and audits.
 
+## How this work is done
+
+The code, the runs and the texts here are done with an AI assistant. Christian Noé Ramos López
+decides what is measured and what is published, approves each publication and answers for it.
+
 ## What is here
 
 - [prior-art/mcp.md](prior-art/mcp.md) — has anyone measured the MCP server ecosystem?
