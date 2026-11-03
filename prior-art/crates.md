@@ -98,3 +98,4 @@ Projects" (SAC 2025).
   count is the 140 entries.
 - The start of crates.io's publisher records is now dated from crates.io: a change merged on
   2019-02-22, after the migration of November 2018.
+  The text said `published_by` was added by a migration dated November 2018.

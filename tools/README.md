@@ -184,6 +184,7 @@ matter: `tools/firejail/` names the address it went to, because that is the reco
   and a CVE history, not a documented process; 0.9.74 is unsupported upstream, not EOL.
 - sbom-tool's `GeneralError` is for a file that cannot be opened; one that cannot be parsed is a
   validation failure and exits 0.
+  This file said it is for a file that cannot be opened or parsed.
 - The sbom-tool entry said PR #617 made the placeholder's value authoritative; it did so for the
   standalone tool only, the one copy it changed. "Security Feature Bypass" is MSRC's
   classification in its researcher portal, which is not public.

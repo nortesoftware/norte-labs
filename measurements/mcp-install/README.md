@@ -421,3 +421,4 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 - python-sdk#3309 was closed as not planned on 2026-10-01. findings.md gives its state and what
   the SDK team wrote closing it: 1.x frozen at the 2025-11-25 specification, `mcp>=2,<3` as the
   guidance for package authors, no dual-version page.
+  findings.md gave the issue with its opening date, 2026-08-14, alone.

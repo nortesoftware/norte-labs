@@ -154,59 +154,59 @@ Temporary files under `/var/tmp/nl-go/`, deleted when the run is done.
 | npm: 165 publishers, median | findings.md:25 | `publishers.total` | `../../measurements/instruction-gap/results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of that run |
 | npm: 18 named in the manifest, median | findings.md:26; README.md:281 | `publishers.behindDirect` | `../../measurements/instruction-gap/results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of that run |
 | npm: 87 % never named, median share | findings.md:27 | `publishers.notChosen / publishers.total`, over the 881 with a publisher | `../../measurements/instruction-gap/results/cells.ndjson` | lockfiles at the 2026-09-17 heads; registry records of that run |
-| 9 modules declared directly, median | findings.md:23, 34; README.md:262 | `direct − 1` | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
-| 81 modules resolved, median | findings.md:24; README.md:212, 262 | `modules − 1` | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
-| 40 to 41 owners, median (rule A) | findings.md:25, 34, 57; README.md:212, 240, 264, 323 | `len(ownersA) − 1` to `len(ownersA)`; 0 where `modules` is 1; an owner is a forge account or, where the path has no account element, a host such as `go.googlesource.com` | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| 7 to 8 named in the manifest, median (rule A) | findings.md:26, 35, 58; README.md:264 | `len(directOwnersA) − 1` to `len(directOwnersA)`; 0 where `modules` is 1 | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| 79.5 to 82.8 % never named, median share (rule A) | findings.md:27, 59; README.md:287-289 | never = `ownersA` not in `directOwnersA`; `never / len(ownersA)` to `(never + 1) / len(ownersA)`, over the 341 with `modules` > 1 | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| 19 with no dependency | findings.md:32; README.md:260-261 | `modules` is 1 | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
+| 9 modules declared directly, median | findings.md:23, 34; README.md:265 | `direct − 1` | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
+| 81 modules resolved, median | findings.md:24; README.md:212, 265 | `modules − 1` | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
+| 40 to 41 owners, median (rule A) | findings.md:25, 34, 57; README.md:212, 240, 267, 324 | `len(ownersA) − 1` to `len(ownersA)`; 0 where `modules` is 1; an owner is a forge account or, where the path has no account element, a host such as `go.googlesource.com` | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
+| 7 to 8 named in the manifest, median (rule A) | findings.md:26, 35, 58; README.md:267 | `len(directOwnersA) − 1` to `len(directOwnersA)`; 0 where `modules` is 1 | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
+| 79.5 to 82.8 % never named, median share (rule A) | findings.md:27, 59; README.md:288-290 | never = `ownersA` not in `directOwnersA`; `never / len(ownersA)` to `(never + 1) / len(ownersA)`, over the 341 with `modules` > 1 | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
+| 19 with no dependency | findings.md:32; README.md:263-264 | `modules` is 1 | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
 | about a fifth chosen | findings.md:36 | 100 − the share above: 17.2 to 20.5 % | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | rule B: 41 to 42 owners, 7 to 8 named, 80.0 to 83.1 % | findings.md:57-59 | as rule A, on `ownersB` and `directOwnersB` | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | 1.00× at the median, 1.03× at p90 | findings.md:63 | `len(ownersB) / len(ownersA)`, the project counted | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | 65,050 resolutions; 71.0, 28.8, 0.2 and 0.1 %; 34 | findings.md:67-73 | `howCounts` summed over the 360 cells: forge, meta, unresolved, unreachable; a path counts once per project; a path met again after every prefix of it failed counts as unresolved, so the unreachable count is a floor | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| withdrawn: about 20 of those 34 are projects' own paths | README.md:328-331 | the cells record `howCounts`, not the path behind each resolution | — | — |
+| withdrawn: about 20 of those 34 are projects' own paths | README.md:329-332 | the cells record `howCounts`, not the path behind each resolution | — | — |
 | 64,624 of the 64,690 `go.mod` files read; the other 66 | README.md:102-103 | `modFilesRead` summed over the 360 resolved cells, against `modules − 1` summed; the difference | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
-| 12.8 % [9.7–16.6] of the 360 resolved, design effect 1.1 | findings.md:85-88; README.md:252, 308-309 | `ownToolchain` not null, 46 of the 360 resolved, Wilson 95 %; design effect: cluster-robust variance of the mean, with G/(G−1), over s²/n, clusters from `MARKERS` in `src/report.py` | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
-| 45.6 % of the 360, design effect 20.9 | findings.md:89-92; README.md:248-250, 308-309 | `graphToolchains` not empty, 164 of the 360; design effect as above | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
+| 12.8 % [9.7–16.6] of the 360 resolved, design effect 1.1 | findings.md:85-88; README.md:255, 309-310 | `ownToolchain` not null, 46 of the 360 resolved, Wilson 95 %; design effect: cluster-robust variance of the mean, with G/(G−1), over s²/n, clusters from `MARKERS` in `src/report.py` | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
+| 45.6 % of the 360, design effect 20.9 | findings.md:89-92; README.md:251-253, 309-310 | `graphToolchains` not empty, 164 of the 360; design effect as above | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
 | 74 of 94, 22 of 33, 25 of 52, none of 52 | findings.md:93-94 | the same by cluster: kubernetes, docker, gcp, none | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
 | median 0, p90 15, largest 64 | findings.md:95-96 | entries in `graphToolchains` per project | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
-| `go1.21.0` to `go1.27.1`; `go1.23.6` (177), `go1.24.1` (153), `go1.24.9` (142) | findings.md:97-98; README.md:276-277 | values of `graphToolchains` over all cells, one per project per module version; lowest and highest by version number, then the most frequent | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
+| `go1.21.0` to `go1.27.1`; `go1.23.6` (177), `go1.24.1` (153), `go1.24.9` (142) | findings.md:97-98; README.md:279-280 | values of `graphToolchains` over all cells, one per project per module version; lowest and highest by version number, then the most frequent | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
 | six of the first eleven | findings.md:120 | `ownGoDirective` newer than 1.24.4, ranks 1 to 11 | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
 | 19 clusters, mean size 18.9 | findings.md:127 | first marker matched from `MARKERS` in `src/report.py`; 360 / 19 | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | Jaccard 0.230 against 0.103 | findings.md:128; README.md:285-286 | mean `ownersA` overlap over all 8,802 same-cluster and 55,818 cross-cluster pairs, the project counted | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | intra-class correlation 0.561, design effect 29.5 | findings.md:129-130 | one-way ANOVA intra-class correlation of `len(ownersA)` by cluster; design effect as for 12.8 %; the project counted | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| instruction-gap's 33.5 and 36.5 | findings.md:130; README.md:310-312 | DEFF column, the raw counts: resolved versions 33.5, distinct publishers 36.5 (41.1 is log10 publishers); computed without the G/(G−1) factor that Go's 29.5 carries, and Go's without it is 28.0 | `../../measurements/instruction-gap/results/report.md` | lockfiles at the 2026-09-17 heads; registry records of that run |
+| instruction-gap's 33.5 and 36.5 | findings.md:130; README.md:311-313 | DEFF column, the raw counts: resolved versions 33.5, distinct publishers 36.5 (41.1 is log10 publishers); computed without the G/(G−1) factor that Go's 29.5 carries, and Go's without it is 28.0 | `../../measurements/instruction-gap/results/report.md` | lockfiles at the 2026-09-17 heads; registry records of that run |
 | kubernetes: 94, 0, 310, 134.5 to 135.5, 88.7 to 89.6 % | findings.md:134, 148 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | none: 52, 18, 2.5, 1 to 2, 0.0 to 50.0 % | findings.md:135, 149 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | gcp: 52, 0, 100.5, 48 to 49, 80.0 to 83.1 % | findings.md:136 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| testify: 41, 0, 18, 10 to 11, 62.5 to 71.4 % | findings.md:137; README.md:313-314 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
+| testify: 41, 0, 18, 10 to 11, 62.5 to 71.4 % | findings.md:137; README.md:314-315 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | docker: 33, 0, 165, 97 to 98, 82.6 to 84.5 % | findings.md:138 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | aws: 17, 0, 135, 53 to 54, 75.0 to 78.6 % | findings.md:139 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | cobra: 17, 0, 38, 22 to 23, 71.4 to 80.4 % | findings.md:140 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | hashicorp: 11, 1, 54, 29 to 30, 73.5 to 75.9 % | findings.md:141 | per cluster: n; `modules` is 1; median `modules − 1`; owners and share as rule A, the share to one decimal | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | about one in ten named (Kubernetes) | findings.md:149 | 100 − the kubernetes share: 10.4 to 11.3 % | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| 20 projects (cgo), from the 341 resolved with a dependency | findings.md:156, 160; README.md:111, 137, 318-319 | rows; the first 20 of the 341 resolved cells with `modules` > 1 in the order of `sha256(seed + fullName)`, `seed` the default in `src/cgo.py` | `results/cgo.ndjson` | not recorded in the file |
-| 323 packages [126.5 to 685.4]; 61 to 1,717 | findings.md:163; README.md:305-307 | `packages`: median, p10 and p90, interpolated; minimum and maximum | `results/cgo.ndjson` | not recorded in the file |
+| 20 projects (cgo), from the 341 resolved with a dependency | findings.md:156, 160; README.md:111, 137, 319-320 | rows; the first 20 of the 341 resolved cells with `modules` > 1 in the order of `sha256(seed + fullName)`, `seed` the default in `src/cgo.py` | `results/cgo.ndjson` | not recorded in the file |
+| 323 packages [126.5 to 685.4]; 61 to 1,717 | findings.md:163; README.md:306-308 | `packages`: median, p10 and p90, interpolated; minimum and maximum | `results/cgo.ndjson` | not recorded in the file |
 | 18 with cgo, 13 with only the standard library's, two with none | findings.md:166-168 | `cgoPackages` > 0; `cgoModules` is `["std"]`; `cgoPackages` is 0 | `results/cgo.ndjson` | not recorded in the file |
-| 5 with cgo from a dependency; four by domain, the fifth `ebitengine/purego` | findings.md:169-173; README.md:315-317 | `cgoModules` holds a module other than `std` and the project's own: ten such modules across the five, `ebitengine/purego` the only one in `londek/ipadecrypt` | `results/cgo.ndjson` | not recorded in the file |
+| 5 with cgo from a dependency; four by domain, the fifth `ebitengine/purego` | findings.md:169-173; README.md:316-318 | `cgoModules` holds a module other than `std` and the project's own: ten such modules across the five, `ebitengine/purego` the only one in `londek/ipadecrypt` | `results/cgo.ndjson` | not recorded in the file |
 | cgo median 3, maximum 7; assembly median 37, maximum 63; about twelve times | findings.md:174-175 | `cgoPackages`, `asmPackages`; 37 / 3 = 12.3 | `results/cgo.ndjson` | not recorded in the file |
-| first published: 10, 82, 41, 8 and 78 % | findings.md:39; README.md:212-213, 253, 262, 265 | the project counted: medians of `direct`, `modules`, `len(ownersA)`, `len(directOwnersA)`; the share with the 19 at 0 % (78.4) | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
+| first published: 10, 82, 41, 8 and 78 % | findings.md:39; README.md:212-213, 256, 265, 268 | the project counted: medians of `direct`, `modules`, `len(ownersA)`, `len(directOwnersA)`; the share with the 19 at 0 % (78.4) | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | first published: 41 and 42 | README.md:240 | medians of `len(ownersA)` and `len(ownersB)`, the project counted | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| first published: a tenth | findings.md:40; README.md:273-274 | 8 named of 41 is 19.5 % | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| first published: [40.5–50.7] | README.md:249 | Wilson 95 % on 164 of 360 | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
-| first published: 78 to 82 % | README.md:212, 265, 289 | the share bounds with the 19 at 0 %, each median `sorted(v)[round(0.5·(n−1))]`, as the report then printed them: 78.4 to 82.0 | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
-| first published: `go1.23.0` to `go1.26.5` | README.md:275 | lowest and highest of the twelve most frequent values | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
+| first published: a tenth | findings.md:40; README.md:276-277 | 8 named of 41 is 19.5 % | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
+| first published: [40.5–50.7] | README.md:252 | Wilson 95 % on 164 of 360 | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
+| first published: 78 to 82 % | README.md:212, 268, 290 | the share bounds with the 19 at 0 %, each median `sorted(v)[round(0.5·(n−1))]`, as the report then printed them: 78.4 to 82.0 | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
+| first published: `go1.23.0` to `go1.26.5` | README.md:278 | lowest and highest of the twelve most frequent values | `results/cells.ndjson` | walk of 2026-09-23, 06:31–14:46 UTC (`startedAt`) |
 | first published: libp2p 163, now 236 | README.md:284-285 | median `len(ownersA)` of the libp2p cluster, the project counted: `sorted(v)[round(0.5·(n−1))]` gives 163, interpolation 236 | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | first published: two owners, names both (no marker) | findings.md:151 | the project counted: median `len(ownersA)` 2, never-named 0 % | `results/cells.ndjson` | owners resolved during the walk of 2026-09-23 |
 | first published: npm 21 | README.md:281 | no field in instruction-gap's cells has a median of 21 | — | — |
-| withdrawn: pilot's 465 modules, 202 owners, 80 % | README.md:210-211, 332-334 | in no file in `results/`; `cli/cli` is in the frame, not in the sample | — | — |
-| withdrawn: a 5 GB cap on the cgo subsample | README.md:296-298 | in no file; `src/cgo.py` stops on `NL_CAP_GB`, the size of the module cache, and the setting of the run is not recorded | — | — |
+| withdrawn: pilot's 465 modules, 202 owners, 80 % | README.md:210-211, 333-335 | in no file in `results/`; `cli/cli` is in the frame, not in the sample | — | — |
+| withdrawn: a 5 GB cap on the cgo subsample | README.md:297-299 | in no file; `src/cgo.py` stops on `NL_CAP_GB`, the size of the module cache, and the setting of the run is not recorded | — | — |
 
 The push times, event ids and commit counts in *Corrections* are GitHub's record of pushes to
 this repository, and the Chen et al. figures are that paper's; no file in `results/` carries them.
 
 ## Corrections
-
+### 2026-09-24
 - The pilot that motivated this measurement used `cli/cli`, which resolves 465 modules and 202
   owners with 80 % never named. Those figures are a single hand-picked project and are not the
   result; the frame medians are 81 modules, 40 to 41 owners and 78 to 82 % (82, 41 and 78 % as
@@ -239,6 +239,9 @@ this repository, and the Chen et al. figures are that paper's; no file in `resul
   claimed. What can be checked is unchanged: the rule and its code are published, both rules are
   reported, and they give medians of 41 and 42 as first published, 40 to 41 and 41 to 42 without
   the project itself.
+
+### 2026-09-25
+
 - findings.md §3, and the repository README, said that 45.6 % of projects carry at least one module
   whose manifest can make the go command download and run a different toolchain. They do not. The
   go command reads the `toolchain` line of the main module or workspace and of nothing else: the
@@ -275,15 +278,13 @@ this repository, and the Chen et al. figures are that paper's; no file in `resul
 - findings.md §3 said the toolchain versions named run from `go1.23.0` to `go1.26.5`. Those were
   the extremes of the twelve most frequent. Across all graphs they run from `go1.21.0` to
   `go1.27.1`.
-
-### 2026-09-25
-
 - findings.md §1 gave npm's publishers named in the manifest as a median of 21. It is 18.
 - Every quantile in results/report.md was an order statistic, `sorted(v)[round(f*(n-1))]`, which
   for an even count is one of the two middle values; instruction-gap's are interpolated, and so
   are these now. Per-cluster medians move most where a cluster is small: libp2p's owners from 163
   to 236. The within-cluster overlap was computed over one pair in three; over all pairs it is
   0.230.
+  findings.md gave the within-cluster overlap as 0.225.
 - The never-named share counted the 19 projects with no dependency as 0 %. With no owner besides
   itself a project has no share, and instruction-gap leaves out projects with no publisher; left
   out here too, the median is 79.5 to 82.8 %, not 78 to 82 %.

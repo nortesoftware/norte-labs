@@ -745,6 +745,7 @@ strace in a decoy home.
   a day to around 3-5 alerts.
 - The 17,884 `totalSize` of 2026-09-16 is the one kept in
   `registries/agent-plugins/data/catalog-counts-2026-09-16.json`.
+  The text gave the 17,884 with no date and no file.
 
 ## Corrections, 2026-10-01
 

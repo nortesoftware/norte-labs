@@ -335,7 +335,7 @@ given; "none" is left for the figures a correction replaced and for one operatio
 
 Figures and wordings corrected in findings.md, each with the reason the data required it.
 
-### ACP
+### ACP, 2026-09-17
 
 - Agreement is 33/34 with cline and junie in the file: 34 agents comparable with the matrix, 33
   agree, cortex-code the one disagreement.
@@ -406,7 +406,7 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   tried `/sys/class/net/wlan0/address` and `/dev/sda`, and posted to `/repPc.json` as plain
   HTTP/1.0 on port 443 with an encrypted body.
 
-### Cursor
+### Cursor, 2026-09-17
 
 - It was "296 servers on 232 hosts"; it is 296 declarations, 261 distinct, on 219 concrete
   hosts plus 15 user-variable hosts. It was "67 servers"; it is 67 declarations, 63 distinct.
@@ -440,7 +440,7 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   plugins", and it is not seven servers. The rate sentence says seven. Two different snyk
   plugins were conflated; opensearch's AWS server also reads `~/.netrc`.
 
-### Devin
+### Devin, 2026-09-17
 
 - aws-agent-toolkit's failure is the instrument's: the plugin's `${VAR:-}` empty default was
   replaced by a dummy profile name (the runner honours `:-` defaults). dbt, metabase and
@@ -450,7 +450,7 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   [62.9–76.5]. `awslabs.lambda-mcp-server` is uninstallable as declared because every release
   is yanked, not "at all". aws-dynamodb writes a log under `~/.aws`.
 
-### Zed
+### Zed, 2026-09-17
 
 - The source heuristic mis-resolved 9 extensions: wrong package for gem, wrong entry for polar,
   missing `--mcp` for repomix, missing `server start` for azmcp, literal relay URLs it did not
@@ -466,7 +466,7 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   `initialize` but not `tools/list`. zeroheight launches an OAuth flow through `xdg-open` at
   first start.
 
-### Open VSX
+### Open VSX, 2026-09-24
 
 - The VSIX digest comparison was "591 matching, 8 mismatching"; it is 591/591 over the
   universal downloads. The eight were platform-specific downloads compared against the default
@@ -576,6 +576,8 @@ Figures and wordings corrected in findings.md, each with the reason the data req
 - The search API's 17,941 is dated 2026-09-17, the day its record gives, not 2026-09-18.
 - The registry's outcome classes now include `invalid_params`; two rarer classes of its own are
   counted as error. `bun` is there for one first-party hook, continual-learning's `stop`.
+  This file gave the classes as success, auth_required, method_not_found, error and timeout, and
+  said first-party Cursor hooks run on `bun`.
 - The extension host was called the same Code-OSS code as Cursor's and Windsurf's; it is the same
   codebase at another version (Windsurf's base is VS Code 1.126, VSCodium's 1.135).
 - The 2026-09-25 note, findings.md and Figures said three quarantine reasons name the refused
@@ -598,31 +600,63 @@ Figures and wordings corrected in findings.md, each with the reason the data req
 - findings.md, on quickdb, also: its description begins "Lightweight database browser for VS
   Code"; the routine rewrites a path that is not the newest installed quickdb's; the `~/.aws`
   reads are the bundled Snowflake driver's cloud-platform detection.
+  findings.md said the one-line description is "Lightweight database browser for VS Code", that the
+  routine rewrites an entry whose server path points into an older extension directory, and that the
+  `~/.aws` reads are an AWS SDK credential chain.
 - `cline@3.0.61` reaches `@ai-sdk/anthropic` through `@ai-sdk/amazon-bedrock` and
   `@ai-sdk/google-vertex`; `ai` and `@ai-sdk/gateway` do not depend on it. The registry's `npx`
   runs the bin through its own npx-cache install.
+  findings.md said it reaches it through `ai` and `@ai-sdk/gateway`, and that the registry's `npx`
+  launch does not depend on the link.
 - fast-agent's reason is quoted as the registry writes it ("120s … initialize response"); its
   timeout was 0.10.1 exiting in 15 s with "No model configured", not the install.
+  findings.md quoted it as "Timeout after 120 s waiting for initialize" and said their timeout is
+  the install inside the launch.
 - A file "read" by an agent is parsed by the agent or a program it runs (git, npm, a login shell).
+  findings.md said each file so named is one the agent's source parses.
 - codebuddy-code downloads two marketplaces, index and plugins, as zips; github-copilot's ACP mode
   uses the CLI by default; opencode installs through npm's Arborist library, kilo only for a local
   `file://` plugin; gemini in an untrusted folder loads four named keys, not all `GEMINI_`/`GOOGLE_`.
+  findings.md said codebuddy-code fetches its plugin-marketplace index, that github-copilot installs
+  the CLI because ACP mode needs it, that opencode forks a background `npm install` and kilo, its
+  fork, has the same code path, and that gemini loads only `GEMINI_`/`GOOGLE_` keys because the
+  folder is untrusted.
 - Cursor's documents name no `.claude-plugin`, `.grok-plugin` or `.codex-plugin` manifest; a skill's
   script also runs a plugin's code; Cursor maps eight Claude Code hook names to its own.
+  findings.md said Cursor accepts those manifests, that a plugin's code runs when an event fires a
+  hook or the editor starts a bundled MCP server, and that Cursor accepts hook names in two
+  spellings.
 - golf's `${PLUGIN_ROOT}`, which Cursor does not expand, was resolved by the instrument.
+  findings.md said the 67 servers were started the way the editor would, with dummy values for the
+  variables the plugin asks the user to fill.
 - rover is not among the Cursor cells; only azure writes the shared Microsoft device id.
+  findings.md said azure and rover write a shared Microsoft device id and an update-notifier state.
 - monk's script re-downloads only when the published checksum changes; mem0's scripts post at
   prompts of 20 characters or more and memory tool use with no key configured.
+  findings.md said monk's script re-checks its checksum and re-downloads on every session start, and
+  that with a key configured mem0's scripts would also post at session start, stop, every prompt and
+  every memory tool use.
 - newsnow's `BASE_URL` is a literal in its source; github-activity-summarizer takes its credential
   from `gh`, a keyring or a token file, not from Zed settings.
+  findings.md said the extension would have passed the user's Zed settings to each of the 17 as
+  environment or arguments.
 - Open VSX is the gallery of Code-OSS builds such as VSCodium, not of every one: Code-OSS itself
   has none. `*` and `onStartupFinished` run at every start whether or not a file is opened.
+  findings.md called it the gallery behind Cursor, Windsurf and every Code-OSS build, and said those
+  extensions run before any file is opened.
 - Three of the four extensions that did not call again at natural activation call at activation;
   "a timer longer than the window" is removed. chatwizard's documents name its instructions file.
+  findings.md said imgildev.vscode-python-generator's first call is on a timer longer than the
+  window, and that chatwizard's global Copilot instructions file appears in no document of its own.
 - meanwhile sends a 16-hex-digit prefix of the hash and polls every 20 s while the window is in
   use; kwai's `yarn global add` is conditional and it reports to two endpoints; switchboard's
   CSRF token comes from the process table; devspacesplus reads all but two variables by `echo`;
   manul's shell sources the user's startup files.
+  findings.md said meanwhile sends a SHA-256 of the open workspace folder paths, polling while the
+  editor is open; that kwai runs `yarn global add` at every editor start and reports to a Kuaishou
+  endpoint; that switchboard reads the IDE's state database to recover an auth status and CSRF
+  token; that devspacesplus obtains every environment variable by `echo`; and that manul's shell
+  sources the user's own rc files.
 - `results/report.md` said the 8 platform-specific downloads are not covered by the published
   digest; it now says the default record's, as each has its own in its platform's record.
 
