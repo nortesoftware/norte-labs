@@ -69,13 +69,13 @@ with such code, none of it is behind a direct dependency. 305 distinct packages 
 dependency), reaches 696 projects. How many projects the other packages and identities reach
 through install-time code is not measured, and neither is any figure without `fsevents`.
 
-Whether that code runs depends on the manager and its version. npm 12 (2026-07-08) blocks
-dependency install scripts and implicit `node-gyp` builds unless the root manifest's
-`allowScripts` lists them; pnpm 10 (January 2025) blocks them behind `onlyBuiltDependencies`;
-Bun runs only a built-in allowlist of 367 names, which includes `esbuild` but not `fsevents`;
-Yarn Berry's `enableScripts` defaults to false since 4.14 (April 2026); yarn v1 and npm before
-12 run everything. How many of the 892 projects carry an allowlist of their own (`allowScripts`,
-pnpm's `onlyBuiltDependencies` or `allowBuilds`, bun's `trustedDependencies`) is not measured.
+Some dependency's install-time script runs in 174 of the 780 projects whose configuration could be
+read, 22.3 % [19.5–25.4], installed from nothing on Linux x64 with that configuration and the latest
+release of their manager, and in 251, 32.2 % [29.0–35.5], with the line each pins in
+`packageManager`, if any (`whether-it-runs.md`). pnpm 11 and later fail the install on a build
+nobody allowed or denied in `allowBuilds` and no longer read `onlyBuiltDependencies`. Yarn Berry's
+`enableScripts` defaults to false from 4.14, but `yarn install` sets it to true where the lockfile
+predates 4.14 and nothing sets it, 15 of the 21 Berry projects.
 
 ## 4. Where it comes from
 

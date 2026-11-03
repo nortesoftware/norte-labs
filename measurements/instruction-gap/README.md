@@ -81,11 +81,11 @@ the results; the headline counts identities, not people.
 
 ### What is not measured
 
-- Whether the install-time code runs. Since npm 12 (2026-07-08) npm blocks dependency install
-  scripts unless the root manifest allows them; pnpm 10 (2025-01), Bun and Yarn Berry 4.14
-  (2026-04) block them by default too, Bun with a built-in allowlist. The count here is of code
-  declared to run at install in the resolved tree; it runs as such under yarn v1, Yarn Berry
-  before 4.14 and npm before 12, and under the others only where allowed.
+- Whether the install-time code runs: the count here is of code declared to run at install in the
+  resolved tree. Whether it runs is measured apart, in [whether-it-runs.md](whether-it-runs.md): on
+  Linux x64, for registry dependencies' `preinstall`, `install` and `postinstall`, with the
+  configuration each project commits; not on macOS or Windows, and not for the projects' own scripts
+  or their git or tarball dependencies.
 - Platform-conditional optional dependencies (`fsevents` on macOS) are counted as resolved, and
   no figure is given without them: the cells do not list the packages each project resolves.
   The count of projects whose install-time code is entirely optional is not reported: yarn v1,
@@ -155,9 +155,9 @@ cache, ~800 MB). Deleted when the run is done.
 
 ## Figures
 
-Each figure stated in findings.md or in this file, with the field it is computed from. Quantiles
-interpolate linearly between order statistics; a ratio's denominator is at least 1; shares
-carry 95 % Wilson intervals.
+Each figure in findings.md or in this file, with the field it is computed from, except those of the
+installs, which are in [whether-it-runs.md](whether-it-runs.md). Quantiles interpolate linearly
+between order statistics; a ratio's denominator is at least 1; shares carry 95 % Wilson intervals.
 
 | figure as published | where (file:line) | field or computation | source file | moment (as of when) |
 |---|---|---|---|---|
@@ -426,3 +426,20 @@ carry 95 % Wilson intervals.
 - findings.md said npm rewrites `registry.npmjs.org` to the configured registry and leaves other
   hosts as recorded; it now says npm does so by default. `replace-registry-host` defaults to
   `npmjs`; `always` rewrites every host, a host name that host, and `never` none.
+
+### 2026-11-03
+
+- findings.md said pnpm 10 (January 2025) blocks dependency install scripts behind
+  `onlyBuiltDependencies`. From pnpm 11.0.0 (2026-04-28), before the run of 2026-09-17, a build
+  nobody reviewed fails the install and `onlyBuiltDependencies` is not read. findings.md, and
+  prior-art/instruction-gap.md, which said the same, now say so.
+- This file said: "The count here is of code declared to run at install in the resolved tree; it
+  runs as such under yarn v1, Yarn Berry before 4.14 and npm before 12, and under the others only
+  where allowed." The 2026-09-30 note said Yarn Berry blocks them by default from 4.14. From
+  4.14, `yarn install` sets `enableScripts` to true for a project whose lockfile was written
+  before 4.14 and that does not set it, 15 of the 21 Berry projects. findings.md and
+  whether-it-runs.md now say so.
+- This file said it was not measured whether the install-time code runs, and findings.md and the
+  2026-09-25 note said the same of how many projects carry an allowlist of their own.
+  whether-it-runs.md now gives both, for the 780 projects with install-time code whose configuration
+  could be read.

@@ -1,0 +1,389 @@
+{
+ "K0-network": {
+  "exit": "fail",
+  "marks": []
+ },
+ "K1-bun-1.4.3": {
+  "exit": "0",
+  "marks": []
+ },
+ "K1-npm-10.9.9": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K1-npm-11.21.1": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K1-npm-12.2.1": {
+  "exit": "0",
+  "marks": []
+ },
+ "K1-pnpm-10.34.7": {
+  "exit": "0",
+  "marks": []
+ },
+ "K1-pnpm-12.14.0": {
+  "exit": "fail",
+  "marks": []
+ },
+ "K1-pnpm-9.15.9": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K1-yarn-1.22.22": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K1-yarn-4.13.0": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K1-yarn-4.18.1": {
+  "exit": "0",
+  "marks": []
+ },
+ "K2-bun-trusted": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-npm11-deny": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K2-npm12-all": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K2-npm12-exact": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-npm12-name": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-npm12-npmrc": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K2-npm12-pkg-over-npmrc": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-npm12-range": {
+  "exit": "0",
+  "marks": []
+ },
+ "K2-pnpm10-all": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm10-allow": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm10-never": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm10-npmrc": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm10-pkg": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm10-strict": {
+  "exit": "fail",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm10-ws": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm12-all": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm12-allow": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm12-old-pkg": {
+  "exit": "fail",
+  "marks": []
+ },
+ "K2-pnpm12-old-ws": {
+  "exit": "fail",
+  "marks": []
+ },
+ "K2-pnpm12-partial": {
+  "exit": "fail",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm9-never": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm9-npmrc": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-pnpm9-only": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-yarn413-notbuilt": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K2-yarn418-built": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K2-yarn418-enable": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K3-bun-bunfig": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-bun-npmrc": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-npm10-ignore": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-npm11-ignore": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-npm12-ignore": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-pnpm10-ignore": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-pnpm12-ignore": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-pnpm12-npmrc": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K3-pnpm9-ignore": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-yarn1-npmrc": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K3-yarn1-yarnrc": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-yarn413-off": {
+  "exit": "0",
+  "marks": []
+ },
+ "K3-yarn413-off-built": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K3-yarn418-off-built": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K4-v1": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K4-v8": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 install",
+   "nl-ctl-b@1.0.0 postinstall",
+   "nl-ctl-b@1.0.0 preinstall",
+   "nl-ctl-e@1.0.0 postinstall"
+  ]
+ },
+ "K4-v8-off": {
+  "exit": "0",
+  "marks": []
+ },
+ "K4-v9": {
+  "exit": "0",
+  "marks": []
+ },
+ "K5-bun-electron": {
+  "exit": "0",
+  "marks": [
+   "electron@30.0.0 postinstall"
+  ]
+ },
+ "K5-bun-esbuild-native": {
+  "exit": "0",
+  "marks": []
+ },
+ "K5-bun-esbuild-old": {
+  "exit": "0",
+  "marks": [
+   "esbuild@0.8.0 postinstall"
+  ]
+ },
+ "K5-bun-replaces": {
+  "exit": "0",
+  "marks": [
+   "nl-ctl-a@1.0.0 postinstall"
+  ]
+ },
+ "K5-bun-sharp-new": {
+  "exit": "0",
+  "marks": []
+ },
+ "K5-bun-sharp-old": {
+  "exit": "0",
+  "marks": [
+   "sharp@0.32.6 install"
+  ]
+ },
+ "K5-npm10-esbuild-native": {
+  "exit": "0",
+  "marks": [
+   "esbuild@0.21.5 postinstall"
+  ]
+ }
+}

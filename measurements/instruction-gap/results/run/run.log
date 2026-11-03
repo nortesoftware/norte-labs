@@ -1,0 +1,214 @@
+node v22.23.4; python 3.13.5; start 2026-10-22T05:17:44Z
+C1: 892 projects, install.versions, install.names and install.direct equal to the published cells in 892, different in 0
+run1 C1 exit=0
+K0-network: pass fail []
+K1-bun-1.4.3: pass 0 []
+K1-npm-10.9.9: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-npm-11.21.1: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-npm-12.2.1: pass 0 []
+K1-pnpm-10.34.7: pass 0 []
+K1-pnpm-12.14.0: pass fail []
+K1-pnpm-9.15.9: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-yarn-1.22.22: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-yarn-4.13.0: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-yarn-4.18.1: pass 0 []
+K2-bun-trusted: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-npm11-deny: pass 0 ['nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-npm12-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-npm12-exact: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-npm12-name: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-npm12-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-npm12-pkg-over-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-npm12-range: pass 0 []
+K2-pnpm10-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm10-allow: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm10-never: pass 0 ['nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm10-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm10-pkg: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm10-strict: pass fail ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm10-ws: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm12-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm12-allow: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm12-old-pkg: pass fail []
+K2-pnpm12-old-ws: pass fail []
+K2-pnpm12-partial: pass fail ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm9-never: pass 0 ['nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm9-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm9-only: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-yarn413-notbuilt: pass 0 ['nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-yarn418-built: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-yarn418-enable: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K3-bun-bunfig: pass 0 []
+K3-bun-npmrc: pass 0 []
+K3-npm10-ignore: pass 0 []
+K3-npm11-ignore: pass 0 []
+K3-npm12-ignore: pass 0 []
+K3-pnpm10-ignore: pass 0 []
+K3-pnpm12-ignore: pass 0 []
+K3-pnpm12-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K3-pnpm9-ignore: pass 0 []
+K3-yarn1-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K3-yarn1-yarnrc: pass 0 []
+K3-yarn413-off: pass 0 []
+K3-yarn413-off-built: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K3-yarn418-off-built: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K4-v1: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K4-v8: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K4-v8-off: pass 0 []
+K4-v9: pass 0 []
+K5-bun-electron: pass 0 ['electron@30.0.0 postinstall']
+K5-bun-esbuild-native: pass 0 []
+K5-bun-esbuild-old: pass 0 ['esbuild@0.8.0 postinstall']
+K5-bun-replaces: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K5-bun-sharp-new: pass 0 []
+K5-bun-sharp-old: pass 0 ['sharp@0.32.6 install']
+K5-npm10-esbuild-native: pass 0 ['esbuild@0.21.5 postinstall']
+controls: 62, failed 0
+run1 controls exit=0
+run1 path A exit=0
+0/1634 Comfy-Org/litegraph.js A npm-12.2.1 0 0
+50/1634 Garletz/zikiro-FYR A npm-12.2.1 0 0
+100/1634 NiluK/worldmodels101 B pnpm-10.34.7 0 0
+150/1634 JamesBarwell/rpi-gpio.js B npm-12.2.1 0 0
+200/1634 jwangkun/Prompt-Tools B npm-12.2.1 0 0
+250/1634 cowprotocol/cowswap B pnpm-10.34.7 0 2
+300/1634 qrac/yakuhanjp A npm-12.2.1 0 0
+350/1634 e18e/action-dependency-diff A npm-12.2.1 0 0
+400/1634 final-form/final-form-calculate B yarn-1.22.22 0 2
+450/1634 postmanlabs/postman-runtime B npm-12.2.1 0 0
+500/1634 pluveto/daan B pnpm-12.14.0 fail 0
+550/1634 DTStack/dt-sql-parser B pnpm-9.15.9 0 2
+600/1634 cmfcmf/docusaurus-search-local A pnpm-12.14.0 fail 0
+650/1634 rsocket/rsocket-js A yarn-1.22.22 0 2
+700/1634 dailymotion/vast-client-js B npm-12.2.1 0 0
+750/1634 michaelpporter/breadcrumbs A bun-1.4.3 0 0
+800/1634 henjicc/Storyboard-Copilot A npm-12.2.1 0 0
+850/1634 AppFlowy-IO/AppFlowy-Web A pnpm-12.14.0 fail 0
+900/1634 basti-app/basti B npm-12.2.1 0 0
+950/1634 yc1838/LeetCode-EasyRepeat A npm-12.2.1 0 0
+1000/1634 zap-studio/monorepo A pnpm-12.14.0 0 4
+1050/1634 smixs/iva-agent B npm-12.2.1 0 0
+1100/1634 vercel-labs/lead-agent A pnpm-12.14.0 fail 0
+1150/1634 bhj/KaraokeEternal A npm-12.2.1 0 0
+1200/1634 rollup/plugins A pnpm-12.14.0 fail 0
+1250/1634 adsbypasser/adsbypasser B npm-12.2.1 0 0
+1300/1634 harrylettering/CodeMemory B npm-12.2.1 0 0
+1350/1634 alejoacosta74/ethereum-farming-example A npm-12.2.1 0 0
+1400/1634 bfirsh/jsnes-web B npm-12.2.1 0 0
+1450/1634 WickyNilliams/cally A npm-12.2.1 0 0
+1500/1634 kartikm7/llocal A npm-12.2.1 0 0
+1550/1634 web-fragments/web-fragments B pnpm-12.14.0 fail 0
+1600/1634 microsoft/vscode-test B npm-12.2.1 0 0
+replicas: 1634 project-rules
+run1 path B exit=0
+run1 end 2026-10-22T05:32:23Z
+C1: 892 projects, install.versions, install.names and install.direct equal to the published cells in 892, different in 0
+run2 C1 exit=0
+K0-network: pass fail []
+K1-bun-1.4.3: pass 0 []
+K1-npm-10.9.9: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-npm-11.21.1: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-npm-12.2.1: pass 0 []
+K1-pnpm-10.34.7: pass 0 []
+K1-pnpm-12.14.0: pass fail []
+K1-pnpm-9.15.9: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-yarn-1.22.22: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-yarn-4.13.0: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K1-yarn-4.18.1: pass 0 []
+K2-bun-trusted: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-npm11-deny: pass 0 ['nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-npm12-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-npm12-exact: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-npm12-name: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-npm12-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-npm12-pkg-over-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-npm12-range: pass 0 []
+K2-pnpm10-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm10-allow: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm10-never: pass 0 ['nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm10-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm10-pkg: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm10-strict: pass fail ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm10-ws: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm12-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm12-allow: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm12-old-pkg: pass fail []
+K2-pnpm12-old-ws: pass fail []
+K2-pnpm12-partial: pass fail ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm9-never: pass 0 ['nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm9-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm9-only: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-yarn413-notbuilt: pass 0 ['nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-yarn418-built: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-yarn418-enable: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K3-bun-bunfig: pass 0 []
+K3-bun-npmrc: pass 0 []
+K3-npm10-ignore: pass 0 []
+K3-npm11-ignore: pass 0 []
+K3-npm12-ignore: pass 0 []
+K3-pnpm10-ignore: pass 0 []
+K3-pnpm12-ignore: pass 0 []
+K3-pnpm12-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K3-pnpm9-ignore: pass 0 []
+K3-yarn1-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K3-yarn1-yarnrc: pass 0 []
+K3-yarn413-off: pass 0 []
+K3-yarn413-off-built: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K3-yarn418-off-built: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K4-v1: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K4-v8: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K4-v8-off: pass 0 []
+K4-v9: pass 0 []
+K5-bun-electron: pass 0 ['electron@30.0.0 postinstall']
+K5-bun-esbuild-native: pass 0 []
+K5-bun-esbuild-old: pass 0 ['esbuild@0.8.0 postinstall']
+K5-bun-replaces: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K5-bun-sharp-new: pass 0 []
+K5-bun-sharp-old: pass 0 ['sharp@0.32.6 install']
+K5-npm10-esbuild-native: pass 0 ['esbuild@0.21.5 postinstall']
+controls: 62, failed 0
+run2 controls exit=0
+run2 path A exit=0
+0/1634 Comfy-Org/litegraph.js A npm-12.2.1 0 0
+50/1634 Garletz/zikiro-FYR A npm-12.2.1 0 0
+100/1634 NiluK/worldmodels101 B pnpm-10.34.7 0 0
+150/1634 JamesBarwell/rpi-gpio.js B npm-12.2.1 0 0
+200/1634 jwangkun/Prompt-Tools B npm-12.2.1 0 0
+250/1634 cowprotocol/cowswap B pnpm-10.34.7 0 2
+300/1634 qrac/yakuhanjp A npm-12.2.1 0 0
+350/1634 e18e/action-dependency-diff A npm-12.2.1 0 0
+400/1634 final-form/final-form-calculate B yarn-1.22.22 0 2
+450/1634 postmanlabs/postman-runtime B npm-12.2.1 0 0
+500/1634 pluveto/daan B pnpm-12.14.0 fail 0
+550/1634 DTStack/dt-sql-parser B pnpm-9.15.9 0 2
+600/1634 cmfcmf/docusaurus-search-local A pnpm-12.14.0 fail 0
+650/1634 rsocket/rsocket-js A yarn-1.22.22 0 2
+700/1634 dailymotion/vast-client-js B npm-12.2.1 0 0
+750/1634 michaelpporter/breadcrumbs A bun-1.4.3 0 0
+800/1634 henjicc/Storyboard-Copilot A npm-12.2.1 0 0
+850/1634 AppFlowy-IO/AppFlowy-Web A pnpm-12.14.0 fail 0
+900/1634 basti-app/basti B npm-12.2.1 0 0
+950/1634 yc1838/LeetCode-EasyRepeat A npm-12.2.1 0 0
+1000/1634 zap-studio/monorepo A pnpm-12.14.0 0 4
+1050/1634 smixs/iva-agent B npm-12.2.1 0 0
+1100/1634 vercel-labs/lead-agent A pnpm-12.14.0 fail 0
+1150/1634 bhj/KaraokeEternal A npm-12.2.1 0 0
+1200/1634 rollup/plugins A pnpm-12.14.0 fail 0
+1250/1634 adsbypasser/adsbypasser B npm-12.2.1 0 0
+1300/1634 harrylettering/CodeMemory B npm-12.2.1 0 0
+1350/1634 alejoacosta74/ethereum-farming-example A npm-12.2.1 0 0
+1400/1634 bfirsh/jsnes-web B npm-12.2.1 0 0
+1450/1634 WickyNilliams/cally A npm-12.2.1 0 0
+1500/1634 kartikm7/llocal A npm-12.2.1 0 0
+1550/1634 web-fragments/web-fragments B pnpm-12.14.0 fail 0
+1600/1634 microsoft/vscode-test B npm-12.2.1 0 0
+replicas: 1634 project-rules
+run2 path B exit=0
+run2 end 2026-10-22T05:47:37Z
+C1: 892 projects, 0 different; controls: 62, failed 0; project-rules: A 1634, B 1634, disagreeing 0
+rule A: 174 of 780, 22.3 % [19.5-25.4]; installs that fail 163
+rule B: 251 of 780, 32.2 % [29.0-35.5]; installs that fail 55
+A vs B: {'answerDiffers': 77, 'runOnlyUnderB': 77, 'runOnlyUnderA': 0, 'releaseDiffers': 145}
+v1 on Yarn 4.18.1: {'projects': 72, 'run': 66, 'wilson': [83.0, 96.1], 'underRuleA': 65}
+compare exit=0
+run.sh exit 0

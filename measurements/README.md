@@ -13,8 +13,10 @@
 - [instruction-gap/](instruction-gap/) — what one `npm install` brings: for 892 lockfiles from a
   random sample of GitHub repositories (JavaScript/TypeScript, ≥ 100 stars, active), the direct
   dependencies declared against the versions resolved, the distinct publishers behind them, the
-  publishers of install-time code, the hosts, and the design effect of shared frameworks. Read
-  from lockfiles and the registry, nothing installed. Findings in
+  publishers of install-time code, the hosts, and the design effect of shared frameworks. The counts
+  come from lockfiles and the registry, nothing installed; whether the install-time code runs, from
+  installs of a replica of each project
+  ([instruction-gap/whether-it-runs.md](instruction-gap/whether-it-runs.md)). Findings in
   [instruction-gap/findings.md](instruction-gap/findings.md); corrections in
   [instruction-gap/README.md](instruction-gap/README.md#corrections).
 - [nono-build/](nono-build/) — who published the crates one sandbox is built from: nono's

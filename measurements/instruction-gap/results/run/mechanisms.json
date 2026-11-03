@@ -1,0 +1,248 @@
+{
+ "npm": {
+  "projects": 408,
+  "runA": 12,
+  "withAllowScripts": 13,
+  "runAWithAllowScripts": 12,
+  "runAWithout": 0,
+  "failA": [
+   [
+    "LKbaba/Claude-code-ChatInWindows",
+    "fail",
+    [
+     "win32",
+     "darwin"
+    ]
+   ],
+   [
+    "onikan27/claude-code-monitor",
+    "fail",
+    [
+     "darwin"
+    ]
+   ]
+  ],
+  "allowScriptsNotRunning": [
+   [
+    "CodingTrain/thecodingtrain.com",
+    {
+     "sharp": true
+    },
+    [
+     "@parcel/watcher",
+     "core-js",
+     "core-js-pure",
+     "es5-ext",
+     "fsevents",
+     "gatsby",
+     "gatsby-cli",
+     "lmdb",
+     "msgpackr-extract",
+     "unrs-resolver"
+    ]
+   ]
+  ],
+  "runOnlyB": {
+   "npm-11.21.1": 2,
+   "npm-10.9.9": 9
+  }
+ },
+ "pnpm": {
+  "projects": 236,
+  "runA": 59,
+  "failA": 161,
+  "failANothingRan": 159,
+  "runOnlyB": {
+   "pnpm-10.34.7": 30,
+   "pnpm-9.15.9": 35
+  },
+  "runOnlyBPins": {
+   "pnpm@10": 30,
+   "pnpm@8": 4,
+   "pnpm@9": 31
+  },
+  "noFailNoRunA": [
+   [
+    "Arman19941113/dnd-resume",
+    true
+   ],
+   [
+    "Auto-Plugin/autohue.js",
+    true
+   ],
+   [
+    "FrogTheFrog/moondeck",
+    true
+   ],
+   [
+    "Innei/shuffle-article",
+    true
+   ],
+   [
+    "LukaJCB/ts-mls",
+    false
+   ],
+   [
+    "SAP/e-mobility-charging-stations-simulator",
+    false
+   ],
+   [
+    "TianyiDataScience/DataViz",
+    true
+   ],
+   [
+    "firecmsco/neat",
+    true
+   ],
+   [
+    "gopasspw/gopassbridge",
+    false
+   ],
+   [
+    "interledger/web-monetization-extension",
+    false
+   ],
+   [
+    "jakearchibald/jakearchibald.com",
+    true
+   ],
+   [
+    "pascalduez/stylelint-config-css-modules",
+    true
+   ],
+   [
+    "pithings/mountx",
+    false
+   ],
+   [
+    "silverwind/uppie",
+    false
+   ],
+   [
+    "smontlouis/bible-strong-avatar-lab",
+    true
+   ],
+   [
+    "styled-components/babel-plugin-styled-components",
+    true
+   ],
+   [
+    "unjs/jiti",
+    true
+   ],
+   [
+    "withastro/prettier-plugin-astro",
+    true
+   ]
+  ]
+ },
+ "berry": {
+  "projects": 21,
+  "runA": 17,
+  "lockBelow9SetNothing": 15,
+  "lockBelow9Set": [
+   "false"
+  ],
+  "lock9plus": [
+   [
+    "9",
+    "true"
+   ],
+   [
+    "10",
+    "true"
+   ],
+   [
+    "10",
+    "true"
+   ],
+   [
+    "10",
+    "false"
+   ],
+   [
+    "10",
+    "true"
+   ]
+  ],
+  "notRunning": [
+   [
+    "electron/update-electron-app",
+    "false",
+    false
+   ],
+   [
+    "juffalow/express-graphql-example",
+    null,
+    true
+   ],
+   [
+    "prettier/prettier",
+    "false",
+    false
+   ],
+   [
+    "testshallpass/react-native-dropdownalert",
+    null,
+    true
+   ]
+  ],
+  "yarnPath": 15
+ },
+ "yarnV1": {
+  "projects": 72,
+  "runA": 65,
+  "notRunning": [
+   [
+    "KelvinTegelaar/CIPP",
+    false,
+    "# Supply-chain hardening for CIPP (yarn 1 / classic)\n#\n# This complements .npmrc"
+   ],
+   [
+    "awslabs/cdk-serverless-clamscan",
+    true,
+    ""
+   ],
+   [
+    "google/safevalues",
+    true,
+    ""
+   ],
+   [
+    "graphile/graphile-engine",
+    true,
+    "workspaces-experimental true"
+   ],
+   [
+    "margelo/react-native-fast-tflite",
+    true,
+    ""
+   ],
+   [
+    "oliviertassinari/browser-metrics",
+    true,
+    ""
+   ],
+   [
+    "rails/request.js",
+    true,
+    ""
+   ]
+  ],
+  "onYarn4.18.1": 66
+ },
+ "bun": {
+  "projects": 43,
+  "runA": 21,
+  "trusted": 6,
+  "trustedRun": 6,
+  "runWithoutTrusted": 15,
+  "runOnlyB": [
+   [
+    "dlarroder/dalelarroder",
+    "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+    "yarn-1.22.22"
+   ]
+  ]
+ }
+}

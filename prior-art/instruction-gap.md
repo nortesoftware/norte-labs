@@ -128,7 +128,8 @@ lifecycle scripts are now blocked by default unless allowed by the root package'
 policy"*; `allow-git` and `allow-remote` default to `none`; implicit `node-gyp` builds are blocked
 too, after the Miasma worm of 2026-06-03 compromised 57 packages through a 157-byte `binding.gyp`
 with no lifecycle script at all. pnpm 10 (January 2025) blocks dependency scripts behind
-`onlyBuiltDependencies`; Bun runs only a built-in allowlist (367 names on 2026-09-17, esbuild among
+`onlyBuiltDependencies`, and pnpm 11 (April 2026) behind `allowBuilds`, failing the install on a
+build nobody reviewed; Bun runs only a built-in allowlist (367 names on 2026-09-17, esbuild among
 them); Yarn Berry documents `enableScripts` false as its default; yarn v1 and npm before 12 run
 everything. JFrog attributes *"approximately 53% of malicious npm attacks"* of the past year to the
 three vectors npm 12 closed. So "code that runs at install" is, from mid-2026, "code declared to run
@@ -276,3 +277,8 @@ returned re-reporting of the English sources.
 - Latendresse et al. cut 11,860 to 155 projects using webpack or rollup before the 100 that build.
 - The 2018 tool's README count is quoted as written ("1609 packages from 549 maintainers") and as
   the README's example; Zimmermann et al. have about 580 Google Scholar citations, not ~700.
+
+## Corrections, 2026-11-03
+
+- pnpm 11.0.0 (2026-04-28) had replaced `onlyBuiltDependencies` with `allowBuilds` and made a build
+  nobody reviewed fail the install; the section gave only pnpm 10.

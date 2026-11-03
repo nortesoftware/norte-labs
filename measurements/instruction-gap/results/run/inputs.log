@@ -1,0 +1,37 @@
+dataset README.md: 12204 bytes, md5 equal
+dataset SHA256SUMS: 4849833 bytes, md5 equal
+dataset croissant.json: 121602 bytes, md5 equal
+dataset norte-labs-dataset-v2.tar.gz: 107954811 bytes, md5 equal
+dataset files checked against SHA256SUMS: 38702, different 0
+dataset npm/cells.ndjson equal to instruction-gap results/cells.ndjson: True
+dataset npm/population.ndjson equal to instruction-gap results/population.ndjson: True
+dataset npm/registry.ndjson.gz equal to instruction-gap results/registry.ndjson.gz: True
+fetch_store.py exit 0: files 1158: package 615, github 542, swh 1, store 0, unavailable 0 
+dataset README.md: 12204 bytes, md5 equal, kept
+dataset SHA256SUMS: 4849833 bytes, md5 equal, kept
+dataset croissant.json: 121602 bytes, md5 equal, kept
+dataset norte-labs-dataset-v2.tar.gz: 107954811 bytes, md5 equal, kept
+dataset files checked against SHA256SUMS: 38702, different 0
+dataset npm/cells.ndjson equal to instruction-gap results/cells.ndjson: True
+dataset npm/population.ndjson equal to instruction-gap results/population.ndjson: True
+dataset npm/registry.ndjson.gz equal to instruction-gap results/registry.ndjson.gz: True
+fetch_store.py exit 0: files 1158: package 0, github 0, swh 0, store 1158, unavailable 0 
+corrinehu/dsh-workbuddy-connect: neither GitHub nor Software Heritage serves edbc41c9f1f7061a3a0ddf7846d68ad8beb3ef0e; its configuration is unavailable
+configuration files for 781 projects: present 1125, absent 1358, unavailable 5
+version documents: 1004 install-code versions
+optional dependency @img/sharp-darwin-arm64@^0.33.5 of @anthropic-ai/claude-code@1.0.31 is not an exact version
+dataset README.md: 12204 bytes, md5 equal, kept
+dataset SHA256SUMS: 4849833 bytes, md5 equal, kept
+dataset croissant.json: 121602 bytes, md5 equal, kept
+dataset norte-labs-dataset-v2.tar.gz: 107954811 bytes, md5 equal, kept
+dataset files checked against SHA256SUMS: 38702, different 0
+dataset npm/cells.ndjson equal to instruction-gap results/cells.ndjson: True
+dataset npm/population.ndjson equal to instruction-gap results/population.ndjson: True
+dataset npm/registry.ndjson.gz equal to instruction-gap results/registry.ndjson.gz: True
+fetch_store.py exit 0: files 1158: package 0, github 0, swh 0, store 1158, unavailable 0 
+configuration files for 781 projects: present 1125, absent 1358, unavailable 5
+version documents: 1004 install-code versions
+optional dependencies of esbuild and @anthropic-ai/claude-code: 1268 documents
+https://raw.githubusercontent.com/oven-sh/bun/bun-v1.4.3/src/install/default-trusted-dependencies.txt: 5348 bytes, sha256 44069df86fecc3be3ed758452fafb057fedb9b05df5e95f2a6fe79c8f7f82cb8
+https://raw.githubusercontent.com/pnpm/pnpm/v10.34.7/pnpm/CHANGELOG.md: 312036 bytes, sha256 1525028b5ba1fc0c32e76ba716296d9190dab82d286d657d220c31f6c32838e6
+done

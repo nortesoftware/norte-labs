@@ -78,9 +78,11 @@ Supply-chain security research and audits.
   sample of GitHub repositories: a median project declares 26 packages and receives 604 versions
   from 165 publishing identities; over the 881 with a publisher, a median 87 % of a project's
   publishers are behind nothing it named; who is in nine trees of ten; the install-time code and who
-  publishes it; the hosts; the design effect of shared frameworks. Read from lockfiles and the
-  registry, nothing installed. npm only: PyPI's registry does not publish who uploaded a release, so
-  the count cannot be made there; that is a limit of the measurement, not work left to do.
+  publishes it; the hosts; the design effect of shared frameworks. The counts come from lockfiles
+  and the registry, nothing installed; whether the install-time code runs, from installs of a
+  replica of each project ([whether-it-runs.md](measurements/instruction-gap/whether-it-runs.md)).
+  npm only: PyPI's registry does not publish who uploaded a release, so the count cannot be made
+  there; that is a limit of the measurement, not work left to do.
 - [measurements/nono-build/](measurements/nono-build/) — who published the crates nono, a
   sandbox, is built from: 548 versions of 501 crates in its `Cargo.lock`, 184 publishers against
   a median npm project's 165, and 227 accounts and 51 teams that own them. One project, not a

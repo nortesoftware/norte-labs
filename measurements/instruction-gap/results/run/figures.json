@@ -1,0 +1,674 @@
+{
+ "AvsB": {
+  "answerDiffers": 77,
+  "releaseDiffers": 145,
+  "runOnlyUnderA": 0,
+  "runOnlyUnderB": 77
+ },
+ "apart": {
+  "bunPinsBeforeOptimizer": [
+   {
+    "optimizerNames": [
+     "esbuild@0.28.1",
+     "sharp@0.34.5"
+    ],
+    "pin": "1.2.19",
+    "project": "WINOFFRG/limeplay",
+    "ruleB": {
+     "exit": "0",
+     "marks": [
+      "lefthook@2.1.10 postinstall"
+     ]
+    }
+   }
+  ],
+  "codeNotRun": {
+   "configDependencies": 1,
+   "pnpmfile": 3,
+   "yarn plugins": 3,
+   "yarnPath": 16
+  },
+  "npmBundledInstallCode": {
+   "npm12ProjectsWhereABundledVersionRan": [],
+   "projects": 1,
+   "versions": 3
+  },
+  "pnpm10PinsWithSettings": [
+   {
+    "package.json": [],
+    "pin": "10.26.1",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "Ammaar-Alam/minebench",
+    "ruleB": {
+     "exit": "0",
+     "marks": 5
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.26.2",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "J3n5en/EnsoAI",
+    "ruleB": {
+     "exit": "0",
+     "marks": 10
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.10.0",
+    "pnpm-workspace.yaml": [
+     "ignoredBuiltDependencies"
+    ],
+    "project": "NiluK/worldmodels101",
+    "ruleB": {
+     "exit": "0",
+     "marks": 0
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.33.0",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "REMnux/remnux-mcp-server",
+    "ruleB": {
+     "exit": "0",
+     "marks": 2
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.32.1",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "The-AI-Republic/pi-dash",
+    "ruleB": {
+     "exit": "0",
+     "marks": 4
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.16.1",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "Vijayabaskar56/tancn",
+    "ruleB": {
+     "exit": "0",
+     "marks": 5
+    }
+   },
+   {
+    "package.json": [
+     "allowBuilds"
+    ],
+    "pin": "10.30.3",
+    "pnpm-workspace.yaml": [],
+    "project": "cowprotocol/cowswap",
+    "ruleB": {
+     "exit": "0",
+     "marks": 2
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.13.1",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "iconoir-icons/iconoir",
+    "ruleB": {
+     "exit": "0",
+     "marks": 3
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.26.0",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "jiewenhuang/halo-theme-joe3.0",
+    "ruleB": {
+     "exit": "0",
+     "marks": 3
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.13.1",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "jotaijs/jotai-tanstack-query",
+    "ruleB": {
+     "exit": "0",
+     "marks": 2
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.28.0",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "lukevella/rallly",
+    "ruleB": {
+     "exit": "0",
+     "marks": 0
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.33.4",
+    "pnpm-workspace.yaml": [
+     "allowBuilds"
+    ],
+    "project": "marktext/marktext",
+    "ruleB": {
+     "exit": "0",
+     "marks": 10
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.6.2",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "mintdotgg/mint-playground",
+    "ruleB": {
+     "exit": "0",
+     "marks": 4
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.28.1",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "session-foundation/session-desktop",
+    "ruleB": {
+     "exit": "0",
+     "marks": 6
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.27.0",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "storybookjs/addon-designs",
+    "ruleB": {
+     "exit": "0",
+     "marks": 1
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.33.0",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "svelteplot/svelteplot",
+    "ruleB": {
+     "exit": "0",
+     "marks": 3
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.10.0",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "tosuapp/tosu",
+    "ruleB": {
+     "exit": "0",
+     "marks": 2
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.6.5",
+    "pnpm-workspace.yaml": [
+     "allowBuilds"
+    ],
+    "project": "try-works/role-model",
+    "ruleB": {
+     "exit": "0",
+     "marks": 0
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.21.0",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "wavyrai/tmux-ide",
+    "ruleB": {
+     "exit": "0",
+     "marks": 4
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.34.5",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "webdriverio/webdriverio",
+    "ruleB": {
+     "exit": "0",
+     "marks": 1
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.17.0",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "withstudiocms/studiocms",
+    "ruleB": {
+     "exit": "0",
+     "marks": 6
+    }
+   },
+   {
+    "package.json": [],
+    "pin": "10.13.1",
+    "pnpm-workspace.yaml": [
+     "onlyBuiltDependencies"
+    ],
+    "project": "zenbu-labs/terminal-browser",
+    "ruleB": {
+     "exit": "0",
+     "marks": 5
+    }
+   }
+  ]
+ },
+ "byManager": {
+  "A": {
+   "bun": {
+    "installFails": 0,
+    "pct": 48.8,
+    "projects": 43,
+    "run": 21,
+    "wilson": [
+     34.6,
+     63.2
+    ]
+   },
+   "npm": {
+    "installFails": 2,
+    "pct": 2.9,
+    "projects": 408,
+    "run": 12,
+    "wilson": [
+     1.7,
+     5.1
+    ]
+   },
+   "pnpm": {
+    "installFails": 161,
+    "pct": 25.0,
+    "projects": 236,
+    "run": 59,
+    "wilson": [
+     19.9,
+     30.9
+    ]
+   },
+   "yarn": {
+    "installFails": 0,
+    "pct": 90.3,
+    "projects": 72,
+    "run": 65,
+    "wilson": [
+     81.3,
+     95.2
+    ]
+   },
+   "yarn-berry": {
+    "installFails": 0,
+    "pct": 81.0,
+    "projects": 21,
+    "run": 17,
+    "wilson": [
+     60.0,
+     92.3
+    ]
+   }
+  },
+  "B": {
+   "bun": {
+    "installFails": 0,
+    "pct": 51.2,
+    "projects": 43,
+    "run": 22,
+    "wilson": [
+     36.8,
+     65.4
+    ]
+   },
+   "npm": {
+    "installFails": 2,
+    "pct": 5.6,
+    "projects": 408,
+    "run": 23,
+    "wilson": [
+     3.8,
+     8.3
+    ]
+   },
+   "pnpm": {
+    "installFails": 53,
+    "pct": 52.5,
+    "projects": 236,
+    "run": 124,
+    "wilson": [
+     46.2,
+     58.8
+    ]
+   },
+   "yarn": {
+    "installFails": 0,
+    "pct": 90.3,
+    "projects": 72,
+    "run": 65,
+    "wilson": [
+     81.3,
+     95.2
+    ]
+   },
+   "yarn-berry": {
+    "installFails": 0,
+    "pct": 81.0,
+    "projects": 21,
+    "run": 17,
+    "wilson": [
+     60.0,
+     92.3
+    ]
+   }
+  }
+ },
+ "configurationUnavailable": [
+  "corrinehu/dsh-workbuddy-connect"
+ ],
+ "notes": {
+  "configuration unavailable": 2,
+  "same release as rule A: result taken from A": 635,
+  "served empty for Yarn's built-in package extensions: @babel/runtime@7.14.8": 1
+ },
+ "packages": {
+  "A": [
+   [
+    "esbuild",
+    90
+   ],
+   [
+    "core-js",
+    40
+   ],
+   [
+    "protobufjs",
+    23
+   ],
+   [
+    "core-js-pure",
+    23
+   ],
+   [
+    "@parcel/watcher",
+    22
+   ],
+   [
+    "unrs-resolver",
+    22
+   ],
+   [
+    "sharp",
+    20
+   ],
+   [
+    "@swc/core",
+    16
+   ],
+   [
+    "workerd",
+    14
+   ],
+   [
+    "electron",
+    13
+   ],
+   [
+    "msgpackr-extract",
+    10
+   ],
+   [
+    "better-sqlite3",
+    10
+   ],
+   [
+    "msw",
+    9
+   ],
+   [
+    "@sentry/cli",
+    9
+   ],
+   [
+    "cpu-features",
+    8
+   ],
+   [
+    "ssh2",
+    8
+   ],
+   [
+    "nx",
+    8
+   ],
+   [
+    "cypress",
+    7
+   ],
+   [
+    "husky",
+    7
+   ],
+   [
+    "@prisma/engines",
+    6
+   ],
+   [
+    "prisma",
+    6
+   ],
+   [
+    "lmdb",
+    6
+   ],
+   [
+    "secp256k1",
+    6
+   ],
+   [
+    "lefthook",
+    6
+   ],
+   [
+    "node-pty",
+    5
+   ]
+  ],
+  "B": [
+   [
+    "esbuild",
+    151
+   ],
+   [
+    "core-js",
+    51
+   ],
+   [
+    "sharp",
+    42
+   ],
+   [
+    "@parcel/watcher",
+    36
+   ],
+   [
+    "protobufjs",
+    35
+   ],
+   [
+    "unrs-resolver",
+    34
+   ],
+   [
+    "core-js-pure",
+    30
+   ],
+   [
+    "@swc/core",
+    29
+   ],
+   [
+    "electron",
+    20
+   ],
+   [
+    "workerd",
+    20
+   ],
+   [
+    "msw",
+    14
+   ],
+   [
+    "better-sqlite3",
+    14
+   ],
+   [
+    "msgpackr-extract",
+    13
+   ],
+   [
+    "@prisma/engines",
+    12
+   ],
+   [
+    "prisma",
+    12
+   ],
+   [
+    "cpu-features",
+    12
+   ],
+   [
+    "nx",
+    12
+   ],
+   [
+    "ssh2",
+    11
+   ],
+   [
+    "@sentry/cli",
+    11
+   ],
+   [
+    "vue-demi",
+    8
+   ],
+   [
+    "es5-ext",
+    8
+   ],
+   [
+    "sqlite3",
+    8
+   ],
+   [
+    "electron-winstaller",
+    8
+   ],
+   [
+    "@prisma/client",
+    7
+   ],
+   [
+    "node-pty",
+    7
+   ]
+  ]
+ },
+ "projects": 780,
+ "rules": {
+  "A": {
+   "failsWithScriptsRun": 2,
+   "installFails": 163,
+   "pct": 22.3,
+   "releases": {
+    "bun-1.4.3": 43,
+    "npm-12.2.1": 408,
+    "pnpm-12.14.0": 236,
+    "yarn-1.22.22": 72,
+    "yarn-4.18.1": 21
+   },
+   "run": 174,
+   "wilson": [
+    19.5,
+    25.4
+   ]
+  },
+  "B": {
+   "failsWithScriptsRun": 2,
+   "installFails": 55,
+   "pct": 32.2,
+   "releases": {
+    "bun-1.4.3": 40,
+    "npm-10.9.9": 9,
+    "npm-11.21.1": 5,
+    "npm-12.2.1": 394,
+    "pnpm-10.34.7": 79,
+    "pnpm-12.14.0": 122,
+    "pnpm-9.15.9": 36,
+    "yarn-1.22.22": 74,
+    "yarn-4.13.0": 14,
+    "yarn-4.18.1": 7
+   },
+   "run": 251,
+   "wilson": [
+    29.0,
+    35.5
+   ]
+  }
+ },
+ "yarnV1OnYarn4.18.1": {
+  "projects": 72,
+  "run": 66,
+  "underRuleA": 65,
+  "wilson": [
+   83.0,
+   96.1
+  ]
+ }
+}

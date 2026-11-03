@@ -1,0 +1,408 @@
+{
+ "K0-network": {
+  "files": {},
+  "note": "node v22.23.4 fetches https://registry.npmjs.org/ from inside the sandbox; it must fail",
+  "release": "none"
+ },
+ "K1-bun-1.4.3": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K1-npm-10.9.9": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "npm-10.9.9"
+ },
+ "K1-npm-11.21.1": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "npm-11.21.1"
+ },
+ "K1-npm-12.2.1": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "npm-12.2.1"
+ },
+ "K1-pnpm-10.34.7": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K1-pnpm-12.14.0": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "pnpm-12.14.0"
+ },
+ "K1-pnpm-9.15.9": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "pnpm-9.15.9"
+ },
+ "K1-yarn-1.22.22": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "yarn-1.22.22"
+ },
+ "K1-yarn-4.13.0": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "yarn-4.13.0"
+ },
+ "K1-yarn-4.18.1": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "yarn-4.18.1"
+ },
+ "K2-bun-trusted": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"trustedDependencies\": [\n    \"nl-ctl-a\"\n  ]\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K2-npm11-deny": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"allowScripts\": {\n    \"nl-ctl-a\": false\n  }\n}\n"
+  },
+  "release": "npm-11.21.1"
+ },
+ "K2-npm12-all": {
+  "files": {
+   ".npmrc": "dangerously-allow-all-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "npm-12.2.1"
+ },
+ "K2-npm12-exact": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"allowScripts\": {\n    \"nl-ctl-a@1.0.0\": true\n  }\n}\n"
+  },
+  "release": "npm-12.2.1"
+ },
+ "K2-npm12-name": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"allowScripts\": {\n    \"nl-ctl-a\": true\n  }\n}\n"
+  },
+  "release": "npm-12.2.1"
+ },
+ "K2-npm12-npmrc": {
+  "files": {
+   ".npmrc": "allow-scripts=nl-ctl-a,nl-ctl-e\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "npm-12.2.1"
+ },
+ "K2-npm12-pkg-over-npmrc": {
+  "files": {
+   ".npmrc": "allow-scripts=nl-ctl-b\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"allowScripts\": {\n    \"nl-ctl-a\": true\n  }\n}\n"
+  },
+  "release": "npm-12.2.1"
+ },
+ "K2-npm12-range": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"allowScripts\": {\n    \"nl-ctl-a@^1.0.0\": true\n  }\n}\n"
+  },
+  "release": "npm-12.2.1"
+ },
+ "K2-pnpm10-all": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "dangerouslyAllowAllBuilds: true\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K2-pnpm10-allow": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "allowBuilds:\n  nl-ctl-a: true\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K2-pnpm10-never": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "neverBuiltDependencies:\n  - nl-ctl-a\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K2-pnpm10-npmrc": {
+  "files": {
+   ".npmrc": "only-built-dependencies[]=nl-ctl-a\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K2-pnpm10-pkg": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"pnpm\": {\n    \"onlyBuiltDependencies\": [\n      \"nl-ctl-a\"\n    ]\n  }\n}\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K2-pnpm10-strict": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "strictDepBuilds: true\nonlyBuiltDependencies:\n  - nl-ctl-a\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K2-pnpm10-ws": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "onlyBuiltDependencies:\n  - nl-ctl-a\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K2-pnpm12-all": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "dangerouslyAllowAllBuilds: true\n"
+  },
+  "release": "pnpm-12.14.0"
+ },
+ "K2-pnpm12-allow": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "allowBuilds:\n  nl-ctl-a: true\n  nl-ctl-b: false\n  nl-ctl-e: false\n"
+  },
+  "release": "pnpm-12.14.0"
+ },
+ "K2-pnpm12-old-pkg": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"pnpm\": {\n    \"onlyBuiltDependencies\": [\n      \"nl-ctl-a\"\n    ]\n  }\n}\n"
+  },
+  "release": "pnpm-12.14.0"
+ },
+ "K2-pnpm12-old-ws": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "onlyBuiltDependencies:\n  - nl-ctl-a\n"
+  },
+  "release": "pnpm-12.14.0"
+ },
+ "K2-pnpm12-partial": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "allowBuilds:\n  nl-ctl-a: true\n"
+  },
+  "release": "pnpm-12.14.0"
+ },
+ "K2-pnpm9-never": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"pnpm\": {\n    \"neverBuiltDependencies\": [\n      \"nl-ctl-a\"\n    ]\n  }\n}\n"
+  },
+  "release": "pnpm-9.15.9"
+ },
+ "K2-pnpm9-npmrc": {
+  "files": {
+   ".npmrc": "only-built-dependencies[]=nl-ctl-a\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "pnpm-9.15.9"
+ },
+ "K2-pnpm9-only": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"pnpm\": {\n    \"onlyBuiltDependencies\": [\n      \"nl-ctl-a\"\n    ]\n  }\n}\n"
+  },
+  "release": "pnpm-9.15.9"
+ },
+ "K2-yarn413-notbuilt": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"dependenciesMeta\": {\n    \"nl-ctl-a\": {\n      \"built\": false\n    }\n  }\n}\n"
+  },
+  "release": "yarn-4.13.0"
+ },
+ "K2-yarn418-built": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"dependenciesMeta\": {\n    \"nl-ctl-a\": {\n      \"built\": true\n    }\n  }\n}\n"
+  },
+  "release": "yarn-4.18.1"
+ },
+ "K2-yarn418-enable": {
+  "files": {
+   ".yarnrc.yml": "enableScripts: true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "yarn-4.18.1"
+ },
+ "K3-bun-bunfig": {
+  "files": {
+   "bunfig.toml": "[install]\nignoreScripts = true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"trustedDependencies\": [\n    \"nl-ctl-a\"\n  ]\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K3-bun-npmrc": {
+  "files": {
+   ".npmrc": "ignore-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"trustedDependencies\": [\n    \"nl-ctl-a\"\n  ]\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K3-npm10-ignore": {
+  "files": {
+   ".npmrc": "ignore-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "npm-10.9.9"
+ },
+ "K3-npm11-ignore": {
+  "files": {
+   ".npmrc": "ignore-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "npm-11.21.1"
+ },
+ "K3-npm12-ignore": {
+  "files": {
+   ".npmrc": "ignore-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"allowScripts\": {\n    \"nl-ctl-a\": true\n  }\n}\n"
+  },
+  "release": "npm-12.2.1"
+ },
+ "K3-pnpm10-ignore": {
+  "files": {
+   ".npmrc": "ignore-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"pnpm\": {\n    \"onlyBuiltDependencies\": [\n      \"nl-ctl-a\"\n    ]\n  }\n}\n"
+  },
+  "release": "pnpm-10.34.7"
+ },
+ "K3-pnpm12-ignore": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "ignoreScripts: true\nallowBuilds:\n  nl-ctl-a: true\n  nl-ctl-b: false\n  nl-ctl-e: false\n"
+  },
+  "release": "pnpm-12.14.0"
+ },
+ "K3-pnpm12-npmrc": {
+  "files": {
+   ".npmrc": "ignore-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "pnpm-workspace.yaml": "allowBuilds:\n  nl-ctl-a: true\n  nl-ctl-b: false\n  nl-ctl-e: false\n"
+  },
+  "release": "pnpm-12.14.0"
+ },
+ "K3-pnpm9-ignore": {
+  "files": {
+   ".npmrc": "ignore-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "pnpm-9.15.9"
+ },
+ "K3-yarn1-npmrc": {
+  "files": {
+   ".npmrc": "ignore-scripts=true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "yarn-1.22.22"
+ },
+ "K3-yarn1-yarnrc": {
+  "files": {
+   ".yarnrc": "ignore-scripts true\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "yarn-1.22.22"
+ },
+ "K3-yarn413-off": {
+  "files": {
+   ".yarnrc.yml": "enableScripts: false\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n"
+  },
+  "release": "yarn-4.13.0"
+ },
+ "K3-yarn413-off-built": {
+  "files": {
+   ".yarnrc.yml": "enableScripts: false\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"dependenciesMeta\": {\n    \"nl-ctl-a\": {\n      \"built\": true\n    }\n  }\n}\n"
+  },
+  "release": "yarn-4.13.0"
+ },
+ "K3-yarn418-off-built": {
+  "files": {
+   ".yarnrc.yml": "enableScripts: false\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  },\n  \"dependenciesMeta\": {\n    \"nl-ctl-a\": {\n      \"built\": true\n    }\n  }\n}\n"
+  },
+  "release": "yarn-4.18.1"
+ },
+ "K4-v1": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "yarn.lock": "# THIS IS AN AUTOGENERATED FILE. DO NOT EDIT THIS FILE DIRECTLY.\n# yarn lockfile v1\n\n\n"
+  },
+  "release": "yarn-4.18.1"
+ },
+ "K4-v8": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "yarn.lock": "__metadata:\n  version: 8\n  cacheKey: 10\n"
+  },
+  "release": "yarn-4.18.1"
+ },
+ "K4-v8-off": {
+  "files": {
+   ".yarnrc.yml": "enableScripts: false\n",
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "yarn.lock": "__metadata:\n  version: 8\n  cacheKey: 10\n"
+  },
+  "release": "yarn-4.18.1"
+ },
+ "K4-v9": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"nl-ctl-a\": \"1.0.0\",\n    \"nl-ctl-b\": \"1.0.0\",\n    \"nl-ctl-hold\": \"1.0.0\"\n  },\n  \"optionalDependencies\": {\n    \"nl-ctl-c\": \"1.0.0\"\n  }\n}\n",
+   "yarn.lock": "__metadata:\n  version: 9\n  cacheKey: 10\n"
+  },
+  "release": "yarn-4.18.1"
+ },
+ "K5-bun-electron": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"electron\": \"30.0.0\"\n  }\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K5-bun-esbuild-native": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"esbuild\": \"0.21.5\"\n  }\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K5-bun-esbuild-old": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"esbuild\": \"0.8.0\"\n  }\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K5-bun-replaces": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"electron\": \"30.0.0\",\n    \"nl-ctl-a\": \"1.0.0\"\n  },\n  \"trustedDependencies\": [\n    \"nl-ctl-a\"\n  ]\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K5-bun-sharp-new": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"sharp\": \"0.34.3\"\n  }\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K5-bun-sharp-old": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"sharp\": \"0.32.6\"\n  }\n}\n"
+  },
+  "release": "bun-1.4.3"
+ },
+ "K5-npm10-esbuild-native": {
+  "files": {
+   "package.json": "{\n  \"name\": \"nl-control\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"esbuild\": \"0.21.5\"\n  }\n}\n"
+  },
+  "release": "npm-10.9.9"
+ }
+}

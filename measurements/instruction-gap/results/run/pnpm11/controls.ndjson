@@ -1,0 +1,17 @@
+{"control": "K0-network", "exit": "fail", "marks": [], "pass": true, "release": "none"}
+{"control": "K1-pnpm-11.28.7", "exit": "fail", "marks": [], "pass": true, "release": "pnpm-11.28.7"}
+{"control": "K1-pnpm-12.14.0", "exit": "fail", "marks": [], "pass": true, "release": "pnpm-12.14.0"}
+{"control": "K2-pnpm11-all", "exit": "0", "marks": ["nl-ctl-a@1.0.0 postinstall", "nl-ctl-b@1.0.0 install", "nl-ctl-b@1.0.0 postinstall", "nl-ctl-b@1.0.0 preinstall", "nl-ctl-e@1.0.0 postinstall"], "pass": true, "release": "pnpm-11.28.7"}
+{"control": "K2-pnpm11-allow", "exit": "0", "marks": ["nl-ctl-a@1.0.0 postinstall"], "pass": true, "release": "pnpm-11.28.7"}
+{"control": "K2-pnpm11-old-pkg", "exit": "fail", "marks": [], "pass": true, "release": "pnpm-11.28.7"}
+{"control": "K2-pnpm11-old-ws", "exit": "fail", "marks": [], "pass": true, "release": "pnpm-11.28.7"}
+{"control": "K2-pnpm11-partial", "exit": "fail", "marks": ["nl-ctl-a@1.0.0 postinstall"], "pass": true, "release": "pnpm-11.28.7"}
+{"control": "K2-pnpm12-all", "exit": "0", "marks": ["nl-ctl-a@1.0.0 postinstall", "nl-ctl-b@1.0.0 install", "nl-ctl-b@1.0.0 postinstall", "nl-ctl-b@1.0.0 preinstall", "nl-ctl-e@1.0.0 postinstall"], "pass": true, "release": "pnpm-12.14.0"}
+{"control": "K2-pnpm12-allow", "exit": "0", "marks": ["nl-ctl-a@1.0.0 postinstall"], "pass": true, "release": "pnpm-12.14.0"}
+{"control": "K2-pnpm12-old-pkg", "exit": "fail", "marks": [], "pass": true, "release": "pnpm-12.14.0"}
+{"control": "K2-pnpm12-old-ws", "exit": "fail", "marks": [], "pass": true, "release": "pnpm-12.14.0"}
+{"control": "K2-pnpm12-partial", "exit": "fail", "marks": ["nl-ctl-a@1.0.0 postinstall"], "pass": true, "release": "pnpm-12.14.0"}
+{"control": "K3-pnpm11-ignore", "exit": "0", "marks": [], "pass": true, "release": "pnpm-11.28.7"}
+{"control": "K3-pnpm11-npmrc", "exit": "0", "marks": ["nl-ctl-a@1.0.0 postinstall"], "pass": true, "release": "pnpm-11.28.7"}
+{"control": "K3-pnpm12-ignore", "exit": "0", "marks": [], "pass": true, "release": "pnpm-12.14.0"}
+{"control": "K3-pnpm12-npmrc", "exit": "0", "marks": ["nl-ctl-a@1.0.0 postinstall"], "pass": true, "release": "pnpm-12.14.0"}

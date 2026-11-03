@@ -1,0 +1,250 @@
+node v22.23.4; python 3.13.5; start 2026-10-28T04:36:52Z
+C1: 47 projects, different 0
+K0-network: pass fail []
+K1-pnpm-11.28.7: pass fail []
+K1-pnpm-12.14.0: pass fail []
+K2-pnpm11-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm11-allow: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm11-old-pkg: pass fail []
+K2-pnpm11-old-ws: pass fail []
+K2-pnpm11-partial: pass fail ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm12-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm12-allow: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm12-old-pkg: pass fail []
+K2-pnpm12-old-ws: pass fail []
+K2-pnpm12-partial: pass fail ['nl-ctl-a@1.0.0 postinstall']
+K3-pnpm11-ignore: pass 0 []
+K3-pnpm11-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K3-pnpm12-ignore: pass 0 []
+K3-pnpm12-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+controls: 17, failed 0
+1/94 shazow/whatsabi pnpm-12.14.0 0 3
+2/94 shazow/whatsabi pnpm-11.28.7 0 3
+3/94 runloom/pier pnpm-12.14.0 0 3
+4/94 runloom/pier pnpm-11.28.7 0 3
+5/94 LukaJCB/ts-mls pnpm-12.14.0 0 0
+6/94 LukaJCB/ts-mls pnpm-11.28.7 0 0
+7/94 LivXue/dsh-plugin-shop pnpm-12.14.0 0 1
+8/94 LivXue/dsh-plugin-shop pnpm-11.28.7 0 1
+9/94 blinkdisk/blinkdisk pnpm-12.14.0 0 9
+10/94 blinkdisk/blinkdisk pnpm-11.28.7 0 9
+11/94 nuxt-modules/device pnpm-12.14.0 0 4
+12/94 nuxt-modules/device pnpm-11.28.7 0 4
+13/94 TanStack/ai pnpm-12.14.0 0 8
+14/94 TanStack/ai pnpm-11.28.7 0 8
+15/94 wevm/mppx pnpm-12.14.0 0 7
+16/94 wevm/mppx pnpm-11.28.7 0 7
+17/94 gopasspw/gopassbridge pnpm-12.14.0 0 0
+18/94 gopasspw/gopassbridge pnpm-11.28.7 0 0
+19/94 styled-components/babel-plugin-styled-components pnpm-12.14.0 0 0
+20/94 styled-components/babel-plugin-styled-components pnpm-11.28.7 0 0
+21/94 discordjs/discord.js pnpm-12.14.0 0 9
+22/94 discordjs/discord.js pnpm-11.28.7 0 9
+23/94 Arman19941113/dnd-resume pnpm-12.14.0 0 0
+24/94 Arman19941113/dnd-resume pnpm-11.28.7 0 0
+25/94 gronxb/hot-updater pnpm-12.14.0 0 22
+26/94 gronxb/hot-updater pnpm-11.28.7 0 22
+27/94 arcboxlabs/linkcode pnpm-12.14.0 0 7
+28/94 arcboxlabs/linkcode pnpm-11.28.7 0 7
+29/94 bushm2092-del/agent-weave pnpm-12.14.0 0 3
+30/94 bushm2092-del/agent-weave pnpm-11.28.7 0 3
+31/94 felix-berlin/astro-breadcrumbs pnpm-12.14.0 0 4
+32/94 felix-berlin/astro-breadcrumbs pnpm-11.28.7 0 4
+33/94 pruvious/pruvious pnpm-12.14.0 0 11
+34/94 pruvious/pruvious pnpm-11.28.7 0 11
+35/94 kysely-org/kysely-postgres-js pnpm-12.14.0 0 1
+36/94 kysely-org/kysely-postgres-js pnpm-11.28.7 0 1
+37/94 jesec/flood pnpm-12.14.0 0 3
+38/94 jesec/flood pnpm-11.28.7 0 3
+39/94 radiumcoders/23rd.dev pnpm-12.14.0 0 5
+40/94 radiumcoders/23rd.dev pnpm-11.28.7 0 5
+41/94 withastro/prettier-plugin-astro pnpm-12.14.0 0 0
+42/94 withastro/prettier-plugin-astro pnpm-11.28.7 0 0
+43/94 Yueby/music-together pnpm-12.14.0 0 1
+44/94 Yueby/music-together pnpm-11.28.7 0 1
+45/94 yeahhe365/AMC-WebUI pnpm-12.14.0 0 5
+46/94 yeahhe365/AMC-WebUI pnpm-11.28.7 0 5
+47/94 unicodeveloper/globalthreatmap pnpm-12.14.0 0 2
+48/94 unicodeveloper/globalthreatmap pnpm-11.28.7 0 2
+49/94 tgrosinger/advanced-tables-obsidian pnpm-12.14.0 0 2
+50/94 tgrosinger/advanced-tables-obsidian pnpm-11.28.7 0 2
+51/94 DetachHead/basedpyright pnpm-12.14.0 0 4
+52/94 DetachHead/basedpyright pnpm-11.28.7 0 4
+53/94 ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool pnpm-12.14.0 0 3
+54/94 ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool pnpm-11.28.7 0 3
+55/94 graphql-hive/graphql-yoga pnpm-12.14.0 0 23
+56/94 graphql-hive/graphql-yoga pnpm-11.28.7 0 23
+57/94 pmndrs/react-spring pnpm-12.14.0 0 6
+58/94 pmndrs/react-spring pnpm-11.28.7 0 6
+59/94 pithings/mountx pnpm-12.14.0 0 0
+60/94 pithings/mountx pnpm-11.28.7 0 0
+61/94 tloncorp/tlon-apps pnpm-12.14.0 0 16
+62/94 tloncorp/tlon-apps pnpm-11.28.7 0 16
+63/94 jinghaihan/pncat pnpm-12.14.0 0 2
+64/94 jinghaihan/pncat pnpm-11.28.7 0 2
+65/94 ChristofFritz/ngx-drag-drop pnpm-12.14.0 0 5
+66/94 ChristofFritz/ngx-drag-drop pnpm-11.28.7 0 5
+67/94 humanspeak/svelte-virtual-list pnpm-12.14.0 0 4
+68/94 humanspeak/svelte-virtual-list pnpm-11.28.7 0 4
+69/94 DimensionDev/Maskbook pnpm-12.14.0 fail 0
+70/94 DimensionDev/Maskbook pnpm-11.28.7 fail 0
+71/94 jakearchibald/jakearchibald.com pnpm-12.14.0 0 0
+72/94 jakearchibald/jakearchibald.com pnpm-11.28.7 0 0
+73/94 useLexora/Lexora pnpm-12.14.0 0 8
+74/94 useLexora/Lexora pnpm-11.28.7 0 8
+75/94 UnrefinedBrain/vue-upgrade-tool pnpm-12.14.0 0 1
+76/94 UnrefinedBrain/vue-upgrade-tool pnpm-11.28.7 0 1
+77/94 Goldziher/interface-forge pnpm-12.14.0 0 1
+78/94 Goldziher/interface-forge pnpm-11.28.7 0 1
+79/94 seek-oss/sku pnpm-12.14.0 0 3
+80/94 seek-oss/sku pnpm-11.28.7 0 3
+81/94 wei/socialify pnpm-12.14.0 0 1
+82/94 wei/socialify pnpm-11.28.7 0 1
+83/94 interledger/web-monetization-extension pnpm-12.14.0 0 0
+84/94 interledger/web-monetization-extension pnpm-11.28.7 0 0
+85/94 team-reflect/reflect-open pnpm-12.14.0 0 4
+86/94 team-reflect/reflect-open pnpm-11.28.7 0 4
+87/94 antfu-collective/local-pkg pnpm-12.14.0 0 2
+88/94 antfu-collective/local-pkg pnpm-11.28.7 0 2
+89/94 firecmsco/neat pnpm-12.14.0 0 0
+90/94 firecmsco/neat pnpm-11.28.7 0 0
+91/94 openng-org/optimus-ui pnpm-12.14.0 0 6
+92/94 openng-org/optimus-ui pnpm-11.28.7 0 6
+93/94 Alittfre/vitepress-theme-bluearchive pnpm-12.14.0 0 1
+94/94 Alittfre/vitepress-theme-bluearchive pnpm-11.28.7 0 1
+run1 exit=0
+run1 end 2026-10-28T04:39:11Z
+C1: 47 projects, different 0
+K0-network: pass fail []
+K1-pnpm-11.28.7: pass fail []
+K1-pnpm-12.14.0: pass fail []
+K2-pnpm11-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm11-allow: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm11-old-pkg: pass fail []
+K2-pnpm11-old-ws: pass fail []
+K2-pnpm11-partial: pass fail ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm12-all: pass 0 ['nl-ctl-a@1.0.0 postinstall', 'nl-ctl-b@1.0.0 install', 'nl-ctl-b@1.0.0 postinstall', 'nl-ctl-b@1.0.0 preinstall', 'nl-ctl-e@1.0.0 postinstall']
+K2-pnpm12-allow: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K2-pnpm12-old-pkg: pass fail []
+K2-pnpm12-old-ws: pass fail []
+K2-pnpm12-partial: pass fail ['nl-ctl-a@1.0.0 postinstall']
+K3-pnpm11-ignore: pass 0 []
+K3-pnpm11-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+K3-pnpm12-ignore: pass 0 []
+K3-pnpm12-npmrc: pass 0 ['nl-ctl-a@1.0.0 postinstall']
+controls: 17, failed 0
+1/94 shazow/whatsabi pnpm-12.14.0 0 3
+2/94 shazow/whatsabi pnpm-11.28.7 0 3
+3/94 runloom/pier pnpm-12.14.0 0 3
+4/94 runloom/pier pnpm-11.28.7 0 3
+5/94 LukaJCB/ts-mls pnpm-12.14.0 0 0
+6/94 LukaJCB/ts-mls pnpm-11.28.7 0 0
+7/94 LivXue/dsh-plugin-shop pnpm-12.14.0 0 1
+8/94 LivXue/dsh-plugin-shop pnpm-11.28.7 0 1
+9/94 blinkdisk/blinkdisk pnpm-12.14.0 0 9
+10/94 blinkdisk/blinkdisk pnpm-11.28.7 0 9
+11/94 nuxt-modules/device pnpm-12.14.0 0 4
+12/94 nuxt-modules/device pnpm-11.28.7 0 4
+13/94 TanStack/ai pnpm-12.14.0 0 8
+14/94 TanStack/ai pnpm-11.28.7 0 8
+15/94 wevm/mppx pnpm-12.14.0 0 7
+16/94 wevm/mppx pnpm-11.28.7 0 7
+17/94 gopasspw/gopassbridge pnpm-12.14.0 0 0
+18/94 gopasspw/gopassbridge pnpm-11.28.7 0 0
+19/94 styled-components/babel-plugin-styled-components pnpm-12.14.0 0 0
+20/94 styled-components/babel-plugin-styled-components pnpm-11.28.7 0 0
+21/94 discordjs/discord.js pnpm-12.14.0 0 9
+22/94 discordjs/discord.js pnpm-11.28.7 0 9
+23/94 Arman19941113/dnd-resume pnpm-12.14.0 0 0
+24/94 Arman19941113/dnd-resume pnpm-11.28.7 0 0
+25/94 gronxb/hot-updater pnpm-12.14.0 0 22
+26/94 gronxb/hot-updater pnpm-11.28.7 0 22
+27/94 arcboxlabs/linkcode pnpm-12.14.0 0 7
+28/94 arcboxlabs/linkcode pnpm-11.28.7 0 7
+29/94 bushm2092-del/agent-weave pnpm-12.14.0 0 3
+30/94 bushm2092-del/agent-weave pnpm-11.28.7 0 3
+31/94 felix-berlin/astro-breadcrumbs pnpm-12.14.0 0 4
+32/94 felix-berlin/astro-breadcrumbs pnpm-11.28.7 0 4
+33/94 pruvious/pruvious pnpm-12.14.0 0 11
+34/94 pruvious/pruvious pnpm-11.28.7 0 11
+35/94 kysely-org/kysely-postgres-js pnpm-12.14.0 0 1
+36/94 kysely-org/kysely-postgres-js pnpm-11.28.7 0 1
+37/94 jesec/flood pnpm-12.14.0 0 3
+38/94 jesec/flood pnpm-11.28.7 0 3
+39/94 radiumcoders/23rd.dev pnpm-12.14.0 0 5
+40/94 radiumcoders/23rd.dev pnpm-11.28.7 0 5
+41/94 withastro/prettier-plugin-astro pnpm-12.14.0 0 0
+42/94 withastro/prettier-plugin-astro pnpm-11.28.7 0 0
+43/94 Yueby/music-together pnpm-12.14.0 0 1
+44/94 Yueby/music-together pnpm-11.28.7 0 1
+45/94 yeahhe365/AMC-WebUI pnpm-12.14.0 0 5
+46/94 yeahhe365/AMC-WebUI pnpm-11.28.7 0 5
+47/94 unicodeveloper/globalthreatmap pnpm-12.14.0 0 2
+48/94 unicodeveloper/globalthreatmap pnpm-11.28.7 0 2
+49/94 tgrosinger/advanced-tables-obsidian pnpm-12.14.0 0 2
+50/94 tgrosinger/advanced-tables-obsidian pnpm-11.28.7 0 2
+51/94 DetachHead/basedpyright pnpm-12.14.0 0 4
+52/94 DetachHead/basedpyright pnpm-11.28.7 0 4
+53/94 ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool pnpm-12.14.0 0 3
+54/94 ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool pnpm-11.28.7 0 3
+55/94 graphql-hive/graphql-yoga pnpm-12.14.0 0 23
+56/94 graphql-hive/graphql-yoga pnpm-11.28.7 0 23
+57/94 pmndrs/react-spring pnpm-12.14.0 0 6
+58/94 pmndrs/react-spring pnpm-11.28.7 0 6
+59/94 pithings/mountx pnpm-12.14.0 0 0
+60/94 pithings/mountx pnpm-11.28.7 0 0
+61/94 tloncorp/tlon-apps pnpm-12.14.0 0 16
+62/94 tloncorp/tlon-apps pnpm-11.28.7 0 16
+63/94 jinghaihan/pncat pnpm-12.14.0 0 2
+64/94 jinghaihan/pncat pnpm-11.28.7 0 2
+65/94 ChristofFritz/ngx-drag-drop pnpm-12.14.0 0 5
+66/94 ChristofFritz/ngx-drag-drop pnpm-11.28.7 0 5
+67/94 humanspeak/svelte-virtual-list pnpm-12.14.0 0 4
+68/94 humanspeak/svelte-virtual-list pnpm-11.28.7 0 4
+69/94 DimensionDev/Maskbook pnpm-12.14.0 fail 0
+70/94 DimensionDev/Maskbook pnpm-11.28.7 fail 0
+71/94 jakearchibald/jakearchibald.com pnpm-12.14.0 0 0
+72/94 jakearchibald/jakearchibald.com pnpm-11.28.7 0 0
+73/94 useLexora/Lexora pnpm-12.14.0 0 8
+74/94 useLexora/Lexora pnpm-11.28.7 0 8
+75/94 UnrefinedBrain/vue-upgrade-tool pnpm-12.14.0 0 1
+76/94 UnrefinedBrain/vue-upgrade-tool pnpm-11.28.7 0 1
+77/94 Goldziher/interface-forge pnpm-12.14.0 0 1
+78/94 Goldziher/interface-forge pnpm-11.28.7 0 1
+79/94 seek-oss/sku pnpm-12.14.0 0 3
+80/94 seek-oss/sku pnpm-11.28.7 0 3
+81/94 wei/socialify pnpm-12.14.0 0 1
+82/94 wei/socialify pnpm-11.28.7 0 1
+83/94 interledger/web-monetization-extension pnpm-12.14.0 0 0
+84/94 interledger/web-monetization-extension pnpm-11.28.7 0 0
+85/94 team-reflect/reflect-open pnpm-12.14.0 0 4
+86/94 team-reflect/reflect-open pnpm-11.28.7 0 4
+87/94 antfu-collective/local-pkg pnpm-12.14.0 0 2
+88/94 antfu-collective/local-pkg pnpm-11.28.7 0 2
+89/94 firecmsco/neat pnpm-12.14.0 0 0
+90/94 firecmsco/neat pnpm-11.28.7 0 0
+91/94 openng-org/optimus-ui pnpm-12.14.0 0 6
+92/94 openng-org/optimus-ui pnpm-11.28.7 0 6
+93/94 Alittfre/vitepress-theme-bluearchive pnpm-12.14.0 0 1
+94/94 Alittfre/vitepress-theme-bluearchive pnpm-11.28.7 0 1
+run2 exit=0
+run2 end 2026-10-28T04:41:30Z
+{
+ "controls": 17,
+ "controls failed": 0,
+ "different": [],
+ "pnpm-11.28.7": {
+  "fail": 1,
+  "fail with none run": 1,
+  "run": 37
+ },
+ "pnpm-12.14.0, recorded": {
+  "fail": 1,
+  "run": 37
+ },
+ "projects": 47,
+ "same": 47,
+ "stops": []
+}
+compare exit=0
+run-sh-exit=0
