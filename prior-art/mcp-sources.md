@@ -3140,3 +3140,4 @@ Since the sweep, 91 of these 312 entries have not been read again against their 
 ## Corrections, 2026-10-01
 
 29 entries said something their source does not: a quotation not word for word, a date, an author, a count, or a summary line that went further than the source or than the entry's own source check. Each now says what the source says.
+The file as published before these corrections: [mcp-sources.md at e7294e3](https://github.com/nortesoftware/norte-labs/blob/e7294e31dafafd5840b6169e95356ddc9e57f881/prior-art/mcp-sources.md). The entries changed, by section and number: Privilege surface: declared vs actual 18, 19, 31, 38; Known incidents 1, 5, 6, 7, 11, 19, 29, 41, 42, 45, 48, 56, 61, 63, 64, 67, 75; Registries and catalogs 4, 10, 12, 17, 33, 34, 36; Vendor publications 40. The paragraph after the opening one, on the entries not read again since the sweep, was added with them.

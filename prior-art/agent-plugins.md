@@ -704,23 +704,43 @@ strace in a decoy home.
   declared behavior"; Open VSX's headline counts as written ("over 2500", "over 12,000 … more than
   8,000"); Koi's "risk engine at Koi flagged"; the cut Cursor removal promise, which runs on
   "while the issue is being resolved"; the Edirimannage artefact's full folder name.
+  The text quoted "with automated malware and supply-chain analysis using commercial security
+  tooling", "80.0 % deviate from declared behavior", "over 2,500 extensions from over 1,600
+  different publishers", "12,000+ ... 8,000+" and "risk engine flagged"; it gave "we remove it from
+  the marketplace immediately" as "the whole policy", and the folder as
+  "Verified-behavior-with-manual-execution".
 - Quotations that were paraphrases are now unquoted or attributed: the Open VSX feed is for
   mirrors and security scanners; the Hereiz et al. "remains untested" is about Cursor, Copilot
   and Gemini; Manifold's "anonymous usage metrics" is BleepingComputer's report of the listings,
   as is the TigerJack miner sentence, which is about one of its extensions; the Zed audit sentence
   is a community contributor's, not Zed's.
+  The text quoted the feed as meant "for security scanners", Hereiz et al. as "generalisation to
+  Cursor remains untested" and Manifold's listings as saying "anonymous usage metrics" and "CI
+  values never leave the machine"; it gave TigerJack's "works as advertised but secretly runs a
+  CoinIMP miner" with no source, and "There isn't a formal third-party audit process yet" as Zed's.
 - Counts: Open VSX's blocklist has 944 entries, 919 distinct; the editor's kill list 283, 280
   distinct; its Hall of Fame 8 organisations; its "under review" complaints about 45, not 74 issues
   matched by keyword; vsix-audit 13 named campaigns; VSXSentry's 224 curated rows, 152 malware;
   WhiteCobra 15 distinct on Open VSX; TigerJack at least 11, two of them with over 17,000
   downloads; Koidex 9,237 Cursor and 11,747 Windsurf report pages; Cursor's changelog 53 entries
   since the plugin launch and some 280 status incidents; the community marketplace 2,282 plugins.
+  The text said "944 malicious identifiers", the editor's kill list "283 malicious identifiers", "a
+  Hall of Fame of nine reporters", 74 "under review" complaints, "14 campaigns", VSXSentry's "152
+  curated", WhiteCobra "16 on Open VSX", TigerJack "11 extensions, 17,000 installs", Koidex "1,795
+  Cursor and 4,292 Windsurf report pages", Cursor's "35 changelog entries, 300 status incidents" and
+  "2,281 plugins".
 - Attributions: the 72- and 73-extension GlassWorm clusters are Socket's; the Checkmarx compromise
   was two extensions in 2026-03, Trivy 1.8.12 in 2026-02; the Nx Console times are Nx's, not
   CISA's; JetBrains' ~70,000 installs are StepSecurity's and its report gives no takedown time;
   1,184 is Antiy CERT's count; the monthly malware counts are the Eclipse Foundation's, reported
   to Alpha-Omega; the ACP quarantine list is kept by JetBrains and Zed maintainers by hand; VSMEx
   is CODASPY 2026, the SECRYPT 2026 paper its characterisation; 2608.02695 is a stylometry paper.
+  The text said "Socket and Aikido 2026-03/04 with 72- and 73-extension clusters", "the Checkmarx
+  extension (TeamPCP, 2026-02/03)" with no date of Trivy's own, "CVE-2026-48027, CISA KEV: 18
+  minutes on the Microsoft marketplace, 36 on Open VSX" and "third-party post-mortems" for the Nx
+  times, JetBrains' "~70,000 installs" in its own report and "JetBrains published an incident report
+  with a takedown time", "1,184 in the academic count", "Alpha-Omega's monthly count of malwares
+  processed", ACP agents "quarantined on failure", "VSMEx, SECRYPT 2026" and "the GlassWorm paper".
 - Claims narrowed: Windsurf has an `AllowedExtensions` publisher allowlist as well as a deny list;
   Devin's marketplace has a contributing step for third-party plugins; continue.dev's redirect
   was in place by 2026-01-30; Zed's code, not every extension, is WASM, and language servers are
@@ -737,12 +757,33 @@ strace in a decoy home.
   SkillScan's rates are over a 200-skill validation set; MalSkillBench traced 3,214 generated
   samples; the per-consumer traffic report is planned, not held; Open VSX's operator builds a
   curated subset in its `publish-extensions` CI.
+  The text said "the only extension control on top of it is a server-driven deny list", Devin's
+  marketplace "no review statement", "redirected to continue.dev on 2026-01-30", that Zed's
+  "extensions are WASM" and that its language servers are what the extension "downloads at first
+  use", "VS Code 1.113+", that the Edirimannage study was "network-level, hand-driven", "run by
+  hand", "network and VS Code API calls only", with "12 unconsented binary or tool downloads" and
+  "no file or credential dimension", scanners "crowded and static", "twice, takedown latency",
+  vendors that "publish no rate", that a plugin executes nothing "until an event fires a hook or the
+  agent starts a bundled MCP server", that the ACP agents "start the same way" and the ACP CI
+  "installs and launches its 41 agents", that the vendors' sandboxes "confine the agent's terminal
+  commands only", "since 1.74 most activation events are implicit", that Cursor's review took a week
+  or so, cursor.directory "which is not reviewed", Microsoft "no figures", JetBrains' verifier "a
+  compatibility checker by its own admission", "1,283 extensions with known malicious code", "86.7 %
+  precision / 82.5 % recall on 31,132 skills", MalSkillBench's "703 wild samples" alone, that the
+  per-consumer breakdown "exists only in the operator's logs", and "The operator does not build
+  extensions".
 - CVE-2025-6705 was a token exposure, with no compromise found, not a leak. Open VSX's earlier
   model is that of its first five years; Zed's `remove-extension` workflow dates from 2026-09-14, and no removal was for security;
   the solidity extension was republished the next day and its history restored ten days on.
+  The text said "the token leak (CVE-2025-6705)", "Before 2025" for the model Milinkovich describes,
+  Zed's removals "all deprecation, dead upstream or author request" with "a `remove-extension`
+  workflow since 2026-09-11", and that the extension was "removed and restored ten days later".
 - The Wiz post rates the two galleries in one sentence and has no table; the OWASP figures sit in
   its case studies. Yeeth helped build Open VSX's verification and cut manual reviews from 50-100
   a day to around 3-5 alerts.
+  The text said "Wiz's two-column Open VSX vs Microsoft table" and "the OWASP skills timeline
+  carries figures", and that Yeeth Security "wrote Open VSX's pre-publish scanners" and "triages"
+  50–100 submissions a day down to 3–5 alerts.
 - The 17,884 `totalSize` of 2026-09-16 is the one kept in
   `registries/agent-plugins/data/catalog-counts-2026-09-16.json`.
   The text gave the 17,884 with no date and no file.

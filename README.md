@@ -6,6 +6,8 @@ Supply-chain security research and audits.
 
 The code, the runs and the texts here are done with an AI assistant. Christian Noé Ramos López
 decides what is measured and what is published, approves each publication and answers for it.
+A figure found wrong after publication is corrected in a dated note that says what the text said,
+or links to it.
 
 ## What is here
 

@@ -248,35 +248,62 @@ returned re-reporting of the English sources.
 - Octoverse 2020's 10 / 683 are JavaScript medians, the 683 over repositories with a lockfile, in
   a sample of 45,000+ across six ecosystems; Kaushik and Bawa give 7× for star thresholds and
   18× for activity ones, and say the filters' maintenance bias "masks" the abandonment.
+  The text said "10 / 683 over 45,000+", that star and activity thresholds "shift repository size by
+  7×", and that the filters "mask the true abandonment".
 - PyPI was said to expose no uploader; for attested files its Integrity API names the Trusted
   Publisher. Santos-Grueiro reads PyPI as releaser-visible; the sentence no longer says it shares
   dep-weight's finding.
 - Bagmar et al.'s 387,867 are PyPI users, and their identity is the author and maintainer e-mail
   fields, not a publish-rights field; Zimmermann et al.'s is.
+  The text said "387,867 author/maintainer addresses" and that both studies "take the registry's
+  maintainer field (publish rights) as the identity".
 - Tools: `keyholders` publishes no count; `blast-radius` gives a second, 378-package tree; the
   "added N packages from M contributors" line is in issues and pull requests; dep-weight's and
   install-graph's figures are no longer in quotation marks they do not carry, and install-graph
   names no threat to independence, so the sentence crediting it with one is removed.
+  The text said `keyholders`, `nebraska` and `blast-radius` "appeared in 2026 with one worked
+  example each" and that "at least 8,418 GitHub issues carry the line verbatim"; it quoted "the
+  distinct npm accounts that published the resolved versions" and "1,598 distinct names arrive from
+  852 distinct publishing accounts", and had install-graph's three sibling projects "named as a
+  threat to independence".
 - The Rust WG's guide says dependency count "is not always a good measurement of the attack
   surface"; the 57/9 and 243 figures come from a 2021 blog post and a 2025 Hacker News comment.
+  The text said the WG's guide "states the thesis — dependency count is not the attack surface,
+  publish access is — with single-project figures".
 - The weekly column's 17 / 383 / 285 are given as counted, not as a quotation; the per-package
   figure is eight years old, not nine (measured to April 2018).
+  The text quoted the column as "17 direct / 383 packages / 285 accounts".
 - Cesarano and Monperrus describe one 48-project stack; Black Duck 2026 declares its frame (947
   audited codebases); none of the studies counts the people who publish dependencies, though
   some count authors.
+  The text gave Cesarano and Monperrus as "48 AI-stack projects", said industry reports add totals
+  "without a declared frame", and ended "None counts people."
 - The per-tree install-script figures include the authors' own sites, not only synthetic
   manifests; Bun's allowlist does not include `fsevents`.
+  The text said "Per tree, only on synthetic manifests" and, of Bun's allowlist, "esbuild and
+  fsevents among them".
 - Jafari et al.'s 26.5 % commit no lockfile of any of three kinds and the 52.2 % pin a runtime
   dependency; Gamage et al.'s 43.4 % and 18 % are of 1,916 JavaScript projects; He et al.'s
   22.38 are packages in more than one version; MaxNPM's 21 % is of packages with a dependency.
+  The text said 52.2 % "pin at least one dependency" and 26.5 % "commit no package-lock.json", gave
+  Gamage et al.'s 43.4 % and 18 % with no denominator after "4,859 GitHub projects across seven
+  managers", and said "22.38 duplicated versions" and "PacSolve (ICSE 2023) shrinks 21 % of the top
+  1,000 packages' trees".
 - pnpm's trust policy is opt-in and refuses trust-level downgrades; pnpm 12 canonicalises git URLs
   on GitHub, GitLab and Bitbucket only; npmmirror holds about 6.2 M packages; npm/cli#1431 shows
   the mirror's former host; the code-search counts are dated 2026-09-17.
+  The text said "a trust policy that refuses downgrades", "pnpm 12 canonicalises git URLs" and "6.16
+  M packages", cited npm/cli#1431 without the host it shows, and said "A GitHub code search finds"
+  with no date.
 - Trusted publishing's user is the CI provider, GitLab CI/CD as well as GitHub Actions;
   ecosyste.ms's `_npmUser` is missing for some versions; npm-follower's archive is of 2023.
+  The text gave the trusted-publishing user as "GitHub Actions" alone, and said ecosyste.ms "exposes
+  `_npmUser` per version" and "npm-follower archives every packument".
 - Latendresse et al. cut 11,860 to 155 projects using webpack or rollup before the 100 that build.
+  The text said "≥ 100 stars → 11,860 → 100 that build".
 - The 2018 tool's README count is quoted as written ("1609 packages from 549 maintainers") and as
   the README's example; Zimmermann et al. have about 580 Google Scholar citations, not ~700.
+  The text said anyone could run one command and read "1,609 packages from 549 maintainers".
 
 ## Corrections, 2026-11-03
 

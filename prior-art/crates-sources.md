@@ -1110,3 +1110,11 @@ crates.io's publisher records to November 2018, when they start with a change me
 vendor's pages never mention Rust, when an archived capture of one does; one carried figures
 from a search-engine snippet that could not be opened, now removed. Each now says what the
 source says.
+The file as published before these corrections: [crates-sources.md at
+9a3b953](https://github.com/nortesoftware/norte-labs/blob/9a3b95322c802dbac1c4ca16c24cb3d469c505e8/prior-art/crates-sources.md).
+The entries changed: "Demystifying Compiler Unstable Feature Usage and Impacts in the Rust
+Ecosystem" (academic), "RFC 3691: Security Improvements for CI Publishing to crates.io (trusted
+publishing)" (code-and-data), "Alpha-Omega engagement monthly updates — Rust / Rust Foundation" and
+"Software Supply Chain State of the Union (landing pages)" (industry), and "State of the Rust/Cargo
+crates ecosystem (lib.rs/stats)" (community-and-press). With them the opening paragraph changed; it
+said "140 sources" and that only the entries behind the sentences of crates.md had been read again.

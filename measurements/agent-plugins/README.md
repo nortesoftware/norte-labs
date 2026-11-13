@@ -236,7 +236,7 @@ given; "none" is left for the figures a correction replaced and for one operatio
 | 10 of 19 declare a sha256, all 10 match; 9 declare none | findings.md:85 | `install.binary.sha256Declared`; `sha256Match` | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | 44 started, 43 `initialize` | findings.md:88; README.md:351 | `firstRun.attempted`; `firstRun.client.initializeOk` | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | telemetry: 10 hosts in 8 agents (9 in 7 without cline) | findings.md:92; README.md:362 | first-run host names matching `src/report.ts`'s telemetry pattern, plus `otel.cline.bot` | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
-| cortex-code metrics: 15 s flush, not seen in the 10 s window | findings.md:94; README.md:524-526 | the cell's first run (10 s idle); the flush interval is read from the binary | `results/cells-acp.ndjson`; external: the cortex-code binary at the pinned version | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
+| cortex-code metrics: 15 s flush, not seen in the 10 s window | findings.md:94; README.md:538-540 | the cell's first run (10 s idle); the flush interval is read from the binary | `results/cells-acp.ndjson`; external: the cortex-code binary at the pinned version | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | qoder stats each top-level entry 2,300 to 2,800 times (`~/.aws` 2,746, `~/.ssh` 2,549, `~/.netrc` 2,396) | findings.md:110 | `probes` of the top-level prefixes of `firstRun.trace.home` | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | opencode 1,924 writes | findings.md:117, 153 | `writes` of the `~/.config/opencode` prefix | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
 | 22 of 42 contact a host (52.4 % [37.7–66.6]): 8 telemetry, 8 download, install or fingerprint (cline and github-copilot in both), 7 only their own or their provider's host, minimax-code in none; 20 nothing; kimchi probes 11434, junie 11434 and 1234 | findings.md:125, 126, 127, 128, 129; README.md:353 | agents with a non-loopback host or a DNS name in any cell's `firstRun.trace.net`; classes by the DNS names each agent resolved, attributed as the text lists them (`agent.minimaxi.com` unclassed); `ports` of loopback hosts | `results/cells-acp.ndjson` | registry at `b8978f1`, matrix of 2026-09-16; cells of 2026-09-16/17 |
@@ -257,47 +257,47 @@ given; "none" is left for the figures a correction replaced and for one operatio
 | 234 skills, 72 rules, 53 agents, 61 commands | findings.md:189 | `plugin.inventory.*` > 0 | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 122 scripts (37.0 % [31.9–42.3]), 72 executables (21.8 % [17.7–26.6]), one `node_modules`, no binary | findings.md:190-192 | `plugin.inventory.scripts`, `executables`, `nodeModulesShipped`, `binaries` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 230 remote (69.7 % [64.5–74.4]); 222 only remote, two thirds | findings.md:195-199; README.md:143 | plugins with a `plugin.mcpDeclared` entry of `kind` remote; all entries remote | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| 296 declarations, 261 distinct; 35 remote and 4 stdio repeats, 29 and 2 of them `mcp.json` with `.mcp.json` | findings.md:196; README.md:411, 414, 529-533 | remote entries; distinct (plugin, `url`); basenames of the two `source` files of each repeated entry — remote: `.mcp.json`+`mcp.json` 29, `plugin.json`+`mcp.json` 3, two `mcp.json` 2, `.cursor-mcp.json`+`.mcp.json` 1; stdio, over (plugin, name, `command`, `args`): 2, two `mcp.json` 1, `plugin.json`+`.mcp.json` 1 | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| 219 concrete hosts plus 15 plugins, 17 declarations, whose host is a user variable | findings.md:197; README.md:411-412, 527-528 | distinct hostname of `url`, port dropped; plugins and remote entries whose `url` host holds a `${…}` variable | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| 296 declarations, 261 distinct; 35 remote and 4 stdio repeats, 29 and 2 of them `mcp.json` with `.mcp.json` | findings.md:196; README.md:414, 417, 543-547 | remote entries; distinct (plugin, `url`); basenames of the two `source` files of each repeated entry — remote: `.mcp.json`+`mcp.json` 29, `plugin.json`+`mcp.json` 3, two `mcp.json` 2, `.cursor-mcp.json`+`.mcp.json` 1; stdio, over (plugin, name, `command`, `args`): 2, two `mcp.json` 1, `plugin.json`+`.mcp.json` 1 | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| 219 concrete hosts plus 15 plugins, 17 declarations, whose host is a user variable | findings.md:197; README.md:414-415, 541-542 | distinct hostname of `url`, port dropped; plugins and remote entries whose `url` host holds a `${…}` variable | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | `mcp.infobip.com` 12 servers in one plugin; `api.cursor.com` 5 plugins | findings.md:198 | entries and plugins by `url` host | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| 49 stdio (14.8 % [11.4–19.1]); 67 declarations, 63 distinct; `npx` 32, `uvx` 19, `node` 4, twelve others | findings.md:200, 201; README.md:412 | stdio entries; distinct (plugin, name, `command`, `args`); `command` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| 49 stdio (14.8 % [11.4–19.1]); 67 declarations, 63 distinct; `npx` 32, `uvx` 19, `node` 4, twelve others | findings.md:200, 201; README.md:415 | stdio entries; distinct (plugin, name, `command`, `args`); `command` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 59 without a server (17.9 % [14.1–22.4]) | findings.md:204 | empty `plugin.mcpDeclared` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| 36 with hooks (10.9 % [8.0–14.7]); 112 commands over 20 events | findings.md:204, 205; README.md:416 | `plugin.hooksDeclared` rows; distinct `event` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| 45 handshakes (67.2 % [55.3–77.2]), 43 distinct, 931 tools | findings.md:213-214; README.md:413 | `plugin.mcpRuns` attempted with `client.initializeOk`; distinct (plugin, name, command); `client.tools` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| 13 not on the host (12 naming 10 products, and devtools-for-agents's `npx`, which found no bin); 9 no answer | findings.md:214-217; README.md:534-536 | runs whose stderr says the executable is not found | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| 36 with hooks (10.9 % [8.0–14.7]); 112 commands over 20 events | findings.md:204, 205; README.md:419 | `plugin.hooksDeclared` rows; distinct `event` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| 45 handshakes (67.2 % [55.3–77.2]), 43 distinct, 931 tools | findings.md:213-214; README.md:416 | `plugin.mcpRuns` attempted with `client.initializeOk`; distinct (plugin, name, command); `client.tools` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| 13 not on the host (12 naming 10 products, and devtools-for-agents's `npx`, which found no bin); 9 no answer | findings.md:214-217; README.md:548-550 | runs whose stderr says the executable is not found | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 31 from `registry.npmjs.org`, 14 from `pypi.org` | findings.md:223-224 | runs with that host in `trace.net.hosts` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| AWS proxy: five plugins, seven declarations | findings.md:225-226; README.md:438 | runs whose command has `mcp-proxy-for-aws` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| `~/.aws` read by seven plugins, eight servers in ten starts | findings.md:227-228; README.md:438-439 | runs with `~/.aws/credentials` and `~/.aws/config` read (`contentAccessed`): 10; distinct (plugin, server name): 8, the count `results/report.md` prints; plugins: 7 | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| AWS proxy: five plugins, seven declarations | findings.md:225-226; README.md:441 | runs whose command has `mcp-proxy-for-aws` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| `~/.aws` read by seven plugins, eight servers in ten starts | findings.md:227-228; README.md:446-447 | runs with `~/.aws/credentials` and `~/.aws/config` read (`contentAccessed`): 10; distinct (plugin, server name): 8, the count `results/report.md` prints; plugins: 7 | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | telemetry in 3 of 67 starts | findings.md:240 | runs whose host or DNS names match a telemetry pattern, `mixpanel.com` left out | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| 95 of 112 run; mem0 29 (9, 9, 11), cut at 12 | findings.md:243-244; README.md:416-417 | `plugin.hookRuns` rows; mem0's `hooksDeclared` by `source` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| 95 of 112 run; mem0 29 (9, 9, 11), cut at 12 | findings.md:243-244; README.md:419-420 | `plugin.hookRuns` rows; mem0's `hooksDeclared` by `source` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 85 exit 0, four Windows wrappers; the other ten by cause | findings.md:246-251 | `exitCode`, `signal`, `stderrTail`; monk's four `.cmd` runs executed nothing beyond `sh` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | 11 of 95 reached the network; 84 did not | findings.md:252, 280 | hook runs with `trace.net.hosts` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| killed at the 20 s limit: corridor once, monk twice | findings.md:249, 261; README.md:427-428 | hook runs ended by SIGKILL, `ms` about 20,000 | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
-| monk 65 MiB | findings.md:263; README.md:428-429 | curl's progress in `stderrTail` (65.1M) | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| killed at the 20 s limit: corridor once, monk twice | findings.md:249, 261; README.md:430-431 | hook runs ended by SIGKILL, `ms` about 20,000 | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
+| monk 65 MiB | findings.md:263; README.md:431-432 | curl's progress in `stderrTail` (65.1M) | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | astronomer-data installs 35 packages | findings.md:272 | `stderrTail` of the `stop` hook | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | `cat` 50, `bash` 36, `jq` 26, `python3` 22, `node` 21 | findings.md:281-282 | hook runs, of all 95, with that name in `trace.execBasenames` | `results/cells-cursor.ndjson` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | four plugins fetch a binary, three of them "latest"; two more install packages | findings.md:292-295 | hook runs with network in revyl, corridor, monk and jfrog; "latest" is read from their scripts | `results/cells-cursor.ndjson`; external: the hook scripts at the commits pinned in `results/cursor-catalogue-2026-09-16.json.gz` | catalogue of 2026-09-16; cells of 2026-09-16/17 |
 | Cursor cells taken alone, 22:11 to 22:29 UTC | README.md:164 | no field marks the cells taken alone | none | 2026-09-16 |
 | 171 plugins | findings.md:4, 300; README.md:42 | rows | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
 | no hooks; 38 with skills; 4 with scripts, 2 executable; no binary | findings.md:303 | `plugin.hooksDeclared`, `plugin.inventory.*` | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
-| 120 only remote (70.2 % [62.9–76.5]), 117 hosts, 5 URLs with a host variable | findings.md:304-305; README.md:43, 143, 449-450 | plugins whose entries are all remote; distinct `url` host; URLs with `${…}` | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
+| 120 only remote (70.2 % [62.9–76.5]), 117 hosts, 5 URLs with a host variable | findings.md:304-305; README.md:43, 143, 456-457 | plugins whose entries are all remote; distinct `url` host; URLs with `${…}` | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
 | 24 `docker` (14.0 % [9.6–20.0]) | findings.md:307; README.md:43 | plugins with a `docker` entry | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
 | 27 local (15.8 % [11.1–22.0]): 15 `npx`, 11 `uvx`, 1 `pipx`; 51 a command | findings.md:308-309; README.md:43 | plugins with a stdio entry, by `command`; `mcpCommand` | `results/cells-devin.ndjson`, `results/population-devin-stats.json` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
 | 18 of 27 handshakes (66.7 % [47.8–81.4]), 272 tools | findings.md:311 | `plugin.mcpRuns` with `client.initializeOk`; `client.toolsCount` | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
 | mongodb unanswered after 120 s | findings.md:320 | the handshake window; the run's `ms` is 133,672 with the install | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
-| 26 contact their index (`pypi.org` 11, `registry.npmjs.org` 15) | findings.md:322-323; README.md:448 | runs with that host in `trace.net.hosts` or `dnsNames` | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
-| five of the nine failures are the run's | README.md:445-447 | a reading of the nine runs' `stderrTail` | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
+| 26 contact their index (`pypi.org` 11, `registry.npmjs.org` 15) | findings.md:322-323; README.md:455 | runs with that host in `trace.net.hosts` or `dnsNames` | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
+| five of the nine failures are the run's | README.md:452-454 | a reading of the nine runs' `stderrTail` | `results/cells-devin.ndjson` | marketplace at `e314c2f` (2026-09-15 UTC); cells of 2026-09-16 |
 | 73 extensions, 2,650,712 downloads | findings.md:5, 333-334; README.md:46 | rows; sum of `declared.downloadCount` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
-| 50 npm (68.5 % [57.1–78.0]), 11 GitHub releases and 1 HashiCorp, 9 unresolved, 2 not fetched | findings.md:337-342; README.md:457 | `zed.resolution.method`; `install.git.error` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
-| 9 unresolved as 3, 2, 2, 2; 5 of 73 repositories not the source | findings.md:339-340, 346; README.md:460 | the cells say only "command not recoverable from source"; the classes are a reading of the extensions' source | `results/cells-zed.ndjson`; external: each extension's source at the commit in `zed.commit` | extension API of 2026-09-16; cells of 2026-09-16/17 |
+| 50 npm (68.5 % [57.1–78.0]), 11 GitHub releases and 1 HashiCorp, 9 unresolved, 2 not fetched | findings.md:337-342; README.md:464 | `zed.resolution.method`; `install.git.error` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
+| 9 unresolved as 3, 2, 2, 2; 5 of 73 repositories not the source | findings.md:339-340, 346; README.md:467 | the cells say only "command not recoverable from source"; the classes are a reading of the extensions' source | `results/cells-zed.ndjson`; external: each extension's source at the commit in `zed.commit` | extension API of 2026-09-16; cells of 2026-09-16/17 |
 | ask-starknet-mcp 29,288 downloads | findings.md:343 | `declared.downloadCount` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
 | 50 from `registry.npmjs.org`, 49 installed; 10 of the 50 run install scripts (20.0 % [11.2–33.0]) | findings.md:350, 351 | install hosts; `install.ok`; npm cells with `install.npm.installScripts` non-empty (10 cells, all installed; 9 distinct packages: both `@azure/mcp` extensions install one) | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
 | 12 release binaries, 10 with a linux-x86_64 asset | findings.md:356 | `zed.asset` among `github-release` cells | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
 | 58 started, 28 handshakes (48.3 % [35.9–60.8]), 448 tools by 27 | findings.md:362-363 | `firstRun.attempted`; `client.initializeOk`; `client.toolsCount` where `toolsListOk` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
-| of the 30: 17, 2, 9, markitdown, planetscale | findings.md:363-371; README.md:455-456 | a reading of each failed cell's `stderrTail` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
-| egress in 8 of 58 | findings.md:371; README.md:464-465 | started cells with a non-loopback host or a DNS name | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
-| `~/.npmrc` read by two servers | findings.md:380; README.md:465 | `~/.npmrc` with `contentAccessed` and `reads` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
-| maho-lsp: first commit of 2026-04-04 | README.md:463 | date of the first commit of `MahoCommerce/zed` | external: that repository's history | undated |
+| of the 30: 17, 2, 9, markitdown, planetscale | findings.md:363-371; README.md:462-463 | a reading of each failed cell's `stderrTail` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
+| egress in 8 of 58 | findings.md:371; README.md:468-469 | started cells with a non-loopback host or a DNS name | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
+| `~/.npmrc` read by two servers | findings.md:380; README.md:469 | `~/.npmrc` with `contentAccessed` and `reads` | `results/cells-zed.ndjson` | extension API of 2026-09-16; cells of 2026-09-16/17 |
+| maho-lsp: first commit of 2026-04-04 | README.md:478 | date of the first commit of `MahoCommerce/zed` | external: that repository's history | undated |
 | 17,944 extensions | findings.md:394; README.md:24, 47 | `<loc>` entries; `frameExtensions` | `results/openvsx-sitemap-2026-09-18.xml.gz`, `results/population-openvsx-stats.json` | sitemap and records of 2026-09-18 |
 | search API 17,941 | README.md:48 | the count Open VSX's search API reported | external: Open VSX's search API | 2026-09-17 |
 | 600 sampled; 8 `linux-x64`, 592 universal; 600 with a record and a download | findings.md:397; README.md:5, 52, 53 | rows; `targetPlatform`; `declared.version`, `install.vsix` | `results/population-openvsx.ndjson`, `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18 |
@@ -311,7 +311,7 @@ given; "none" is left for the figures a correction replaced and for one operatio
 | 225 of 599 at every start (37.6 % [33.8–41.5]); 51.8 % by downloads | findings.md:409, 410 | `activationEvents` with `*` or `onStartupFinished`; their share of `downloadCount` | `results/cells-openvsx.ndjson.gz`, `results/population-openvsx.ndjson` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
 | 77 without events; of the rest 116 language, 47 workspace file, 16 both; 61 command, view or URI (10.2 % [8.0–12.9]) | findings.md:411, 413, 414 | entry point and no `activationEvents`; any `onLanguage`, any `workspaceContains`, neither with `*` or `onStartupFinished` (125 and 56 with them); every event `onCommand`, `onView`, `onUri` or `onWebviewPanel` | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
 | 42 of 599 leave more than one extension (7.0 % [5.2–9.3]) | findings.md:418 | `install.extensionsInstalled` longer than one; install hosts | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
-| 591 of 591 universal downloads match; 8 platform-specific | findings.md:420; README.md:170, 471 | `install.vsix.sha256Match` where `targetPlatform` is not `linux-x64` | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
+| 591 of 591 universal downloads match; 8 platform-specific | findings.md:420; README.md:170, 482 | `install.vsix.sha256Match` where `targetPlatform` is not `linux-x64` | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
 | 31 of 472 (6.6 % [4.7–9.2]); 5 more; 36 of 517 | findings.md:423-425; README.md:176 | `extHost.net.hosts` not loopback and not in the baseline cells' hosts, over activated and over failed cells | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
 | eight loopback only | findings.md:425 | activated cells with a loopback host in `extHost.net.hosts` (14) and no host beyond the baseline cells' (8; the other 6 are among the 31) | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
 | one cell with telemetry hosts, `ZencoderAI.zencoder` (Amplitude, RudderStack) | findings.md:426 | `extHost` host names matching `src/report.ts`'s telemetry pattern (1 cell), whose Visual Studio term, `dc\.services\.visualstudio\.com`, leaves out `marketplace.visualstudio.com`, the VS Marketplace | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
@@ -328,14 +328,14 @@ given; "none" is left for the figures a correction replaced and for one operatio
 | typedown 0.34.1, gone four days later, 0.38.0 and 0.38.1 listed | findings.md:557; README.md:191 | `subjectVersion`; the registry's later listing | `results/cells-openvsx.ndjson.gz`; external: Open VSX's listing | 2026-09-18; 2026-09-22 |
 | power lost after 107 cells; driver fields absent before 04:20:19Z | README.md:112, 114 | cells (with the baseline) started before the largest `startedAt` gap; driver records without `forced`: 99, the last started at 04:19:32.671Z, the first with it at 04:20:19.693Z | `results/cells-openvsx.ndjson.gz` | sitemap and records of 2026-09-18; cells of 2026-09-18 |
 | 29 MB against about a megabyte | README.md:56 | bytes of the decompressed file (29,214,807); the other four cells files | `results/cells-openvsx.ndjson.gz`, `results/cells-acp.ndjson`, `results/cells-cursor.ndjson`, `results/cells-devin.ndjson`, `results/cells-zed.ndjson` | files as published |
-| four e-mail addresses redacted: two, one, one | README.md:494-497 | occurrences of `[redacted]` | `results/cells-cursor.ndjson`, `results/cells-devin.ndjson`, `results/population-openvsx.ndjson` | files as published |
-| the figures a correction replaced | README.md:347-350, 357, 375, 399-400, 411, 416, 426, 432, 438-439, 471, 474, 485, 499-570 | figures as the text stated them before the correction; where `results/report.md` prints the same number (`onLanguage` 125, `workspaceContains` 56, any loopback host 14, hooks run 95, `~/.aws/credentials` 8), it counts the set the correction names, not the one the text gave | `results/report.md` for those five; none for the others | before the correction |
+| four e-mail addresses redacted: two, one, one | README.md:508-511 | occurrences of `[redacted]` | `results/cells-cursor.ndjson`, `results/cells-devin.ndjson`, `results/population-openvsx.ndjson` | files as published |
+| the figures a correction replaced | README.md:347-350, 357, 375, 399-400, 414, 419, 429, 435, 446-447, 482, 485, 496, 513-584 | figures as the text stated them before the correction; where `results/report.md` prints the same number (`onLanguage` 125, `workspaceContains` 56, any loopback host 14, hooks run 95, `~/.aws/credentials` 8), it counts the set the correction names, not the one the text gave | `results/report.md` for those five; none for the others | before the correction |
 
 ## Corrections
 
 Figures and wordings corrected in findings.md, each with the reason the data required it.
 
-### ACP, 2026-09-17
+### ACP, 2026-09-17, before publication
 
 - Agreement is 33/34 with cline and junie in the file: 34 agents comparable with the matrix, 33
   agree, cortex-code the one disagreement.
@@ -398,6 +398,9 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   the 8.
 - cortex-code's Datadog metrics client was said to fall outside the 10 s window. It is "not
   seen at 10 s nor at 60 s".
+
+### ACP, 2026-09-17
+
 - A baseboard serial read "through `dmidecode`" was stated and not seen. The qoder binary's
   strings name `dmidecode`, and `dmidecode` does not appear among the executed programs in the
   cell. Run alone under strace on 2026-09-17, with its endpoints pointed at a local listener,
@@ -406,7 +409,7 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   tried `/sys/class/net/wlan0/address` and `/dev/sda`, and posted to `/repPc.json` as plain
   HTTP/1.0 on port 443 with an encrypted body.
 
-### Cursor, 2026-09-17
+### Cursor, 2026-09-17, before publication
 
 - It was "296 servers on 232 hosts"; it is 296 declarations, 261 distinct, on 219 concrete
   hosts plus 15 user-variable hosts. It was "67 servers"; it is 67 declarations, 63 distinct.
@@ -435,12 +438,16 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   developer's `.cursor/mcp.json`, which the instrument should not have collected as the
   plugin's. `mixpanel.com` is an OAuth page, not telemetry; `@azure/mcp`'s Application Insights
   ingestion was missed by the host join (IPv4-mapped connects) and is in `dnsNames`.
-- The AWS proxy is five plugins (seven entries). `~/.aws/credentials` is read by seven plugins,
-  eight server starts, opensearch-agent-skills declaring two AWS servers; it was "eight
-  plugins", and it is not seven servers. The rate sentence says seven. Two different snyk
-  plugins were conflated; opensearch's AWS server also reads `~/.netrc`.
+- The AWS proxy is five plugins (seven entries). Two different snyk plugins were conflated;
+  opensearch's AWS server also reads `~/.netrc`.
 
-### Devin, 2026-09-17
+### Cursor, 2026-09-17
+
+- `~/.aws/credentials` is read by seven plugins,
+  eight server starts, opensearch-agent-skills declaring two AWS servers; it was "eight
+  plugins", and it is not seven servers. The rate sentence says seven.
+
+### Devin, 2026-09-17, before publication
 
 - aws-agent-toolkit's failure is the instrument's: the plugin's `${VAR:-}` empty default was
   replaced by a dummy profile name (the runner honours `:-` defaults). dbt, metabase and
@@ -450,23 +457,27 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   [62.9–76.5]. `awslabs.lambda-mcp-server` is uninstallable as declared because every release
   is yanked, not "at all". aws-dynamodb writes a log under `~/.aws`.
 
-### Zed, 2026-09-17
+### Zed, 2026-09-17, before publication
 
 - The source heuristic mis-resolved 9 extensions: wrong package for gem, wrong entry for polar,
   missing `--mcp` for repomix, missing `server start` for azmcp, literal relay URLs it did not
   carry. terraform downloads from `releases.hashicorp.com`, where the linux archive exists;
   axiom's binary was plainly named. "Could not be identified" became "the harness did not
   identify".
-- 5 of 73 declared repositories are not the extension's source. maho-lsp's declared repository
-  (`mahocommerce/maho-zed`) was said to have moved; it never existed under that name. GitHub
-  redirects renamed repositories and returns no redirect for this one, and the extension's
-  first commit in `MahoCommerce/zed` (2026-04-04) already declared the other name.
+- 5 of 73 declared repositories are not the extension's source.
 - The two `@azure/mcp` cells send to Application Insights and probe the instance-metadata
   address, so egress is 8 of 58. `~/.npmrc` is read by two servers. mysql answered
   `initialize` but not `tools/list`. zeroheight launches an OAuth flow through `xdg-open` at
   first start.
 
-### Open VSX, 2026-09-24
+### Zed, 2026-09-17
+
+- maho-lsp's declared repository
+  (`mahocommerce/maho-zed`) was said to have moved; it never existed under that name. GitHub
+  redirects renamed repositories and returns no redirect for this one, and the extension's
+  first commit in `MahoCommerce/zed` (2026-04-04) already declared the other name.
+
+### Open VSX, 2026-09-24, before publication
 
 - The VSIX digest comparison was "591 matching, 8 mismatching"; it is 591/591 over the
   universal downloads. The eight were platform-specific downloads compared against the default
@@ -491,6 +502,9 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   `zardoy.inline-debugger`, and the `www.schemastore.org` fetches recorded for
   `redhat.vscode-extension-dashbuilder-editor`, are a dependency extension's, not the sampled
   extension's.
+
+### 2026-09-24
+
 - Four third-party personal e-mail addresses were redacted from the published cells after the
   run: two in `cells-cursor.ndjson`, one in `cells-devin.ndjson` (all three an address npm
   itself prints in a deprecation warning) and one in `population-openvsx.ndjson`, the `bugs`

@@ -74,15 +74,31 @@ Not measured (open field):
   fail-open bug was reproduced by Koi in testing and fixed before production scanning; the
   blocklist has 944 entries, 919 distinct; Yeeth's figures are of extensions needing manual
   review; the "under review" complaints are about 40, not the 74 issues the keywords match.
+  The text listed namespace similarity and Argus among the "enforced publish-time checks" of
+  2026-03-04, said the scanning "failed open once (Koi, 2026-02-08..11)", gave "944 malicious
+  identifiers", said "Yeeth's Argus triages 50–100 submissions a day to 3–5 alerts", and counted 74
+  "under review" publisher complaints in 2026.
 - Devin: hooks, MCP servers and the `.claude-plugin` fallback came on 2026-07-29 and Agent Plugins
   on 2026-08-21, after v3.2.16; the 97 are repositories with a root manifest.
+  The text dated the whole plugin shape, hooks and MCP servers included, "since v3.2.16
+  (2026-06-16)", and said "97 public `.devin-plugin` manifests on GitHub".
 - Zed: the audit sentence is a community reply; one removal was for an invalid ID; the
   `remove-extension` workflow dates from 2026-09-14. ACP: version bumps have no human review but
   are launched first; CI launches the agents not in quarantine.
+  The text gave "There isn't a formal third-party audit process yet" as Zed's, said removals were
+  "all deprecation, dead upstream or author request" with a "`remove-extension` workflow since
+  2026-09-11", and said ACP versions are "bumped hourly by cron with no review" and that CI
+  "installs and launches every agent".
 - Continue Hub redirected by 2026-01-28. Microsoft: publishing by Entra ID is recommended, PAT the
   alternative; its kill list has 283 entries, 280 distinct. Claude Code's official marketplace
   takes no submissions; the community one takes a form. Hereiz et al.'s counts are over
   repositories with 10 or more stars; the community list held 2,282 on 2026-09-16.
+  The text said "last Wayback capture 2026-01-24, redirected to continue.dev 2026-01-30", Microsoft
+  "publisher account, PAT" and "kill list of 283 identifiers", Claude Code "PR (official); any
+  repository (community)", Hereiz et al.'s 2,018 and 8,351 with no star threshold, and "community
+  list 2,281".
 - The academic crawls were 43,436 and 48,692 extensions, of which 25,402 and 27,261 were
   analysed; the 87.4 % is held by the top 1 % of extensions, not publishers; ecosyste.ms's counts
   are of 2026-09-12.
+  The text said "three academic crawls (25,402; 27,261; 52,880 extensions)", "top 1 % of publishers
+  hold 87.4 % of installs" and "ecosyste.ms: 20,076 packages" with no date.

@@ -354,6 +354,14 @@ advisories.
   record is of snapshots or short windows, not single registries only; PulseMCP publishes its own
   monthly series from Nov 2024; the farms' counts are the official registry's, and pipeworx tops
   three published censuses, not five.
+  The text said "almost all grey literature from Jun–Sep 2026 (MCP Toplist, Major Labs, Guo et al.,
+  MCPZoo)", "17,630 raw → 8,060 valid", for MCPZoo's 2607.11086 "ten sources, 156,842 raw → 56,053
+  distinct, Dec 2025; 64,611 by Jul 2026", and for Major Labs "Zenodo DOI 10.5281/zenodo.22674847,
+  2026-09-09: ~82,666 distinct repos + 7,634 remote-only"; it listed RoninForge, Bharti and
+  2609.10962 with dend as series of "the official registry since launch", called the academic record
+  "single-registry snapshots or short windows", said "the early points (~100 in Nov 2024 → 4,000+ in
+  May 2025) survive as a second-hand reading of a PulseMCP chart", and said the farms "appear as
+  top-N in five sources".
 - Declared vs actual: 59.3 % remain bound to an unmutated contract, description included; the
   MCPZoo scanners are static and dynamic, description and code; DCIChecker's no-execution sentence
   ends "against live systems"; Glama runs open-source servers only, publishes per-server findings
@@ -361,6 +369,13 @@ advisories.
   the AI supply chain, not MCP; "Staleness is not falsity" opens Bharti & Agnihotri's limits;
   behavioral-abi ran 12 of a 20-server corpus; remote servers have been probed for liveness and
   tool lists too.
+  The text said "83.8 % declare some annotation, 59.3 % remain bound to an unmutated schema" and
+  "Description scanners, also. Eight tools compared in MCPZoo"; it quoted "We did not execute
+  third-party MCP tools." as the whole sentence; it said Glama "builds and runs every listed server"
+  and "has the data and does not publish it", gave Connor "F1 94.6 % on 114 malicious servers built
+  by the authors" and Zenity's MCP as "planned", said the preprint "closes with" the sentence,
+  called panopticon and behavioral-abi "one server each, zero stars, no corpus", and said remote
+  servers "have only received authentication probes".
 - Incidents: vulnerablemcp.info stops in Feb 2026 and a later ledger in Aug 2026; ATLAS's four
   are case studies; the CSA database has had commits since 2025-07-16, no entries; 352 of NVD's
   355 name MCP; the official SDKs and Inspector have 25 advisories, not 33; LiteLLM's MCP endpoint
@@ -370,18 +385,41 @@ advisories.
   Studio case is an attack pattern, not an incident; Straiker reported one server; the "no
   reported incident" is Supabase's; GHSA lags OSSF by up to twelve and a half months; the 30+
   CVEs statistic is no longer quoted.
+  The text said "the most recent froze in Feb 2026", "four MCP cases", "one entry, no commits since
+  2025-07-16" and "NVD 355 CVEs by keyword"; it gave "~40 disclosures + 33 official SDK advisories",
+  nginx-ui as "the only one listed as actively exploited", auth0-mcp-server as "the oldest MCP-named
+  record", "65 pip, 70 npm" with no withdrawal, FakeGit as "~800 repos, 600+ listings on
+  LobeHub/Glama/mcp.so/MCP Market" and Deadbugz as "23 PRs in 74 minutes adding remote servers to
+  other projects' configs"; it counted Straiker and Deadbugz among "7 measurements" of registry
+  abuse, listed "a tool-poisoning chain in Copilot Studio (Microsoft IR, anonymized)" as abuse in
+  the wild, put "no reported incident" after General Analysis, said "GHSA lags by up to nine
+  months", and quoted "30+ CVEs in 60 days / 43 % command injection" as a statistic.
 - Scanners: McpSafetyScanner has two commits; mcp-sec-audit reads JS/TS too; agent-scan v0.6.3
   has no proxy; Glama's count is of "such" scans; Stacklok's post says annotations were verified
   for its curated registry; SandScope's code is public on GitHub.
+  The text gave McpSafetyScanner "one commit", mcp-sec-audit "static Python" alone, agent-scan
+  "hooks and proxy" and Glama "over one million scans", had Stacklok call annotation verification
+  "the natural next step" with nothing on its curated registry, and gave SandScope's "code on an
+  anonymous site".
 - Registries: only the community Claude Code plugins are scanned before listing; the comparisons
   cover GitHub's list and mention takedowns; OX "poisoned" 9 of 11 registries, the "benign PoC
   … without review" being the CSA note's account; #1488's 62 serve an HTML page; Hasan et al.
   describe Glama and Smithery in one sentence.
+  The text listed "Claude Code plugins" among those scanned before listing, said the comparisons
+  "omit takedowns and omit the curated catalogs", gave OX "a benign PoC accepted by 9 of 11
+  registries", said of #1488 "62 of them not speaking MCP", and said the literature "describes
+  Glama's and Smithery's review in one sentence each".
 - Vendors: Snyk's 4,524 is on its report page; the Security Best Practices page is the MCP
   project's; AgentSeal's 555 are servers with toxic flows, MCPExplorer's 59 % is of the 277 that
   answered; Deadbugz is an incident write-up; AgentSeal reports its own classifier's precision;
   Phylum's reports were quarterly and Socket's an annual npm retrospective; Aikido published worm
   write-ups that list MCP packages.
+  The text gave Snyk's 4,524 under its post alone and "Security Best Practices" in Anthropic's row;
+  it said "555 toxic flows" and "995 live handshakes, 59 % expose a write tool", listed "Pillar
+  (Deadbugz)" among the vendors with measurements, said there are no "precision figures from any
+  scanner about itself", listed as missing "a monthly count of malicious MCP packages in the style
+  of Socket's and Phylum's historical npm/PyPI reports", and said "Aikido and Phylum/Veracode
+  nothing".
 
 ## Corrections, 2026-10-01
 

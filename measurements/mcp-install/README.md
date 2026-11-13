@@ -171,19 +171,19 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 | 60 %; 347/579 (59.9 % [55.9–63.8]) | findings.md:51 | `firstRun.client.initializeOk`, over cells with `firstRun.attempted` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | npm 69.8 %, PyPI 37.1 % [30.3–44.5] | findings.md:51, 52 | the same, by `registryType` (404 and 175 attempted) | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 232 attempts without a handshake; 231 with a client record | findings.md:52 | attempted cells without `firstRun.client.initializeOk`; of those, cells with a `firstRun.client` record. The one without is `@starreel/mcp` (`EPIPE`) | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| 52, 29.7 % of the 175 PyPI installs; Wilson [23.4–36.9] | findings.md:57, 178; README.md:261-262 | PyPI attempted cells whose `firstRun.client.stderrTail` carries the rename's own error, `No module named 'mcp.server.fastmcp'` (`RENAMED` in `src/report.ts`: that message or `this is mcp 2.x`); a message that names the module while `mcp` itself is missing is not counted. No cell outside the 52 carries the message in any field | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| CSOAI-ORG: 21 sampled, none starts, 19 of the 52, 2 other | findings.md:57; README.md:269, 270 | cells with `namespace` = `io.github.CSOAI-ORG` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| 52, 29.7 % of the 175 PyPI installs; Wilson [23.4–36.9] | findings.md:57, 178; README.md:264-265 | PyPI attempted cells whose `firstRun.client.stderrTail` carries the rename's own error, `No module named 'mcp.server.fastmcp'` (`RENAMED` in `src/report.ts`: that message or `this is mcp 2.x`); a message that names the module while `mcp` itself is missing is not counted. No cell outside the 52 carries the message in any field | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| CSOAI-ORG: 21 sampled, none starts, 19 of the 52, 2 other | findings.md:57; README.md:272, 273 | cells with `namespace` = `io.github.CSOAI-ORG` | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | cluster-robust [14.1–45.3], DEFF 5.3 (5.30) | findings.md:57, 192 | cluster-robust over the 175 by publisher key (as above), 142 clusters, `io.github.CSOAI-ORG` one of them (all 21 keyed `github.com/csoai-org`: 18 from `repositoryUrl`, 3 with no `repositoryUrl` from the `io.github.CSOAI-ORG` namespace), over the 52 above | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| without that publisher 33/154 = 21.4 % | findings.md:57; README.md:270 | the 175 less the 21 `io.github.CSOAI-ORG` cells | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| without that publisher 33/154 = 21.4 % | findings.md:57; README.md:273 | the 175 less the 21 `io.github.CSOAI-ORG` cells | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | by publisher, 32 of 142 (22.5 %) | findings.md:57, 178-180 | publisher keys (as above) among the 175 with at least one broken cell | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | between a fifth and a third | findings.md:70 | 21.4 % and 22.5 % (the two rows above) to 29.7 %, the rate of the rename's error | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | six weeks after 2.0.0, released 2026-07-28 | findings.md:57, 69, 180 | run date less the release date of `mcp` 2.0.0 on PyPI; the release date is not carried by any published file | none in `results/` | external |
 | 42 / 17 (4 + 13) / 21 / 28 / 21 / 21 / 15 / 7 / 5 / 2 | findings.md:58-67 | first matching rule of `noHandshakeReason` (`src/report.ts`) on the client's and the run's `stderrTail` and the first stdout line, over the 231 with a client record; the 17 are the causes "the binary was not found" (4, `strace: Cannot stat`) and "the binary could not be executed" (13, `Exec format error`), which the function tests before any rule on the message; "exits with code 1" is "exited with code 1" (21); "other exit codes" is exit codes 127 (2), 2 (2) and 3 (1); "fails to connect to a service" is a rule of its own (2); 2 of the 15 "module not found" ran `python -m` with the identifier as module name (`firstRun.argNotes` "module guessed from identifier": `token-economy-intel`, `precision-desktop`) | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | python-sdk#3309 (2026-08-14, closed as not planned 2026-10-01); 2609.10962: 48.8 % complete the handshake | findings.md:80, 81 | cited, not measured | none in `results/` | external |
 | row `>=1.x`, no ceiling: 71 / 51 / 0 / 20 | findings.md:93 | `mcp_spec` with a 1.x floor and no upper bound; outcome of the same `identifier`@`version` in the cells: broken (rule above), start (`initializeOk`), other | `results/pypi-mcp-requirements.json` + `results/cells.ndjson` | PyPI metadata read 2026-09-12; run |
-| 10 stop on `'Server' object has no attribute 'list_tools'`, all in the first row; 9 under "exception at start", 1 under the credential rule | findings.md:72-75, 103-104; README.md:273-276 | PyPI attempted cells whose `firstRun.client.stderrTail` carries that message; their `mcp_spec` row; their cause under `noHandshakeReason` | `results/cells.ndjson` + `results/pypi-mcp-requirements.json` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| at least 62 of 175 (35.4 %) broken by 2.0, from at least 41 of 142 publishers; 48 not examined | findings.md:76-77, 179-180; README.md:276-278 | the 52 and the 10 above; their publisher keys (as above); PyPI attempted cells without `initializeOk` (110) less those 62 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| 2.0 removed `Server.list_tools()`; the constructor takes `on_list_tools=` | findings.md:75-76; README.md:275-276 | `src/mcp/server/lowlevel/server.py` of modelcontextprotocol/python-sdk at `v1.28.0` (`def list_tools`) and at `v2.0.0` (`on_list_tools`), cited, not measured | none in `results/` | external |
+| 10 stop on `'Server' object has no attribute 'list_tools'`, all in the first row; 9 under "exception at start", 1 under the credential rule | findings.md:72-75, 103-104; README.md:276-279 | PyPI attempted cells whose `firstRun.client.stderrTail` carries that message; their `mcp_spec` row; their cause under `noHandshakeReason` | `results/cells.ndjson` + `results/pypi-mcp-requirements.json` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| at least 62 of 175 (35.4 %) broken by 2.0, from at least 41 of 142 publishers; 48 not examined | findings.md:76-77, 179-180; README.md:279-281 | the 52 and the 10 above; their publisher keys (as above); PyPI attempted cells without `initializeOk` (110) less those 62 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| 2.0 removed `Server.list_tools()`; the constructor takes `on_list_tools=` | findings.md:75-76; README.md:278-279 | `src/mcp/server/lowlevel/server.py` of modelcontextprotocol/python-sdk at `v1.28.0` (`def list_tools`) and at `v2.0.0` (`on_list_tools`), cited, not measured | none in `results/` | external |
 | row ceiling below 2: 26 / 0 / 22 / 4 | findings.md:94 | `mcp_spec` with an upper bound at or below 2.0.0, or `==1.x` | `results/pypi-mcp-requirements.json` + `results/cells.ndjson` | PyPI metadata read 2026-09-12; run |
 | row requires 2.x: 13 / 0 / 9 / 4 | findings.md:95 | `mcp_spec` with a floor at or above 2, or `==2.x` | `results/pypi-mcp-requirements.json` + `results/cells.ndjson` | PyPI metadata read 2026-09-12; run |
 | row accepts 1.x and 2.x: 4 / 0 / 4 / 0 | findings.md:96 | `mcp_spec` with a 1.x floor and `<3` | `results/pypi-mcp-requirements.json` + `results/cells.ndjson` | PyPI metadata read 2026-09-12; run |
@@ -210,8 +210,8 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 | 21 + 3 version and update checks, 4 telemetry, 2 remote configuration, 1 HTTP download: 29/579 = 5.0 % [3.5–7.1]; 29/347 = 8.4 % [5.9–11.7] | findings.md:173-177 | union of the cells with `pypi.org`, `registry.npmjs.org`, a telemetry host, one of the two remote-configuration servers named above, or `extensions.duckdb.org:80`; two cells are in two groups; all 29 completed the handshake | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | design effect 5.3 (the rename), 2.25 (handshake), 2.2 (`pypi.org` at start), 1.5 (egress at first start), about 1 for the rest | findings.md:192-194 | the DEFF column of the cluster table in `results/report.md`, publisher key as above: 5.30, 2.25, 2.22, 1.49; install script 1.06, telemetry 1.01, decoy 1.02, `~/.env` 1.02 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | about 80 h for the full run | findings.md:195 | (last end − first start) / 600 × (11,484 − 600) = 82 h | `results/cells.ndjson` + `results/population.ndjson.gz` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| 28 whose message names a variable, a key, a token or a required value (25 exited, 4 stop on something else), 42 on an exception, 17 never executed | findings.md:61, 196-198; README.md:101-103, 250-251 | causes "requires a variable/credential" (the rule `environment variable|env var|api[_ ]key|token|missing required|is required|not set` on the stderr), "exception at start", and "the binary was not found" plus "the binary could not be executed"; of the 28, `firstRun.client.exitedEarly` in 25. The 4 are `token-compressor-mcp` (`AttributeError`, `token` in its path), `shutterbox` (`SyntaxError: Invalid or unexpected token`), `skilldb` (a help text) and `tokeven` (`The 'mcp' package is required`). In 11, the variable named is in the entry's `environmentVariables` | `results/cells.ndjson` + `results/sample.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
-| 579 attempts, 347 started, ~1.7× | findings.md:200-203; README.md:103-104, 250 | 579 / 347 = 1.67 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| 28 whose message names a variable, a key, a token or a required value (25 exited, 4 stop on something else), 42 on an exception, 17 never executed | findings.md:61, 196-198; README.md:101-103, 246-247 | causes "requires a variable/credential" (the rule `environment variable|env var|api[_ ]key|token|missing required|is required|not set` on the stderr), "exception at start", and "the binary was not found" plus "the binary could not be executed"; of the 28, `firstRun.client.exitedEarly` in 25. The 4 are `token-compressor-mcp` (`AttributeError`, `token` in its path), `shutterbox` (`SyntaxError: Invalid or unexpected token`), `skilldb` (a help text) and `tokeven` (`The 'mcp' package is required`). In 11, the variable named is in the entry's `environmentVariables` | `results/cells.ndjson` + `results/sample.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
+| 579 attempts, 347 started, ~1.7× | findings.md:200-203; README.md:103-104, 246 | 579 / 347 = 1.67 | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | 11 PyPI entries with `runtimeArguments`, none started; 7 add the `[mcp]` extra; `tokeven` adds `mcp>=2.0,<3.0`; none of the 52 | findings.md:207-209; README.md:109-114 | PyPI cells whose entry in `results/sample.ndjson` has a non-empty `runtimeArguments`; `initializeOk` of each; the values naming `<id>[mcp` or `mcp>=` | `results/cells.ndjson` + `results/sample.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | IPv6 connections to `::1` in 2 cells, unnamed | findings.md:210-211 | host `0:0:0:0:0:0:0:1` in `firstRun.trace.net.hosts`: 2 cells, 9 `connect()` calls | `results/cells.ndjson` | run, 2026-09-11 19:35 to 09-12 00:06 UTC |
 | Canopii: 260 servers with install scripts | README.md:15 | cited from prior-art/mcp.md, not measured | none in `results/` | external |
@@ -219,7 +219,7 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 
 ## Corrections
 
-### 2026-09-12
+### 2026-09-12, before publication
 
 - **PyPI servers that `mcp` 2.x breaks.** It was "a third of the PyPI servers listed in the
   official registry do not start". It is "between a fifth and a third, depending on whether one
@@ -227,10 +227,6 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
   [24.0–37.5]; the sentence gave that cell rate as a rate of servers. 19 of the 53 are one
   publisher, `io.github.CSOAI-ORG`, and the cluster-robust interval is [15.9–44.7] with DEFF 4.49.
   Without that publisher it is 34/154 = 22.1 %; by publisher, 34/143 = 23.8 %.
-- **CSOAI-ORG's share.** It was "21 of the 53" and "all 21 I sampled failed the same way", in the
-  comment on python-sdk#3309. It is 19 of the 53: 21 of its cells were sampled and none starts,
-  but 2 fail with other errors. The correction went out on python-sdk#3309 as a follow-up comment
-  ([results/python-sdk-3309-comment-2.md](results/python-sdk-3309-comment-2.md)), not as an edit.
 - **The registry's `status` field.** It was "the registry keeps listing them as active". It is
   "the registry's `status` field shows them as `active`, which is its default value at publish
   time and not a claim that they work". `active` is the default of `status`, and the registry
@@ -249,6 +245,13 @@ path of `DECOY_FILES` in `src/report.ts`. A cell *wrote* a prefix when its `writ
 - **First-start denominators.** First-start network and `$HOME` rates carry both denominators,
   579 attempts and 347 started. 28 cells aborted on credential validation and 42 on an
   exception, so their first start was not observed.
+
+### 2026-09-14
+
+- **CSOAI-ORG's share.** It was "21 of the 53" and "all 21 I sampled failed the same way", in the
+  comment on python-sdk#3309. It is 19 of the 53: 21 of its cells were sampled and none starts,
+  but 2 fail with other errors. The correction went out on python-sdk#3309 as a follow-up comment
+  ([results/python-sdk-3309-comment-2.md](results/python-sdk-3309-comment-2.md)), not as an edit.
 
 ### 2026-09-24
 

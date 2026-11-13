@@ -94,13 +94,24 @@ Not measured (open field):
   of malicious or non-compliant MCP servers"; awesome-mcp-servers requires a Glama listing that
   starts and answers introspection; AgentSeal's 8,013 is of late March 2026; Kakao's ~200 are
   external servers, in its own press release.
+  The text gave Smithery's "over 3,000" with no date, Glama "auto-indexing from GitHub + claim
+  through OAuth", ModelScope "no verification field in the API", JFrog "blocks malicious or
+  non-compliant servers", awesome-mcp-servers "format only", "AgentSeal 8,013 analysed" with no
+  date, and "Kakao PlayMCP (~200)" among the marketplaces "with second-hand figures only".
 - Guo et al.: 17,630 raw entries gave 8,401 valid, 8,060 of them servers; MCPZoo 2607.11086 gives
   64,611 unique, the 56,053 being the earlier MCPZoo paper's; MCP Queen's 55.8 % is of all graded
   remotes. #1488 is about domain namespaces only, and AIR Security's 155 are listings whose
   endpoint domains expired; OX Security's 9 of 11 was a trial balloon, "without review" being the
   Cloud Security Alliance's account; the practitioner tables cover GitHub's catalog and mention
   takedowns; the academic literature covers Anthropic's reference list of servers.
+  The text said "17,630 raw → 8,060 valid", "2607.11086: 10 markets, 156,842 raw → 56,053 distinct",
+  "55.8 % of the reachable ones without auth" and "That namespace verification is never repeated:
+  #1488, #1500 (~35 re-registrable domains), AIR Security (155)"; it gave OX "a benign PoC accepted
+  by 9 of 11 registries" without review, said the tables "omit takedowns and omit the curated
+  catalogs", and said "No academic paper examines Docker, GitHub, Microsoft, Anthropic or Stacklok".
 - The Anthropic Connectors row quoted "Verified is not a security audit"; the page says verification
   "isn't a security audit". Claude Code's plugins take in-app submissions, not pull requests, and
   the documentation's words are "can't verify that they work as intended". OpenAI's guidelines
   call for correct annotations without calling them a common cause of rejection.
+  The text gave Claude Code plugins' route as "PR", quoted "Anthropic cannot verify…", and said
+  "correct tool annotations (a common rejection cause)".

@@ -764,3 +764,18 @@ rest were read again on 2026-09-30 and 2026-10-01 and corrected where the source
 16 entries said something their source does not: a quotation not word for word, a date, an
 author, a count, or a summary line that went further than the source or than the entry's own
 source check. Each now says what the source says.
+The file as published before these corrections: [go-supply-chain-sources.md at
+e7294e3](https://github.com/nortesoftware/norte-labs/blob/e7294e31dafafd5840b6169e95356ddc9e57f881/prior-art/go-supply-chain-sources.md).
+The entries changed: in academic, "GoSurf: Identifying Software Supply Chain Attack Vectors in Go",
+"Uncovering the Hidden Dangers: Finding Unsafe Go Code in the Wild", "On Good Authority:
+Release-Authority Measurement for Registry-Mediated Package Ecosystems", "A Large-Scale Empirical
+Study on Semantic Versioning in Golang Ecosystem", "Hero: On the Chaos When PATH Meets Modules" and
+"GoLeash: Mitigating Golang Software Supply Chain Attacks with Runtime Policy Enforcement"; in
+industry, "Go Telemetry — published charts (gopls/gotoolchain counter)", "Capslock capability list
+(docs/capabilities.md)", "The State of Software Supply Chain Security 2025 (blog summary)",
+"Proposal: Secure the Public Go Module Ecosystem (design/25530-sumdb.md)" and GoSurf; in
+code-and-data, "Don't Go with the flaw", GoSurf, "An Empirical Study of CGO Usage in Go Projects —
+Distribution, Purposes, Patterns and Critical Issues" and "CVE-2023-39320 / GHSA-rxv8-v965-v333 —
+go.mod toolchain directive arbitrary code execution"; in community-and-press, "cmd/go: go.mod
+toolchain directive allows arbitrary execution (CVE-2023-39320)". The paragraph after the opening
+one, on the entries not read again since the sweep, was added with them.
