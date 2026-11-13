@@ -497,7 +497,7 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   written from `quickdb.quickdb`'s one-line description. The readme documents the behaviour,
   and the extension does not register itself with assistants that have not already registered
   it: the routine rewrites a stale path in an entry that is already there. The commit message
-  of 482d31e carries the same error.
+  of 6de40da carries the same error.
 - The one connection to `cdn.jsdelivr.net` and the npm execs recorded for
   `zardoy.inline-debugger`, and the `www.schemastore.org` fetches recorded for
   `redhat.vscode-extension-dashbuilder-editor`, are a dependency extension's, not the sampled
@@ -606,11 +606,11 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   are literals in the source, and datadog's is built from its site setting.
 - Zencoder's changelog names `~/.agents/skills` only as where a user may put skill folders; the
   2026-09-25 note and findings.md said it names where Zencoder installs its own.
-- The correction of 2026-09-25 on `quickdb.quickdb` is withdrawn. It said the extension does not
+- The correction of 2026-09-24 on `quickdb.quickdb` is withdrawn. It said the extension does not
   register itself with assistants that had not registered it; it does. Its 1.2.13 bundle writes a
   quickdb entry at activation into the configuration of each of ten clients whose file or
   directory exists, and the trace's open for writing against each of the three present files is
-  that write. findings.md says so now; the 2026-09-25 note stands above as it was published.
+  that write. findings.md says so now; the withdrawn note stands above.
 - findings.md, on quickdb, also: its description begins "Lightweight database browser for VS
   Code"; the routine rewrites a path that is not the newest installed quickdb's; the `~/.aws`
   reads are the bundled Snowflake driver's cloud-platform detection.
@@ -683,3 +683,12 @@ Figures and wordings corrected in findings.md, each with the reason the data req
   extension, pinned at 9ee3c503, refuses a manifest without the field; its value is unchecked,
   and findings.md now says so. The report sent as #7640 says nothing in the repository looks at
   the field and that the maho-zed name never existed; it stays as sent.
+
+### 2026-11-13
+
+- The `quickdb.quickdb` note under *Open VSX* above said "The commit message of 482d31e carries the
+  same error." This repository has no commit 482d31e; the one whose message carries the error is
+  6de40da.
+- The 2026-09-30 note on `quickdb.quickdb` said "The correction of 2026-09-25 on `quickdb.quickdb`
+  is withdrawn" and "the 2026-09-25 note stands above as it was published". The correction it
+  withdraws is of 2026-09-24, under *Open VSX* above.
