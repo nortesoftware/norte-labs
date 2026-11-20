@@ -87,8 +87,12 @@ is reached by fewer pipelines, which bounds the blast radius and is stated in th
 ## Reported
 
 Sent to MSRC 2026-09-22 22:29 UTC, per the repository's `SECURITY.md`, which asks that security
-issues not be filed as public GitHub issues. Tracked as **VULN-229761**, classified **Security
-Feature Bypass** in MSRC's researcher portal. Text as sent: [report-msrc.md](report-msrc.md).
+issues not be filed as public GitHub issues. Tracked as **VULN-229761**; the report gave the
+impact as Security Feature Bypass. Text as sent: [report-msrc.md](report-msrc.md).
+MSRC closed the case on 2026-10-05: it "does not meet Microsoft's definition of a security
+vulnerability", and MSRC treats it as "a functional correctness issue".
+On 2026-11-19 `main` still carries the `true ?` line in both copies of
+`FormatValidationService.cs`, and v4.1.5 is still the latest release.
 
 ## Figures
 
@@ -108,7 +112,9 @@ A figure no dated record names carries the day it was published.
 | `Success` whatever the result, `GeneralError` only in the `catch` | the assignments to `Environment.ExitCode` in `src/Microsoft.Sbom.Tool/FormatValidationService.cs` | microsoft/sbom-tool `main` | 2026-09-22 |
 | one difference between the two copies, the `Environment.Exit` #617 added to the standalone tool's | the two `FormatValidationService.cs` compared; the files #617 changed | same | read 2026-09-29 or 30 |
 | five actions in the usage | the usage the binary prints for `--help` | the v4.1.5 binary | read 2026-09-29 or 30 |
-| VULN-229761, Security Feature Bypass | the case's number and classification | MSRC's researcher portal | not recorded; published 2026-09-24 |
+| VULN-229761 | the case's number | MSRC's researcher portal | not recorded; published 2026-09-24 |
+| closed 2026-10-05, not a security vulnerability | MSRC's answer on the case | MSRC's researcher portal | 2026-10-05 |
+| the `true ?` line in both copies; v4.1.5 the latest release | `FormatValidationService.cs` in both projects; the latest release | microsoft/sbom-tool `main` and releases | 2026-11-19 |
 
 ## Corrections, 2026-09-30
 
@@ -121,5 +127,13 @@ A figure no dated record names carries the day it was published.
   `MultilineSummary()`"; that method returns lines, which the service's `PrintLines` prints. The
   report stays as sent.
 - The opening called the two copies of `FormatValidationService.cs` identical on `main`; the
-  standalone tool's has the `Environment.Exit` call #617 added and the global tool's does not. The
-  classification is given as MSRC's, in its researcher portal.
+  standalone tool's has the `Environment.Exit` call #617 added and the global tool's does not.
+
+## Corrections, 2026-11-19
+
+- *Reported* said the case was "classified **Security Feature Bypass** in MSRC's researcher
+  portal", and the Figures table gave "VULN-229761, Security Feature Bypass" as "the case's number
+  and classification". Security Feature Bypass is the impact the report gave, not a
+  classification by MSRC. MSRC closed the case on 2026-10-05 as not a security vulnerability.
+- The last note of 2026-09-30 ended "The classification is given as MSRC's, in its researcher
+  portal." That sentence was wrong for the same reason and is removed.

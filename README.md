@@ -43,7 +43,7 @@ or links to it.
   the code does, and what the tool reports when the control it names cannot reach what it claims to
   cover. Inventory of 69 tools across install sandboxes, package scanners, CI gates, provenance
   verifiers and SBOM generators. Four audited so far, and what they produced: `microsoft/sbom-tool`
-  to MSRC as VULN-229761 (Security Feature Bypass, in MSRC's researcher portal),
+  to MSRC as VULN-229761 (closed by MSRC as not a security vulnerability),
   `netblue30/firejail` to the address in its `SECURITY.md` plus a comment on
   [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248), `npm audit
   signatures` as [npm/cli#10018](https://github.com/npm/cli/issues/10018), and `google/capslock` —
@@ -126,3 +126,9 @@ or links to it.
 - Corrections and retractions stay written in the document they correct.
 
 Planned areas, not started: npm, on the shape of the Go work above.
+
+## Corrections, 2026-11-19
+
+- *What is here* said sbom-tool went "to MSRC as VULN-229761 (Security Feature Bypass, in MSRC's
+  researcher portal)". Security Feature Bypass is the impact the report gave; MSRC closed the case
+  on 2026-10-05 as not a security vulnerability.

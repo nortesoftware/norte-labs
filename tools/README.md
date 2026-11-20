@@ -8,7 +8,7 @@ what the tool reports when the control it names cannot reach what it claims to c
 
 | target | outcome |
 |---|---|
-| [`microsoft/sbom-tool`](sbom-tool/) | `ValidateFormat` prints that validation failed and exits 0. Sent to MSRC per its `SECURITY.md`, tracked as **VULN-229761**, classified Security Feature Bypass in MSRC's researcher portal. |
+| [`microsoft/sbom-tool`](sbom-tool/) | `ValidateFormat` prints that validation failed and exits 0. Sent to MSRC per its `SECURITY.md` as **VULN-229761**; MSRC closed it on 2026-10-05 as not a security vulnerability but "a functional correctness issue". |
 | [`netblue30/firejail`](firejail/) | A blacklist for a path that is not there is skipped with no line at any verbosity, though issue [#3357](https://github.com/netblue30/firejail/issues/3357) has asked for that warning since 2020; and a seccomp filter that fails to install draws one warning, none under `--quiet`, and is then reported as installed. Sent 2026-09-23 to the address in `SECURITY.md`. A related ordering defect was added as a comment on [netblue30/firejail#7248](https://github.com/netblue30/firejail/issues/7248). |
 | [`npm audit signatures`](npm-audit-signatures/) | It does not report how many packages it skipped for want of registry keys, so a partially verified tree reads as a fully verified one. Filed as [npm/cli#10018](https://github.com/npm/cli/issues/10018). |
 | [`google/capslock`](capslock/) | Drawn at random rather than chosen. No finding in the default mode, the one examined; written up anyway. |
@@ -63,7 +63,7 @@ failed.` and exit 0, while a path that does not exist exits 1. The verb is undoc
 entered as a placeholder in PR #577, survived the PR that added the validation it stood in for, and
 was made the standalone tool's exit status by PR #617, whose stated purpose was correct exit codes.
 Not reported before; #615 is the adjacent `Generate` case. Reported to MSRC 2026-09-22 as
-VULN-229761, classified Security Feature Bypass in MSRC's researcher portal.
+VULN-229761; MSRC closed it on 2026-10-05 as not a security vulnerability.
 
 ### 2. `netblue30/firejail`
 
@@ -186,8 +186,7 @@ matter: `tools/firejail/` names the address it went to, because that is the reco
   validation failure and exits 0.
   This file said it is for a file that cannot be opened or parsed.
 - The sbom-tool entry said PR #617 made the placeholder's value authoritative; it did so for the
-  standalone tool only, the one copy it changed. "Security Feature Bypass" is MSRC's
-  classification in its researcher portal, which is not public.
+  standalone tool only, the one copy it changed.
 - The npm entry gave a four-submission limit of GitHub's bounty programme as a reason; no source
   for it is kept, and the sentence now gives the prior art alone. dependency-review-action reports
   success when there are no dependency changes; an API failure fails the job. nsjail's
@@ -208,3 +207,11 @@ matter: `tools/firejail/` names the address it went to, because that is the reco
 - The firejail entry said both findings were reproduced, and the seccomp finding's reporting half
   with them. The blacklist finding was; of the reporting half, what `--seccomp.print` prints and the
   kernel's count are, and the rest is read from the code. The entry now says so.
+
+## Corrections, 2026-11-19
+
+- The sbom-tool rows said the case was "classified Security Feature Bypass in MSRC's researcher
+  portal", and a note of 2026-09-30 said Security Feature Bypass is "MSRC's classification in its
+  researcher portal, which is not public." Security Feature Bypass is the impact the report gave.
+  MSRC closed the case on 2026-10-05 as not a security vulnerability; the rows say so and the
+  sentence in the note is removed.
